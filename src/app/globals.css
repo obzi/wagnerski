@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-cream: #f8f6f2;
+  --color-surface: #f0ede6;
+  --color-ink: #111110;
+  --color-ink-secondary: #555550;
+  --color-ink-muted: #aaa89e;
+  --color-accent: #b8965a;
+  --color-line: rgba(17, 17, 16, 0.10);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+}
+
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+  -webkit-user-select: none;
+  user-select: none;
+}

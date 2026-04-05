@@ -1,0 +1,70 @@
+"use client";
+
+import Link from "next/link";
+import { ProtectedImage } from "./ProtectedImage";
+import { Tag } from "./Tag";
+
+interface ServiceCardProps {
+  eyebrow: string;
+  title: string;
+  description: string;
+  tags: string[];
+  linkHref: string;
+  linkLabel: string;
+  imageSrc: string;
+  imageAlt: string;
+  reversed?: boolean;
+}
+
+export function ServiceCard({
+  eyebrow,
+  title,
+  description,
+  tags,
+  linkHref,
+  linkLabel,
+  imageSrc,
+  imageAlt,
+  reversed,
+}: ServiceCardProps) {
+  return (
+    <div
+      className={`grid grid-cols-1 md:grid-cols-[5fr_4fr] gap-0 ${
+        reversed ? "md:[direction:rtl] md:[&>*]:[direction:ltr]" : ""
+      }`}
+    >
+      <div className="bg-surface p-8 sm:p-10 flex flex-col justify-center order-2 md:order-none">
+        <span className="text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-4">
+          {eyebrow}
+        </span>
+        <h2 className="text-[24px] sm:text-[28px] font-normal tracking-[-0.02em] leading-[1.2] mb-4">
+          {title}
+        </h2>
+        <p className="text-[13px] text-ink-secondary leading-[1.65] mb-5 whitespace-pre-line">
+          {description}
+        </p>
+        <div className="flex flex-wrap gap-2 mb-6">
+          {tags.map((t) => (
+            <Tag key={t}>{t}</Tag>
+          ))}
+        </div>
+        <Link
+          href={linkHref}
+          className="text-[10px] uppercase tracking-[0.14em] text-ink hover:text-ink-secondary transition-colors"
+        >
+          {linkLabel} →
+        </Link>
+      </div>
+
+      <div className="relative aspect-[4/3] md:aspect-auto overflow-hidden order-1 md:order-none group">
+        <ProtectedImage
+          src={imageSrc}
+          fill
+          alt={imageAlt}
+          className="object-cover transition-transform duration-[400ms] group-hover:scale-[1.03]"
+          sizes="(max-width: 768px) 100vw, 44vw"
+        />
+      </div>
+    </div>
+  );
+}
