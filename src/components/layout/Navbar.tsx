@@ -8,6 +8,7 @@ const links = [
   { href: "/skola", label: "Škola" },
   { href: "/skicamp", label: "Skicamp" },
   { href: "/instruktor", label: "Instruktor" },
+  { href: "/farma", label: "Farma" },
   { href: "/o-nas", label: "O nás" },
 ];
 
