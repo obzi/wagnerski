@@ -8,6 +8,7 @@
   --color-ink-muted: #aaa89e;
   --color-accent: #b8965a;
   --color-line: rgba(17, 17, 16, 0.10);
+  --color-hero-dark: rgb(8, 10, 6);
   --font-sans: var(--font-inter);
   --font-serif: var(--font-playfair);
 }

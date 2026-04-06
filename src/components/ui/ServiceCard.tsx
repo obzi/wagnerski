@@ -1,7 +1,5 @@
-"use client";
-
 import Link from "next/link";
-import { ProtectedImage } from "./ProtectedImage";
+import Image from "next/image";
 import { Tag } from "./Tag";
 
 interface ServiceCardProps {
@@ -29,11 +27,9 @@ export function ServiceCard({
 }: ServiceCardProps) {
   return (
     <div
-      className={`grid grid-cols-1 md:grid-cols-[5fr_4fr] gap-0 ${
-        reversed ? "md:[direction:rtl] md:[&>*]:[direction:ltr]" : ""
-      }`}
+      className={`grid grid-cols-1 md:grid-cols-[5fr_4fr] gap-0`}
     >
-      <div className="bg-surface p-8 sm:p-10 flex flex-col justify-center order-2 md:order-none">
+      <div className={`bg-surface p-8 sm:p-10 flex flex-col justify-center ${reversed ? "md:order-2" : ""}`}>
         <span className="text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-4">
           {eyebrow}
         </span>
@@ -50,19 +46,20 @@ export function ServiceCard({
         </div>
         <Link
           href={linkHref}
-          className="text-[10px] uppercase tracking-[0.14em] text-ink hover:text-ink-secondary transition-colors"
+          className="text-[11px] uppercase tracking-[0.14em] text-ink hover:text-ink-secondary transition-colors min-h-[44px] flex items-center"
         >
           {linkLabel} →
         </Link>
       </div>
 
-      <div className="relative aspect-[4/3] md:aspect-auto overflow-hidden order-1 md:order-none group">
-        <ProtectedImage
+      <div className={`relative aspect-[4/3] md:aspect-auto overflow-hidden group ${reversed ? "md:order-1" : ""}`}>
+        <Image
           src={imageSrc}
           fill
           alt={imageAlt}
           className="object-cover transition-transform duration-[400ms] group-hover:scale-[1.03]"
           sizes="(max-width: 768px) 100vw, 44vw"
+          draggable={false}
         />
       </div>
     </div>

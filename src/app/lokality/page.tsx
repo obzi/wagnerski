@@ -1,4 +1,5 @@
-import { ProtectedImage } from "@/components/ui/ProtectedImage";
+import Image from "next/image";
+import { SubpageHero } from "@/components/ui/SubpageHero";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,38 +12,19 @@ export default function LokalityPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative h-[50vh] min-h-[360px] overflow-hidden mt-[52px]">
-        <ProtectedImage
-          src="https://images.unsplash.com/photo-1551524559-8af4e6624178?w=1600&q=85&fit=crop"
-          fill
-          alt="Karlov pod Pradědem - skiareál"
-          className="object-cover object-center"
-          priority
-          sizes="100vw"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to top, rgba(8,10,6,0.8) 0%, rgba(8,10,6,0.3) 100%)",
-          }}
-        />
-        <div className="relative z-10 h-full flex flex-col justify-end px-7 sm:px-9 pb-10 max-w-[1280px] mx-auto">
-          <span className="text-[10px] uppercase tracking-[0.16em] text-white/70 mb-3">
-            Lokality
-          </span>
-          <h1 className="text-[32px] sm:text-[48px] font-normal tracking-[-0.03em] leading-[1.1] text-white">
-            Karlov pod Pradědem
-          </h1>
-        </div>
-      </section>
+      <SubpageHero
+        eyebrow="Lokality"
+        title="Karlov pod Pradědem"
+        imageSrc="https://images.unsplash.com/photo-1551524559-8af4e6624178?w=1600&q=85&fit=crop"
+        imageAlt="Karlov pod Pradědem - skiareál"
+      />
 
       {/* Detail */}
       <section className="py-16 px-7">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-[5fr_4fr] gap-12">
           <div>
             <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
-              Hlavni stredisko
+              Hlavní středisko
             </span>
             <h2 className="text-[28px] sm:text-[36px] font-normal tracking-[-0.02em] leading-[1.2] mb-6">
               Skiaréna Karlov
@@ -69,12 +51,13 @@ export default function LokalityPage() {
 
           <div className="space-y-6">
             <div className="relative aspect-[4/3] rounded-[3px] overflow-hidden">
-              <ProtectedImage
+              <Image
                 src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80&fit=crop"
                 fill
                 alt="Sjezdovky Karlov"
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 44vw"
+                draggable={false}
               />
             </div>
 
@@ -106,7 +89,7 @@ export default function LokalityPage() {
       <section className="py-16 px-7 bg-surface">
         <div className="max-w-[1280px] mx-auto">
           <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-8">
-            Proc prave Karlov
+            Proč právě Karlov
           </span>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[

@@ -1,4 +1,4 @@
-import { ProtectedImage } from "./ProtectedImage";
+import Image from "next/image";
 
 interface TeamCardProps {
   name: string;
@@ -11,12 +11,13 @@ export function TeamCard({ name, roles, badges, imageSrc }: TeamCardProps) {
   return (
     <div className="border border-line rounded-[3px] overflow-hidden">
       <div className="relative h-[160px]">
-        <ProtectedImage
+        <Image
           src={imageSrc}
           fill
           alt={name}
           className="object-cover object-top"
           sizes="(max-width: 768px) 100vw, 33vw"
+          draggable={false}
         />
       </div>
       <div className="p-5">

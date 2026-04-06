@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 
 const links = [
@@ -13,6 +13,17 @@ const links = [
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+
+  const close = useCallback(() => setOpen(false), []);
+
+  useEffect(() => {
+    if (!open) return;
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+    };
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
+  }, [open, close]);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-cream border-b border-line">
@@ -31,23 +42,24 @@ export function Navbar() {
             <Link
               key={l.href}
               href={l.href}
-              className="text-[11px] uppercase tracking-[0.14em] text-ink-secondary hover:text-ink transition-colors"
+              className="text-[11px] uppercase tracking-[0.14em] text-ink-secondary hover:text-ink transition-colors min-h-[44px] flex items-center"
             >
               {l.label}
             </Link>
           ))}
           <Link
             href="/rezervace"
-            className="bg-ink text-cream text-[10px] uppercase tracking-[0.14em] px-5 py-[9px] rounded-[2px] hover:opacity-90 transition-opacity"
+            className="bg-ink text-cream text-[11px] uppercase tracking-[0.14em] px-5 py-3 rounded-[2px] hover:opacity-90 transition-opacity min-h-[44px] flex items-center"
           >
             Rezervovat
           </Link>
         </div>
 
         <button
-          className="md:hidden text-ink p-2"
+          className="md:hidden text-ink p-3 min-w-[44px] min-h-[44px] flex items-center justify-center"
           onClick={() => setOpen(!open)}
           aria-label="Menu"
+          aria-expanded={open}
         >
           <svg width="20" height="14" viewBox="0 0 20 14" fill="none">
             {open ? (
@@ -72,16 +84,16 @@ export function Navbar() {
             <Link
               key={l.href}
               href={l.href}
-              className="block py-3 text-[12px] uppercase tracking-[0.14em] text-ink-secondary"
-              onClick={() => setOpen(false)}
+              className="block py-3 text-[13px] uppercase tracking-[0.14em] text-ink-secondary min-h-[44px] flex items-center"
+              onClick={close}
             >
               {l.label}
             </Link>
           ))}
           <Link
             href="/rezervace"
-            className="inline-block mt-3 bg-ink text-cream text-[10px] uppercase tracking-[0.14em] px-5 py-[9px] rounded-[2px]"
-            onClick={() => setOpen(false)}
+            className="inline-block mt-3 bg-ink text-cream text-[11px] uppercase tracking-[0.14em] px-5 py-3 rounded-[2px] min-h-[44px]"
+            onClick={close}
           >
             Rezervovat
           </Link>

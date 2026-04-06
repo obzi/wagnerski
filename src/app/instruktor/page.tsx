@@ -1,5 +1,6 @@
-import { ProtectedImage } from "@/components/ui/ProtectedImage";
+import { SubpageHero } from "@/components/ui/SubpageHero";
 import { Tag } from "@/components/ui/Tag";
+import { instructorCourses, instructorIncluded } from "@/data/pricing";
 import Link from "next/link";
 import type { Metadata } from "next";
 
@@ -9,86 +10,21 @@ export const metadata: Metadata = {
     "Akreditované kurzy MŠMT ČR pro instruktory lyžování a snowboardu. Kurz D (60 hod), Kurz C (70-100 hod), prolongace. Celoživotní licence.",
 };
 
-const courses = [
-  {
-    level: "Kurz D",
-    subtitle: "Instruktor základního lyžování / snowboardu (IZL/IZS)",
-    hours: "60 hodin",
-    description:
-      "Základní kurz pro budoucí instruktory. Akreditace MŠMT ČR č. 18064/2024-2. Po úspěšném absolvování získáte celoživotní licenci platnou v celé ČR.",
-    tags: ["MŠMT akreditace", "60 hodin", "Celoživotní licence"],
-    date: "16. – 21. prosince 2025",
-    location: "Karlov pod Pradědem",
-  },
-  {
-    level: "Kurz C",
-    subtitle: "Instruktor lyžování / snowboardu (IZL/IZS) — vyšší kvalifikace",
-    hours: "70–100 hodin",
-    description:
-      "Navazující kurz pro držitele licence D. Rozšíření kompetencí, prohloubení metodiky výuky a techniky. Vyšší kvalifikační stupeň.",
-    tags: ["MŠMT akreditace", "70–100 hodin", "Navazující"],
-    date: "5. – 10. ledna 2026",
-    location: "Karlov pod Pradědem",
-  },
-  {
-    level: "Prolongace",
-    subtitle: "Prodloužení platnosti licence",
-    hours: "3 dny",
-    description:
-      "Pro instruktory s expirující licencí. Aktualizace metodiky, nové trendy ve výuce, obnovení certifikace.",
-    tags: ["Obnovení licence", "3 dny"],
-    date: "19. – 21. prosince 2025",
-    location: "Karlov pod Pradědem",
-  },
-];
-
-const included = [
-  "Ubytování v hotelovém komplexu s polopenzí",
-  "Skipasy po celou dobu kurzu",
-  "Výukové materiály a skripta",
-  "Odborné přednášky (psychologie, horská služba, Freeride World Tour)",
-  "Celoživotně platná certifikace v celé ČR",
-  "Bonusový carvingový workshop",
-  "Speciální tričko absolventa",
-  "Možnost wellness v hotelu",
-];
-
 export default function InstruktorPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative h-[50vh] min-h-[360px] overflow-hidden mt-[52px]">
-        <ProtectedImage
-          src="https://images.unsplash.com/photo-1491555103944-7c647fd857e6?w=1600&q=85&fit=crop"
-          fill
-          alt="Instruktorský kurz lyžování"
-          className="object-cover object-center"
-          priority
-          sizes="100vw"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to top, rgba(8,10,6,0.8) 0%, rgba(8,10,6,0.3) 100%)",
-          }}
-        />
-        <div className="relative z-10 h-full flex flex-col justify-end px-7 sm:px-9 pb-10 max-w-[1280px] mx-auto">
-          <span className="text-[10px] uppercase tracking-[0.16em] text-white/70 mb-3">
-            Chci byt instruktor
-          </span>
-          <h1 className="text-[32px] sm:text-[48px] font-normal tracking-[-0.03em] leading-[1.1] text-white mb-3">
-            Kurzy MŠMT s celoživotní licencí
-          </h1>
-          <p className="text-[14px] text-white/70 max-w-lg">
-            Akreditované kurzy pro instruktory lyžování a snowboardu. Školíme sami, od základů.
-          </p>
-        </div>
-      </section>
+      <SubpageHero
+        eyebrow="Chci být instruktor"
+        title="Kurzy MŠMT s celoživotní licencí"
+        description="Akreditované kurzy pro instruktory lyžování a snowboardu. Školíme sami, od základů."
+        imageSrc="https://images.unsplash.com/photo-1491555103944-7c647fd857e6?w=1600&q=85&fit=crop"
+        imageAlt="Instruktorský kurz lyžování"
+      />
 
       {/* Intro */}
       <section className="py-16 px-7">
-        <div className="max-w-[1280px] mx-auto max-w-3xl">
+        <div className="max-w-3xl mx-auto">
           <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
             O kurzech
           </span>
@@ -111,10 +47,10 @@ export default function InstruktorPage() {
       <section className="py-16 px-7 bg-surface">
         <div className="max-w-[1280px] mx-auto">
           <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-8">
-            Nabidka kurzu
+            Nabídka kurzů
           </span>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {courses.map((c) => (
+            {instructorCourses.map((c) => (
               <div
                 key={c.level}
                 className="border border-line rounded-[3px] bg-cream p-6 flex flex-col"
@@ -155,7 +91,7 @@ export default function InstruktorPage() {
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
             <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
-              Cenik
+              Ceník
             </span>
             <h2 className="text-[28px] sm:text-[36px] font-normal tracking-[-0.02em] leading-[1.2] mb-6">
               All-inclusive cena
@@ -192,10 +128,10 @@ export default function InstruktorPage() {
 
           <div>
             <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
-              Co je v cene
+              Co je v ceně
             </span>
             <ul className="space-y-3">
-              {included.map((item) => (
+              {instructorIncluded.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-[13px] text-ink-secondary">
                   <span className="mt-1.5 w-[6px] h-[6px] rounded-full bg-accent shrink-0" />
                   {item}
@@ -218,13 +154,13 @@ export default function InstruktorPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/instruktor/prihlaska"
-              className="bg-white text-ink text-[10px] uppercase tracking-[0.14em] px-6 py-[10px] rounded-[2px] hover:opacity-90 transition-opacity"
+              className="min-h-[44px] flex items-center bg-white text-ink text-[10px] uppercase tracking-[0.14em] px-6 py-[10px] rounded-[2px] hover:opacity-90 transition-opacity"
             >
               Přihláška na kurz
             </Link>
             <a
               href="mailto:sherpaski@sherpaski.cz"
-              className="text-[12px] text-white/60 hover:text-white/90 transition-colors"
+              className="min-h-[44px] flex items-center text-[12px] text-white/60 hover:text-white/90 transition-colors"
             >
               sherpaski@sherpaski.cz
             </a>

@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { useScroll, useTransform, motion, useReducedMotion } from "framer-motion";
-import { ProtectedImage } from "./ProtectedImage";
+import Image from "next/image";
 
 export function ParallaxQuote() {
   const ref = useRef(null);
@@ -19,16 +19,17 @@ export function ParallaxQuote() {
         style={prefersReducedMotion ? {} : { y }}
         className="absolute inset-[-16%] scale-110"
       >
-        <ProtectedImage
+        <Image
           src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=1400&q=80"
           fill
           alt="Horská krajina"
           className="object-cover"
           sizes="100vw"
+          draggable={false}
         />
       </motion.div>
 
-      <div className="absolute inset-0 bg-[rgba(8,10,6,0.55)]" />
+      <div className="absolute inset-0 bg-[rgb(8,10,6)]/55" />
 
       <div className="relative z-10 h-full flex items-center px-7 sm:px-9 max-w-[1280px] mx-auto">
         <div>

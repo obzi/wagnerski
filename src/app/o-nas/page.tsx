@@ -1,4 +1,5 @@
-import { ProtectedImage } from "@/components/ui/ProtectedImage";
+import { SubpageHero } from "@/components/ui/SubpageHero";
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 
@@ -38,38 +39,19 @@ export default function ONasPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative h-[50vh] min-h-[360px] overflow-hidden mt-[52px]">
-        <ProtectedImage
-          src="https://images.unsplash.com/photo-1491002052546-bf38f186af56?w=1600&q=85&fit=crop"
-          fill
-          alt="Wagner Ski Akademie tým"
-          className="object-cover object-[center_40%]"
-          priority
-          sizes="100vw"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to top, rgba(8,10,6,0.8) 0%, rgba(8,10,6,0.3) 100%)",
-          }}
-        />
-        <div className="relative z-10 h-full flex flex-col justify-end px-7 sm:px-9 pb-10 max-w-[1280px] mx-auto">
-          <span className="text-[10px] uppercase tracking-[0.16em] text-white/70 mb-3">
-            O nas
-          </span>
-          <h1 className="text-[32px] sm:text-[48px] font-normal tracking-[-0.03em] leading-[1.1] text-white">
-            Wagner Ski Akademie
-          </h1>
-        </div>
-      </section>
+      <SubpageHero
+        eyebrow="O nás"
+        title="Wagner Ski Akademie"
+        imageSrc="https://images.unsplash.com/photo-1491002052546-bf38f186af56?w=1600&q=85&fit=crop"
+        imageAlt="Wagner Ski Akademie tým"
+      />
 
       {/* Story */}
       <section className="py-16 px-7">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
-              Nas pribeh
+              Náš příběh
             </span>
             <h2 className="text-[28px] sm:text-[36px] font-normal tracking-[-0.02em] leading-[1.2] mb-6">
               Od jedné lyžařské školy k akademii
@@ -95,12 +77,13 @@ export default function ONasPage() {
             </div>
           </div>
           <div className="relative aspect-[4/3] rounded-[3px] overflow-hidden">
-            <ProtectedImage
+            <Image
               src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=600&q=80&fit=crop"
               fill
               alt="Lyžování v horách"
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
+              draggable={false}
             />
           </div>
         </div>
@@ -110,7 +93,7 @@ export default function ONasPage() {
       <section className="py-16 px-7 bg-surface">
         <div className="max-w-[1280px] mx-auto">
           <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-8">
-            Milniky
+            Milníky
           </span>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {milestones.map((m) => (
@@ -129,17 +112,18 @@ export default function ONasPage() {
       <section className="py-16 px-7">
         <div className="max-w-[1280px] mx-auto">
           <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-8">
-            Vedeni
+            Vedení
           </span>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="flex gap-6 items-start">
               <div className="relative w-[120px] h-[120px] rounded-[3px] overflow-hidden shrink-0">
-                <ProtectedImage
+                <Image
                   src="/wagnerski/petr.jpg"
                   fill
                   alt="Petr Wagner"
                   className="object-cover"
                   sizes="120px"
+                  draggable={false}
                 />
               </div>
               <div>
@@ -158,12 +142,13 @@ export default function ONasPage() {
             </div>
             <div className="flex gap-6 items-start">
               <div className="relative w-[120px] h-[120px] rounded-[3px] overflow-hidden shrink-0">
-                <ProtectedImage
+                <Image
                   src="/wagnerski/jolca.jpg"
                   fill
                   alt="Jolana Wagnerová"
                   className="object-cover"
                   sizes="120px"
+                  draggable={false}
                 />
               </div>
               <div>
@@ -188,7 +173,7 @@ export default function ONasPage() {
       <section className="py-16 px-7 bg-surface">
         <div className="max-w-[1280px] mx-auto">
           <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-8">
-            Nase hodnoty
+            Naše hodnoty
           </span>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {values.map((v) => (
@@ -209,7 +194,7 @@ export default function ONasPage() {
       <section className="py-16 px-7">
         <div className="max-w-[1280px] mx-auto">
           <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-8">
-            Co delame
+            Co děláme
           </span>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Link href="/skola" className="group border border-line rounded-[3px] p-6 hover:border-accent transition-colors">
@@ -252,13 +237,13 @@ export default function ONasPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <a
               href="tel:+420604681100"
-              className="text-[14px] text-white/80 hover:text-white transition-colors"
+              className="min-h-[44px] flex items-center text-[14px] text-white/80 hover:text-white transition-colors"
             >
               +420 604 681 100
             </a>
             <a
               href="mailto:sherpaski@sherpaski.cz"
-              className="text-[14px] text-white/80 hover:text-white transition-colors"
+              className="min-h-[44px] flex items-center text-[14px] text-white/80 hover:text-white transition-colors"
             >
               sherpaski@sherpaski.cz
             </a>
