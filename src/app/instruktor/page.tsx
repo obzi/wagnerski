@@ -59,7 +59,7 @@ export default function InstruktorPage() {
       {/* Hero */}
       <section className="relative h-[50vh] min-h-[360px] overflow-hidden mt-[52px]">
         <ProtectedImage
-          src="https://images.unsplash.com/photo-1547447134-cd3f5c716030?w=1600&q=85&fit=crop"
+          src="https://images.unsplash.com/photo-1491555103944-7c647fd857e6?w=1600&q=85&fit=crop"
           fill
           alt="Instruktorský kurz lyžování"
           className="object-cover object-center"

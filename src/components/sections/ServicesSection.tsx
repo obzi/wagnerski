@@ -23,7 +23,7 @@ const services = [
     linkHref: "/skicamp/terminy",
     linkLabel: "Termíny akcí",
     imageSrc:
-      "https://images.unsplash.com/photo-1508193638397-1c4234db14d8?w=600&q=80",
+      "https://images.unsplash.com/photo-1418985991508-e47386d96a71?w=600&q=80",
     imageAlt: "Skicamp v Alpách",
     reversed: true,
   },
@@ -36,7 +36,7 @@ const services = [
     linkHref: "/instruktor/prihlaska",
     linkLabel: "Přihláška",
     imageSrc:
-      "https://images.unsplash.com/photo-1547447134-cd3f5c716030?w=600&q=80",
+      "https://images.unsplash.com/photo-1491555103944-7c647fd857e6?w=600&q=80",
     imageAlt: "Instruktorské kurzy",
     reversed: false,
   },

@@ -96,7 +96,7 @@ export default function ONasPage() {
           </div>
           <div className="relative aspect-[4/3] rounded-[3px] overflow-hidden">
             <ProtectedImage
-              src="https://images.unsplash.com/photo-1516939884455-1445c8652f83?w=600&q=80&fit=crop"
+              src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=600&q=80&fit=crop"
               fill
               alt="Lyžování v horách"
               className="object-cover"
@@ -135,7 +135,7 @@ export default function ONasPage() {
             <div className="flex gap-6 items-start">
               <div className="relative w-[120px] h-[120px] rounded-[3px] overflow-hidden shrink-0">
                 <ProtectedImage
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&fit=crop"
+                  src="/petr.jpg"
                   fill
                   alt="Petr Wagner"
                   className="object-cover"
@@ -159,7 +159,7 @@ export default function ONasPage() {
             <div className="flex gap-6 items-start">
               <div className="relative w-[120px] h-[120px] rounded-[3px] overflow-hidden shrink-0">
                 <ProtectedImage
-                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80&fit=crop"
+                  src="/jolca.jpg"
                   fill
                   alt="Jolana Wagnerová"
                   className="object-cover"
