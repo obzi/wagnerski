@@ -16,7 +16,7 @@ const services = [
   },
   {
     eyebrow: "Skicamp",
-    title: "Zahraniční campy v Alpách",
+    title: "Zahraniční kempy v Alpách",
     description:
       "Pro ty, kdo chtějí skutečný posun. Ski, SNB, race a telemark\nv alpském terénu. Techniku vyladíme až na doraz.",
     tags: ["Ski camp", "SNB camp", "Race camp", "Alpy", "Pokročilí"],

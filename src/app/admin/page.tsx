@@ -583,7 +583,7 @@ function TermForm({
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
         <div>
           <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1">
-            Typ campu
+            Typ kempu
           </label>
           <select
             value={data.camp_type}

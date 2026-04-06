@@ -61,7 +61,7 @@ export default function ONasPage() {
                 Všechno začalo v roce 1999, kdy Petr Wagner založil Sherpa Ski School
                 na Karlově pod Pradědem. Co začalo jako malá lyžařská škola, vyrostlo
                 ve Wagner Ski Akademii — zastřešující organizaci, která dnes sdružuje
-                lyžařskou školu Sherpa, zahraniční campy Skicamp a akreditované
+                lyžařskou školu Sherpa, zahraniční kempy Skicamp a akreditované
                 instruktorské kurzy.
               </p>
               <p>
@@ -118,7 +118,7 @@ export default function ONasPage() {
             <div className="flex gap-6 items-start">
               <div className="relative w-[120px] h-[120px] rounded-[3px] overflow-hidden shrink-0">
                 <Image
-                  src="/wagnerski/petr.jpg"
+                  src="/petr.jpg"
                   fill
                   alt="Petr Wagner"
                   className="object-cover"
@@ -143,7 +143,7 @@ export default function ONasPage() {
             <div className="flex gap-6 items-start">
               <div className="relative w-[120px] h-[120px] rounded-[3px] overflow-hidden shrink-0">
                 <Image
-                  src="/wagnerski/jolca.jpg"
+                  src="/jolca.jpg"
                   fill
                   alt="Jolana Wagnerová"
                   className="object-cover"
@@ -210,7 +210,7 @@ export default function ONasPage() {
                 Skicamp Alpy
               </h3>
               <p className="text-[13px] text-ink-secondary leading-[1.6]">
-                Zahraniční lyžařské a snowboardové campy v alpském terénu.
+                Zahraniční lyžařské a snowboardové kempy v alpském terénu.
               </p>
             </Link>
             <Link href="/instruktor" className="group border border-line rounded-[3px] p-6 hover:border-accent transition-colors">
@@ -232,7 +232,7 @@ export default function ONasPage() {
             Ozvěte se nám
           </h2>
           <p className="text-[14px] text-white/60 leading-[1.6] mb-8 max-w-md mx-auto">
-            Máte dotaz ohledně výuky, kurzů nebo campů? Rádi vám poradíme.
+            Máte dotaz ohledně výuky, kurzů nebo kempů? Rádi vám poradíme.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <a

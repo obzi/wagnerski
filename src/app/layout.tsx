@@ -25,7 +25,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "Výuka lyžování | WAGNER Ski and SNB akademie",
   description:
-    "Lyžařská a snowboardová akademie od roku 2005. Sherpa Ski School v Jeseníkách, zahraniční campy v Alpách, akreditované kurzy MŠMT ČR. Jen instruktoři s licencí.",
+    "Lyžařská a snowboardová akademie od roku 2005. Sherpa Ski School v Jeseníkách, zahraniční kempy v Alpách, akreditované kurzy MŠMT ČR. Jen instruktoři s licencí.",
   keywords:
     "lyžařská škola, snowboard škola, Karlov pod Pradědem, instruktor lyžování, kurz MŠMT, skicamp Alpy, telemark",
   icons: {
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: "Výuka lyžování | WAGNER Ski and SNB akademie",
     description:
       "Lyžařská a snowboardová akademie od roku 2005. Sherpa Ski School, Skicamp Alpy, kurzy MŠMT.",
-    url: "https://obzi.github.io/wagnerski/",
+    url: "https://wagnerski.vercel.app/",
     siteName: "Wagner Ski Akademie",
     locale: "cs_CZ",
     type: "website",

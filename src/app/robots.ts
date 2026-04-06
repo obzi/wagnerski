@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://obzi.github.io/wagnerski/sitemap.xml",
+    sitemap: "https://wagnerski.vercel.app/sitemap.xml",
   };
 }

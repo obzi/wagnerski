@@ -13,13 +13,13 @@ export function TeamSection() {
             name="Petr Wagner"
             roles="Učitel lyžování · IVSI instruktor · Trenér III. tř. · Autorizovaná osoba MŠMT ČR"
             badges={["26 let praxe", "Lic. 74-040-M"]}
-            imageSrc="/wagnerski/petr.jpg"
+            imageSrc="/petr.jpg"
           />
           <TeamCard
             name="Jolana Wagnerová"
             roles="Učitel lyžování · Cvičitel SNB · Lektor carvingu · Terapie lyžováním"
             badges={["18 let praxe", "Dechové metody"]}
-            imageSrc="/wagnerski/jolca.jpg"
+            imageSrc="/jolca.jpg"
           />
           <div className="border border-dashed border-line rounded-[3px] bg-surface/50 flex flex-col items-center justify-center p-8 text-center">
             <h3 className="text-[14px] font-normal tracking-[-0.01em] mb-2">

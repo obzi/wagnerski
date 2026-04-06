@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Skicamp Alpy | WAGNER Ski and SNB akademie",
   description:
-    "Zahraniční lyžařské a snowboardové campy v Alpách. Ski, SNB, race a telemark v alpském terénu pro pokročilé lyžaře.",
+    "Zahraniční lyžařské a snowboardové kempy v Alpách. Ski, SNB, race a telemark v alpském terénu pro pokročilé lyžaře.",
 };
 
 const camps = [
@@ -47,7 +47,7 @@ const features = [
   },
   {
     title: "Profesionální vedení",
-    text: "Campy vedou výhradně instruktoři s licencí MŠMT a mezinárodními certifikacemi. Malé skupiny, individuální přístup.",
+    text: "Kempy vedou výhradně instruktoři s licencí MŠMT a mezinárodními certifikacemi. Malé skupiny, individuální přístup.",
   },
   {
     title: "Video analýza",
@@ -66,7 +66,7 @@ export default async function SkicampPage() {
       {/* Hero */}
       <SubpageHero
         eyebrow="Skicamp Alpy"
-        title="Zahraniční campy v Alpách"
+        title="Zahraniční kempy v Alpách"
         description="Pro ty, kdo chtějí skutečný posun. Techniku vyladíme až na doraz."
         imageSrc="https://images.unsplash.com/photo-1418985991508-e47386d96a71?w=1600&q=85&fit=crop"
         imageAlt="Skicamp v Alpách"
@@ -77,7 +77,7 @@ export default async function SkicampPage() {
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
-              O campech
+              O kempech
             </span>
             <h2 className="text-[28px] sm:text-[36px] font-normal tracking-[-0.02em] leading-[1.2] mb-6">
               Kde se opravdu posunete
@@ -89,7 +89,7 @@ export default async function SkicampPage() {
                 v alpských střediscích s garantovaným sněhem a kilometry sjezdovek.
               </p>
               <p>
-                Každý camp vede tým zkušených instruktorů s licencí MŠMT
+                Každý kemp vede tým zkušených instruktorů s licencí MŠMT
                 a mezinárodními certifikacemi. Skupiny jsou malé, přístup individuální.
                 Denní video rozbor techniky je samozřejmostí.
               </p>
@@ -112,7 +112,7 @@ export default async function SkicampPage() {
       <section className="py-16 px-7 bg-surface">
         <div className="max-w-[1280px] mx-auto">
           <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-8">
-            Typy campu
+            Typy kempů
           </span>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {camps.map((c) => (
@@ -161,7 +161,7 @@ export default async function SkicampPage() {
           {terms.length > 0 ? (
             <>
               <h2 className="text-[28px] sm:text-[36px] font-normal tracking-[-0.02em] leading-[1.2] mb-8">
-                Termíny campů
+                Termíny kempů
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8 text-left">
                 {terms.map((t) => (
@@ -196,7 +196,7 @@ export default async function SkicampPage() {
                 Termíny připravujeme
               </h2>
               <p className="text-[14px] text-white/60 leading-[1.6] mb-8 max-w-md mx-auto">
-                Sledujte naše stránky a sociální sítě. Termíny campů na další sezónu zveřejníme brzy.
+                Sledujte naše stránky a sociální sítě. Termíny kempů na další sezónu zveřejníme brzy.
               </p>
             </>
           )}
