@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { FacebookIcon, InstagramIcon } from "@/components/ui/SocialIcons";
 import { getReservationPrices, getContacts } from "@/lib/data";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Rezervace | WAGNER Ski and SNB akademie",
   description:

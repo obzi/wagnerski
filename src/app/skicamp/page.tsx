@@ -5,6 +5,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { getSkicampTerms } from "@/lib/data";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Skicamp Alpy | WAGNER Ski and SNB akademie",
   description:
