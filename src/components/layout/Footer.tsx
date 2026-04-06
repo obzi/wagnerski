@@ -7,23 +7,7 @@ export function Footer() {
         <span className="text-[9px] uppercase tracking-[0.16em] text-ink-muted">
           Wagner Ski Akademie · wagnerski.cz
         </span>
-        <div className="flex items-center gap-6">
-          {[
-            { href: "https://sherpaski.cz", label: "sherpaski.cz" },
-            { href: "https://skicamp.cz", label: "skicamp.cz" },
-            { href: "https://chcibytinstruktor.cz", label: "chcibytinstruktor.cz" },
-          ].map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-[9px] uppercase tracking-[0.16em] text-ink-muted hover:text-ink-secondary transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {l.label}
-            </a>
-          ))}
-          <div className="flex items-center gap-1">
+        <div className="flex items-center gap-0">
             <a
               href="https://www.facebook.com/Sherpaski.cz"
               className="text-ink-muted hover:text-ink-secondary transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
@@ -42,7 +26,6 @@ export function Footer() {
             >
               <InstagramIcon />
             </a>
-          </div>
         </div>
       </div>
     </footer>

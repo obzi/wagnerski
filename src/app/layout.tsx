@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   keywords:
     "lyžařská škola, snowboard škola, Karlov pod Pradědem, instruktor lyžování, kurz MŠMT, skicamp Alpy, telemark",
   icons: {
-    icon: "/wagnerski/favicon.svg",
+    icon: "/favicon.svg",
   },
   openGraph: {
     title: "Výuka lyžování | WAGNER Ski and SNB akademie",

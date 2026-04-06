@@ -13,9 +13,14 @@
   --font-serif: var(--font-playfair);
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   background: var(--color-cream);
   color: var(--color-ink);
+  overflow-x: hidden;
 }
 
 img {
