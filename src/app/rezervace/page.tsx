@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { FacebookIcon, InstagramIcon } from "@/components/ui/SocialIcons";
-import { individualPrices, specialPrices, groupPrices } from "@/data/pricing";
+import { getReservationPrices, getContacts } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Rezervace | WAGNER Ski and SNB akademie",
@@ -9,7 +9,22 @@ export const metadata: Metadata = {
     "Rezervujte si hodinu lyžování nebo snowboardu. Ceník individuální a skupinové výuky. Kontakty na Sherpa Ski School.",
 };
 
-export default function RezervacePage() {
+export default async function RezervacePage() {
+  const [prices, contacts] = await Promise.all([
+    getReservationPrices(),
+    getContacts(),
+  ]);
+
+  const individualPrices = prices.filter((p) => p.category === "individual");
+  const groupPrices = prices.filter((p) => p.category === "group");
+  const specialPrices = prices.filter((p) => p.category === "special");
+
+  const phone = contacts.find((c) => c.type === "phone");
+  const email = contacts.find((c) => c.type === "email");
+  const address = contacts.find((c) => c.type === "address");
+  const facebook = contacts.find((c) => c.type === "facebook");
+  const instagram = contacts.find((c) => c.type === "instagram");
+
   return (
     <>
       {/* Header */}
@@ -38,44 +53,37 @@ export default function RezervacePage() {
             <div className="space-y-5">
               <div>
                 <span className="block text-[11px] text-ink-muted uppercase tracking-[0.1em] mb-1">Telefon</span>
-                <a href="tel:+420604681100" className="text-[18px] font-medium hover:text-accent transition-colors">
-                  +420 604 681 100
+                <a href={phone?.url || "tel:+420604681100"} className="text-[18px] font-medium hover:text-accent transition-colors">
+                  {phone?.value || "+420 604 681 100"}
                 </a>
               </div>
               <div>
                 <span className="block text-[11px] text-ink-muted uppercase tracking-[0.1em] mb-1">E-mail</span>
-                <a href="mailto:sherpaski@sherpaski.cz" className="text-[16px] hover:text-accent transition-colors">
-                  sherpaski@sherpaski.cz
+                <a href={email?.url || "mailto:sherpaski@sherpaski.cz"} className="text-[16px] hover:text-accent transition-colors">
+                  {email?.value || "sherpaski@sherpaski.cz"}
                 </a>
               </div>
               <div>
                 <span className="block text-[11px] text-ink-muted uppercase tracking-[0.1em] mb-1">Adresa</span>
                 <p className="text-[14px] text-ink-secondary">
-                  Skiaréna Karlov pod Pradědem<br />
-                  793 26 Karlov pod Pradědem
+                  {address?.value || "Skiaréna Karlov pod Pradědem, 793 26 Karlov pod Pradědem"}
                 </p>
               </div>
               <div>
                 <span className="block text-[11px] text-ink-muted uppercase tracking-[0.1em] mb-3">Sociální sítě</span>
                 <div className="flex items-center gap-4">
-                  <a
-                    href="https://www.facebook.com/Sherpaski.cz"
-                    className="min-h-[44px] flex items-center gap-2 text-ink-secondary hover:text-accent transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FacebookIcon size={20} />
-                    <span className="text-[13px]">Sherpaski.cz</span>
-                  </a>
-                  <a
-                    href="https://www.instagram.com/terapielyzovanim/"
-                    className="min-h-[44px] flex items-center gap-2 text-ink-secondary hover:text-accent transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <InstagramIcon size={20} />
-                    <span className="text-[13px]">@terapielyzovanim</span>
-                  </a>
+                  {facebook && (
+                    <a href={facebook.url} className="min-h-[44px] flex items-center gap-2 text-ink-secondary hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
+                      <FacebookIcon size={20} />
+                      <span className="text-[13px]">{facebook.value}</span>
+                    </a>
+                  )}
+                  {instagram && (
+                    <a href={instagram.url} className="min-h-[44px] flex items-center gap-2 text-ink-secondary hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
+                      <InstagramIcon size={20} />
+                      <span className="text-[13px]">{instagram.value}</span>
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
@@ -126,18 +134,16 @@ export default function RezervacePage() {
               <div className="border border-line rounded-[3px] bg-cream overflow-hidden">
                 {individualPrices.map((p, i) => (
                   <div
-                    key={p.service}
+                    key={p.id}
                     className={`px-5 py-4 flex items-center justify-between gap-4 ${
                       i < individualPrices.length - 1 ? "border-b border-line" : ""
-                    } ${p.highlight ? "bg-accent/5" : ""}`}
+                    }`}
                   >
                     <div>
-                      <span className="block text-[13px]">{p.service}</span>
+                      <span className="block text-[13px]">{p.label}{p.duration && ` (${p.duration})`}</span>
                       {p.note && <span className="block text-[11px] text-ink-muted mt-0.5">{p.note}</span>}
                     </div>
-                    <span className={`text-[15px] font-medium shrink-0 ${p.highlight ? "text-accent" : ""}`}>
-                      {p.price}
-                    </span>
+                    <span className="text-[15px] font-medium shrink-0">{p.price}</span>
                   </div>
                 ))}
               </div>
@@ -149,10 +155,15 @@ export default function RezervacePage() {
                 Skupinová výuka (3+ osob)
               </h3>
               <div className="border border-line rounded-[3px] bg-cream overflow-hidden mb-8">
-                {groupPrices.map((p) => (
-                  <div key={p.service} className="px-5 py-4 flex items-center justify-between gap-4">
+                {groupPrices.map((p, i) => (
+                  <div
+                    key={p.id}
+                    className={`px-5 py-4 flex items-center justify-between gap-4 ${
+                      i < groupPrices.length - 1 ? "border-b border-line" : ""
+                    }`}
+                  >
                     <div>
-                      <span className="block text-[13px]">{p.service}</span>
+                      <span className="block text-[13px]">{p.label}{p.duration && ` (${p.duration})`}</span>
                       {p.note && <span className="block text-[11px] text-ink-muted mt-0.5">{p.note}</span>}
                     </div>
                     <span className="text-[15px] font-medium shrink-0">{p.price}</span>
@@ -166,13 +177,13 @@ export default function RezervacePage() {
               <div className="border border-line rounded-[3px] bg-cream overflow-hidden">
                 {specialPrices.map((p, i) => (
                   <div
-                    key={p.service}
+                    key={p.id}
                     className={`px-5 py-4 flex items-center justify-between gap-4 ${
                       i < specialPrices.length - 1 ? "border-b border-line" : ""
                     }`}
                   >
                     <div>
-                      <span className="block text-[13px]">{p.service}</span>
+                      <span className="block text-[13px]">{p.label}{p.duration && ` (${p.duration})`}</span>
                       {p.note && <span className="block text-[11px] text-ink-muted mt-0.5">{p.note}</span>}
                     </div>
                     <span className="text-[15px] font-medium shrink-0">{p.price}</span>
