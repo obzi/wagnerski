@@ -70,7 +70,7 @@ export default function LokalityPage() {
           <div className="space-y-6">
             <div className="relative aspect-[4/3] rounded-[3px] overflow-hidden">
               <ProtectedImage
-                src="https://images.unsplash.com/photo-1486578077620-8a022d83c07e?w=600&q=80&fit=crop"
+                src="https://images.unsplash.com/photo-1548133464-29abc661eb5c?w=600&q=80&fit=crop"
                 fill
                 alt="Sjezdovky Karlov"
                 className="object-cover"

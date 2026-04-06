@@ -96,7 +96,7 @@ export default function ONasPage() {
           </div>
           <div className="relative aspect-[4/3] rounded-[3px] overflow-hidden">
             <ProtectedImage
-              src="https://images.unsplash.com/photo-1522667336105-5bad75e53770?w=600&q=80&fit=crop"
+              src="https://images.unsplash.com/photo-1516939884455-1445c8652f83?w=600&q=80&fit=crop"
               fill
               alt="Lyžování v horách"
               className="object-cover"
