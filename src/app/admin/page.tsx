@@ -40,6 +40,67 @@ function uid() {
 }
 
 /* ------------------------------------------------------------------ */
+/*  Supabase CRUD hook                                                 */
+/* ------------------------------------------------------------------ */
+
+function useSupabaseTable<T extends { id: string }>(
+  table: string,
+  defaultData: T[]
+) {
+  const [items, setItems] = useState<T[]>(defaultData);
+  const [loading, setLoading] = useState(true);
+
+  const refresh = useCallback(async () => {
+    if (!supabase) {
+      setItems(loadLocal(table, defaultData));
+      setLoading(false);
+      return;
+    }
+    const { data } = await supabase.from(table).select("*").order("created_at");
+    setItems((data as T[]) ?? []);
+    setLoading(false);
+  }, [table, defaultData]);
+
+  useEffect(() => { refresh(); }, [refresh]);
+
+  const add = async (item: Omit<T, "id">) => {
+    if (!supabase) {
+      const newItem = { ...item, id: uid() } as T;
+      const updated = [...items, newItem];
+      setItems(updated);
+      saveLocal(table, updated);
+      return;
+    }
+    await supabase.from(table).insert(item);
+    await refresh();
+  };
+
+  const update = async (id: string, changes: Partial<T>) => {
+    if (!supabase) {
+      const updated = items.map((i) => (i.id === id ? { ...i, ...changes } : i));
+      setItems(updated);
+      saveLocal(table, updated);
+      return;
+    }
+    await supabase.from(table).update(changes).eq("id", id);
+    await refresh();
+  };
+
+  const remove = async (id: string) => {
+    if (!supabase) {
+      const updated = items.filter((i) => i.id !== id);
+      setItems(updated);
+      saveLocal(table, updated);
+      return;
+    }
+    await supabase.from(table).delete().eq("id", id);
+    await refresh();
+  };
+
+  return { items, loading, add, update, remove, refresh };
+}
+
+/* ------------------------------------------------------------------ */
 /*  Default data                                                       */
 /* ------------------------------------------------------------------ */
 
@@ -397,31 +458,28 @@ const btnSecondary =
 /* ------------------------------------------------------------------ */
 
 function SkicampManager() {
-  const [terms, setTerms] = useState<SkicampTerm[]>(() =>
-    loadLocal("skicamp_terms", defaultTerms)
-  );
+  const { items: terms, loading, add, update, remove } = useSupabaseTable<SkicampTerm>("skicamp_terms", defaultTerms);
   const [editing, setEditing] = useState<SkicampTerm | null>(null);
+  const [isNew, setIsNew] = useState(false);
 
-  const save = useCallback(
-    (updated: SkicampTerm[]) => {
-      setTerms(updated);
-      saveLocal("skicamp_terms", updated);
-    },
-    []
-  );
-
-  function handleDelete(id: string) {
-    save(terms.filter((t) => t.id !== id));
+  async function handleDelete(id: string) {
+    await remove(id);
   }
 
-  function handleSave(term: SkicampTerm) {
-    const exists = terms.find((t) => t.id === term.id);
-    if (exists) {
-      save(terms.map((t) => (t.id === term.id ? term : t)));
+  async function handleSave(term: SkicampTerm) {
+    if (isNew) {
+      const { id: _id, ...rest } = term;
+      await add(rest);
     } else {
-      save([...terms, term]);
+      const { id, ...changes } = term;
+      await update(id, changes);
     }
     setEditing(null);
+    setIsNew(false);
+  }
+
+  if (loading) {
+    return <p className="text-[13px] text-ink-muted">Načítání...</p>;
   }
 
   return (
@@ -432,7 +490,8 @@ function SkicampManager() {
         </h2>
         <button
           className={btnPrimary}
-          onClick={() =>
+          onClick={() => {
+            setIsNew(true);
             setEditing({
               id: uid(),
               camp_type: "Ski Camp",
@@ -442,8 +501,8 @@ function SkicampManager() {
               price: 0,
               spots: 0,
               note: "",
-            })
-          }
+            });
+          }}
         >
           + Přidat termín
         </button>
@@ -453,7 +512,7 @@ function SkicampManager() {
         <TermForm
           term={editing}
           onSave={handleSave}
-          onCancel={() => setEditing(null)}
+          onCancel={() => { setEditing(null); setIsNew(false); }}
         />
       )}
 
@@ -491,7 +550,7 @@ function SkicampManager() {
             <div className="flex gap-2 shrink-0">
               <button
                 className={btnSecondary}
-                onClick={() => setEditing(t)}
+                onClick={() => { setIsNew(false); setEditing(t); }}
               >
                 Upravit
               </button>
@@ -620,31 +679,28 @@ function TermForm({
 /* ------------------------------------------------------------------ */
 
 function CoursesManager() {
-  const [courses, setCourses] = useState<InstructorCourse[]>(() =>
-    loadLocal("instructor_courses", defaultCourses)
-  );
+  const { items: courses, loading, add, update, remove } = useSupabaseTable<InstructorCourse>("instructor_courses", defaultCourses);
   const [editing, setEditing] = useState<InstructorCourse | null>(null);
+  const [isNew, setIsNew] = useState(false);
 
-  const save = useCallback(
-    (updated: InstructorCourse[]) => {
-      setCourses(updated);
-      saveLocal("instructor_courses", updated);
-    },
-    []
-  );
-
-  function handleDelete(id: string) {
-    save(courses.filter((c) => c.id !== id));
+  async function handleDelete(id: string) {
+    await remove(id);
   }
 
-  function handleSave(course: InstructorCourse) {
-    const exists = courses.find((c) => c.id === course.id);
-    if (exists) {
-      save(courses.map((c) => (c.id === course.id ? course : c)));
+  async function handleSave(course: InstructorCourse) {
+    if (isNew) {
+      const { id: _id, ...rest } = course;
+      await add(rest);
     } else {
-      save([...courses, course]);
+      const { id, ...changes } = course;
+      await update(id, changes);
     }
     setEditing(null);
+    setIsNew(false);
+  }
+
+  if (loading) {
+    return <p className="text-[13px] text-ink-muted">Načítání...</p>;
   }
 
   return (
@@ -655,7 +711,8 @@ function CoursesManager() {
         </h2>
         <button
           className={btnPrimary}
-          onClick={() =>
+          onClick={() => {
+            setIsNew(true);
             setEditing({
               id: uid(),
               level: "",
@@ -667,8 +724,8 @@ function CoursesManager() {
               location: "Karlov pod Pradědem",
               price_with_accommodation: 0,
               price_without_accommodation: 0,
-            })
-          }
+            });
+          }}
         >
           + Přidat kurz
         </button>
@@ -678,7 +735,7 @@ function CoursesManager() {
         <CourseForm
           course={editing}
           onSave={handleSave}
-          onCancel={() => setEditing(null)}
+          onCancel={() => { setEditing(null); setIsNew(false); }}
         />
       )}
 
@@ -703,7 +760,7 @@ function CoursesManager() {
             <div className="flex gap-2 shrink-0">
               <button
                 className={btnSecondary}
-                onClick={() => setEditing(c)}
+                onClick={() => { setIsNew(false); setEditing(c); }}
               >
                 Upravit
               </button>
@@ -861,31 +918,24 @@ function CourseForm({
 /* ------------------------------------------------------------------ */
 
 function ReservationManager() {
-  const [prices, setPrices] = useState<ReservationPrice[]>(() =>
-    loadLocal("reservation_prices", defaultPrices)
-  );
+  const { items: prices, loading, add, update, remove } = useSupabaseTable<ReservationPrice>("reservation_prices", defaultPrices);
   const [editing, setEditing] = useState<ReservationPrice | null>(null);
+  const [isNew, setIsNew] = useState(false);
 
-  const save = useCallback(
-    (updated: ReservationPrice[]) => {
-      setPrices(updated);
-      saveLocal("reservation_prices", updated);
-    },
-    []
-  );
-
-  function handleDelete(id: string) {
-    save(prices.filter((p) => p.id !== id));
+  async function handleDelete(id: string) {
+    await remove(id);
   }
 
-  function handleSave(price: ReservationPrice) {
-    const exists = prices.find((p) => p.id === price.id);
-    if (exists) {
-      save(prices.map((p) => (p.id === price.id ? price : p)));
+  async function handleSave(price: ReservationPrice) {
+    if (isNew) {
+      const { id: _id, ...rest } = price;
+      await add(rest);
     } else {
-      save([...prices, price]);
+      const { id, ...changes } = price;
+      await update(id, changes);
     }
     setEditing(null);
+    setIsNew(false);
   }
 
   const categories = [
@@ -893,6 +943,10 @@ function ReservationManager() {
     { key: "group" as const, label: "Skupinová výuka" },
     { key: "special" as const, label: "Speciální programy" },
   ];
+
+  if (loading) {
+    return <p className="text-[13px] text-ink-muted">Načítání...</p>;
+  }
 
   return (
     <div>
@@ -902,7 +956,8 @@ function ReservationManager() {
         </h2>
         <button
           className={btnPrimary}
-          onClick={() =>
+          onClick={() => {
+            setIsNew(true);
             setEditing({
               id: uid(),
               category: "individual",
@@ -910,8 +965,8 @@ function ReservationManager() {
               duration: "",
               price: "",
               note: "",
-            })
-          }
+            });
+          }}
         >
           + Přidat položku
         </button>
@@ -921,7 +976,7 @@ function ReservationManager() {
         <PriceForm
           price={editing}
           onSave={handleSave}
-          onCancel={() => setEditing(null)}
+          onCancel={() => { setEditing(null); setIsNew(false); }}
         />
       )}
 
@@ -956,7 +1011,7 @@ function ReservationManager() {
                   <div className="flex gap-2 shrink-0">
                     <button
                       className={btnSecondary}
-                      onClick={() => setEditing(p)}
+                      onClick={() => { setIsNew(false); setEditing(p); }}
                     >
                       Upravit
                     </button>
@@ -1067,31 +1122,28 @@ function PriceForm({
 /* ------------------------------------------------------------------ */
 
 function ContactsManager() {
-  const [contacts, setContacts] = useState<Contact[]>(() =>
-    loadLocal("contacts", defaultContacts)
-  );
+  const { items: contacts, loading, add, update, remove } = useSupabaseTable<Contact>("contacts", defaultContacts);
   const [editing, setEditing] = useState<Contact | null>(null);
+  const [isNew, setIsNew] = useState(false);
 
-  const save = useCallback(
-    (updated: Contact[]) => {
-      setContacts(updated);
-      saveLocal("contacts", updated);
-    },
-    []
-  );
-
-  function handleDelete(id: string) {
-    save(contacts.filter((c) => c.id !== id));
+  async function handleDelete(id: string) {
+    await remove(id);
   }
 
-  function handleSave(contact: Contact) {
-    const exists = contacts.find((c) => c.id === contact.id);
-    if (exists) {
-      save(contacts.map((c) => (c.id === contact.id ? contact : c)));
+  async function handleSave(contact: Contact) {
+    if (isNew) {
+      const { id: _id, ...rest } = contact;
+      await add(rest);
     } else {
-      save([...contacts, contact]);
+      const { id, ...changes } = contact;
+      await update(id, changes);
     }
     setEditing(null);
+    setIsNew(false);
+  }
+
+  if (loading) {
+    return <p className="text-[13px] text-ink-muted">Načítání...</p>;
   }
 
   return (
@@ -1102,15 +1154,16 @@ function ContactsManager() {
         </h2>
         <button
           className={btnPrimary}
-          onClick={() =>
+          onClick={() => {
+            setIsNew(true);
             setEditing({
               id: uid(),
               type: "phone",
               label: "",
               value: "",
               url: "",
-            })
-          }
+            });
+          }}
         >
           + Přidat kontakt
         </button>
@@ -1120,7 +1173,7 @@ function ContactsManager() {
         <ContactForm
           contact={editing}
           onSave={handleSave}
-          onCancel={() => setEditing(null)}
+          onCancel={() => { setEditing(null); setIsNew(false); }}
         />
       )}
 
@@ -1140,7 +1193,7 @@ function ContactsManager() {
             <div className="flex gap-2 shrink-0">
               <button
                 className={btnSecondary}
-                onClick={() => setEditing(c)}
+                onClick={() => { setIsNew(false); setEditing(c); }}
               >
                 Upravit
               </button>
