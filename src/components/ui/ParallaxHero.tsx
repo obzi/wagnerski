@@ -31,30 +31,30 @@ export function ParallaxHero() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(165deg, rgba(8,10,6,0.78) 0%, rgba(8,10,6,0.35) 55%, transparent 100%)",
+            "linear-gradient(165deg, rgba(8,10,6,0.85) 0%, rgba(8,10,6,0.50) 55%, rgba(8,10,6,0.15) 100%)",
         }}
       />
       <div
         className="absolute bottom-0 left-0 right-0 h-[200px]"
         style={{
-          background: "linear-gradient(to top, rgba(8,10,6,0.65), transparent)",
+          background: "linear-gradient(to top, rgba(8,10,6,0.75), transparent)",
         }}
       />
 
       <div className="relative z-10 h-full flex flex-col justify-end px-7 sm:px-9 pb-12 sm:pb-[48px] max-w-[1280px] mx-auto">
-        <span className="text-[9px] uppercase tracking-[0.16em] text-white/50 mb-5">
+        <span className="text-[10px] uppercase tracking-[0.16em] text-white/70 mb-5 drop-shadow-md">
           Lyžařská akademie · Morava · od roku 2005
         </span>
 
-        <h1 className="text-[32px] sm:text-[52px] font-normal tracking-[-0.03em] leading-[1.08] text-white mb-5">
+        <h1 className="text-[36px] sm:text-[56px] font-normal tracking-[-0.03em] leading-[1.08] text-white mb-5 drop-shadow-lg">
           Lyžovat se
           <br />
           naučíš.
           <br />
-          <span className="text-white/40 italic">Pořádně.</span>
+          <span className="text-white/80 italic">Pořádně.</span>
         </h1>
 
-        <p className="text-[13px] text-white/50 leading-[1.65] max-w-md mb-8">
+        <p className="text-[14px] text-white/80 leading-[1.65] max-w-md mb-8 drop-shadow-md">
           Sherpa Ski School, Skicamp Alpy, kurzy MŠMT.
           <br />
           Jen akreditovaní instruktoři — žádní pomocníci.
@@ -63,13 +63,13 @@ export function ParallaxHero() {
         <div className="flex items-center gap-6">
           <Link
             href="/rezervace"
-            className="bg-white text-ink text-[10px] uppercase tracking-[0.14em] px-6 py-[10px] rounded-[2px] hover:opacity-90 transition-opacity"
+            className="bg-white text-ink text-[11px] uppercase tracking-[0.14em] px-6 py-[10px] rounded-[2px] hover:opacity-90 transition-opacity shadow-lg"
           >
             Rezervovat hodinu
           </Link>
           <Link
             href="/skicamp"
-            className="text-[11px] text-white/50 hover:text-white/80 transition-colors tracking-[0.06em]"
+            className="text-[12px] text-white/80 hover:text-white transition-colors tracking-[0.06em] drop-shadow-md"
           >
             Skicamp Alpy →
           </Link>

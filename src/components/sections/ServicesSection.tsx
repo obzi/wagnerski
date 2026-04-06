@@ -10,7 +10,7 @@ const services = [
     linkHref: "/rezervace",
     linkLabel: "Rezervovat hodinu",
     imageSrc:
-      "https://images.unsplash.com/photo-1567630958044-c91a2a7ddeef?w=600&q=80",
+      "https://images.unsplash.com/photo-1565992441121-4367c2967103?w=600&q=80",
     imageAlt: "Lyžařská škola Sherpa",
     reversed: false,
   },

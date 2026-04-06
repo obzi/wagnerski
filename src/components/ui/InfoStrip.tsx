@@ -1,6 +1,6 @@
 const items = [
   { label: "Sezóna", value: "Prosinec – Duben" },
-  { label: "Lokality", value: "Karlov · Hlubočky · Kouty" },
+  { label: "Lokalita", value: "Karlov pod Pradědem" },
   { label: "Instruktoři", value: "Výhradně MŠMT" },
   { label: "Telefon", value: "+420 604 681 100" },
 ];
