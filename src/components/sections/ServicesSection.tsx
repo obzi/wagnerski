@@ -2,7 +2,7 @@ import { ServiceCard } from "../ui/ServiceCard";
 
 const services = [
   {
-    eyebrow: "01 — Sherpa Ski School",
+    eyebrow: "Sherpa Ski School",
     title: "Lyžařská a snowboardová škola",
     description:
       "Výuka lyžování, SNB a telemarku v Jeseníkách a okolí Olomouce.\nIndividuální i skupinová výuka pro děti i dospělé.\nŽádní pomocníci — pouze instruktoři s licencí.",
@@ -15,12 +15,12 @@ const services = [
     reversed: false,
   },
   {
-    eyebrow: "02 — Skicamp",
+    eyebrow: "Skicamp",
     title: "Zahraniční campy v Alpách",
     description:
       "Pro ty, kdo chtějí skutečný posun. Ski, SNB, race a telemark\nv alpském terénu. Techniku vyladíme až na doraz.",
     tags: ["Ski camp", "SNB camp", "Race camp", "Alpy", "Pokročilí"],
-    linkHref: "/skicamp/terminy",
+    linkHref: "/skicamp",
     linkLabel: "Termíny akcí",
     imageSrc:
       "https://images.unsplash.com/photo-1418985991508-e47386d96a71?w=600&q=80",
@@ -28,7 +28,7 @@ const services = [
     reversed: true,
   },
   {
-    eyebrow: "03 — Chci být instruktor",
+    eyebrow: "Chci být instruktor",
     title: "Kurzy MŠMT ČR s celoživotní licencí",
     description:
       "Akreditované kurzy D, C a IVSI. Školíme sami, od základů.\nJeden z nejrespektovanějších kurzů v ČR — každá dobrá\nlyžařská škola vás zaměstná.",

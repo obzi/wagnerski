@@ -16,11 +16,14 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Wagner Ski Akademie | Lyžařská škola Sherpa · Skicamp · Kurzy MŠMT",
+  title: "Výuka lyžování | WAGNER Ski and SNB akademie",
   description:
     "Lyžařská a snowboardová akademie od roku 2005. Sherpa Ski School v Jeseníkách, zahraniční campy v Alpách, akreditované kurzy MŠMT ČR. Jen instruktoři s licencí.",
   keywords:
     "lyžařská škola, snowboard škola, Karlov pod Pradědem, instruktor lyžování, kurz MŠMT, skicamp Alpy, telemark",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({

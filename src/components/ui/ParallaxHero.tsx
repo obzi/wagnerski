@@ -12,7 +12,7 @@ export function ParallaxHero() {
   const y = useTransform(scrollY, [0, 700], [0, 200]);
 
   return (
-    <section ref={ref} className="relative h-screen min-h-[560px] overflow-hidden">
+    <section ref={ref} className="relative h-[100svh] min-h-[480px] overflow-hidden">
       <motion.div
         style={prefersReducedMotion ? {} : { y }}
         className="absolute inset-0 scale-110"
@@ -41,12 +41,12 @@ export function ParallaxHero() {
         }}
       />
 
-      <div className="relative z-10 h-full flex flex-col justify-end px-7 sm:px-9 pb-12 sm:pb-[48px] max-w-[1280px] mx-auto">
+      <div className="relative z-10 h-full flex flex-col justify-end px-7 sm:px-9 pb-6 sm:pb-[48px] pt-[60px] max-w-[1280px] mx-auto">
         <span className="text-[10px] uppercase tracking-[0.16em] text-white/70 mb-5 drop-shadow-md">
           Lyžařská akademie · Morava · od roku 2005
         </span>
 
-        <h1 className="text-[36px] sm:text-[56px] font-normal tracking-[-0.03em] leading-[1.08] text-white mb-5 drop-shadow-lg">
+        <h1 className="text-[30px] sm:text-[56px] font-normal tracking-[-0.03em] leading-[1.08] text-white mb-4 sm:mb-5 drop-shadow-lg">
           Lyžovat se
           <br />
           naučíš.
@@ -54,7 +54,7 @@ export function ParallaxHero() {
           <span className="text-white/80 italic">Pořádně.</span>
         </h1>
 
-        <p className="text-[14px] text-white/80 leading-[1.65] max-w-md mb-8 drop-shadow-md">
+        <p className="text-[13px] sm:text-[14px] text-white/80 leading-[1.65] max-w-md mb-5 sm:mb-8 drop-shadow-md">
           Sherpa Ski School, Skicamp Alpy, kurzy MŠMT.
           <br />
           Jen akreditovaní instruktoři — žádní pomocníci.
