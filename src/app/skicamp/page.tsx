@@ -3,6 +3,7 @@ import { Tag } from "@/components/ui/Tag";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { getSkicampTerms } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Skicamp Alpy | WAGNER Ski and SNB akademie",
@@ -56,7 +57,8 @@ const features = [
   },
 ];
 
-export default function SkicampPage() {
+export default async function SkicampPage() {
+  const terms = await getSkicampTerms();
   return (
     <>
       {/* Hero */}
@@ -151,15 +153,51 @@ export default function SkicampPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Termíny */}
       <section className="py-16 px-7 bg-ink text-white">
         <div className="max-w-[1280px] mx-auto text-center">
-          <h2 className="text-[28px] sm:text-[36px] font-normal tracking-[-0.02em] leading-[1.2] mb-4">
-            Termíny připravujeme
-          </h2>
-          <p className="text-[14px] text-white/60 leading-[1.6] mb-8 max-w-md mx-auto">
-            Sledujte naše stránky a sociální sítě. Termíny campů na další sezónu zveřejníme brzy.
-          </p>
+          {terms.length > 0 ? (
+            <>
+              <h2 className="text-[28px] sm:text-[36px] font-normal tracking-[-0.02em] leading-[1.2] mb-8">
+                Termíny campů
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8 text-left">
+                {terms.map((t) => (
+                  <div key={t.id} className="border border-white/20 rounded-[3px] p-5">
+                    <span className="block text-[10px] uppercase tracking-[0.14em] text-white/50 mb-1">
+                      {t.camp_type}
+                    </span>
+                    <span className="block text-[16px] font-medium mb-2">
+                      {t.date_from} – {t.date_to}
+                    </span>
+                    <span className="block text-[13px] text-white/60 mb-1">{t.location}</span>
+                    {t.price > 0 && (
+                      <span className="block text-[14px] font-medium text-accent">
+                        {t.price.toLocaleString("cs-CZ")} Kč
+                      </span>
+                    )}
+                    {t.spots > 0 && (
+                      <span className="block text-[11px] text-white/40 mt-1">
+                        Volných míst: {t.spots}
+                      </span>
+                    )}
+                    {t.note && (
+                      <span className="block text-[11px] text-white/40 mt-1">{t.note}</span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </>
+          ) : (
+            <>
+              <h2 className="text-[28px] sm:text-[36px] font-normal tracking-[-0.02em] leading-[1.2] mb-4">
+                Termíny připravujeme
+              </h2>
+              <p className="text-[14px] text-white/60 leading-[1.6] mb-8 max-w-md mx-auto">
+                Sledujte naše stránky a sociální sítě. Termíny campů na další sezónu zveřejníme brzy.
+              </p>
+            </>
+          )}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/rezervace"
