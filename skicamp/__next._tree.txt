@@ -5,4 +5,4 @@
 :HL["/wagnerski/_next/static/media/9f796e4c20a6be5f-s.p.0x227d_rf-avy.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/wagnerski/_next/static/media/b6498e80c1982270-s.p.0npp~uhziybhp.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/wagnerski/_next/static/media/c0ce6eeecb7babc9-s.p.0m20a48t5o~j5.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"skicamp","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"n2y9eA_QJuLVnNrCmoGXG"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"skicamp","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"54_88L30ayLg3mOiR1dX0"}
