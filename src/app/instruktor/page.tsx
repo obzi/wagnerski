@@ -1,6 +1,7 @@
 import { SubpageHero } from "@/components/ui/SubpageHero";
 import { Tag } from "@/components/ui/Tag";
-import { instructorCourses, instructorIncluded } from "@/data/pricing";
+import { instructorIncluded } from "@/data/pricing";
+import { getInstructorCourses } from "@/lib/data";
 import Link from "next/link";
 import type { Metadata } from "next";
 
@@ -10,7 +11,8 @@ export const metadata: Metadata = {
     "Akreditované kurzy MŠMT ČR pro instruktory lyžování a snowboardu. Kurz D (60 hod), Kurz C (70-100 hod), prolongace. Celoživotní licence.",
 };
 
-export default function InstruktorPage() {
+export default async function InstruktorPage() {
+  const courses = await getInstructorCourses();
   return (
     <>
       {/* Hero */}
@@ -49,40 +51,64 @@ export default function InstruktorPage() {
           <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-8">
             Nabídka kurzů
           </span>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {instructorCourses.map((c) => (
-              <div
-                key={c.level}
-                className="border border-line rounded-[3px] bg-cream p-6 flex flex-col"
-              >
-                <span className="text-[10px] uppercase tracking-[0.14em] text-accent font-medium mb-2">
-                  {c.hours}
-                </span>
-                <h3 className="text-[20px] font-normal tracking-[-0.01em] mb-1">
-                  {c.level}
-                </h3>
-                <p className="text-[12px] text-ink-muted mb-4">{c.subtitle}</p>
-                <p className="text-[13px] text-ink-secondary leading-[1.6] mb-4 flex-1">
-                  {c.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {c.tags.map((t) => (
-                    <Tag key={t}>{t}</Tag>
-                  ))}
-                </div>
-                <div className="border-t border-line pt-4 mt-auto space-y-1.5">
-                  <div className="flex justify-between text-[12px]">
-                    <span className="text-ink-muted">Termín</span>
-                    <span className="font-medium">{c.date}</span>
+          {courses.length > 0 ? (
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              {courses.map((c) => (
+                <div
+                  key={c.id}
+                  className="border border-line rounded-[3px] bg-cream p-6 flex flex-col"
+                >
+                  <span className="text-[10px] uppercase tracking-[0.14em] text-accent font-medium mb-2">
+                    {c.hours}
+                  </span>
+                  <h3 className="text-[20px] font-normal tracking-[-0.01em] mb-1">
+                    {c.level}
+                  </h3>
+                  <p className="text-[12px] text-ink-muted mb-4">{c.subtitle}</p>
+                  <p className="text-[13px] text-ink-secondary leading-[1.6] mb-4 flex-1">
+                    {c.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {c.tags.map((t) => (
+                      <Tag key={t}>{t}</Tag>
+                    ))}
                   </div>
-                  <div className="flex justify-between text-[12px]">
-                    <span className="text-ink-muted">Místo</span>
-                    <span className="font-medium">{c.location}</span>
+                  <div className="border-t border-line pt-4 mt-auto space-y-1.5">
+                    <div className="flex justify-between text-[12px]">
+                      <span className="text-ink-muted">Termín</span>
+                      <span className="font-medium">{c.date}</span>
+                    </div>
+                    <div className="flex justify-between text-[12px]">
+                      <span className="text-ink-muted">Místo</span>
+                      <span className="font-medium">{c.location}</span>
+                    </div>
                   </div>
+                  {(c.price_with_accommodation > 0 || c.price_without_accommodation > 0) && (
+                    <div className="border-t border-line pt-3 mt-3 space-y-1.5">
+                      {c.price_with_accommodation > 0 && (
+                        <div className="flex justify-between text-[12px]">
+                          <span className="text-ink-muted">S ubytováním</span>
+                          <span className="font-medium text-accent">
+                            {c.price_with_accommodation.toLocaleString("cs-CZ")} Kč
+                          </span>
+                        </div>
+                      )}
+                      {c.price_without_accommodation > 0 && (
+                        <div className="flex justify-between text-[12px]">
+                          <span className="text-ink-muted">Bez ubytování</span>
+                          <span className="font-medium">
+                            {c.price_without_accommodation.toLocaleString("cs-CZ")} Kč
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <p className="text-[14px] text-ink-secondary">Termíny kurzů budou zveřejněny brzy.</p>
+          )}
         </div>
       </section>
 
