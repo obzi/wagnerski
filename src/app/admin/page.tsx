@@ -184,6 +184,13 @@ const defaultContacts: Contact[] = [
     value: "@terapielyzovanim",
     url: "https://www.instagram.com/terapielyzovanim/",
   },
+  {
+    id: "6",
+    type: "hours",
+    label: "Otevírací doba",
+    value: "9:00 – 16:00",
+    url: "",
+  },
 ];
 
 const defaultPrices: ReservationPrice[] = [
@@ -1238,6 +1245,7 @@ function ContactForm({
             <option value="address">Adresa</option>
             <option value="facebook">Facebook</option>
             <option value="instagram">Instagram</option>
+            <option value="hours">Otevírací doba</option>
           </select>
         </div>
         <div>

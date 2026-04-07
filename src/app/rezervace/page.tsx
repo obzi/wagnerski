@@ -26,6 +26,7 @@ export default async function RezervacePage() {
   const address = contacts.find((c) => c.type === "address");
   const facebook = contacts.find((c) => c.type === "facebook");
   const instagram = contacts.find((c) => c.type === "instagram");
+  const hours = contacts.find((c) => c.type === "hours");
 
   return (
     <>
@@ -69,6 +70,12 @@ export default async function RezervacePage() {
                 <span className="block text-[11px] text-ink-muted uppercase tracking-[0.1em] mb-1">Adresa</span>
                 <p className="text-[14px] text-ink-secondary">
                   {address?.value || "Skiaréna Karlov pod Pradědem, 793 26 Karlov pod Pradědem"}
+                </p>
+              </div>
+              <div>
+                <span className="block text-[11px] text-ink-muted uppercase tracking-[0.1em] mb-1">Otevírací doba</span>
+                <p className="text-[14px] text-ink-secondary">
+                  {hours?.value || "9:00 – 16:00"}, večerní výuka po dohodě
                 </p>
               </div>
               <div>

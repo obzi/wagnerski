@@ -34,7 +34,7 @@ export type InstructorCourse = {
 
 export type Contact = {
   id: string;
-  type: "phone" | "email" | "address" | "facebook" | "instagram";
+  type: "phone" | "email" | "address" | "facebook" | "instagram" | "hours";
   label: string;
   value: string;
   url: string;
