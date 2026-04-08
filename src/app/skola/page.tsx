@@ -102,7 +102,7 @@ export default function SkolaPage() {
           </div>
           <div className="relative aspect-[4/3] rounded-[3px] overflow-hidden">
             <Image
-              src="https://images.unsplash.com/photo-1605540436563-5bca919ae766?w=600&q=80&fit=crop"
+              src="/images/ucime.jpg"
               fill
               alt="Výuka lyžování dětí"
               className="object-cover"
