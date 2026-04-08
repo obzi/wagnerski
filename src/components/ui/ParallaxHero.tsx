@@ -21,7 +21,7 @@ export function ParallaxHero() {
           src="/images/petroblouk.jpeg"
           fill
           alt="Lyžař v horách"
-          className="object-cover object-[center_35%]"
+          className="object-cover object-[center_75%]"
           priority
           sizes="100vw"
           draggable={false}

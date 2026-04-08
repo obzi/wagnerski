@@ -20,7 +20,7 @@ export function ParallaxQuote() {
         className="absolute inset-[-16%] scale-110"
       >
         <Image
-          src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=1400&q=80"
+          src="/images/petroblouk.jpeg"
           fill
           alt="Horská krajina"
           className="object-cover"
