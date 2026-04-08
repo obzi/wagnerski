@@ -78,7 +78,7 @@ export default function ONasPage() {
           </div>
           <div className="relative aspect-[4/3] rounded-[3px] overflow-hidden">
             <Image
-              src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=600&q=80&fit=crop"
+              src="/images/petrajolca.jpg"
               fill
               alt="Lyžování v horách"
               className="object-cover"
