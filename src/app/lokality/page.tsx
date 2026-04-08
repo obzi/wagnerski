@@ -15,7 +15,7 @@ export default function LokalityPage() {
       <SubpageHero
         eyebrow="Lokality"
         title="Karlov pod Pradědem"
-        imageSrc="https://images.unsplash.com/photo-1551524559-8af4e6624178?w=1600&q=85&fit=crop"
+        imageSrc="/images/karlov.jpg"
         imageAlt="Karlov pod Pradědem - skiareál"
       />
 
