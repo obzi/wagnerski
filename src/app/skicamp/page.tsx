@@ -68,7 +68,7 @@ export default async function SkicampPage() {
         eyebrow="Skicamp Alpy"
         title="Zahraniční kempy v Alpách"
         description="Pro ty, kdo chtějí skutečný posun. Techniku vyladíme až na doraz."
-        imageSrc="https://images.unsplash.com/photo-1418985991508-e47386d96a71?w=1600&q=85&fit=crop"
+        imageSrc="/images/asikaprun.jpg"
         imageAlt="Skicamp v Alpách"
       />
 
@@ -97,7 +97,7 @@ export default async function SkicampPage() {
           </div>
           <div className="relative aspect-[4/3] rounded-[3px] overflow-hidden">
             <Image
-              src="/images/hobluj.jpeg"
+              src="/images/skicampnakaprunu.jpg"
               fill
               alt="Alpské hory"
               className="object-cover"
