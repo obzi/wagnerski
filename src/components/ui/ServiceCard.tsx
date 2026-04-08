@@ -27,7 +27,7 @@ export function ServiceCard({
 }: ServiceCardProps) {
   return (
     <div
-      className={`grid grid-cols-1 md:grid-cols-[5fr_4fr] gap-0`}
+      className={`lift grid grid-cols-1 md:grid-cols-[5fr_4fr] gap-0 rounded-[3px] overflow-hidden`}
     >
       <div className={`bg-surface p-8 sm:p-10 flex flex-col justify-center ${reversed ? "md:order-2" : ""}`}>
         <span className="text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-4">

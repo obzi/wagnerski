@@ -9,7 +9,7 @@ interface TeamCardProps {
 
 export function TeamCard({ name, roles, badges, imageSrc }: TeamCardProps) {
   return (
-    <div className="border border-line rounded-[3px] overflow-hidden">
+    <div className="lift border border-line rounded-[3px] overflow-hidden bg-cream">
       <div className="relative h-[160px]">
         <Image
           src={imageSrc}
