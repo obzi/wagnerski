@@ -42,7 +42,7 @@ export default function ONasPage() {
       <SubpageHero
         eyebrow="O nás"
         title="Wagner Ski Akademie"
-        imageSrc="https://images.unsplash.com/photo-1491002052546-bf38f186af56?w=1600&q=85&fit=crop"
+        imageSrc="/images/uvodonas.jpg.jpeg"
         imageAlt="Wagner Ski Akademie tým"
       />
 
