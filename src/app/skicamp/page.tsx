@@ -69,6 +69,7 @@ export default async function SkicampPage() {
         title="Zahraniční kempy v Alpách"
         description="Pro ty, kdo chtějí skutečný posun. Techniku vyladíme až na doraz."
         imageSrc="/images/asikaprun.jpg"
+        imagePosition="center 75%"
         imageAlt="Skicamp v Alpách"
       />
 

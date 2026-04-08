@@ -6,6 +6,7 @@ interface SubpageHeroProps {
   description?: string;
   imageSrc: string;
   imageAlt: string;
+  imagePosition?: string;
 }
 
 export function SubpageHero({
@@ -14,6 +15,7 @@ export function SubpageHero({
   description,
   imageSrc,
   imageAlt,
+  imagePosition,
 }: SubpageHeroProps) {
   return (
     <section className="relative h-[50vh] min-h-[360px] overflow-hidden">
@@ -21,7 +23,8 @@ export function SubpageHero({
         src={imageSrc}
         fill
         alt={imageAlt}
-        className="object-cover object-center"
+        className="object-cover"
+        style={{ objectPosition: imagePosition ?? "center" }}
         priority
         sizes="100vw"
         draggable={false}
