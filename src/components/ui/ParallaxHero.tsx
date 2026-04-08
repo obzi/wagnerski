@@ -18,7 +18,7 @@ export function ParallaxHero() {
         className="absolute inset-0 scale-110"
       >
         <Image
-          src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=1600&q=85&fit=crop"
+          src="/images/petroblouk.jpeg"
           fill
           alt="Lyžař v horách"
           className="object-cover object-[center_35%]"

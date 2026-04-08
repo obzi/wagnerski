@@ -9,8 +9,7 @@ const services = [
     tags: ["Lyžování", "Snowboard", "Telemark", "Carving", "Děti"],
     linkHref: "/rezervace",
     linkLabel: "Rezervovat hodinu",
-    imageSrc:
-      "https://images.unsplash.com/photo-1565992441121-4367c2967103?w=600&q=80",
+    imageSrc: "/images/tym.jpeg",
     imageAlt: "Lyžařská škola Sherpa",
     reversed: false,
   },
@@ -22,8 +21,7 @@ const services = [
     tags: ["Ski camp", "SNB camp", "Race camp", "Alpy", "Pokročilí"],
     linkHref: "/skicamp",
     linkLabel: "Termíny akcí",
-    imageSrc:
-      "https://images.unsplash.com/photo-1418985991508-e47386d96a71?w=600&q=80",
+    imageSrc: "/images/skicamptym.jpeg",
     imageAlt: "Skicamp v Alpách",
     reversed: true,
   },
@@ -35,8 +33,7 @@ const services = [
     tags: ["Kurz D", "Kurz C", "IVSI", "Licence doživotně"],
     linkHref: "/instruktor/prihlaska",
     linkLabel: "Přihláška",
-    imageSrc:
-      "https://images.unsplash.com/photo-1491555103944-7c647fd857e6?w=600&q=80",
+    imageSrc: "/images/hobluj.jpeg",
     imageAlt: "Instruktorské kurzy",
     reversed: false,
   },
