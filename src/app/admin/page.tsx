@@ -533,23 +533,23 @@ function SkicampManager() {
         {terms.map((t) => (
           <div
             key={t.id}
-            className="border border-line rounded-[3px] p-4 bg-white flex items-center justify-between gap-4"
+            className="border border-line rounded-[3px] p-4 bg-white flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
           >
-            <div>
+            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 min-w-0">
               <span className="text-[14px] font-medium">{t.camp_type}</span>
-              <span className="text-[12px] text-ink-muted ml-3">
+              <span className="text-[12px] text-ink-muted">
                 {t.date_from} — {t.date_to}
               </span>
-              <span className="text-[12px] text-ink-secondary ml-3">
+              <span className="text-[12px] text-ink-secondary">
                 {t.location}
               </span>
               {t.price > 0 && (
-                <span className="text-[12px] text-accent ml-3">
+                <span className="text-[12px] text-accent">
                   {t.price.toLocaleString("cs-CZ")} Kč
                 </span>
               )}
               {t.spots > 0 && (
-                <span className="text-[12px] text-ink-muted ml-2">
+                <span className="text-[12px] text-ink-muted">
                   ({t.spots} míst)
                 </span>
               )}
@@ -750,19 +750,19 @@ function CoursesManager() {
         {courses.map((c) => (
           <div
             key={c.id}
-            className="border border-line rounded-[3px] p-4 bg-white flex items-center justify-between gap-4"
+            className="border border-line rounded-[3px] p-4 bg-white flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
           >
-            <div>
+            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 min-w-0">
               <span className="text-[14px] font-medium">
                 Kurz {c.level}
               </span>
-              <span className="text-[12px] text-ink-secondary ml-3">
+              <span className="text-[12px] text-ink-secondary">
                 {c.subtitle}
               </span>
-              <span className="text-[12px] text-ink-muted ml-3">
+              <span className="text-[12px] text-ink-muted">
                 {c.hours}
               </span>
-              <span className="text-[12px] text-ink-muted ml-2">{c.date}</span>
+              <span className="text-[12px] text-ink-muted">{c.date}</span>
             </div>
             <div className="flex gap-2 shrink-0">
               <button
@@ -999,10 +999,10 @@ function ReservationManager() {
               {items.map((p) => (
                 <div
                   key={p.id}
-                  className="border border-line rounded-[3px] p-3 bg-white flex items-center justify-between gap-4"
+                  className="border border-line rounded-[3px] p-3 bg-white flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
                 >
-                  <div className="flex items-center gap-4">
-                    <span className="text-[14px] font-medium w-32">
+                  <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 min-w-0">
+                    <span className="text-[14px] font-medium sm:w-32">
                       {p.label}
                     </span>
                     <span className="text-[12px] text-ink-muted">{p.duration}</span>
@@ -1188,14 +1188,14 @@ function ContactsManager() {
         {contacts.map((c) => (
           <div
             key={c.id}
-            className="border border-line rounded-[3px] p-4 bg-white flex items-center justify-between gap-4"
+            className="border border-line rounded-[3px] p-4 bg-white flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
           >
-            <div className="flex items-center gap-4">
-              <span className="text-[11px] uppercase tracking-[0.1em] text-ink-muted w-20">
+            <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 min-w-0">
+              <span className="text-[11px] uppercase tracking-[0.1em] text-ink-muted sm:w-20">
                 {c.type}
               </span>
-              <span className="text-[14px]">{c.label}</span>
-              <span className="text-[13px] text-ink-secondary">{c.value}</span>
+              <span className="text-[14px] break-all">{c.label}</span>
+              <span className="text-[13px] text-ink-secondary break-all">{c.value}</span>
             </div>
             <div className="flex gap-2 shrink-0">
               <button
@@ -1309,7 +1309,7 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
 
   return (
     <div className="min-h-screen bg-surface">
-      <header className="bg-cream border-b border-line px-7 py-4">
+      <header className="bg-cream border-b border-line px-4 sm:px-7 py-4">
         <div className="max-w-[1280px] mx-auto flex items-center justify-between">
           <div>
             <span className="text-[11px] uppercase tracking-[0.2em] text-ink">
@@ -1328,7 +1328,7 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
         </div>
       </header>
 
-      <div className="max-w-[1280px] mx-auto px-7 py-6">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-7 py-6">
         <div className="flex gap-1 mb-8 overflow-x-auto">
           {tabs.map((t) => (
             <button
