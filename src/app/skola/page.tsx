@@ -66,7 +66,7 @@ export default function SkolaPage() {
         eyebrow="Sherpa Ski School"
         title="Lyžařská a snowboardová škola"
         description="Výuka lyžování, snowboardu a telemarku v Jeseníkách. Pouze akreditovaní instruktoři."
-        imageSrc="https://images.unsplash.com/photo-1565992441121-4367c2967103?w=1600&q=85&fit=crop"
+        imageSrc="/images/vyuka.jpeg"
         imageAlt="Lyžařská škola Sherpa - výuka lyžování"
       />
 
