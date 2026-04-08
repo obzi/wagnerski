@@ -52,7 +52,7 @@ export default function LokalityPage() {
           <div className="space-y-6">
             <div className="relative aspect-[4/3] rounded-[3px] overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80&fit=crop"
+                src="/images/jolcavyuka.jpeg"
                 fill
                 alt="Sjezdovky Karlov"
                 className="object-cover"
