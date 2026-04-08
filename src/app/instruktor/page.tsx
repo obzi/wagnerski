@@ -2,6 +2,7 @@ import { SubpageHero } from "@/components/ui/SubpageHero";
 import { Tag } from "@/components/ui/Tag";
 import { instructorIncluded } from "@/data/pricing";
 import { getInstructorCourses } from "@/lib/data";
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 
@@ -22,7 +23,7 @@ export default async function InstruktorPage() {
         eyebrow="Chci být instruktor"
         title="Kurzy MŠMT s celoživotní licencí"
         description="Akreditované kurzy pro instruktory lyžování a snowboardu. Školíme sami, od základů."
-        imageSrc="https://images.unsplash.com/photo-1491555103944-7c647fd857e6?w=1600&q=85&fit=crop"
+        imageSrc="/images/kurz.jpg"
         imageAlt="Instruktorský kurz lyžování"
       />
 
@@ -36,13 +37,56 @@ export default async function InstruktorPage() {
             <p>
               Pořádáme jedny z nejrespektovanějších instruktorských kurzů v České republice.
               Za více než 26 let jsme vyškolili přes 2 229 instruktorů, kteří dnes učí
-              v lyžařských školách po celé ČR i v zahraničí.
+              v lyžařských školách po celé ČR i v zahraničí. Náš akreditovaný kurz instruktora
+              základů lyžování a snowboardingu typu D má schválení MŠMT ČR a platnost
+              celoživotní — jednou získaná licence vám zůstává napořád.
             </p>
             <p>
               Kurzy vedou zkušení školitelé v čele s Ing. Petrem Wagnerem — držitelem
-              IVSI Card Gold, profesionálním instruktorem a trenérem. Důraz klademe
-              na praxi, reálné situace a moderní metodiku výuky.
+              IVSI Card Gold, profesionálním instruktorem a trenérem. Metodika je postavená
+              na dvou desítkách let praxe přímo na svahu: učíme rozpoznávat chyby, pracovat
+              s různými typy klientů a zvládat skupinu. Nejen techniku, ale i pedagogiku,
+              psychologii a komunikaci.
             </p>
+            <p>
+              Kromě výuky na sněhu vás čekají přednášky o bezpečnosti na horách, biomechanice
+              pohybu a materiálovém poradenství. Součástí programu bývají i speciální hosté —
+              členové horské služby nebo účastníci Freeride World Tour. Kurz je náročný,
+              ale jeho investice se vám vrátí během několika málo dnů aktivní výuky.
+            </p>
+            <p>
+              S licencí od nás můžete učit v lyžařských školách po celé ČR, na školních
+              kurzech středních i vysokých škol a také na Slovensku. Úspěšní absolventi
+              pokračují na navazující kurz C nebo získávají mezinárodní certifikaci IVSI.
+              Celosezónním zaměstnancům Sherpa Ski School vracíme plné kurzovné — bereme to
+              jako dlouhodobé partnerství, ne jako jednorázový obchod.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery */}
+      <section className="pb-8 px-7">
+        <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="relative aspect-[4/3] rounded-[3px] overflow-hidden">
+            <Image
+              src="/images/kurzdalsi.jpg"
+              fill
+              alt="Výuka na instruktorském kurzu"
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              draggable={false}
+            />
+          </div>
+          <div className="relative aspect-[4/3] rounded-[3px] overflow-hidden">
+            <Image
+              src="/images/kurzlokal.jpg"
+              fill
+              alt="Lokalita instruktorského kurzu"
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              draggable={false}
+            />
           </div>
         </div>
       </section>
