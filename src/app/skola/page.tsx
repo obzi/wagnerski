@@ -67,6 +67,7 @@ export default function SkolaPage() {
         title="Lyžařská a snowboardová škola"
         description="Výuka lyžování, snowboardu a telemarku v Jeseníkách. Pouze akreditovaní instruktoři."
         imageSrc="/images/vyuka.jpeg"
+        imagePositionClass="object-center sm:object-[center_75%]"
         imageAlt="Lyžařská škola Sherpa - výuka lyžování"
       />
 

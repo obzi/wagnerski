@@ -43,6 +43,7 @@ export default function ONasPage() {
         eyebrow="O nás"
         title="Wagner Ski Akademie"
         imageSrc="/images/uvodonas.jpg.jpeg"
+        imagePositionClass="object-left sm:object-center"
         imageAlt="Wagner Ski Akademie tým"
       />
 
