@@ -1,9 +1,9 @@
 import { SubpageHero } from "@/components/ui/SubpageHero";
 import { Tag } from "@/components/ui/Tag";
+import { CourseSignupForm } from "@/components/ui/CourseSignupForm";
 import { instructorIncluded } from "@/data/pricing";
 import { getInstructorCourses } from "@/lib/data";
 import Image from "next/image";
-import Link from "next/link";
 import type { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
@@ -242,6 +242,13 @@ export default async function InstruktorPage() {
         </div>
       </section>
 
+      {/* Signup Form */}
+      <section className="py-16 px-7 bg-surface" id="prihlaska">
+        <div className="max-w-xl mx-auto">
+          <CourseSignupForm courses={courses} />
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-16 px-7 bg-ink text-white">
         <div className="max-w-[1280px] mx-auto text-center">
@@ -252,17 +259,17 @@ export default async function InstruktorPage() {
             Přihlas se na kurz a získej celoživotní licenci. Každá dobrá lyžařská škola tě zaměstná.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/instruktor/prihlaska"
+            <a
+              href="#prihlaska"
               className="min-h-[44px] flex items-center bg-white text-ink text-[10px] uppercase tracking-[0.14em] px-6 py-[10px] rounded-[2px] hover:opacity-90 transition-opacity"
             >
               Přihláška na kurz
-            </Link>
+            </a>
             <a
-              href="mailto:sherpaski@sherpaski.cz"
+              href="mailto:chcibytinstruktor@wagnerski.cz"
               className="min-h-[44px] flex items-center text-[12px] text-white/60 hover:text-white/90 transition-colors"
             >
-              sherpaski@sherpaski.cz
+              chcibytinstruktor@wagnerski.cz
             </a>
           </div>
         </div>
