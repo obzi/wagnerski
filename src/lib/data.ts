@@ -5,6 +5,7 @@ import type {
   Contact,
   ReservationPrice,
   Voucher,
+  SiteSetting,
 } from "./supabase";
 
 export async function getSkicampTerms(): Promise<SkicampTerm[]> {
@@ -56,4 +57,18 @@ export async function createVoucher(voucher: Omit<Voucher, "id" | "created_at" |
     .single();
   if (error) throw error;
   return data as Voucher;
+}
+
+export async function getSiteSettings(): Promise<SiteSetting[]> {
+  if (!supabase) return [];
+  const { data } = await supabase
+    .from("site_settings")
+    .select("*");
+  return (data as SiteSetting[]) ?? [];
+}
+
+export async function getVoucherDiscount(): Promise<number> {
+  const settings = await getSiteSettings();
+  const discount = settings.find((s) => s.key === "voucher_discount");
+  return discount ? parseFloat(discount.value) : 15;
 }

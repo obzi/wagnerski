@@ -5,11 +5,12 @@ import type { ReservationPrice } from "@/lib/supabase";
 
 interface VoucherPurchaseProps {
   prices: ReservationPrice[];
+  discountPercent: number;
 }
 
 type Step = "select" | "form" | "success";
 
-export function VoucherPurchase({ prices }: VoucherPurchaseProps) {
+export function VoucherPurchase({ prices, discountPercent }: VoucherPurchaseProps) {
   const [step, setStep] = useState<Step>("select");
   const [selectedPrice, setSelectedPrice] = useState<ReservationPrice | null>(null);
   const [name, setName] = useState("");
@@ -18,7 +19,7 @@ export function VoucherPurchase({ prices }: VoucherPurchaseProps) {
   const [voucherCode, setVoucherCode] = useState("");
   const [error, setError] = useState("");
 
-  const discount = 0.15;
+  const discount = discountPercent / 100;
 
   const getDiscountedPrice = (priceStr: string) => {
     const num = parseInt(priceStr.replace(/\D/g, ""), 10);
@@ -148,7 +149,7 @@ export function VoucherPurchase({ prices }: VoucherPurchaseProps) {
         <div className="flex items-baseline gap-3 mb-6">
           <span className="text-[11px] text-ink-muted line-through">{selectedPrice.price}</span>
           <span className="text-[18px] font-medium text-accent">{discountedPrice.toLocaleString("cs-CZ")} Kč</span>
-          <span className="text-[10px] uppercase tracking-[0.1em] text-accent">−15 %</span>
+          <span className="text-[10px] uppercase tracking-[0.1em] text-accent">−{discountPercent} %</span>
         </div>
         <div className="space-y-4 mb-6">
           <div>
@@ -195,12 +196,13 @@ export function VoucherPurchase({ prices }: VoucherPurchaseProps) {
 
   return (
     <div>
-      <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-4">
-        Vouchery – sleva 15 %
-      </span>
-      <p className="text-[13px] text-ink-secondary leading-[1.6] mb-2">
-        Zvýhodněné vouchery na výuku. Platné Po–Pá, 11:00–14:00.
-      </p>
+      <h2 className="text-[20px] font-normal tracking-[-0.01em] mb-2">
+        Zvýhodněné vouchery
+      </h2>
+      <div className="flex items-baseline gap-2 mb-4">
+        <span className="text-[13px] text-accent font-medium">−{discountPercent} % sleva</span>
+        <span className="text-[11px] text-ink-muted">· Po–Pá, 11:00–14:00</span>
+      </div>
       <div className="space-y-3">
         {prices.map((p) => {
           const discounted = getDiscountedPrice(p.price);

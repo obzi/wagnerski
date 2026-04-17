@@ -7,13 +7,14 @@ import type {
   InstructorCourse,
   Contact,
   ReservationPrice,
+  SiteSetting,
 } from "@/lib/supabase";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
 /* ------------------------------------------------------------------ */
 
-type Tab = "skicamp" | "kurzy" | "rezervace" | "kontakty";
+type Tab = "skicamp" | "kurzy" | "rezervace" | "vouchery" | "kontakty";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -266,6 +267,10 @@ const defaultPrices: ReservationPrice[] = [
     price: "1 890 Kč",
     note: "",
   },
+];
+
+const defaultVoucherSettings: SiteSetting[] = [
+  { id: "1", key: "voucher_discount", value: "15" },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -1294,6 +1299,68 @@ function ContactForm({
 }
 
 /* ------------------------------------------------------------------ */
+/*  Voucher Settings Manager                                           */
+/* ------------------------------------------------------------------ */
+
+function VoucherSettingsManager() {
+  const { items: settings, loading, add, update } = useSupabaseTable<SiteSetting>("site_settings", defaultVoucherSettings);
+  const [discountValue, setDiscountValue] = useState("");
+  const [saved, setSaved] = useState(false);
+
+  useEffect(() => {
+    const discount = settings.find((s) => s.key === "voucher_discount");
+    if (discount) setDiscountValue(discount.value);
+  }, [settings]);
+
+  async function handleSave() {
+    const existing = settings.find((s) => s.key === "voucher_discount");
+    if (existing) {
+      await update(existing.id, { value: discountValue });
+    } else {
+      await add({ key: "voucher_discount", value: discountValue });
+    }
+    setSaved(true);
+    setTimeout(() => setSaved(false), 2000);
+  }
+
+  if (loading) {
+    return <p className="text-[13px] text-ink-muted">Načítání...</p>;
+  }
+
+  return (
+    <div>
+      <h2 className="text-[18px] font-normal tracking-[-0.01em] mb-6">
+        Nastavení voucherů
+      </h2>
+      <div className="border border-line rounded-[3px] p-6 bg-white max-w-md">
+        <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1">
+          Sleva na vouchery (%)
+        </label>
+        <div className="flex gap-3 items-center">
+          <input
+            type="number"
+            min="0"
+            max="100"
+            value={discountValue}
+            onChange={(e) => setDiscountValue(e.target.value)}
+            className={inputCls + " max-w-[120px]"}
+          />
+          <button className={btnPrimary} onClick={handleSave}>
+            Uložit
+          </button>
+          {saved && (
+            <span className="text-[12px] text-accent">Uloženo</span>
+          )}
+        </div>
+        <p className="text-[11px] text-ink-muted mt-2">
+          Výchozí hodnota: 15 %. Sleva se aplikuje na všechny vouchery.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
 /*  Dashboard                                                          */
 /* ------------------------------------------------------------------ */
 
@@ -1304,6 +1371,7 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
     { key: "skicamp", label: "Skicamp termíny" },
     { key: "kurzy", label: "Kurzy instruktorů" },
     { key: "rezervace", label: "Ceník / rezervace" },
+    { key: "vouchery", label: "Vouchery" },
     { key: "kontakty", label: "Kontakty" },
   ];
 
@@ -1348,6 +1416,7 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
         {tab === "skicamp" && <SkicampManager />}
         {tab === "kurzy" && <CoursesManager />}
         {tab === "rezervace" && <ReservationManager />}
+        {tab === "vouchery" && <VoucherSettingsManager />}
         {tab === "kontakty" && <ContactsManager />}
       </div>
     </div>

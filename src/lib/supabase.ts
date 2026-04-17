@@ -64,3 +64,9 @@ export type Voucher = {
   redeemed_at: string | null;
   created_at: string;
 };
+
+export type SiteSetting = {
+  id: string;
+  key: string;
+  value: string;
+};
