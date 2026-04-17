@@ -4,6 +4,7 @@ import type {
   InstructorCourse,
   Contact,
   ReservationPrice,
+  Voucher,
 } from "./supabase";
 
 export async function getSkicampTerms(): Promise<SkicampTerm[]> {
@@ -40,4 +41,19 @@ export async function getContacts(): Promise<Contact[]> {
     .select("*")
     .order("sort_order", { ascending: true });
   return (data as Contact[]) ?? [];
+}
+
+export async function createVoucher(voucher: Omit<Voucher, "id" | "created_at" | "redeemed_at" | "status" | "valid_from">): Promise<Voucher | null> {
+  if (!supabase) return null;
+  const { data, error } = await supabase
+    .from("vouchers")
+    .insert({
+      ...voucher,
+      status: "active",
+      valid_from: new Date().toISOString(),
+    })
+    .select()
+    .single();
+  if (error) throw error;
+  return data as Voucher;
 }
