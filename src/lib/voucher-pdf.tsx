@@ -1,102 +1,115 @@
-import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
+import { Document, Page, Text, View, StyleSheet, Font } from "@react-pdf/renderer";
+import path from "path";
+
+const fontsDir = path.join(process.cwd(), "public", "fonts");
+
+Font.register({
+  family: "Roboto",
+  fonts: [
+    { src: path.join(fontsDir, "Roboto-Regular.ttf"), fontWeight: 400 },
+    { src: path.join(fontsDir, "Roboto-Medium.ttf"), fontWeight: 500 },
+    { src: path.join(fontsDir, "Roboto-Bold.ttf"), fontWeight: 700 },
+  ],
+});
 
 const styles = StyleSheet.create({
   page: {
-    padding: 40,
-    fontFamily: "Helvetica",
+    padding: 28,
+    fontFamily: "Roboto",
     backgroundColor: "#f8f6f2",
   },
   header: {
-    marginBottom: 30,
+    marginBottom: 14,
     borderBottom: "1 solid #e0ddd6",
-    paddingBottom: 20,
+    paddingBottom: 10,
   },
   brand: {
-    fontSize: 14,
+    fontSize: 12,
     letterSpacing: 3,
     textTransform: "uppercase" as const,
     color: "#111110",
-    marginBottom: 4,
+    marginBottom: 2,
   },
   subtitle: {
-    fontSize: 8,
-    letterSpacing: 2,
+    fontSize: 7,
+    letterSpacing: 1.5,
     textTransform: "uppercase" as const,
     color: "#aaa89e",
   },
   title: {
-    fontSize: 28,
+    fontSize: 22,
     color: "#111110",
-    marginBottom: 8,
+    marginBottom: 4,
   },
   serviceLabel: {
-    fontSize: 16,
+    fontSize: 12,
     color: "#555550",
-    marginBottom: 20,
+    marginBottom: 12,
   },
   codeContainer: {
     backgroundColor: "#111110",
-    padding: 16,
-    marginBottom: 24,
+    padding: 10,
+    marginBottom: 14,
     textAlign: "center" as const,
   },
   codeLabel: {
-    fontSize: 8,
+    fontSize: 7,
     letterSpacing: 2,
     textTransform: "uppercase" as const,
     color: "#aaa89e",
-    marginBottom: 6,
+    marginBottom: 4,
   },
   code: {
-    fontSize: 24,
+    fontSize: 18,
     color: "#f8f6f2",
     letterSpacing: 4,
-    fontFamily: "Courier",
+    fontFamily: "Roboto",
+    fontWeight: 700,
   },
   detailsGrid: {
     flexDirection: "row" as const,
     flexWrap: "wrap" as const,
-    gap: 16,
-    marginBottom: 24,
+    gap: 8,
+    marginBottom: 12,
   },
   detailItem: {
     width: "45%",
   },
   detailLabel: {
-    fontSize: 8,
+    fontSize: 7,
     letterSpacing: 1.5,
     textTransform: "uppercase" as const,
     color: "#aaa89e",
-    marginBottom: 3,
+    marginBottom: 2,
   },
   detailValue: {
-    fontSize: 12,
+    fontSize: 10,
     color: "#111110",
   },
   restriction: {
     backgroundColor: "#f0ede6",
-    padding: 16,
-    marginTop: 16,
+    padding: 10,
+    marginTop: 8,
   },
   restrictionTitle: {
-    fontSize: 9,
+    fontSize: 7,
     letterSpacing: 1.5,
     textTransform: "uppercase" as const,
     color: "#b8965a",
-    marginBottom: 6,
+    marginBottom: 4,
   },
   restrictionText: {
-    fontSize: 10,
+    fontSize: 8,
     color: "#555550",
-    lineHeight: 1.6,
+    lineHeight: 1.5,
   },
   footer: {
-    marginTop: 30,
-    paddingTop: 16,
+    marginTop: 14,
+    paddingTop: 8,
     borderTop: "1 solid #e0ddd6",
   },
   footerText: {
-    fontSize: 8,
+    fontSize: 7,
     color: "#aaa89e",
     textAlign: "center" as const,
   },
