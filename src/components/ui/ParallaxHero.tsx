@@ -33,7 +33,7 @@ export function ParallaxHero() {
 
       <div className="relative z-10 h-full flex flex-col justify-end px-7 sm:px-9 pb-6 sm:pb-[48px] max-w-[1280px] mx-auto">
         <span className="text-[10px] uppercase tracking-[0.16em] text-white/70 mb-5 drop-shadow-md">
-          Lyžařská akademie · Morava · od roku 2005
+          Wagner · ski akademie · sherpaski · skicamp.cz · instruktor
         </span>
 
         <h1 className="text-[30px] sm:text-[56px] font-normal tracking-[-0.03em] leading-[1.08] text-white mb-4 sm:mb-5 drop-shadow-lg">
