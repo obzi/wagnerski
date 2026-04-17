@@ -71,6 +71,27 @@ export default function SkolaPage() {
         imageAlt="Lyžařská škola Sherpa - výuka lyžování"
       />
 
+      {/* Location banner */}
+      <section className="bg-ink text-white py-6 px-7">
+        <div className="max-w-[1280px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-4">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-accent shrink-0">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+              <circle cx="12" cy="9" r="2.5" />
+            </svg>
+            <span className="text-[13px] sm:text-[14px] tracking-[-0.01em]">
+              Působíme ve <strong className="font-medium">Ski aréně Karlov pod Pradědem</strong> — srdce Jeseníků
+            </span>
+          </div>
+          <a
+            href="/lokality"
+            className="text-[11px] uppercase tracking-[0.14em] text-accent hover:text-white transition-colors shrink-0"
+          >
+            Více o lokalitě →
+          </a>
+        </div>
+      </section>
+
       {/* Intro */}
       <section className="py-16 px-7">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
