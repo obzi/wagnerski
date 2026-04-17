@@ -4,11 +4,12 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 
 const links = [
+  { href: "/aktuality", label: "Aktuality" },
   { href: "/lokality", label: "Lokality" },
   { href: "/skola", label: "Škola" },
   { href: "/skicamp", label: "Skicamp" },
   { href: "/instruktor", label: "Instruktor" },
-  { href: "/farma", label: "Farma" },
+  { href: "/leto", label: "Léto" },
   { href: "/o-nas", label: "O nás" },
 ];
 
@@ -31,10 +32,10 @@ export function Navbar() {
       <div className="max-w-[1280px] mx-auto flex items-center justify-between px-7 py-3">
         <Link href="/" className="flex flex-col">
           <span className="text-[11px] uppercase tracking-[0.2em] text-ink font-normal">
-            Wagner Ski
+            Wagner
           </span>
           <span className="text-[9px] uppercase tracking-[0.16em] text-ink-muted">
-            Akademie · Sherpa · Skicamp
+            ski akademie · sherpaski · skicamp.cz · instruktor
           </span>
         </Link>
 
