@@ -17,8 +17,8 @@ export async function POST(request: Request) {
 
   try {
     await resend.emails.send({
-      from: "Sherpa Ski School <noreply@wagnerski.cz>",
-      to: buyerEmail,
+      from: "Sherpa Ski School <onboarding@resend.dev>",
+      to: "t.obzina@seznam.cz",
       subject: `Váš voucher Sherpaski — ${code}`,
       html: `
         <div style="font-family: sans-serif; color: #111110;">

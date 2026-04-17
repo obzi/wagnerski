@@ -11,8 +11,8 @@ export async function POST(request: Request) {
 
   try {
     await resend.emails.send({
-      from: "Wagner Ski Akademie <noreply@wagnerski.cz>",
-      to: "chcibytinstruktor@wagnerski.cz",
+      from: "Wagner Ski Akademie <onboarding@resend.dev>",
+      to: "t.obzina@seznam.cz",
       subject: `Nová přihláška na kurz: ${courseLevel}`,
       html: `
         <div style="font-family: sans-serif; color: #111110;">
@@ -29,8 +29,8 @@ export async function POST(request: Request) {
     });
 
     await resend.emails.send({
-      from: "Wagner Ski Akademie <noreply@wagnerski.cz>",
-      to: email,
+      from: "Wagner Ski Akademie <onboarding@resend.dev>",
+      to: "t.obzina@seznam.cz",
       subject: "Potvrzení přihlášky na instruktorský kurz",
       html: `
         <div style="font-family: sans-serif; color: #111110;">
