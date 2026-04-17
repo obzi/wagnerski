@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { FacebookIcon, InstagramIcon } from "@/components/ui/SocialIcons";
+import { VoucherPurchase } from "@/components/ui/VoucherPurchase";
 import { getReservationPrices, getContacts } from "@/lib/data";
 
 export const dynamic = "force-dynamic";
@@ -100,26 +101,7 @@ export default async function RezervacePage() {
 
           {/* Voucher */}
           <div>
-            <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
-              Online rezervace
-            </span>
-            <div className="border border-line rounded-[3px] p-8 bg-surface text-center">
-              <h2 className="text-[20px] font-normal tracking-[-0.01em] mb-3">
-                Koupit hodinu přes voucher
-              </h2>
-              <p className="text-[13px] text-ink-secondary leading-[1.6] mb-6">
-                Zakupte si vouchery na výuku online. Ideální i jako dárek.
-              </p>
-              <button
-                disabled
-                className="min-h-[44px] bg-ink text-cream text-[11px] uppercase tracking-[0.14em] px-8 py-[12px] rounded-[2px] opacity-50 cursor-not-allowed"
-              >
-                Připravujeme
-              </button>
-              <p className="text-[11px] text-ink-muted mt-3">
-                Online prodej voucherů bude brzy k dispozici.
-              </p>
-            </div>
+            <VoucherPurchase prices={[...individualPrices, ...groupPrices]} />
           </div>
         </div>
       </section>
