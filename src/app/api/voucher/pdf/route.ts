@@ -18,7 +18,7 @@ export async function GET(request: Request) {
     VoucherPDF({ code, serviceLabel, discountedPrice, buyerName, validFrom, validUntil })
   );
 
-  return new Response(buffer, {
+  return new Response(new Uint8Array(buffer), {
     headers: {
       "Content-Type": "application/pdf",
       "Content-Disposition": `attachment; filename="voucher-${code}.pdf"`,

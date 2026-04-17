@@ -2,9 +2,8 @@ import { Resend } from "resend";
 import { renderToBuffer } from "@react-pdf/renderer";
 import { VoucherPDF } from "@/lib/voucher-pdf";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: Request) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
   const body = await request.json();
   const { code, serviceLabel, discountedPrice, buyerName, buyerEmail, validFrom, validUntil } = body;
 
