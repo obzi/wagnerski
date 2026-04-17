@@ -14,7 +14,7 @@ export default function LokalityPage() {
       {/* Hero */}
       <SubpageHero
         eyebrow="Lokality"
-        title="Karlov pod Pradědem"
+        title="Kde nás najdete"
         imageSrc="/images/karlov.jpg"
         imageAlt="Karlov pod Pradědem - skiareál"
       />
@@ -27,7 +27,7 @@ export default function LokalityPage() {
               Hlavní středisko
             </span>
             <h2 className="text-[28px] sm:text-[36px] font-normal tracking-[-0.02em] leading-[1.2] mb-6">
-              Skiaréna Karlov
+              Sherpaski — Ski aréna Karlov pod Pradědem
             </h2>
             <div className="space-y-4 text-[14px] text-ink-secondary leading-[1.7]">
               <p>
@@ -85,8 +85,31 @@ export default function LokalityPage() {
         </div>
       </section>
 
-      {/* Why Karlov */}
+      {/* Section 2: Ski akademie - Jeseníky */}
       <section className="py-16 px-7 bg-surface">
+        <div className="max-w-[1280px] mx-auto">
+          <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
+            Výuka kdekoliv v Jeseníkách
+          </span>
+          <h2 className="text-[28px] sm:text-[36px] font-normal tracking-[-0.02em] leading-[1.2] mb-6">
+            Ski akademie — Jeseníky
+          </h2>
+          <div className="max-w-2xl space-y-4 text-[14px] text-ink-secondary leading-[1.7]">
+            <p>
+              Služby Wagner Ski Akademie si můžete objednat v jakémkoliv středisku
+              v Jeseníkách — dle individuální domluvy. Ať už lyžujete na Ovčárně,
+              Dolní Moravě, Ramzové nebo kdekoliv jinde, přijedeme za vámi.
+            </p>
+            <p>
+              Stačí nás kontaktovat, domluvit termín a místo. Přizpůsobíme se vašim
+              potřebám a zajistíme stejně kvalitní výuku jako v našem domovském středisku.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Karlov */}
+      <section className="py-16 px-7">
         <div className="max-w-[1280px] mx-auto">
           <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-8">
             Proč právě Karlov
