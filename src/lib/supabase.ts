@@ -48,3 +48,19 @@ export type ReservationPrice = {
   price: string;
   note: string;
 };
+
+export type Voucher = {
+  id: string;
+  code: string;
+  service_label: string;
+  duration_minutes: number;
+  original_price: number;
+  discounted_price: number;
+  buyer_name: string;
+  buyer_email: string;
+  status: "active" | "redeemed" | "expired";
+  valid_from: string;
+  valid_until: string;
+  redeemed_at: string | null;
+  created_at: string;
+};
