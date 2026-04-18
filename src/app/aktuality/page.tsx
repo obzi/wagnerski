@@ -35,7 +35,7 @@ export default async function AktualityPage() {
       />
 
       <section className="py-16 px-7">
-        <div className="max-w-[960px] mx-auto">
+        <div className="max-w-[1280px] mx-auto">
 
         {!featured ? (
           <p className="text-[14px] text-ink-secondary leading-[1.6]">

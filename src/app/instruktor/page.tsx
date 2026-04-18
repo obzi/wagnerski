@@ -29,7 +29,7 @@ export default async function InstruktorPage() {
 
       {/* Intro */}
       <section className="py-16 px-7">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-[1280px] mx-auto">
           <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
             O kurzech
           </span>
