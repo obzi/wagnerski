@@ -97,11 +97,11 @@ export default function SkolaPage() {
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <Image
-              src="/images/logo-sherpa-visacka.svg"
-              width={80}
-              height={56}
+              src="/images/loga/sherpa.svg"
+              width={160}
+              height={113}
               alt="Sherpa Ski School"
-              className="mb-5"
+              className="mb-6"
               draggable={false}
             />
             <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">

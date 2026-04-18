@@ -24,7 +24,7 @@ export default function LokalityPage() {
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-[5fr_4fr] gap-12">
           <div>
             <Image
-              src="/images/logo-skiarena-karlov.svg"
+              src="/images/loga/skiarena-karlov.svg"
               width={220}
               height={44}
               alt="Ski aréna Karlov"
