@@ -44,19 +44,19 @@ export default async function AktualityPage() {
         ) : (
           <div className="space-y-10">
             {/* Featured / latest */}
-            <article className="bg-ink text-white rounded-[3px] p-8 sm:p-10">
+            <article className="border border-accent/30 bg-surface rounded-[3px] p-8 sm:p-10">
               <div className="flex items-center gap-3 mb-4">
-                <span className="inline-block bg-accent text-ink text-[10px] uppercase tracking-[0.12em] font-medium px-3 py-1 rounded-[2px]">
+                <span className="inline-block bg-accent/15 text-accent text-[10px] uppercase tracking-[0.12em] font-medium px-3 py-1 rounded-[2px]">
                   Nové
                 </span>
-                <time className="text-[11px] uppercase tracking-[0.1em] text-white/50">
+                <time className="text-[11px] uppercase tracking-[0.1em] text-ink-muted">
                   {formatDate(featured.published_at)}
                 </time>
               </div>
               <h2 className="text-[22px] sm:text-[28px] font-normal tracking-[-0.02em] leading-[1.3] mb-4">
                 {featured.title}
               </h2>
-              <p className="text-[15px] text-white/70 leading-[1.7] whitespace-pre-line">
+              <p className="text-[15px] text-ink-secondary leading-[1.7] whitespace-pre-line">
                 {featured.body}
               </p>
             </article>

@@ -1,17 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { InstructorCourse } from "@/lib/supabase";
 
 interface CourseSignupFormProps {
   courses: InstructorCourse[];
+  preselectedCourseId?: string;
 }
 
-export function CourseSignupForm({ courses }: CourseSignupFormProps) {
+export function CourseSignupForm({ courses, preselectedCourseId }: CourseSignupFormProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [selectedCourse, setSelectedCourse] = useState("");
+  const [selectedCourse, setSelectedCourse] = useState(preselectedCourseId ?? "");
+  useEffect(() => {
+    if (preselectedCourseId) setSelectedCourse(preselectedCourseId);
+  }, [preselectedCourseId]);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
