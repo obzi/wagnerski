@@ -17,20 +17,16 @@ export default function LokalityPage() {
         title="Kde nás najdete"
         imageSrc="/images/karlov.jpg"
         imageAlt="Karlov pod Pradědem - skiareál"
+        logoSrc="/images/loga/skiarena-karlov.svg"
+        logoAlt="Ski aréna Karlov"
+        logoWidth={180}
+        logoHeight={36}
       />
 
       {/* Detail */}
       <section className="py-16 px-7">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-[5fr_4fr] gap-12">
           <div>
-            <Image
-              src="/images/loga/skiarena-karlov.svg"
-              width={220}
-              height={44}
-              alt="Ski aréna Karlov"
-              className="mb-5"
-              draggable={false}
-            />
             <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
               Hlavní středisko
             </span>

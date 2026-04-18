@@ -69,6 +69,10 @@ export default function SkolaPage() {
         imageSrc="/images/vyuka.jpeg"
         imagePositionClass="object-center sm:object-[center_25%]"
         imageAlt="Lyžařská škola Sherpa - výuka lyžování"
+        logoSrc="/images/loga/sherpa.svg"
+        logoAlt="Sherpa Ski School"
+        logoWidth={100}
+        logoHeight={70}
       />
 
       {/* Location banner */}
@@ -96,14 +100,6 @@ export default function SkolaPage() {
       <section className="py-16 px-7">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <Image
-              src="/images/loga/sherpa.svg"
-              width={160}
-              height={113}
-              alt="Sherpa Ski School"
-              className="mb-6"
-              draggable={false}
-            />
             <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
               O škole
             </span>
