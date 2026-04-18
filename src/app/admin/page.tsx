@@ -8,13 +8,14 @@ import type {
   Contact,
   ReservationPrice,
   SiteSetting,
+  NewsItem,
 } from "@/lib/supabase";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
 /* ------------------------------------------------------------------ */
 
-type Tab = "skicamp" | "kurzy" | "rezervace" | "vouchery" | "kontakty";
+type Tab = "aktuality" | "skicamp" | "kurzy" | "rezervace" | "vouchery" | "kontakty";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -1361,13 +1362,176 @@ function VoucherSettingsManager() {
 }
 
 /* ------------------------------------------------------------------ */
+/*  News Manager                                                       */
+/* ------------------------------------------------------------------ */
+
+function NewsManager() {
+  const { items: news, loading, add, update, remove } = useSupabaseTable<NewsItem>("news", []);
+  const [editing, setEditing] = useState<NewsItem | null>(null);
+  const [isNew, setIsNew] = useState(false);
+
+  async function handleDelete(id: string) {
+    await remove(id);
+  }
+
+  async function handleSave(item: NewsItem) {
+    if (isNew) {
+      const { id: _id, ...rest } = item;
+      await add(rest);
+    } else {
+      const { id, ...changes } = item;
+      await update(id, changes);
+    }
+    setEditing(null);
+    setIsNew(false);
+  }
+
+  if (loading) {
+    return <p className="text-[13px] text-ink-muted">Načítání...</p>;
+  }
+
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="text-[18px] font-normal tracking-[-0.01em]">
+          Aktuality
+        </h2>
+        <button
+          className={btnPrimary}
+          onClick={() => {
+            setIsNew(true);
+            setEditing({
+              id: uid(),
+              title: "",
+              body: "",
+              published_at: new Date().toISOString().split("T")[0],
+            });
+          }}
+        >
+          + Přidat aktualitu
+        </button>
+      </div>
+
+      {editing && (
+        <NewsForm
+          item={editing}
+          onSave={handleSave}
+          onCancel={() => { setEditing(null); setIsNew(false); }}
+        />
+      )}
+
+      {news.length === 0 && !editing && (
+        <p className="text-[13px] text-ink-muted">
+          Žádné aktuality. Přidejte první.
+        </p>
+      )}
+
+      <div className="space-y-3">
+        {[...news].sort((a, b) => b.published_at.localeCompare(a.published_at)).map((n) => (
+          <div
+            key={n.id}
+            className="border border-line rounded-[3px] p-4 bg-white flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4"
+          >
+            <div className="min-w-0">
+              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-1">
+                <span className="text-[14px] font-medium">{n.title}</span>
+                <span className="text-[11px] text-ink-muted">
+                  {new Date(n.published_at).toLocaleDateString("cs-CZ")}
+                </span>
+              </div>
+              <p className="text-[12px] text-ink-secondary line-clamp-2">
+                {n.body}
+              </p>
+            </div>
+            <div className="flex gap-2 shrink-0">
+              <button
+                className={btnSecondary}
+                onClick={() => { setIsNew(false); setEditing(n); }}
+              >
+                Upravit
+              </button>
+              <button className={btnDanger} onClick={() => handleDelete(n.id)}>
+                Smazat
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function NewsForm({
+  item,
+  onSave,
+  onCancel,
+}: {
+  item: NewsItem;
+  onSave: (n: NewsItem) => void;
+  onCancel: () => void;
+}) {
+  const [data, setData] = useState(item);
+  const set = (k: keyof NewsItem, v: string) =>
+    setData((d) => ({ ...d, [k]: v }));
+
+  return (
+    <div className="border border-accent/30 rounded-[3px] p-5 mb-6 bg-white">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+        <div className="sm:col-span-2">
+          <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1">
+            Nadpis
+          </label>
+          <input
+            className={inputCls}
+            value={data.title}
+            onChange={(e) => set("title", e.target.value)}
+            placeholder="Nadpis aktuality"
+          />
+        </div>
+        <div>
+          <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1">
+            Datum publikace
+          </label>
+          <input
+            type="date"
+            className={inputCls}
+            value={data.published_at.split("T")[0]}
+            onChange={(e) => set("published_at", e.target.value)}
+          />
+        </div>
+      </div>
+      <div className="mb-4">
+        <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1">
+          Text
+        </label>
+        <textarea
+          className={inputCls + " min-h-[120px]"}
+          value={data.body}
+          onChange={(e) => set("body", e.target.value)}
+          placeholder="Text aktuality..."
+        />
+      </div>
+      <div className="flex gap-3">
+        <button className={btnPrimary} onClick={() => onSave(data)}>
+          Uložit
+        </button>
+        <button className={btnSecondary} onClick={onCancel}>
+          Zrušit
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
 /*  Dashboard                                                          */
 /* ------------------------------------------------------------------ */
 
 function Dashboard({ onLogout }: { onLogout: () => void }) {
-  const [tab, setTab] = useState<Tab>("skicamp");
+  const [tab, setTab] = useState<Tab>("aktuality");
 
   const tabs: { key: Tab; label: string }[] = [
+    { key: "aktuality", label: "Aktuality" },
     { key: "skicamp", label: "Skicamp termíny" },
     { key: "kurzy", label: "Kurzy instruktorů" },
     { key: "rezervace", label: "Ceník / rezervace" },
@@ -1413,6 +1577,7 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
           ))}
         </div>
 
+        {tab === "aktuality" && <NewsManager />}
         {tab === "skicamp" && <SkicampManager />}
         {tab === "kurzy" && <CoursesManager />}
         {tab === "rezervace" && <ReservationManager />}

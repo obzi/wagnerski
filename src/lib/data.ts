@@ -6,6 +6,7 @@ import type {
   ReservationPrice,
   Voucher,
   SiteSetting,
+  NewsItem,
 } from "./supabase";
 
 export async function getSkicampTerms(): Promise<SkicampTerm[]> {
@@ -65,6 +66,16 @@ export async function getSiteSettings(): Promise<SiteSetting[]> {
     .from("site_settings")
     .select("*");
   return (data as SiteSetting[]) ?? [];
+}
+
+export async function getNews(limit = 5): Promise<NewsItem[]> {
+  if (!supabase) return [];
+  const { data } = await supabase
+    .from("news")
+    .select("*")
+    .order("published_at", { ascending: false })
+    .limit(limit);
+  return (data as NewsItem[]) ?? [];
 }
 
 export async function getVoucherDiscount(): Promise<number> {

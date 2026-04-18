@@ -70,3 +70,11 @@ export type SiteSetting = {
   key: string;
   value: string;
 };
+
+export type NewsItem = {
+  id: string;
+  title: string;
+  body: string;
+  published_at: string;
+  created_at?: string;
+};
