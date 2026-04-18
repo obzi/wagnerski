@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getNews } from "@/lib/data";
+import { SubpageHero } from "@/components/ui/SubpageHero";
 
 export const metadata: Metadata = {
   title: "Aktuality | Wagner Ski Akademie",
@@ -21,14 +22,20 @@ export default async function AktualityPage() {
   const [featured, ...rest] = news;
 
   return (
-    <section className="py-16 px-7">
-      <div className="max-w-[960px] mx-auto">
-        <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
-          Aktuality
-        </span>
-        <h1 className="text-[32px] sm:text-[48px] font-normal tracking-[-0.03em] leading-[1.1] mb-12">
-          Novinky
-        </h1>
+    <>
+      <SubpageHero
+        eyebrow="Aktuality"
+        title="Novinky"
+        imageSrc="/images/tym.jpeg"
+        imageAlt="Wagner Ski Akademie tým"
+        logoSrc="/images/loga/wagner.svg"
+        logoAlt="Wagner Ski Akademie"
+        logoWidth={156}
+        logoHeight={52}
+      />
+
+      <section className="py-16 px-7">
+        <div className="max-w-[960px] mx-auto">
 
         {!featured ? (
           <p className="text-[14px] text-ink-secondary leading-[1.6]">
@@ -79,5 +86,6 @@ export default async function AktualityPage() {
         )}
       </div>
     </section>
+    </>
   );
 }
