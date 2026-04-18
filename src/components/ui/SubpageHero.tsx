@@ -52,9 +52,6 @@ export function SubpageHero({
         </div>
       )}
       <div className="relative z-10 h-full flex flex-col justify-end px-7 sm:px-9 pb-10 max-w-[1280px] mx-auto">
-        <span className="text-[10px] uppercase tracking-[0.16em] text-white/70 mb-3">
-          {eyebrow}
-        </span>
         <h1 className="text-[32px] sm:text-[48px] font-normal tracking-[-0.03em] leading-[1.1] text-white mb-3">
           {title}
         </h1>
