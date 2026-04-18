@@ -96,6 +96,14 @@ export default function SkolaPage() {
       <section className="py-16 px-7">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
+            <Image
+              src="/images/logo-sherpa-visacka.svg"
+              width={80}
+              height={56}
+              alt="Sherpa Ski School"
+              className="mb-5"
+              draggable={false}
+            />
             <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
               O škole
             </span>
