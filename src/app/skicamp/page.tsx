@@ -71,6 +71,10 @@ export default async function SkicampPage() {
         imageSrc="/images/asikaprun.jpg"
         imagePositionClass="object-[center_75%]"
         imageAlt="Skicamp v Alpách"
+        logoSrc="/images/loga/skicamp.svg"
+        logoAlt="Skicamp"
+        logoWidth={140}
+        logoHeight={56}
       />
 
       {/* Intro */}

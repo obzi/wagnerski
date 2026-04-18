@@ -24,6 +24,10 @@ export default async function InstruktorPage() {
         description="Akreditované kurzy pro instruktory lyžování a snowboardu. Školíme sami, od základů."
         imageSrc="/images/kurz.jpg"
         imageAlt="Instruktorský kurz lyžování"
+        logoSrc="/images/loga/sherpa.svg"
+        logoAlt="Sherpa Ski School"
+        logoWidth={130}
+        logoHeight={91}
       />
 
       {/* Intro */}

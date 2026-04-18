@@ -45,6 +45,10 @@ export default function ONasPage() {
         imageSrc="/images/uvodonas.jpg.jpeg"
         imagePositionClass="object-[85%_center] sm:object-center"
         imageAlt="Wagner Ski Akademie tým"
+        logoSrc="/images/loga/wagner.svg"
+        logoAlt="Wagner Ski Akademie"
+        logoWidth={156}
+        logoHeight={52}
       />
 
       {/* Story */}
