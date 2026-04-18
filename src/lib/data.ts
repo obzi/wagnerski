@@ -68,8 +68,15 @@ export async function getSiteSettings(): Promise<SiteSetting[]> {
   return (data as SiteSetting[]) ?? [];
 }
 
-export async function getNews(limit = 5): Promise<NewsItem[]> {
+export async function getNewsMaxDisplay(): Promise<number> {
+  const settings = await getSiteSettings();
+  const setting = settings.find((s) => s.key === "news_max_display");
+  return setting ? parseInt(setting.value, 10) : 5;
+}
+
+export async function getNews(): Promise<NewsItem[]> {
   if (!supabase) return [];
+  const limit = await getNewsMaxDisplay();
   const { data } = await supabase
     .from("news")
     .select("*")

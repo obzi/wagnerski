@@ -15,7 +15,7 @@ import type {
 /*  Types                                                              */
 /* ------------------------------------------------------------------ */
 
-type Tab = "aktuality" | "skicamp" | "kurzy" | "rezervace" | "vouchery" | "kontakty";
+type Tab = "aktuality" | "skicamp" | "kurzy" | "rezervace" | "nastaveni" | "kontakty";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -1303,25 +1303,28 @@ function ContactForm({
 /*  Voucher Settings Manager                                           */
 /* ------------------------------------------------------------------ */
 
-function VoucherSettingsManager() {
+function SettingsManager() {
   const { items: settings, loading, add, update } = useSupabaseTable<SiteSetting>("site_settings", defaultVoucherSettings);
   const [discountValue, setDiscountValue] = useState("");
-  const [saved, setSaved] = useState(false);
+  const [newsMaxValue, setNewsMaxValue] = useState("5");
+  const [saved, setSaved] = useState<string | null>(null);
 
   useEffect(() => {
     const discount = settings.find((s) => s.key === "voucher_discount");
     if (discount) setDiscountValue(discount.value);
+    const newsMax = settings.find((s) => s.key === "news_max_display");
+    if (newsMax) setNewsMaxValue(newsMax.value);
   }, [settings]);
 
-  async function handleSave() {
-    const existing = settings.find((s) => s.key === "voucher_discount");
+  async function saveSetting(key: string, value: string) {
+    const existing = settings.find((s) => s.key === key);
     if (existing) {
-      await update(existing.id, { value: discountValue });
+      await update(existing.id, { value });
     } else {
-      await add({ key: "voucher_discount", value: discountValue });
+      await add({ key, value });
     }
-    setSaved(true);
-    setTimeout(() => setSaved(false), 2000);
+    setSaved(key);
+    setTimeout(() => setSaved(null), 2000);
   }
 
   if (loading) {
@@ -1329,11 +1332,15 @@ function VoucherSettingsManager() {
   }
 
   return (
-    <div>
-      <h2 className="text-[18px] font-normal tracking-[-0.01em] mb-6">
-        Nastavení voucherů
-      </h2>
+    <div className="space-y-8">
+      <div>
+        <h2 className="text-[18px] font-normal tracking-[-0.01em] mb-6">
+          Nastavení
+        </h2>
+      </div>
+
       <div className="border border-line rounded-[3px] p-6 bg-white max-w-md">
+        <h3 className="text-[13px] font-medium tracking-[-0.01em] mb-4">Vouchery</h3>
         <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1">
           Sleva na vouchery (%)
         </label>
@@ -1346,15 +1353,41 @@ function VoucherSettingsManager() {
             onChange={(e) => setDiscountValue(e.target.value)}
             className={inputCls + " max-w-[120px]"}
           />
-          <button className={btnPrimary} onClick={handleSave}>
+          <button className={btnPrimary} onClick={() => saveSetting("voucher_discount", discountValue)}>
             Uložit
           </button>
-          {saved && (
+          {saved === "voucher_discount" && (
             <span className="text-[12px] text-accent">Uloženo</span>
           )}
         </div>
         <p className="text-[11px] text-ink-muted mt-2">
           Výchozí hodnota: 15 %. Sleva se aplikuje na všechny vouchery.
+        </p>
+      </div>
+
+      <div className="border border-line rounded-[3px] p-6 bg-white max-w-md">
+        <h3 className="text-[13px] font-medium tracking-[-0.01em] mb-4">Aktuality</h3>
+        <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1">
+          Max. počet zobrazených aktualit
+        </label>
+        <div className="flex gap-3 items-center">
+          <input
+            type="number"
+            min="1"
+            max="20"
+            value={newsMaxValue}
+            onChange={(e) => setNewsMaxValue(e.target.value)}
+            className={inputCls + " max-w-[120px]"}
+          />
+          <button className={btnPrimary} onClick={() => saveSetting("news_max_display", newsMaxValue)}>
+            Uložit
+          </button>
+          {saved === "news_max_display" && (
+            <span className="text-[12px] text-accent">Uloženo</span>
+          )}
+        </div>
+        <p className="text-[11px] text-ink-muted mt-2">
+          Starší aktuality nad tento limit se na webu nezobrazí (zůstanou v databázi). Výchozí: 5.
         </p>
       </div>
     </div>
@@ -1535,7 +1568,7 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
     { key: "skicamp", label: "Skicamp termíny" },
     { key: "kurzy", label: "Kurzy instruktorů" },
     { key: "rezervace", label: "Ceník / rezervace" },
-    { key: "vouchery", label: "Vouchery" },
+    { key: "nastaveni", label: "Nastavení" },
     { key: "kontakty", label: "Kontakty" },
   ];
 
@@ -1581,7 +1614,7 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
         {tab === "skicamp" && <SkicampManager />}
         {tab === "kurzy" && <CoursesManager />}
         {tab === "rezervace" && <ReservationManager />}
-        {tab === "vouchery" && <VoucherSettingsManager />}
+        {tab === "nastaveni" && <SettingsManager />}
         {tab === "kontakty" && <ContactsManager />}
       </div>
     </div>
