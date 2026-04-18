@@ -71,8 +71,8 @@ export default function SkolaPage() {
         imageAlt="Lyžařská škola Sherpa - výuka lyžování"
         logoSrc="/images/loga/sherpa.svg"
         logoAlt="Sherpa Ski School"
-        logoWidth={100}
-        logoHeight={70}
+        logoWidth={130}
+        logoHeight={91}
       />
 
       {/* Location banner */}

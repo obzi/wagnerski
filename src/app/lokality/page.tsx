@@ -19,8 +19,8 @@ export default function LokalityPage() {
         imageAlt="Karlov pod Pradědem - skiareál"
         logoSrc="/images/loga/skiarena-karlov.svg"
         logoAlt="Ski aréna Karlov"
-        logoWidth={180}
-        logoHeight={36}
+        logoWidth={234}
+        logoHeight={47}
       />
 
       {/* Detail */}

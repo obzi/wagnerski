@@ -2,9 +2,9 @@ import Image from "next/image";
 import { FacebookIcon, InstagramIcon } from "@/components/ui/SocialIcons";
 
 const partners = [
-  { src: "/images/loga/sherpa.svg", alt: "Sherpa Ski School", width: 90, height: 64 },
-  { src: "/images/loga/skiarena-karlov.svg", alt: "Ski aréna Karlov", width: 200, height: 40 },
-  { src: "/images/loga/wagner.svg", alt: "Wagner Ski Akademie", width: 150, height: 50 },
+  { src: "/images/loga/sherpa.svg", alt: "Sherpa Ski School", width: 130, height: 92 },
+  { src: "/images/loga/skiarena-karlov.svg", alt: "Ski aréna Karlov", width: 280, height: 56 },
+  { src: "/images/loga/wagner.svg", alt: "Wagner Ski Akademie", width: 210, height: 70 },
 ];
 
 export function Footer() {
@@ -24,7 +24,7 @@ export function Footer() {
                 width={p.width}
                 height={p.height}
                 alt={p.alt}
-                className="opacity-50 hover:opacity-80 transition-opacity"
+                className="opacity-75 hover:opacity-100 transition-opacity"
                 draggable={false}
               />
             ))}

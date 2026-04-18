@@ -46,7 +46,7 @@ export function SubpageHero({
             width={logoWidth}
             height={logoHeight}
             alt={logoAlt || ""}
-            className="brightness-0 invert opacity-70"
+            className="drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)]"
             draggable={false}
           />
         </div>
