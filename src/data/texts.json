@@ -88,7 +88,7 @@
         {
           "eyebrow": "Sherpa Ski School",
           "title": "Lyžařská a snowboardová škola",
-          "description": "Výuka lyžování, SNB a telemarku v Jeseníkách a okolí Olomouce.\nIndividuální i skupinová výuka pro děti i dospělé.\nŽádní pomocníci — pouze instruktoři s licencí.",
+          "description": "Výuka lyžování, SNB a telemarku v Jeseníkách a okolí Olomouce.\nIndividuální i skupinová výuka pro děti i dospělé.\nŽádní pomocníci, pouze instruktoři s platnou licencí MŠMT ČR.",
           "tags": ["Lyžování", "Snowboard", "Telemark", "Carving", "Děti"],
           "linkLabel": "Rezervovat hodinu",
           "imageAlt": "Lyžařská škola Sherpa"
@@ -104,7 +104,7 @@
         {
           "eyebrow": "Chci být instruktor",
           "title": "Kurzy MŠMT ČR s celoživotní licencí",
-          "description": "Akreditované kurzy D, C a IVSI. Školíme sami, od základů.\nJeden z nejrespektovanějších kurzů v ČR — každá dobrá\nlyžařská škola vás zaměstná.",
+          "description": "• Akreditované kurzy D, C, IVSI\n• Přípravný kurz pro profesní kvalifikaci — pro budoucí majitele lyžařských škol. Vedle lyžařské metodiky pokrývá i základy podnikání, marketingu a managementu ve službách.\n• Doškolovací kurz instruktor základů lyžování\n• Doškolovací kurz instruktor základů snowboardingu\n• Zkouška profesní kvalifikace",
           "tags": ["Kurz D", "Kurz C", "IVSI", "Licence doživotně"],
           "linkLabel": "Přihláška",
           "imageAlt": "Instruktorské kurzy"
