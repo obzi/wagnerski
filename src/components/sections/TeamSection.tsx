@@ -2,6 +2,17 @@ import { TeamCard } from "../ui/TeamCard";
 import Link from "next/link";
 import texts from "@/data/texts.json";
 
+function yearsOfPractice(baseYears: number, baseDate: string): number {
+  const [by, bm] = baseDate.split("-").map(Number);
+  const now = new Date();
+  const elapsedMonths = (now.getFullYear() - by) * 12 + (now.getMonth() + 1 - bm);
+  return baseYears + Math.max(0, Math.floor(elapsedMonths / 12));
+}
+
+function buildBadges(person: { baseYears: number; baseDate: string; badges: string[] }): string[] {
+  return [`${yearsOfPractice(person.baseYears, person.baseDate)} let praxe`, ...person.badges];
+}
+
 export function TeamSection() {
   return (
     <section className="py-20 px-7">
@@ -13,13 +24,13 @@ export function TeamSection() {
           <TeamCard
             name={texts.home.team.petr.name}
             roles={texts.home.team.petr.roles}
-            badges={texts.home.team.petr.badges}
+            badges={buildBadges(texts.home.team.petr)}
             imageSrc="/petr.jpg"
           />
           <TeamCard
             name={texts.home.team.jolana.name}
             roles={texts.home.team.jolana.roles}
-            badges={texts.home.team.jolana.badges}
+            badges={buildBadges(texts.home.team.jolana)}
             imageSrc="/jolca.jpg"
           />
           <div className="border border-dashed border-line rounded-[3px] bg-surface/50 flex flex-col items-center justify-center p-8 text-center">

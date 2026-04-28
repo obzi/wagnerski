@@ -6,6 +6,8 @@ import { LocationsSection } from "@/components/sections/LocationsSection";
 import { TeamSection } from "@/components/sections/TeamSection";
 import { Reveal } from "@/components/ui/Reveal";
 
+export const revalidate = 86400;
+
 export default function Home() {
   return (
     <>

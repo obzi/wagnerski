@@ -127,12 +127,16 @@
       "petr": {
         "name": "Petr Wagner",
         "roles": "Učitel lyžování · IVSI instruktor · Trenér III. tř. · Autorizovaná osoba MŠMT ČR",
-        "badges": ["26 let praxe", "Lic. 74-040-M"]
+        "baseYears": 27,
+        "baseDate": "2026-03",
+        "badges": ["Lic. 74-040-M"]
       },
       "jolana": {
         "name": "Jolana Wagnerová",
         "roles": "Učitel lyžování · Cvičitel SNB · Lektor carvingu · Terapie lyžováním",
-        "badges": ["18 let praxe", "Dechové metody"]
+        "baseYears": 20,
+        "baseDate": "2026-03",
+        "badges": ["Dechové metody"]
       },
       "teamCard": {
         "title": "Náš tým instruktorů",
@@ -143,8 +147,16 @@
   },
 
   "locationGrid": {
-    "name": "Karlov pod Pradědem",
-    "region": "Jeseníky · Skiaréna"
+    "items": [
+      {
+        "title": "Sherpaski school",
+        "lines": ["Jeseníky – Ski aréna Karlov", "Hlubočky u Olomouce"]
+      },
+      {
+        "title": "Wagnerski – Malá Morávka",
+        "lines": ["Praděd"]
+      }
+    ]
   },
 
   "skola": {
