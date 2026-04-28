@@ -39,16 +39,28 @@ export function ParallaxHero() {
 
         <h1 className="text-[30px] sm:text-[56px] font-normal tracking-[-0.03em] leading-[1.08] text-white mb-4 sm:mb-5 drop-shadow-lg">
           {texts.home.hero.titleLine1}
-          <br />
-          {texts.home.hero.titleLine2}
-          <br />
-          <span className="text-white/80 italic">{texts.home.hero.titleAccent}</span>
+          {texts.home.hero.titleLine2 && (
+            <>
+              <br />
+              {texts.home.hero.titleLine2}
+            </>
+          )}
+          {texts.home.hero.titleAccent && (
+            <>
+              <br />
+              <span className="text-white/80 italic">{texts.home.hero.titleAccent}</span>
+            </>
+          )}
         </h1>
 
         <p className="text-[13px] sm:text-[14px] text-white/80 leading-[1.65] max-w-md mb-5 sm:mb-8 drop-shadow-md">
           {texts.home.hero.subtitleLine1}
-          <br />
-          {texts.home.hero.subtitleLine2}
+          {texts.home.hero.subtitleLine2 && (
+            <>
+              <br />
+              {texts.home.hero.subtitleLine2}
+            </>
+          )}
         </p>
 
         <div className="flex items-center gap-6">

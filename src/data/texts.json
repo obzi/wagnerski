@@ -67,11 +67,11 @@
   "home": {
     "hero": {
       "brandLine": "Wagner · ski akademie · sherpaski · skicamp.cz · instruktor",
-      "titleLine1": "Lyžovat se",
-      "titleLine2": "naučíš.",
-      "titleAccent": "Pořádně.",
-      "subtitleLine1": "Sherpa Ski School, Skicamp Alpy, kurzy MŠMT.",
-      "subtitleLine2": "Jen akreditovaní instruktoři — žádní pomocníci.",
+      "titleLine1": "Učíme srdcem",
+      "titleLine2": "",
+      "titleAccent": "",
+      "subtitleLine1": "Sherpa Ski School, výuka lyžování a snowboardingu, akreditované kurzy MŠMT ČR.",
+      "subtitleLine2": "Akreditovaní instruktoři, profesionální přístup, interní přístup SherpaSki. Žádní „čekatelé/pomocníci\" na licenci.",
       "ctaPrimary": "Rezervovat hodinu",
       "ctaSecondary": "Skicamp Alpy →",
       "imageAlt": "Lyžař v horách"
@@ -79,7 +79,7 @@
     "infoStrip": [
       { "label": "Sezóna", "value": "Prosinec – Duben" },
       { "label": "Lokalita", "value": "Karlov pod Pradědem" },
-      { "label": "Instruktoři", "value": "Výhradně MŠMT" },
+      { "label": "Instruktoři", "value": "MŠMT ČR, CVLS.cz, APUL" },
       { "label": "Telefon", "value": "+420 604 681 100" }
     ],
     "services": {
