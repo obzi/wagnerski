@@ -2,11 +2,11 @@ import texts from "@/data/texts.json";
 
 export function LocationGrid() {
   return (
-    <div className="flex flex-wrap gap-5">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-[640px]">
       {texts.locationGrid.items.map((item) => (
         <div
           key={item.title}
-          className="inline-flex items-start gap-2.5 border border-line rounded-[3px] px-6 py-5"
+          className="flex items-start gap-2.5 border border-line rounded-[3px] px-6 py-5"
         >
           <span className="w-[8px] h-[8px] rounded-full bg-green-500 shrink-0 mt-1.5 shadow-[0_0_0_3px_rgba(34,197,94,0.18)]" />
           <div>
