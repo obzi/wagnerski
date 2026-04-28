@@ -1,16 +1,15 @@
 import { SubpageHero } from "@/components/ui/SubpageHero";
 import { CourseWithSignup } from "@/components/ui/CourseWithSignup";
-import { instructorIncluded } from "@/data/pricing";
 import { getInstructorCourses } from "@/lib/data";
 import Image from "next/image";
 import type { Metadata } from "next";
+import texts from "@/data/texts.json";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Kurzy pro instruktory | Wagner Ski Akademie",
-  description:
-    "Akreditované kurzy MŠMT ČR pro instruktory lyžování a snowboardu. Kurz D (60 hod), Kurz C (70-100 hod), prolongace. Celoživotní licence.",
+  title: texts.meta.instruktor.title,
+  description: texts.meta.instruktor.description,
 };
 
 export default async function InstruktorPage() {
@@ -19,11 +18,11 @@ export default async function InstruktorPage() {
     <>
       {/* Hero */}
       <SubpageHero
-        eyebrow="Chci být instruktor"
-        title="Kurzy MŠMT s celoživotní licencí"
-        description="Akreditované kurzy pro instruktory lyžování a snowboardu. Školíme sami, od základů."
+        eyebrow={texts.instruktor.hero.eyebrow}
+        title={texts.instruktor.hero.title}
+        description={texts.instruktor.hero.description}
         imageSrc="/images/kurz.jpg"
-        imageAlt="Instruktorský kurz lyžování"
+        imageAlt={texts.instruktor.hero.imageAlt}
         logoSrc="/images/loga/sherpa.svg"
         logoAlt="Sherpa Ski School"
         logoWidth={130}
@@ -34,64 +33,23 @@ export default async function InstruktorPage() {
       <section className="py-16 px-7">
         <div className="max-w-[1280px] mx-auto">
           <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
-            O kurzech
+            {texts.instruktor.intro.eyebrow}
           </span>
           <div className="text-ink-secondary">
-            <div className="mb-8">
-              <span className="block text-[9px] uppercase tracking-[0.16em] text-accent mb-2">
-                Tradice a akreditace
-              </span>
-              <p className="text-[14px] leading-[1.7]">
-                Pořádáme jedny z nejrespektovanějších instruktorských kurzů v České republice.
-                Za více než 26 let jsme vyškolili přes 2 229 instruktorů, kteří dnes učí
-                v lyžařských školách po celé ČR i v zahraničí. Náš akreditovaný kurz instruktora
-                základů lyžování a snowboardingu typu D má schválení MŠMT ČR a platnost
-                celoživotní — jednou získaná licence vám zůstává napořád.
-              </p>
-            </div>
-
-            <div className="mb-8">
-              <span className="block text-[9px] uppercase tracking-[0.16em] text-accent mb-2">
-                Metodika
-              </span>
-              <p className="text-[14px] leading-[1.7]">
-                Kurzy vedou zkušení školitelé v čele s Ing. Petrem Wagnerem — držitelem
-                IVSI Card Gold, profesionálním instruktorem a trenérem. Metodika je postavená
-                na dvou desítkách let praxe přímo na svahu: učíme rozpoznávat chyby, pracovat
-                s různými typy klientů a zvládat skupinu. Nejen techniku, ale i pedagogiku,
-                psychologii a komunikaci.
-              </p>
-            </div>
+            {texts.instruktor.intro.sections.map((section, i) => (
+              <div key={i} className={i < texts.instruktor.intro.sections.length - 1 ? "mb-8" : ""}>
+                <span className="block text-[9px] uppercase tracking-[0.16em] text-accent mb-2">
+                  {section.label}
+                </span>
+                <p className="text-[14px] leading-[1.7]">
+                  {section.text}
+                </p>
+              </div>
+            ))}
 
             <blockquote className="border-l-2 border-accent pl-5 py-1 my-10 font-serif italic text-[18px] sm:text-[20px] leading-[1.5] text-ink">
-              „Správný instruktor musí umět správně naučit,
-              mít dobrou náladu a bavit okolí."
+              {texts.instruktor.intro.quote}
             </blockquote>
-
-            <div className="mb-8">
-              <span className="block text-[9px] uppercase tracking-[0.16em] text-accent mb-2">
-                Program
-              </span>
-              <p className="text-[14px] leading-[1.7]">
-                Kromě výuky na sněhu vás čekají přednášky o bezpečnosti na horách, biomechanice
-                pohybu a materiálovém poradenství. Součástí programu bývají i speciální hosté —
-                členové horské služby nebo účastníci Freeride World Tour. Kurz je náročný,
-                ale jeho investice se vám vrátí během několika málo dnů aktivní výuky.
-              </p>
-            </div>
-
-            <div>
-              <span className="block text-[9px] uppercase tracking-[0.16em] text-accent mb-2">
-                Uplatnění
-              </span>
-              <p className="text-[14px] leading-[1.7]">
-                S licencí od nás můžete učit v lyžařských školách po celé ČR, na školních
-                kurzech středních i vysokých škol a také na Slovensku. Úspěšní absolventi
-                pokračují na navazující kurz C nebo získávají mezinárodní certifikaci IVSI.
-                Celosezónním zaměstnancům Sherpa Ski School vracíme plné kurzovné — bereme to
-                jako dlouhodobé partnerství, ne jako jednorázový obchod.
-              </p>
-            </div>
           </div>
         </div>
       </section>
@@ -103,7 +61,7 @@ export default async function InstruktorPage() {
             <Image
               src="/images/kurzdalsi.jpg"
               fill
-              alt="Výuka na instruktorském kurzu"
+              alt={texts.instruktor.intro.galleryAlt1}
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
               draggable={false}
@@ -113,7 +71,7 @@ export default async function InstruktorPage() {
             <Image
               src="/images/kurzlokal.jpg"
               fill
-              alt="Lokalita instruktorského kurzu"
+              alt={texts.instruktor.intro.galleryAlt2}
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
               draggable={false}
@@ -129,47 +87,35 @@ export default async function InstruktorPage() {
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
             <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
-              Ceník
+              {texts.instruktor.pricing.eyebrow}
             </span>
             <h2 className="text-[28px] sm:text-[36px] font-normal tracking-[-0.02em] leading-[1.2] mb-6">
-              All-inclusive cena
+              {texts.instruktor.pricing.title}
             </h2>
             <div className="space-y-4">
-              <div className="border border-line rounded-[3px] p-6">
-                <div className="flex items-baseline justify-between mb-2">
-                  <h3 className="text-[16px] font-medium">Premium balíček</h3>
-                  <span className="text-[20px] font-normal text-accent">16 900 Kč</span>
+              {texts.instruktor.pricing.packages.map((pkg) => (
+                <div key={pkg.title} className="border border-line rounded-[3px] p-6">
+                  <div className="flex items-baseline justify-between mb-2">
+                    <h3 className="text-[16px] font-medium">{pkg.title}</h3>
+                    <span className="text-[20px] font-normal text-accent">{pkg.price}</span>
+                  </div>
+                  <p className="text-[12px] text-ink-muted mb-3">
+                    {pkg.note}
+                  </p>
+                  <p className="text-[13px] text-ink-secondary leading-[1.6]">
+                    {pkg.description}
+                  </p>
                 </div>
-                <p className="text-[12px] text-ink-muted mb-3">
-                  Při platbě do 10. 12. — jinak 22 900 Kč na místě
-                </p>
-                <p className="text-[13px] text-ink-secondary leading-[1.6]">
-                  Zahrnuje ubytování, polopenzi, skipasy, materiály, přednášky
-                  a celoživotní certifikaci.
-                </p>
-              </div>
-              <div className="border border-line rounded-[3px] p-6">
-                <div className="flex items-baseline justify-between mb-2">
-                  <h3 className="text-[16px] font-medium">Bez ubytování</h3>
-                  <span className="text-[20px] font-normal text-accent">7 200 Kč</span>
-                </div>
-                <p className="text-[12px] text-ink-muted mb-3">
-                  Pro ty, kteří si zajistí ubytování sami
-                </p>
-                <p className="text-[13px] text-ink-secondary leading-[1.6]">
-                  Plná výuka, materiály a certifikace. Plná refundace při
-                  celosezónním zaměstnání.
-                </p>
-              </div>
+              ))}
             </div>
           </div>
 
           <div>
             <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
-              Co je v ceně
+              {texts.instruktor.pricing.includedLabel}
             </span>
             <ul className="space-y-3">
-              {instructorIncluded.map((item) => (
+              {texts.instruktor.pricing.included.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-[13px] text-ink-secondary">
                   <span className="mt-1.5 w-[6px] h-[6px] rounded-full bg-accent shrink-0" />
                   {item}
@@ -184,23 +130,23 @@ export default async function InstruktorPage() {
       <section className="py-16 px-7 bg-ink text-white">
         <div className="max-w-[1280px] mx-auto text-center">
           <h2 className="text-[28px] sm:text-[36px] font-normal tracking-[-0.02em] leading-[1.2] mb-4">
-            Staň se instruktorem
+            {texts.instruktor.cta.title}
           </h2>
           <p className="text-[14px] text-white/60 leading-[1.6] mb-8 max-w-md mx-auto">
-            Přihlas se na kurz a získej celoživotní licenci. Každá dobrá lyžařská škola tě zaměstná.
+            {texts.instruktor.cta.description}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="#prihlaska"
               className="min-h-[44px] flex items-center bg-white text-ink text-[10px] uppercase tracking-[0.14em] px-6 py-[10px] rounded-[2px] hover:opacity-90 transition-opacity"
             >
-              Přihláška na kurz
+              {texts.instruktor.cta.ctaPrimary}
             </a>
             <a
-              href="mailto:chcibytinstruktor@wagnerski.cz"
+              href={`mailto:${texts.instruktor.cta.email}`}
               className="min-h-[44px] flex items-center text-[12px] text-white/60 hover:text-white/90 transition-colors"
             >
-              chcibytinstruktor@wagnerski.cz
+              {texts.instruktor.cta.email}
             </a>
           </div>
         </div>

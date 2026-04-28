@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import { Tag } from "@/components/ui/Tag";
 import { CourseSignupForm } from "@/components/ui/CourseSignupForm";
 import type { InstructorCourse } from "@/lib/supabase";
+import texts from "@/data/texts.json";
 
 interface CourseWithSignupProps {
   courses: InstructorCourse[];
@@ -26,7 +27,7 @@ export function CourseWithSignup({ courses }: CourseWithSignupProps) {
       <section className="py-16 px-7 bg-surface">
         <div className="max-w-[1280px] mx-auto">
           <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-8">
-            Nabídka kurzů
+            {texts.courseWithSignup.eyebrow}
           </span>
           {courses.length > 0 ? (
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -52,11 +53,11 @@ export function CourseWithSignup({ courses }: CourseWithSignupProps) {
                   </div>
                   <div className="border-t border-line pt-4 mt-auto space-y-1.5">
                     <div className="flex justify-between text-[12px]">
-                      <span className="text-ink-muted">Termín</span>
+                      <span className="text-ink-muted">{texts.courseWithSignup.termLabel}</span>
                       <span className="font-medium">{c.date}</span>
                     </div>
                     <div className="flex justify-between text-[12px]">
-                      <span className="text-ink-muted">Místo</span>
+                      <span className="text-ink-muted">{texts.courseWithSignup.locationLabel}</span>
                       <span className="font-medium">{c.location}</span>
                     </div>
                   </div>
@@ -64,7 +65,7 @@ export function CourseWithSignup({ courses }: CourseWithSignupProps) {
                     <div className="border-t border-line pt-3 mt-3 space-y-1.5">
                       {c.price_with_accommodation > 0 && (
                         <div className="flex justify-between text-[12px]">
-                          <span className="text-ink-muted">S ubytováním</span>
+                          <span className="text-ink-muted">{texts.courseWithSignup.priceWithAccommodation}</span>
                           <span className="font-medium text-accent">
                             {c.price_with_accommodation.toLocaleString("cs-CZ")} Kč
                           </span>
@@ -72,7 +73,7 @@ export function CourseWithSignup({ courses }: CourseWithSignupProps) {
                       )}
                       {c.price_without_accommodation > 0 && (
                         <div className="flex justify-between text-[12px]">
-                          <span className="text-ink-muted">Bez ubytování</span>
+                          <span className="text-ink-muted">{texts.courseWithSignup.priceWithoutAccommodation}</span>
                           <span className="font-medium">
                             {c.price_without_accommodation.toLocaleString("cs-CZ")} Kč
                           </span>
@@ -84,13 +85,13 @@ export function CourseWithSignup({ courses }: CourseWithSignupProps) {
                     onClick={() => handleCourseClick(c.id)}
                     className="mt-4 w-full text-center bg-ink text-cream text-[10px] uppercase tracking-[0.14em] px-4 py-2.5 rounded-[2px] opacity-0 group-hover:opacity-100 transition-opacity"
                   >
-                    Přihlásit se na kurz
+                    {texts.courseWithSignup.signupButton}
                   </button>
                 </div>
               ))}
             </div>
           ) : (
-            <p className="text-[14px] text-ink-secondary">Termíny kurzů budou zveřejněny brzy.</p>
+            <p className="text-[14px] text-ink-secondary">{texts.courseWithSignup.empty}</p>
           )}
         </div>
       </section>

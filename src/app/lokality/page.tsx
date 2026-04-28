@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { SubpageHero } from "@/components/ui/SubpageHero";
 import type { Metadata } from "next";
+import texts from "@/data/texts.json";
 
 export const metadata: Metadata = {
-  title: "Lokality | Wagner Ski Akademie",
-  description:
-    "Karlov pod Pradědem - hlavní středisko Wagner Ski Akademie v Jeseníkách. Skiaréna s kvalitním zasněžováním a ideálními podmínkami pro výuku.",
+  title: texts.meta.lokality.title,
+  description: texts.meta.lokality.description,
 };
 
 export default function LokalityPage() {
@@ -13,10 +13,10 @@ export default function LokalityPage() {
     <>
       {/* Hero */}
       <SubpageHero
-        eyebrow="Lokality"
-        title="Kde nás najdete"
+        eyebrow={texts.lokality.hero.eyebrow}
+        title={texts.lokality.hero.title}
         imageSrc="/images/karlov.jpg"
-        imageAlt="Karlov pod Pradědem - skiareál"
+        imageAlt={texts.lokality.hero.imageAlt}
         logoSrc="/images/loga/skiarena-karlov.svg"
         logoAlt="Ski aréna Karlov"
         logoWidth={234}
@@ -28,28 +28,15 @@ export default function LokalityPage() {
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-[5fr_4fr] gap-12">
           <div>
             <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
-              Hlavní středisko
+              {texts.lokality.detail.eyebrow}
             </span>
             <h2 className="text-[28px] sm:text-[36px] font-normal tracking-[-0.02em] leading-[1.2] mb-6">
-              Sherpaski — Ski aréna Karlov pod Pradědem
+              {texts.lokality.detail.title}
             </h2>
             <div className="space-y-4 text-[14px] text-ink-secondary leading-[1.7]">
-              <p>
-                Karlov pod Pradědem je naše domovské středisko. Nachází se v srdci Jeseníků
-                v nadmořské výšce 830–1 100 m n. m. Skiaréna nabízí moderní zasněžování,
-                kvalitně upravené sjezdovky a ideální podmínky pro výuku lyžování
-                i snowboardu.
-              </p>
-              <p>
-                Středisko disponuje sjezdovkami různé obtížnosti — od mírných svahů
-                ideálních pro začátečníky a děti, až po náročnější tratě pro pokročilé
-                lyžaře. Celková délka sjezdovek přesahuje 4 km.
-              </p>
-              <p>
-                Díky nadmořské výšce a severní expozici svahů patří Karlov k místům
-                s nejdelší sezónou v České republice. Sezóna obvykle trvá od prosince
-                do dubna.
-              </p>
+              {texts.lokality.detail.paragraphs.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
             </div>
           </div>
 
@@ -58,7 +45,7 @@ export default function LokalityPage() {
               <Image
                 src="/images/jolcavyuka.jpeg"
                 fill
-                alt="Sjezdovky Karlov"
+                alt={texts.lokality.detail.imageAlt}
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 44vw"
                 draggable={false}
@@ -67,17 +54,10 @@ export default function LokalityPage() {
 
             <div className="border border-line rounded-[3px] p-6">
               <h3 className="text-[13px] font-medium tracking-[-0.01em] mb-4">
-                Parametry střediska
+                {texts.lokality.detail.parametersTitle}
               </h3>
               <dl className="space-y-3 text-[13px]">
-                {[
-                  ["Nadmořská výška", "830 – 1 100 m n. m."],
-                  ["Sjezdovky", "4+ km, všechny obtížnosti"],
-                  ["Zasněžování", "Moderní technické zasněžování"],
-                  ["Sezóna", "Prosinec – Duben"],
-                  ["Vleky", "Sedačková lanovka, kotvy, pomy"],
-                  ["Region", "Jeseníky, Moravskoslezský kraj"],
-                ].map(([label, value]) => (
+                {texts.lokality.detail.parameters.map(([label, value]) => (
                   <div key={label} className="flex justify-between gap-4">
                     <dt className="text-ink-muted">{label}</dt>
                     <dd className="text-right font-medium">{value}</dd>
@@ -93,21 +73,15 @@ export default function LokalityPage() {
       <section className="py-16 px-7 bg-surface">
         <div className="max-w-[1280px] mx-auto">
           <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
-            Výuka kdekoliv v Jeseníkách
+            {texts.lokality.akademie.eyebrow}
           </span>
           <h2 className="text-[28px] sm:text-[36px] font-normal tracking-[-0.02em] leading-[1.2] mb-6">
-            Ski akademie — Jeseníky
+            {texts.lokality.akademie.title}
           </h2>
           <div className="max-w-2xl space-y-4 text-[14px] text-ink-secondary leading-[1.7]">
-            <p>
-              Služby Wagner Ski Akademie si můžete objednat v jakémkoliv středisku
-              v Jeseníkách — dle individuální domluvy. Ať už lyžujete na Ovčárně,
-              Dolní Moravě, Ramzové nebo kdekoliv jinde, přijedeme za vámi.
-            </p>
-            <p>
-              Stačí nás kontaktovat, domluvit termín a místo. Přizpůsobíme se vašim
-              potřebám a zajistíme stejně kvalitní výuku jako v našem domovském středisku.
-            </p>
+            {texts.lokality.akademie.paragraphs.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
           </div>
         </div>
       </section>
@@ -116,35 +90,10 @@ export default function LokalityPage() {
       <section className="py-16 px-7">
         <div className="max-w-[1280px] mx-auto">
           <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-8">
-            Proč právě Karlov
+            {texts.lokality.whyKarlov.eyebrow}
           </span>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: "Ideální pro výuku",
-                text: "Mírné svahy s dostatečným prostorem pro bezpečnou výuku začátečníků i dětí. Oddělená výuková zóna.",
-              },
-              {
-                title: "Dlouhá sezóna",
-                text: "Díky severní expozici a nadmořské výšce je sníh spolehlivý od prosince do dubna. Kvalitní zasněžování jako pojistka.",
-              },
-              {
-                title: "Kompletní zázemí",
-                text: "Půjčovna vybavení, restaurace, parkoviště. Vše na jednom místě, bez zbytečného přesunu.",
-              },
-              {
-                title: "Sjezdovky pro všechny",
-                text: "Od dětského svahu přes modré a červené sjezdovky až po náročnější tratě. Každý si najde své.",
-              },
-              {
-                title: "Dostupnost",
-                text: "Snadný příjezd z Olomouce (90 min), Ostravy (80 min) i Brna (2,5 hod). Dostatek parkovacích míst.",
-              },
-              {
-                title: "Tradice od 2005",
-                text: "Na Karlově učíme přes 20 let. Známe každý metr svahu a víme, kde se nejlépe učí.",
-              },
-            ].map((item) => (
+            {texts.lokality.whyKarlov.items.map((item) => (
               <div key={item.title} className="border border-line rounded-[3px] p-6 bg-cream">
                 <h3 className="text-[14px] font-medium tracking-[-0.01em] mb-2">
                   {item.title}

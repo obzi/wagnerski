@@ -3,72 +3,24 @@ import { SubpageHero } from "@/components/ui/SubpageHero";
 import { Tag } from "@/components/ui/Tag";
 import Link from "next/link";
 import type { Metadata } from "next";
+import texts from "@/data/texts.json";
 
 export const metadata: Metadata = {
-  title: "Lyžařská škola Sherpa | Wagner Ski Akademie",
-  description:
-    "Sherpa Ski School - výuka lyžování, snowboardu a telemarku v Jeseníkách. Individuální i skupinové lekce pro děti i dospělé. Pouze akreditovaní instruktoři MŠMT.",
+  title: texts.meta.skola.title,
+  description: texts.meta.skola.description,
 };
-
-const disciplines = [
-  {
-    title: "Lyžování",
-    description:
-      "Od prvních oblouků až po dynamický carving. Individuální přístup, moderní metodika a důraz na správnou techniku od začátku.",
-    tags: ["Začátečníci", "Pokročilí", "Carving", "Děti"],
-  },
-  {
-    title: "Snowboard",
-    description:
-      "Výuka snowboardu pro všechny úrovně. Bezpečný postup od základů po freestyle a freeride. Správné návyky od první hodiny.",
-    tags: ["Začátečníci", "Pokročilí", "Freestyle"],
-  },
-  {
-    title: "Telemark",
-    description:
-      "Klasický styl lyžování s volnou patou. Elegantní technika, která vás odliší na svahu. Pro ty, kteří hledají něco navíc.",
-    tags: ["Všechny úrovně", "Speciální disciplína"],
-  },
-];
-
-const features = [
-  {
-    title: "Pouze MŠMT instruktoři",
-    text: "Žádní pomocníci ani brigádníci. Každý náš instruktor má platnou licenci MŠMT ČR a minimálně 5 let praxe.",
-  },
-  {
-    title: "Individuální přístup",
-    text: "Přizpůsobujeme tempo a metodu každému žákovi. Malé skupiny, maximálně 6 osob na instruktora.",
-  },
-  {
-    title: "Moderní metodika",
-    text: "Využíváme aktuální trendy ve výuce — video analýza, postupné budování dovedností, důraz na bezpečnost.",
-  },
-  {
-    title: "Výuka pro děti od 3 let",
-    text: "Speciální dětský program s hravým přístupem. Trpěliví instruktoři se zkušenostmi s nejmenšími lyžaři.",
-  },
-  {
-    title: "26 let zkušeností",
-    text: "Sherpa Ski School funguje od roku 1999. Přes 2 200 vyškolených instruktorů a tisíce spokojených žáků.",
-  },
-  {
-    title: "Kompletní vybavení",
-    text: "Možnost zapůjčení kvalitního lyžařského a snowboardového vybavení přímo na místě.",
-  },
-];
 
 export default function SkolaPage() {
   return (
     <>
       {/* Hero */}
       <SubpageHero
-        eyebrow="Sherpa Ski School"
-        title="Lyžařská a snowboardová škola"
-        description="Výuka lyžování, snowboardu a telemarku v Jeseníkách. Pouze akreditovaní instruktoři."
+        eyebrow={texts.skola.hero.eyebrow}
+        title={texts.skola.hero.title}
+        description={texts.skola.hero.description}
         imageSrc="/images/vyuka.jpeg"
         imagePositionClass="object-center sm:object-[center_25%]"
-        imageAlt="Lyžařská škola Sherpa - výuka lyžování"
+        imageAlt={texts.skola.hero.imageAlt}
         logoSrc="/images/loga/sherpa.svg"
         logoAlt="Sherpa Ski School"
         logoWidth={130}
@@ -84,14 +36,14 @@ export default function SkolaPage() {
               <circle cx="12" cy="9" r="2.5" />
             </svg>
             <span className="text-[13px] sm:text-[14px] tracking-[-0.01em]">
-              Působíme ve <strong className="font-medium">Ski aréně Karlov pod Pradědem</strong> — srdce Jeseníků
+              {texts.skola.locationBanner.textBefore}<strong className="font-medium">{texts.skola.locationBanner.textStrong}</strong>{texts.skola.locationBanner.textAfter}
             </span>
           </div>
           <a
             href="/lokality"
             className="text-[11px] uppercase tracking-[0.14em] text-accent hover:text-white transition-colors shrink-0"
           >
-            Více o lokalitě →
+            {texts.skola.locationBanner.link}
           </a>
         </div>
       </section>
@@ -101,36 +53,28 @@ export default function SkolaPage() {
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
-              O škole
+              {texts.skola.intro.eyebrow}
             </span>
             <h2 className="text-[28px] sm:text-[36px] font-normal tracking-[-0.02em] leading-[1.2] mb-6">
-              Učíme lyžovat od roku 1999
+              {texts.skola.intro.title}
             </h2>
             <div className="space-y-4 text-[14px] text-ink-secondary leading-[1.7]">
-              <p>
-                Sherpa Ski School je lyžařská a snowboardová škola s více než 26letou tradicí.
-                Sídlíme na Karlově pod Pradědem v Jeseníkách — jednom z nejspolehlivějších
-                lyžařských středisek v ČR.
-              </p>
-              <p>
-                Specializujeme se na individuální výuku s důrazem na správnou techniku.
-                Naši instruktoři jsou výhradně držitelé licence MŠMT ČR — žádní pomocníci
-                ani brigádníci. Za dobu existence jsme vyškolili přes 2 200 instruktorů
-                a naučili lyžovat tisíce dětí i dospělých.
-              </p>
+              {texts.skola.intro.paragraphs.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
             </div>
             <Link
               href="/rezervace"
               className="inline-block mt-8 bg-ink text-cream text-[10px] uppercase tracking-[0.14em] px-6 py-[10px] rounded-[2px] hover:opacity-90 transition-opacity"
             >
-              Rezervovat hodinu
+              {texts.skola.intro.cta}
             </Link>
           </div>
           <div className="relative aspect-[4/3] rounded-[3px] overflow-hidden">
             <Image
               src="/images/ucime.jpg"
               fill
-              alt="Výuka lyžování dětí"
+              alt={texts.skola.intro.imageAlt}
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
               draggable={false}
@@ -143,10 +87,10 @@ export default function SkolaPage() {
       <section className="py-16 px-7 bg-surface">
         <div className="max-w-[1280px] mx-auto">
           <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-8">
-            Discipliny
+            {texts.skola.disciplines.eyebrow}
           </span>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {disciplines.map((d) => (
+            {texts.skola.disciplines.items.map((d) => (
               <div key={d.title} className="border border-line rounded-[3px] p-6 bg-cream">
                 <h3 className="text-[18px] font-normal tracking-[-0.01em] mb-3">
                   {d.title}
@@ -169,10 +113,10 @@ export default function SkolaPage() {
       <section className="py-16 px-7">
         <div className="max-w-[1280px] mx-auto">
           <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-8">
-            Proč Sherpa
+            {texts.skola.features.eyebrow}
           </span>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((f) => (
+            {texts.skola.features.items.map((f) => (
               <div key={f.title} className="border-l-2 border-accent pl-5 py-1">
                 <h3 className="text-[14px] font-medium tracking-[-0.01em] mb-2">
                   {f.title}
@@ -190,23 +134,23 @@ export default function SkolaPage() {
       <section className="py-16 px-7 bg-ink text-white">
         <div className="max-w-[1280px] mx-auto text-center">
           <h2 className="text-[28px] sm:text-[36px] font-normal tracking-[-0.02em] leading-[1.2] mb-4">
-            Připraveni na svah?
+            {texts.skola.cta.title}
           </h2>
           <p className="text-[14px] text-white/60 leading-[1.6] mb-8 max-w-md mx-auto">
-            Rezervujte si hodinu s jedním z našich instruktorů. Individuální výuka i skupinové lekce.
+            {texts.skola.cta.description}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/rezervace"
               className="min-h-[44px] flex items-center bg-white text-ink text-[10px] uppercase tracking-[0.14em] px-6 py-[10px] rounded-[2px] hover:opacity-90 transition-opacity"
             >
-              Rezervovat hodinu
+              {texts.skola.cta.ctaPrimary}
             </Link>
             <a
               href="tel:+420604681100"
               className="min-h-[44px] flex items-center text-[12px] text-white/60 hover:text-white/90 transition-colors"
             >
-              +420 604 681 100
+              {texts.skola.cta.phone}
             </a>
           </div>
         </div>

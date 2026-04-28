@@ -10,6 +10,7 @@ import type {
   SiteSetting,
   NewsItem,
 } from "@/lib/supabase";
+import texts from "@/data/texts.json";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -306,13 +307,13 @@ function LoginForm({ onLogin }: { onLogin: () => void }) {
         password,
       });
       if (authError) {
-        setError("Neplatné přihlašovací údaje");
+        setError("${texts.admin.login.invalidCredentials}");
       } else {
         sessionStorage.setItem("wagnerski_auth", "1");
         onLogin();
       }
     } else {
-      setError("Neplatné přihlašovací údaje");
+      setError("${texts.admin.login.invalidCredentials}");
     }
     setLoading(false);
   }
@@ -328,14 +329,12 @@ function LoginForm({ onLogin }: { onLogin: () => void }) {
         { redirectTo: `${window.location.origin}/admin` }
       );
       if (resetError) {
-        setError("Nepodařilo se odeslat e-mail pro reset hesla");
+        setError(texts.admin.login.forgotError);
       } else {
         setForgotSent(true);
       }
     } else {
-      setError(
-        "Reset hesla vyžaduje konfiguraci Supabase. Kontaktujte administrátora."
-      );
+      setError(texts.admin.login.forgotNoSupabase);
     }
     setLoading(false);
   }
@@ -345,12 +344,12 @@ function LoginForm({ onLogin }: { onLogin: () => void }) {
       <div className="min-h-screen bg-surface flex items-center justify-center px-4">
         <div className="w-full max-w-sm bg-cream border border-line rounded-[3px] p-8">
           <h1 className="text-[20px] font-normal tracking-[-0.02em] mb-2">
-            Zapomenuté heslo
+            {texts.admin.login.forgotTitle}
           </h1>
           {forgotSent ? (
             <>
               <p className="text-[13px] text-ink-secondary mb-6">
-                Odkaz pro reset hesla byl odeslán na váš e-mail.
+                {texts.admin.login.forgotSuccess}
               </p>
               <button
                 onClick={() => {
@@ -359,13 +358,13 @@ function LoginForm({ onLogin }: { onLogin: () => void }) {
                 }}
                 className="text-[12px] text-accent hover:underline"
               >
-                Zpět na přihlášení
+                {texts.admin.login.forgotBack}
               </button>
             </>
           ) : (
             <form onSubmit={handleForgotPassword}>
               <p className="text-[13px] text-ink-secondary mb-6">
-                Zadejte e-mail a pošleme vám odkaz pro obnovení hesla.
+                {texts.admin.login.forgotDescription}
               </p>
               {error && (
                 <p className="text-[12px] text-red-600 mb-4">{error}</p>
@@ -385,14 +384,14 @@ function LoginForm({ onLogin }: { onLogin: () => void }) {
                 disabled={loading}
                 className="w-full bg-ink text-cream text-[11px] uppercase tracking-[0.14em] px-6 py-3 rounded-[2px] hover:opacity-90 transition-opacity disabled:opacity-50"
               >
-                {loading ? "Odesílám..." : "Odeslat odkaz"}
+                {loading ? texts.admin.login.forgotSubmitting : texts.admin.login.forgotSubmit}
               </button>
               <button
                 type="button"
                 onClick={() => setForgotMode(false)}
                 className="block mt-4 text-[12px] text-ink-muted hover:text-ink-secondary"
               >
-                Zpět na přihlášení
+                {texts.admin.login.forgotBack}
               </button>
             </form>
           )}
@@ -408,14 +407,14 @@ function LoginForm({ onLogin }: { onLogin: () => void }) {
         className="w-full max-w-sm bg-cream border border-line rounded-[3px] p-8"
       >
         <h1 className="text-[20px] font-normal tracking-[-0.02em] mb-1">
-          Administrace
+          {texts.admin.login.title}
         </h1>
         <p className="text-[13px] text-ink-secondary mb-6">
-          Wagner Ski Akademie
+          {texts.admin.login.subtitle}
         </p>
         {error && <p className="text-[12px] text-red-600 mb-4">{error}</p>}
         <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1.5">
-          Uživatel / E-mail
+          {texts.admin.login.usernameLabel}
         </label>
         <input
           type="text"
@@ -425,7 +424,7 @@ function LoginForm({ onLogin }: { onLogin: () => void }) {
           required
         />
         <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1.5">
-          Heslo
+          {texts.admin.login.passwordLabel}
         </label>
         <input
           type="password"
@@ -439,14 +438,14 @@ function LoginForm({ onLogin }: { onLogin: () => void }) {
           disabled={loading}
           className="w-full bg-ink text-cream text-[11px] uppercase tracking-[0.14em] px-6 py-3 rounded-[2px] hover:opacity-90 transition-opacity disabled:opacity-50"
         >
-          {loading ? "Přihlašuji..." : "Přihlásit se"}
+          {loading ? texts.admin.login.submitting : texts.admin.login.submitButton}
         </button>
         <button
           type="button"
           onClick={() => setForgotMode(true)}
           className="block mt-4 text-[12px] text-ink-muted hover:text-ink-secondary"
         >
-          Zapomenuté heslo
+          {texts.admin.login.forgotPassword}
         </button>
       </form>
     </div>
@@ -492,14 +491,14 @@ function SkicampManager() {
   }
 
   if (loading) {
-    return <p className="text-[13px] text-ink-muted">Načítání...</p>;
+    return <p className="text-[13px] text-ink-muted">{texts.admin.common.loading}</p>;
   }
 
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-[18px] font-normal tracking-[-0.01em]">
-          Termíny Skicamp
+          {texts.admin.skicamp.title}
         </h2>
         <button
           className={btnPrimary}
@@ -517,7 +516,7 @@ function SkicampManager() {
             });
           }}
         >
-          + Přidat termín
+          {texts.admin.skicamp.addButton}
         </button>
       </div>
 
@@ -531,7 +530,7 @@ function SkicampManager() {
 
       {terms.length === 0 && !editing && (
         <p className="text-[13px] text-ink-muted">
-          Žádné termíny. Přidejte první termín.
+          {texts.admin.skicamp.empty}
         </p>
       )}
 
@@ -565,10 +564,10 @@ function SkicampManager() {
                 className={btnSecondary}
                 onClick={() => { setIsNew(false); setEditing(t); }}
               >
-                Upravit
+                {texts.admin.common.edit}
               </button>
               <button className={btnDanger} onClick={() => handleDelete(t.id)}>
-                Smazat
+                {texts.admin.common.delete}
               </button>
             </div>
           </div>
@@ -677,10 +676,10 @@ function TermForm({
       </div>
       <div className="flex gap-3">
         <button className={btnPrimary} onClick={() => onSave(data)}>
-          Uložit
+          {texts.admin.common.save}
         </button>
         <button className={btnSecondary} onClick={onCancel}>
-          Zrušit
+          {texts.admin.common.cancel}
         </button>
       </div>
     </div>
@@ -713,14 +712,14 @@ function CoursesManager() {
   }
 
   if (loading) {
-    return <p className="text-[13px] text-ink-muted">Načítání...</p>;
+    return <p className="text-[13px] text-ink-muted">{texts.admin.common.loading}</p>;
   }
 
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-[18px] font-normal tracking-[-0.01em]">
-          Kurzy instruktorů
+          {texts.admin.courses.title}
         </h2>
         <button
           className={btnPrimary}
@@ -740,7 +739,7 @@ function CoursesManager() {
             });
           }}
         >
-          + Přidat kurz
+          {texts.admin.courses.addButton}
         </button>
       </div>
 
@@ -775,10 +774,10 @@ function CoursesManager() {
                 className={btnSecondary}
                 onClick={() => { setIsNew(false); setEditing(c); }}
               >
-                Upravit
+                {texts.admin.common.edit}
               </button>
               <button className={btnDanger} onClick={() => handleDelete(c.id)}>
-                Smazat
+                {texts.admin.common.delete}
               </button>
             </div>
           </div>
@@ -916,10 +915,10 @@ function CourseForm({
       </div>
       <div className="flex gap-3">
         <button className={btnPrimary} onClick={() => onSave(data)}>
-          Uložit
+          {texts.admin.common.save}
         </button>
         <button className={btnSecondary} onClick={onCancel}>
-          Zrušit
+          {texts.admin.common.cancel}
         </button>
       </div>
     </div>
@@ -952,20 +951,20 @@ function ReservationManager() {
   }
 
   const categories = [
-    { key: "individual" as const, label: "Individuální výuka" },
-    { key: "group" as const, label: "Skupinová výuka" },
-    { key: "special" as const, label: "Speciální programy" },
+    { key: "individual" as const, label: texts.admin.reservation.categories.individual },
+    { key: "group" as const, label: texts.admin.reservation.categories.group },
+    { key: "special" as const, label: texts.admin.reservation.categories.special },
   ];
 
   if (loading) {
-    return <p className="text-[13px] text-ink-muted">Načítání...</p>;
+    return <p className="text-[13px] text-ink-muted">{texts.admin.common.loading}</p>;
   }
 
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-[18px] font-normal tracking-[-0.01em]">
-          Ceník a rezervace
+          {texts.admin.reservation.title}
         </h2>
         <button
           className={btnPrimary}
@@ -981,7 +980,7 @@ function ReservationManager() {
             });
           }}
         >
-          + Přidat položku
+          {texts.admin.reservation.addButton}
         </button>
       </div>
 
@@ -1026,13 +1025,13 @@ function ReservationManager() {
                       className={btnSecondary}
                       onClick={() => { setIsNew(false); setEditing(p); }}
                     >
-                      Upravit
+                      {texts.admin.common.edit}
                     </button>
                     <button
                       className={btnDanger}
                       onClick={() => handleDelete(p.id)}
                     >
-                      Smazat
+                      {texts.admin.common.delete}
                     </button>
                   </div>
                 </div>
@@ -1120,10 +1119,10 @@ function PriceForm({
       </div>
       <div className="flex gap-3">
         <button className={btnPrimary} onClick={() => onSave(data)}>
-          Uložit
+          {texts.admin.common.save}
         </button>
         <button className={btnSecondary} onClick={onCancel}>
-          Zrušit
+          {texts.admin.common.cancel}
         </button>
       </div>
     </div>
@@ -1156,14 +1155,14 @@ function ContactsManager() {
   }
 
   if (loading) {
-    return <p className="text-[13px] text-ink-muted">Načítání...</p>;
+    return <p className="text-[13px] text-ink-muted">{texts.admin.common.loading}</p>;
   }
 
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-[18px] font-normal tracking-[-0.01em]">
-          Kontakty
+          {texts.admin.contacts.title}
         </h2>
         <button
           className={btnPrimary}
@@ -1178,7 +1177,7 @@ function ContactsManager() {
             });
           }}
         >
-          + Přidat kontakt
+          {texts.admin.contacts.addButton}
         </button>
       </div>
 
@@ -1208,10 +1207,10 @@ function ContactsManager() {
                 className={btnSecondary}
                 onClick={() => { setIsNew(false); setEditing(c); }}
               >
-                Upravit
+                {texts.admin.common.edit}
               </button>
               <button className={btnDanger} onClick={() => handleDelete(c.id)}>
-                Smazat
+                {texts.admin.common.delete}
               </button>
             </div>
           </div>
@@ -1289,10 +1288,10 @@ function ContactForm({
       </div>
       <div className="flex gap-3">
         <button className={btnPrimary} onClick={() => onSave(data)}>
-          Uložit
+          {texts.admin.common.save}
         </button>
         <button className={btnSecondary} onClick={onCancel}>
-          Zrušit
+          {texts.admin.common.cancel}
         </button>
       </div>
     </div>
@@ -1328,21 +1327,21 @@ function SettingsManager() {
   }
 
   if (loading) {
-    return <p className="text-[13px] text-ink-muted">Načítání...</p>;
+    return <p className="text-[13px] text-ink-muted">{texts.admin.common.loading}</p>;
   }
 
   return (
     <div className="space-y-8">
       <div>
         <h2 className="text-[18px] font-normal tracking-[-0.01em] mb-6">
-          Nastavení
+          {texts.admin.settings.title}
         </h2>
       </div>
 
       <div className="border border-line rounded-[3px] p-6 bg-white max-w-md">
-        <h3 className="text-[13px] font-medium tracking-[-0.01em] mb-4">Vouchery</h3>
+        <h3 className="text-[13px] font-medium tracking-[-0.01em] mb-4">{texts.admin.settings.voucher.title}</h3>
         <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1">
-          Sleva na vouchery (%)
+          {texts.admin.settings.voucher.discountLabel}
         </label>
         <div className="flex gap-3 items-center">
           <input
@@ -1354,21 +1353,21 @@ function SettingsManager() {
             className={inputCls + " max-w-[120px]"}
           />
           <button className={btnPrimary} onClick={() => saveSetting("voucher_discount", discountValue)}>
-            Uložit
+            {texts.admin.common.save}
           </button>
           {saved === "voucher_discount" && (
-            <span className="text-[12px] text-accent">Uloženo</span>
+            <span className="text-[12px] text-accent">{texts.admin.common.saved}</span>
           )}
         </div>
         <p className="text-[11px] text-ink-muted mt-2">
-          Výchozí hodnota: 15 %. Sleva se aplikuje na všechny vouchery.
+          {texts.admin.settings.voucher.discountNote}
         </p>
       </div>
 
       <div className="border border-line rounded-[3px] p-6 bg-white max-w-md">
-        <h3 className="text-[13px] font-medium tracking-[-0.01em] mb-4">Aktuality</h3>
+        <h3 className="text-[13px] font-medium tracking-[-0.01em] mb-4">{texts.admin.settings.news.title}</h3>
         <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1">
-          Max. počet zobrazených aktualit
+          {texts.admin.settings.news.maxLabel}
         </label>
         <div className="flex gap-3 items-center">
           <input
@@ -1380,14 +1379,14 @@ function SettingsManager() {
             className={inputCls + " max-w-[120px]"}
           />
           <button className={btnPrimary} onClick={() => saveSetting("news_max_display", newsMaxValue)}>
-            Uložit
+            {texts.admin.common.save}
           </button>
           {saved === "news_max_display" && (
-            <span className="text-[12px] text-accent">Uloženo</span>
+            <span className="text-[12px] text-accent">{texts.admin.common.saved}</span>
           )}
         </div>
         <p className="text-[11px] text-ink-muted mt-2">
-          Starší aktuality nad tento limit se na webu nezobrazí (zůstanou v databázi). Výchozí: 5.
+          {texts.admin.settings.news.maxNote}
         </p>
       </div>
     </div>
@@ -1420,14 +1419,14 @@ function NewsManager() {
   }
 
   if (loading) {
-    return <p className="text-[13px] text-ink-muted">Načítání...</p>;
+    return <p className="text-[13px] text-ink-muted">{texts.admin.common.loading}</p>;
   }
 
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-[18px] font-normal tracking-[-0.01em]">
-          Aktuality
+          {texts.admin.news.title}
         </h2>
         <button
           className={btnPrimary}
@@ -1441,7 +1440,7 @@ function NewsManager() {
             });
           }}
         >
-          + Přidat aktualitu
+          {texts.admin.news.addButton}
         </button>
       </div>
 
@@ -1455,7 +1454,7 @@ function NewsManager() {
 
       {news.length === 0 && !editing && (
         <p className="text-[13px] text-ink-muted">
-          Žádné aktuality. Přidejte první.
+          {texts.admin.news.empty}
         </p>
       )}
 
@@ -1481,10 +1480,10 @@ function NewsManager() {
                 className={btnSecondary}
                 onClick={() => { setIsNew(false); setEditing(n); }}
               >
-                Upravit
+                {texts.admin.common.edit}
               </button>
               <button className={btnDanger} onClick={() => handleDelete(n.id)}>
-                Smazat
+                {texts.admin.common.delete}
               </button>
             </div>
           </div>
@@ -1546,10 +1545,10 @@ function NewsForm({
       </div>
       <div className="flex gap-3">
         <button className={btnPrimary} onClick={() => onSave(data)}>
-          Uložit
+          {texts.admin.common.save}
         </button>
         <button className={btnSecondary} onClick={onCancel}>
-          Zrušit
+          {texts.admin.common.cancel}
         </button>
       </div>
     </div>
@@ -1563,14 +1562,7 @@ function NewsForm({
 function Dashboard({ onLogout }: { onLogout: () => void }) {
   const [tab, setTab] = useState<Tab>("aktuality");
 
-  const tabs: { key: Tab; label: string }[] = [
-    { key: "aktuality", label: "Aktuality" },
-    { key: "skicamp", label: "Skicamp termíny" },
-    { key: "kurzy", label: "Kurzy instruktorů" },
-    { key: "rezervace", label: "Ceník / rezervace" },
-    { key: "nastaveni", label: "Nastavení" },
-    { key: "kontakty", label: "Kontakty" },
-  ];
+  const tabs = texts.admin.tabs as { key: Tab; label: string }[];
 
   return (
     <div className="min-h-screen bg-surface">
@@ -1578,17 +1570,17 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
         <div className="max-w-[1280px] mx-auto flex items-center justify-between">
           <div>
             <span className="text-[11px] uppercase tracking-[0.2em] text-ink">
-              Admin
+              {texts.admin.header.title}
             </span>
             <span className="text-[9px] uppercase tracking-[0.16em] text-ink-muted ml-3">
-              Wagner Ski Akademie
+              {texts.admin.header.subtitle}
             </span>
           </div>
           <button
             onClick={onLogout}
             className="text-[11px] uppercase tracking-[0.14em] text-ink-muted hover:text-ink transition-colors"
           >
-            Odhlásit
+            {texts.admin.header.logout}
           </button>
         </div>
       </header>

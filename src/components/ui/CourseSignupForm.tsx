@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import type { InstructorCourse } from "@/lib/supabase";
+import texts from "@/data/texts.json";
 
 interface CourseSignupFormProps {
   courses: InstructorCourse[];
@@ -23,7 +24,7 @@ export function CourseSignupForm({ courses, preselectedCourseId }: CourseSignupF
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim() || !email.trim() || !phone.trim() || !selectedCourse) {
-      setError("Vyplňte prosím všechna pole.");
+      setError(texts.courseSignup.errors.fillAll);
       return;
     }
 
@@ -50,7 +51,7 @@ export function CourseSignupForm({ courses, preselectedCourseId }: CourseSignupF
 
       setSuccess(true);
     } catch {
-      setError("Něco se pokazilo. Zkuste to prosím znovu.");
+      setError(texts.courseSignup.errors.generic);
     } finally {
       setLoading(false);
     }
@@ -60,13 +61,13 @@ export function CourseSignupForm({ courses, preselectedCourseId }: CourseSignupF
     return (
       <div className="border border-line rounded-[3px] p-8 bg-surface text-center">
         <span className="block text-[9px] uppercase tracking-[0.16em] text-accent mb-4">
-          Přihláška odeslána
+          {texts.courseSignup.success.eyebrow}
         </span>
         <h3 className="text-[20px] font-normal tracking-[-0.01em] mb-2">
-          Děkujeme!
+          {texts.courseSignup.success.title}
         </h3>
         <p className="text-[13px] text-ink-secondary leading-[1.6]">
-          Vaše přihláška byla odeslána. Ozveme se vám s dalšími informacemi.
+          {texts.courseSignup.success.description}
         </p>
       </div>
     );
@@ -75,19 +76,19 @@ export function CourseSignupForm({ courses, preselectedCourseId }: CourseSignupF
   return (
     <form onSubmit={handleSubmit} className="border border-line rounded-[3px] p-8 bg-surface">
       <h3 className="text-[18px] font-normal tracking-[-0.01em] mb-6">
-        Přihláška na kurz
+        {texts.courseSignup.title}
       </h3>
       <div className="space-y-4 mb-6">
         <div>
           <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1">
-            Kurz
+            {texts.courseSignup.form.courseLabel}
           </label>
           <select
             value={selectedCourse}
             onChange={(e) => setSelectedCourse(e.target.value)}
             className="w-full border border-line rounded-[2px] px-4 py-3 text-[14px] bg-cream focus:outline-none focus:border-accent"
           >
-            <option value="">Vyberte kurz...</option>
+            <option value="">{texts.courseSignup.form.coursePlaceholder}</option>
             {courses.map((c) => (
               <option key={c.id} value={c.id}>
                 {c.level} — {c.date} ({c.location})
@@ -97,38 +98,38 @@ export function CourseSignupForm({ courses, preselectedCourseId }: CourseSignupF
         </div>
         <div>
           <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1">
-            Jméno a příjmení
+            {texts.courseSignup.form.nameLabel}
           </label>
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
             className="w-full border border-line rounded-[2px] px-4 py-3 text-[14px] bg-cream focus:outline-none focus:border-accent"
-            placeholder="Jan Novák"
+            placeholder={texts.courseSignup.form.namePlaceholder}
           />
         </div>
         <div>
           <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1">
-            E-mail
+            {texts.courseSignup.form.emailLabel}
           </label>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="w-full border border-line rounded-[2px] px-4 py-3 text-[14px] bg-cream focus:outline-none focus:border-accent"
-            placeholder="jan@email.cz"
+            placeholder={texts.courseSignup.form.emailPlaceholder}
           />
         </div>
         <div>
           <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1">
-            Telefon
+            {texts.courseSignup.form.phoneLabel}
           </label>
           <input
             type="tel"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             className="w-full border border-line rounded-[2px] px-4 py-3 text-[14px] bg-cream focus:outline-none focus:border-accent"
-            placeholder="+420 123 456 789"
+            placeholder={texts.courseSignup.form.phonePlaceholder}
           />
         </div>
       </div>
@@ -140,7 +141,7 @@ export function CourseSignupForm({ courses, preselectedCourseId }: CourseSignupF
         disabled={loading}
         className="min-h-[44px] w-full bg-ink text-cream text-[11px] uppercase tracking-[0.14em] px-8 py-[12px] rounded-[2px] hover:opacity-90 transition-opacity disabled:opacity-50"
       >
-        {loading ? "Odesílám..." : "Odeslat přihlášku"}
+        {loading ? texts.courseSignup.form.submitting : texts.courseSignup.form.submitButton}
       </button>
     </form>
   );

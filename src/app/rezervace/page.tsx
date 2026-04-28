@@ -3,13 +3,13 @@ import type { Metadata } from "next";
 import { FacebookIcon, InstagramIcon } from "@/components/ui/SocialIcons";
 import { VoucherPurchase } from "@/components/ui/VoucherPurchase";
 import { getReservationPrices, getContacts, getVoucherDiscount } from "@/lib/data";
+import texts from "@/data/texts.json";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Rezervace | WAGNER Ski and SNB akademie",
-  description:
-    "Rezervujte si hodinu lyžování nebo snowboardu. Ceník individuální a skupinové výuky. Kontakty na Sherpa Ski School.",
+  title: texts.meta.rezervace.title,
+  description: texts.meta.rezervace.description,
 };
 
 export default async function RezervacePage() {
@@ -36,13 +36,13 @@ export default async function RezervacePage() {
       <section className="bg-ink text-white pt-[28px] pb-12 px-7">
         <div className="max-w-[1280px] mx-auto">
           <span className="block text-[10px] uppercase tracking-[0.16em] text-white/50 mb-4">
-            Rezervace
+            {texts.rezervace.header.eyebrow}
           </span>
           <h1 className="text-[32px] sm:text-[48px] font-normal tracking-[-0.03em] leading-[1.1] mb-4">
-            Rezervujte si hodinu
+            {texts.rezervace.header.title}
           </h1>
           <p className="text-[14px] text-white/60 max-w-lg leading-[1.6]">
-            Zavolejte nám nebo napište. Domluvíme termín, instruktora i disciplínu přesně podle vašich potřeb.
+            {texts.rezervace.header.description}
           </p>
         </div>
       </section>
@@ -53,35 +53,35 @@ export default async function RezervacePage() {
           {/* Contacts */}
           <div>
             <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
-              Kontakt
+              {texts.rezervace.contact.eyebrow}
             </span>
             <div className="space-y-5">
               <div>
-                <span className="block text-[11px] text-ink-muted uppercase tracking-[0.1em] mb-1">Telefon</span>
+                <span className="block text-[11px] text-ink-muted uppercase tracking-[0.1em] mb-1">{texts.rezervace.contact.labels.phone}</span>
                 <a href={phone?.url || "tel:+420604681100"} className="text-[18px] font-medium hover:text-accent transition-colors">
                   {phone?.value || "+420 604 681 100"}
                 </a>
               </div>
               <div>
-                <span className="block text-[11px] text-ink-muted uppercase tracking-[0.1em] mb-1">E-mail</span>
+                <span className="block text-[11px] text-ink-muted uppercase tracking-[0.1em] mb-1">{texts.rezervace.contact.labels.email}</span>
                 <a href={email?.url || "mailto:sherpaski@sherpaski.cz"} className="text-[16px] hover:text-accent transition-colors">
                   {email?.value || "sherpaski@sherpaski.cz"}
                 </a>
               </div>
               <div>
-                <span className="block text-[11px] text-ink-muted uppercase tracking-[0.1em] mb-1">Adresa</span>
+                <span className="block text-[11px] text-ink-muted uppercase tracking-[0.1em] mb-1">{texts.rezervace.contact.labels.address}</span>
                 <p className="text-[14px] text-ink-secondary">
                   {address?.value || "Skiaréna Karlov pod Pradědem, 793 26 Karlov pod Pradědem"}
                 </p>
               </div>
               <div>
-                <span className="block text-[11px] text-ink-muted uppercase tracking-[0.1em] mb-1">Otevírací doba</span>
+                <span className="block text-[11px] text-ink-muted uppercase tracking-[0.1em] mb-1">{texts.rezervace.contact.labels.hours}</span>
                 <p className="text-[14px] text-ink-secondary">
-                  {hours?.value || "9:00 – 16:00"}, večerní výuka po dohodě
+                  {hours?.value || "9:00 – 16:00"}, {texts.rezervace.contact.hoursNote}
                 </p>
               </div>
               <div>
-                <span className="block text-[11px] text-ink-muted uppercase tracking-[0.1em] mb-3">Sociální sítě</span>
+                <span className="block text-[11px] text-ink-muted uppercase tracking-[0.1em] mb-3">{texts.rezervace.contact.labels.social}</span>
                 <div className="flex items-center gap-4">
                   {facebook && (
                     <a href={facebook.url} className="min-h-[44px] flex items-center gap-2 text-ink-secondary hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
@@ -111,17 +111,17 @@ export default async function RezervacePage() {
       <section className="py-16 px-7 bg-surface">
         <div className="max-w-[1280px] mx-auto">
           <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-8">
-            Ceník výuky
+            {texts.rezervace.pricing.eyebrow}
           </span>
           <p className="text-[12px] text-ink-muted mb-8">
-            Skipas je zahrnut ve všech cenách. Jedna vyučovací hodina = 50 minut.
+            {texts.rezervace.pricing.note}
           </p>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Individual */}
             <div>
               <h3 className="text-[16px] font-medium tracking-[-0.01em] mb-4">
-                Individuální výuka (1–2 osoby)
+                {texts.rezervace.pricing.individualTitle}
               </h3>
               <div className="border border-line rounded-[3px] bg-cream overflow-hidden">
                 {individualPrices.map((p, i) => (
@@ -144,7 +144,7 @@ export default async function RezervacePage() {
             {/* Group */}
             <div>
               <h3 className="text-[16px] font-medium tracking-[-0.01em] mb-4">
-                Skupinová výuka (3+ osob)
+                {texts.rezervace.pricing.groupTitle}
               </h3>
               <div className="border border-line rounded-[3px] bg-cream overflow-hidden mb-8">
                 {groupPrices.map((p, i) => (
@@ -164,7 +164,7 @@ export default async function RezervacePage() {
               </div>
 
               <h3 className="text-[16px] font-medium tracking-[-0.01em] mb-4">
-                Speciální programy
+                {texts.rezervace.pricing.specialTitle}
               </h3>
               <div className="border border-line rounded-[3px] bg-cream overflow-hidden">
                 {specialPrices.map((p, i) => (

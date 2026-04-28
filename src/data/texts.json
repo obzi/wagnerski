@@ -1,0 +1,773 @@
+{
+  "meta": {
+    "home": {
+      "title": "Výuka lyžování | WAGNER Ski and SNB akademie",
+      "description": "Lyžařská a snowboardová akademie od roku 2005. Sherpa Ski School v Jeseníkách, zahraniční kempy v Alpách, akreditované kurzy MŠMT ČR. Jen instruktoři s licencí.",
+      "keywords": "lyžařská škola, snowboard škola, Karlov pod Pradědem, instruktor lyžování, kurz MŠMT, skicamp Alpy, telemark",
+      "ogTitle": "Výuka lyžování | WAGNER Ski and SNB akademie",
+      "ogDescription": "Lyžařská a snowboardová akademie od roku 2005. Sherpa Ski School, Skicamp Alpy, kurzy MŠMT.",
+      "ogSiteName": "Wagner Ski Akademie",
+      "twitterTitle": "Výuka lyžování | WAGNER Ski and SNB akademie",
+      "twitterDescription": "Lyžařská a snowboardová akademie od roku 2005. Jen instruktoři s licencí MŠMT."
+    },
+    "skola": {
+      "title": "Lyžařská škola Sherpa | Wagner Ski Akademie",
+      "description": "Sherpa Ski School - výuka lyžování, snowboardu a telemarku v Jeseníkách. Individuální i skupinové lekce pro děti i dospělé. Pouze akreditovaní instruktoři MŠMT."
+    },
+    "instruktor": {
+      "title": "Kurzy pro instruktory | Wagner Ski Akademie",
+      "description": "Akreditované kurzy MŠMT ČR pro instruktory lyžování a snowboardu. Kurz D (60 hod), Kurz C (70-100 hod), prolongace. Celoživotní licence."
+    },
+    "oNas": {
+      "title": "O nás | Wagner Ski Akademie",
+      "description": "Wagner Ski Akademie - lyžařská akademie od roku 2005. Sherpa Ski School, Skicamp Alpy, kurzy MŠMT. Petr a Jolana Wagnerovi."
+    },
+    "lokality": {
+      "title": "Lokality | Wagner Ski Akademie",
+      "description": "Karlov pod Pradědem - hlavní středisko Wagner Ski Akademie v Jeseníkách. Skiaréna s kvalitním zasněžováním a ideálními podmínkami pro výuku."
+    },
+    "skicamp": {
+      "title": "Skicamp Alpy | WAGNER Ski and SNB akademie",
+      "description": "Zahraniční lyžařské a snowboardové kempy v Alpách. Ski, SNB, race a telemark v alpském terénu pro pokročilé lyžaře."
+    },
+    "rezervace": {
+      "title": "Rezervace | WAGNER Ski and SNB akademie",
+      "description": "Rezervujte si hodinu lyžování nebo snowboardu. Ceník individuální a skupinové výuky. Kontakty na Sherpa Ski School."
+    },
+    "leto": {
+      "title": "Léto | Wagner Ski Akademie",
+      "description": "Letní aktivity Wagner Ski Akademie — připravujeme pro vás nové letní programy."
+    },
+    "aktuality": {
+      "title": "Aktuality | Wagner Ski Akademie",
+      "description": "Aktuality a novinky z Wagner Ski Akademie."
+    }
+  },
+
+  "nav": {
+    "brand": "Wagner",
+    "brandSub": "ski akademie · sherpaski · skicamp.cz · instruktor",
+    "links": [
+      { "href": "/aktuality", "label": "Aktuality" },
+      { "href": "/lokality", "label": "Lokality" },
+      { "href": "/skola", "label": "Škola" },
+      { "href": "/skicamp", "label": "Skicamp" },
+      { "href": "/instruktor", "label": "Instruktor" },
+      { "href": "/leto", "label": "Léto" },
+      { "href": "/o-nas", "label": "O nás" }
+    ],
+    "cta": "Rezervovat"
+  },
+
+  "footer": {
+    "partnersLabel": "Partneři",
+    "copyright": "Wagner Ski Akademie · wagnerski.cz"
+  },
+
+  "home": {
+    "hero": {
+      "brandLine": "Wagner · ski akademie · sherpaski · skicamp.cz · instruktor",
+      "titleLine1": "Lyžovat se",
+      "titleLine2": "naučíš.",
+      "titleAccent": "Pořádně.",
+      "subtitleLine1": "Sherpa Ski School, Skicamp Alpy, kurzy MŠMT.",
+      "subtitleLine2": "Jen akreditovaní instruktoři — žádní pomocníci.",
+      "ctaPrimary": "Rezervovat hodinu",
+      "ctaSecondary": "Skicamp Alpy →",
+      "imageAlt": "Lyžař v horách"
+    },
+    "infoStrip": [
+      { "label": "Sezóna", "value": "Prosinec – Duben" },
+      { "label": "Lokalita", "value": "Karlov pod Pradědem" },
+      { "label": "Instruktoři", "value": "Výhradně MŠMT" },
+      { "label": "Telefon", "value": "+420 604 681 100" }
+    ],
+    "services": {
+      "eyebrow": "Co nabízíme",
+      "items": [
+        {
+          "eyebrow": "Sherpa Ski School",
+          "title": "Lyžařská a snowboardová škola",
+          "description": "Výuka lyžování, SNB a telemarku v Jeseníkách a okolí Olomouce.\nIndividuální i skupinová výuka pro děti i dospělé.\nŽádní pomocníci — pouze instruktoři s licencí.",
+          "tags": ["Lyžování", "Snowboard", "Telemark", "Carving", "Děti"],
+          "linkLabel": "Rezervovat hodinu",
+          "imageAlt": "Lyžařská škola Sherpa"
+        },
+        {
+          "eyebrow": "Skicamp",
+          "title": "Zahraniční kempy v Alpách",
+          "description": "Pro ty, kdo chtějí skutečný posun. Ski, SNB, race a telemark\nv alpském terénu. Techniku vyladíme až na doraz.",
+          "tags": ["Ski camp", "SNB camp", "Race camp", "Alpy", "Pokročilí"],
+          "linkLabel": "Termíny akcí",
+          "imageAlt": "Skicamp v Alpách"
+        },
+        {
+          "eyebrow": "Chci být instruktor",
+          "title": "Kurzy MŠMT ČR s celoživotní licencí",
+          "description": "Akreditované kurzy D, C a IVSI. Školíme sami, od základů.\nJeden z nejrespektovanějších kurzů v ČR — každá dobrá\nlyžařská škola vás zaměstná.",
+          "tags": ["Kurz D", "Kurz C", "IVSI", "Licence doživotně"],
+          "linkLabel": "Přihláška",
+          "imageAlt": "Instruktorské kurzy"
+        }
+      ]
+    },
+    "quote": {
+      "line1": "\u201eNečekejte, kdo na vás zbude.",
+      "line2": "Kvalitní instruktoři nejsou.",
+      "line3": "U nás hýčkáme jedny",
+      "line4": "z posledních na Moravě.\u201c",
+      "author": "— Petr Wagner · majitel Wagner Ski Akademie",
+      "imageAlt": "Horská krajina"
+    },
+    "locations": {
+      "eyebrow": "Kde nás najdete"
+    },
+    "team": {
+      "eyebrow": "Kdo vás bude učit",
+      "petr": {
+        "name": "Petr Wagner",
+        "roles": "Učitel lyžování · IVSI instruktor · Trenér III. tř. · Autorizovaná osoba MŠMT ČR",
+        "badges": ["26 let praxe", "Lic. 74-040-M"]
+      },
+      "jolana": {
+        "name": "Jolana Wagnerová",
+        "roles": "Učitel lyžování · Cvičitel SNB · Lektor carvingu · Terapie lyžováním",
+        "badges": ["18 let praxe", "Dechové metody"]
+      },
+      "teamCard": {
+        "title": "Náš tým instruktorů",
+        "description": "Všichni akreditovaní. Všichni prověření praxí.",
+        "link": "Poznat tým →"
+      }
+    }
+  },
+
+  "locationGrid": {
+    "name": "Karlov pod Pradědem",
+    "region": "Jeseníky · Skiaréna"
+  },
+
+  "skola": {
+    "hero": {
+      "eyebrow": "Sherpa Ski School",
+      "title": "Lyžařská a snowboardová škola",
+      "description": "Výuka lyžování, snowboardu a telemarku v Jeseníkách. Pouze akreditovaní instruktoři.",
+      "imageAlt": "Lyžařská škola Sherpa - výuka lyžování"
+    },
+    "locationBanner": {
+      "textBefore": "Působíme ve ",
+      "textStrong": "Ski aréně Karlov pod Pradědem",
+      "textAfter": " — srdce Jeseníků",
+      "link": "Více o lokalitě →"
+    },
+    "intro": {
+      "eyebrow": "O škole",
+      "title": "Učíme lyžovat od roku 1999",
+      "paragraphs": [
+        "Sherpa Ski School je lyžařská a snowboardová škola s více než 26letou tradicí. Sídlíme na Karlově pod Pradědem v Jeseníkách — jednom z nejspolehlivějších lyžařských středisek v ČR.",
+        "Specializujeme se na individuální výuku s důrazem na správnou techniku. Naši instruktoři jsou výhradně držitelé licence MŠMT ČR — žádní pomocníci ani brigádníci. Za dobu existence jsme vyškolili přes 2 200 instruktorů a naučili lyžovat tisíce dětí i dospělých."
+      ],
+      "cta": "Rezervovat hodinu",
+      "imageAlt": "Výuka lyžování dětí"
+    },
+    "disciplines": {
+      "eyebrow": "Discipliny",
+      "items": [
+        {
+          "title": "Lyžování",
+          "description": "Od prvních oblouků až po dynamický carving. Individuální přístup, moderní metodika a důraz na správnou techniku od začátku.",
+          "tags": ["Začátečníci", "Pokročilí", "Carving", "Děti"]
+        },
+        {
+          "title": "Snowboard",
+          "description": "Výuka snowboardu pro všechny úrovně. Bezpečný postup od základů po freestyle a freeride. Správné návyky od první hodiny.",
+          "tags": ["Začátečníci", "Pokročilí", "Freestyle"]
+        },
+        {
+          "title": "Telemark",
+          "description": "Klasický styl lyžování s volnou patou. Elegantní technika, která vás odliší na svahu. Pro ty, kteří hledají něco navíc.",
+          "tags": ["Všechny úrovně", "Speciální disciplína"]
+        }
+      ]
+    },
+    "features": {
+      "eyebrow": "Proč Sherpa",
+      "items": [
+        {
+          "title": "Pouze MŠMT instruktoři",
+          "text": "Žádní pomocníci ani brigádníci. Každý náš instruktor má platnou licenci MŠMT ČR a minimálně 5 let praxe."
+        },
+        {
+          "title": "Individuální přístup",
+          "text": "Přizpůsobujeme tempo a metodu každému žákovi. Malé skupiny, maximálně 6 osob na instruktora."
+        },
+        {
+          "title": "Moderní metodika",
+          "text": "Využíváme aktuální trendy ve výuce — video analýza, postupné budování dovedností, důraz na bezpečnost."
+        },
+        {
+          "title": "Výuka pro děti od 3 let",
+          "text": "Speciální dětský program s hravým přístupem. Trpěliví instruktoři se zkušenostmi s nejmenšími lyžaři."
+        },
+        {
+          "title": "26 let zkušeností",
+          "text": "Sherpa Ski School funguje od roku 1999. Přes 2 200 vyškolených instruktorů a tisíce spokojených žáků."
+        },
+        {
+          "title": "Kompletní vybavení",
+          "text": "Možnost zapůjčení kvalitního lyžařského a snowboardového vybavení přímo na místě."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Připraveni na svah?",
+      "description": "Rezervujte si hodinu s jedním z našich instruktorů. Individuální výuka i skupinové lekce.",
+      "ctaPrimary": "Rezervovat hodinu",
+      "phone": "+420 604 681 100"
+    }
+  },
+
+  "instruktor": {
+    "hero": {
+      "eyebrow": "Chci být instruktor",
+      "title": "Kurzy MŠMT s celoživotní licencí",
+      "description": "Akreditované kurzy pro instruktory lyžování a snowboardu. Školíme sami, od základů.",
+      "imageAlt": "Instruktorský kurz lyžování"
+    },
+    "intro": {
+      "eyebrow": "O kurzech",
+      "sections": [
+        {
+          "label": "Tradice a akreditace",
+          "text": "Pořádáme jedny z nejrespektovanějších instruktorských kurzů v České republice. Za více než 26 let jsme vyškolili přes 2 229 instruktorů, kteří dnes učí v lyžařských školách po celé ČR i v zahraničí. Náš akreditovaný kurz instruktora základů lyžování a snowboardingu typu D má schválení MŠMT ČR a platnost celoživotní — jednou získaná licence vám zůstává napořád."
+        },
+        {
+          "label": "Metodika",
+          "text": "Kurzy vedou zkušení školitelé v čele s Ing. Petrem Wagnerem — držitelem IVSI Card Gold, profesionálním instruktorem a trenérem. Metodika je postavená na dvou desítkách let praxe přímo na svahu: učíme rozpoznávat chyby, pracovat s různými typy klientů a zvládat skupinu. Nejen techniku, ale i pedagogiku, psychologii a komunikaci."
+        },
+        {
+          "label": "Program",
+          "text": "Kromě výuky na sněhu vás čekají přednášky o bezpečnosti na horách, biomechanice pohybu a materiálovém poradenství. Součástí programu bývají i speciální hosté — členové horské služby nebo účastníci Freeride World Tour. Kurz je náročný, ale jeho investice se vám vrátí během několika málo dnů aktivní výuky."
+        },
+        {
+          "label": "Uplatnění",
+          "text": "S licencí od nás můžete učit v lyžařských školách po celé ČR, na školních kurzech středních i vysokých škol a také na Slovensku. Úspěšní absolventi pokračují na navazující kurz C nebo získávají mezinárodní certifikaci IVSI. Celosezónním zaměstnancům Sherpa Ski School vracíme plné kurzovné — bereme to jako dlouhodobé partnerství, ne jako jednorázový obchod."
+        }
+      ],
+      "quote": "\u201eSprávný instruktor musí umět správně naučit, mít dobrou náladu a bavit okolí.\u201c",
+      "galleryAlt1": "Výuka na instruktorském kurzu",
+      "galleryAlt2": "Lokalita instruktorského kurzu"
+    },
+    "pricing": {
+      "eyebrow": "Ceník",
+      "title": "All-inclusive cena",
+      "packages": [
+        {
+          "title": "Premium balíček",
+          "price": "16 900 Kč",
+          "note": "Při platbě do 10. 12. — jinak 22 900 Kč na místě",
+          "description": "Zahrnuje ubytování, polopenzi, skipasy, materiály, přednášky a celoživotní certifikaci."
+        },
+        {
+          "title": "Bez ubytování",
+          "price": "7 200 Kč",
+          "note": "Pro ty, kteří si zajistí ubytování sami",
+          "description": "Plná výuka, materiály a certifikace. Plná refundace při celosezónním zaměstnání."
+        }
+      ],
+      "includedLabel": "Co je v ceně",
+      "included": [
+        "Ubytování v hotelovém komplexu s polopenzí",
+        "Skipasy po celou dobu kurzu",
+        "Výukové materiály a skripta",
+        "Odborné přednášky (psychologie, horská služba, Freeride World Tour)",
+        "Celoživotně platná certifikace v celé ČR",
+        "Bonusový carvingový workshop",
+        "Speciální tričko absolventa",
+        "Možnost wellness v hotelu"
+      ]
+    },
+    "cta": {
+      "title": "Staň se instruktorem",
+      "description": "Přihlas se na kurz a získej celoživotní licenci. Každá dobrá lyžařská škola tě zaměstná.",
+      "ctaPrimary": "Přihláška na kurz",
+      "email": "chcibytinstruktor@wagnerski.cz"
+    }
+  },
+
+  "oNas": {
+    "hero": {
+      "eyebrow": "O nás",
+      "title": "Wagner Ski Akademie",
+      "imageAlt": "Wagner Ski Akademie tým"
+    },
+    "story": {
+      "eyebrow": "Náš příběh",
+      "title": "Od jedné lyžařské školy k akademii",
+      "paragraphs": [
+        "Všechno začalo v roce 1999, kdy Petr Wagner založil Sherpa Ski School na Karlově pod Pradědem. Co začalo jako malá lyžařská škola, vyrostlo ve Wagner Ski Akademii — zastřešující organizaci, která dnes sdružuje lyžařskou školu Sherpa, zahraniční kempy Skicamp a akreditované instruktorské kurzy.",
+        "Naším cílem vždy bylo a je učit lyžování pořádně. S kvalitními instruktory, moderní metodikou a upřímnou vášní pro hory. Za více než 25 let jsme naučili lyžovat tisíce lidí a vyškolili přes 2 200 instruktorů.",
+        "Dnes působíme primárně na Karlově pod Pradědem v Jeseníkách. Naši instruktoři jsou výhradně držitelé licence MŠMT ČR — na tom nikdy nebudeme dělat kompromisy."
+      ],
+      "imageAlt": "Lyžování v horách"
+    },
+    "milestones": {
+      "eyebrow": "Milníky",
+      "items": [
+        { "year": "1999", "text": "Založení Sherpa Ski School" },
+        { "year": "2005", "text": "Vznik Wagner Ski Akademie" },
+        { "year": "2010", "text": "První Skicamp v Alpách" },
+        { "year": "2024", "text": "Přes 2 229 vyškolených instruktorů" }
+      ]
+    },
+    "leadership": {
+      "eyebrow": "Vedení",
+      "petr": {
+        "name": "Ing. Petr Wagner",
+        "subtitle": "Zakladatel · IVSI Card Gold · Trenér III. tř. · Autorizovaná osoba MŠMT ČR",
+        "bio": "Více než 26 let praxe ve výuce lyžování. Profesionální instruktor, trenér a školitel. Licence MŠMT 74-040-M. Vede instruktorské kurzy a zodpovídá za kvalitu výuky v celé akademii."
+      },
+      "jolana": {
+        "name": "Jolana Wagnerová",
+        "subtitle": "Učitel lyžování · Cvičitel SNB · Lektor carvingu · Terapie lyžováním",
+        "bio": "18 let praxe ve výuce. Specializuje se na dechové metody a terapii lyžováním. Lektorka carvingu a snowboardu. Vede dětské programy a individuální výuku."
+      }
+    },
+    "values": {
+      "eyebrow": "Naše hodnoty",
+      "items": [
+        {
+          "title": "Kvalita před kvantitou",
+          "text": "Žádní pomocníci. Žádní brigádníci. Každý náš instruktor má platnou licenci MŠMT ČR a prošel naším interním prověřením."
+        },
+        {
+          "title": "Poctivá výuka",
+          "text": "Učíme správně od prvního oblouku. Moderní metodika, individuální přístup a důraz na bezpečnost. Žádné zkratky."
+        },
+        {
+          "title": "Tradice a zkušenost",
+          "text": "Přes 25 let na svahu. Známe každý metr Karlova, víme jak učit děti, dospělé i budoucí instruktory."
+        },
+        {
+          "title": "Vášeň pro hory",
+          "text": "Lyžování není jen sport — je to způsob života. Tu vášeň předáváme každému, kdo k nám přijde."
+        }
+      ]
+    },
+    "whatWeDo": {
+      "eyebrow": "Co děláme",
+      "items": [
+        {
+          "title": "Sherpa Ski School",
+          "description": "Lyžařská a snowboardová škola na Karlově. Výuka pro děti i dospělé."
+        },
+        {
+          "title": "Skicamp Alpy",
+          "description": "Zahraniční lyžařské a snowboardové kempy v alpském terénu."
+        },
+        {
+          "title": "Instruktorské kurzy",
+          "description": "Akreditované kurzy MŠMT s celoživotní licencí."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ozvěte se nám",
+      "description": "Máte dotaz ohledně výuky, kurzů nebo kempů? Rádi vám poradíme.",
+      "phone": "+420 604 681 100",
+      "email": "sherpaski@sherpaski.cz"
+    }
+  },
+
+  "lokality": {
+    "hero": {
+      "eyebrow": "Lokality",
+      "title": "Kde nás najdete",
+      "imageAlt": "Karlov pod Pradědem - skiareál"
+    },
+    "detail": {
+      "eyebrow": "Hlavní středisko",
+      "title": "Sherpaski — Ski aréna Karlov pod Pradědem",
+      "paragraphs": [
+        "Karlov pod Pradědem je naše domovské středisko. Nachází se v srdci Jeseníků v nadmořské výšce 830–1 100 m n. m. Skiaréna nabízí moderní zasněžování, kvalitně upravené sjezdovky a ideální podmínky pro výuku lyžování i snowboardu.",
+        "Středisko disponuje sjezdovkami různé obtížnosti — od mírných svahů ideálních pro začátečníky a děti, až po náročnější tratě pro pokročilé lyžaře. Celková délka sjezdovek přesahuje 4 km.",
+        "Díky nadmořské výšce a severní expozici svahů patří Karlov k místům s nejdelší sezónou v České republice. Sezóna obvykle trvá od prosince do dubna."
+      ],
+      "imageAlt": "Sjezdovky Karlov",
+      "parametersTitle": "Parametry střediska",
+      "parameters": [
+        ["Nadmořská výška", "830 – 1 100 m n. m."],
+        ["Sjezdovky", "4+ km, všechny obtížnosti"],
+        ["Zasněžování", "Moderní technické zasněžování"],
+        ["Sezóna", "Prosinec – Duben"],
+        ["Vleky", "Sedačková lanovka, kotvy, pomy"],
+        ["Region", "Jeseníky, Moravskoslezský kraj"]
+      ]
+    },
+    "akademie": {
+      "eyebrow": "Výuka kdekoliv v Jeseníkách",
+      "title": "Ski akademie — Jeseníky",
+      "paragraphs": [
+        "Služby Wagner Ski Akademie si můžete objednat v jakémkoliv středisku v Jeseníkách — dle individuální domluvy. Ať už lyžujete na Ovčárně, Dolní Moravě, Ramzové nebo kdekoliv jinde, přijedeme za vámi.",
+        "Stačí nás kontaktovat, domluvit termín a místo. Přizpůsobíme se vašim potřebám a zajistíme stejně kvalitní výuku jako v našem domovském středisku."
+      ]
+    },
+    "whyKarlov": {
+      "eyebrow": "Proč právě Karlov",
+      "items": [
+        {
+          "title": "Ideální pro výuku",
+          "text": "Mírné svahy s dostatečným prostorem pro bezpečnou výuku začátečníků i dětí. Oddělená výuková zóna."
+        },
+        {
+          "title": "Dlouhá sezóna",
+          "text": "Díky severní expozici a nadmořské výšce je sníh spolehlivý od prosince do dubna. Kvalitní zasněžování jako pojistka."
+        },
+        {
+          "title": "Kompletní zázemí",
+          "text": "Půjčovna vybavení, restaurace, parkoviště. Vše na jednom místě, bez zbytečného přesunu."
+        },
+        {
+          "title": "Sjezdovky pro všechny",
+          "text": "Od dětského svahu přes modré a červené sjezdovky až po náročnější tratě. Každý si najde své."
+        },
+        {
+          "title": "Dostupnost",
+          "text": "Snadný příjezd z Olomouce (90 min), Ostravy (80 min) i Brna (2,5 hod). Dostatek parkovacích míst."
+        },
+        {
+          "title": "Tradice od 2005",
+          "text": "Na Karlově učíme přes 20 let. Známe každý metr svahu a víme, kde se nejlépe učí."
+        }
+      ]
+    }
+  },
+
+  "skicamp": {
+    "hero": {
+      "eyebrow": "Skicamp Alpy",
+      "title": "Zahraniční kempy v Alpách",
+      "description": "Pro ty, kdo chtějí skutečný posun. Techniku vyladíme až na doraz.",
+      "imageAlt": "Skicamp v Alpách"
+    },
+    "intro": {
+      "eyebrow": "O kempech",
+      "title": "Kde se opravdu posunete",
+      "paragraphs": [
+        "Skicamp Alpy je pro ty, kteří chtějí víc než domácí kopce. Organizujeme lyžařské, snowboardové, závodní i telemarkové kempy v alpských střediscích s garantovaným sněhem a kilometry sjezdovek.",
+        "Každý kemp vede tým zkušených instruktorů s licencí MŠMT a mezinárodními certifikacemi. Skupiny jsou malé, přístup individuální. Denní video rozbor techniky je samozřejmostí."
+      ],
+      "imageAlt": "Alpské hory"
+    },
+    "camps": {
+      "eyebrow": "Typy kempů",
+      "items": [
+        {
+          "title": "Ski Camp",
+          "description": "Intenzivní lyžařský kemp v alpském středisku. Technická příprava, carving, jízda v terénu. Pro pokročilé lyžaře, kteří chtějí posun na další úroveň.",
+          "tags": ["Pokročilí", "Carving", "Technika", "Alpy"]
+        },
+        {
+          "title": "SNB Camp",
+          "description": "Snowboardový kemp zaměřený na freestyle, freeride a techniku jízdy. Alpský terén nabízí podmínky, které v ČR nenajdete.",
+          "tags": ["Snowboard", "Freestyle", "Freeride", "Alpy"]
+        },
+        {
+          "title": "Race Camp",
+          "description": "Závodní příprava v alpském terénu. Slalom, obří slalom, super-G. Trénink s profesionálními trenéry a video analýzou.",
+          "tags": ["Závodní příprava", "Slalom", "GS", "Video analýza"]
+        },
+        {
+          "title": "Telemark Camp",
+          "description": "Telemarkový kemp pro všechny úrovně. Klasická technika volné paty v podmínkách, kde telemark vznikl — v alpském terénu.",
+          "tags": ["Telemark", "Všechny úrovně", "Alpy"]
+        }
+      ]
+    },
+    "features": {
+      "eyebrow": "Proč jet s námi",
+      "items": [
+        {
+          "title": "Alpský terén",
+          "text": "Střediska s nadmořskou výškou přes 2 500 m. Garantovaný sníh, dlouhé sjezdovky a podmínky, které ČR nenabízí."
+        },
+        {
+          "title": "Profesionální vedení",
+          "text": "Kempy vedou výhradně instruktoři s licencí MŠMT a mezinárodními certifikacemi. Malé skupiny, individuální přístup."
+        },
+        {
+          "title": "Video analýza",
+          "text": "Každý den video rozbor techniky. Vidíte svůj pokrok a přesně víte, na čem pracovat."
+        },
+        {
+          "title": "Kompletní servis",
+          "text": "Doprava, ubytování, skipasy, pojištění. Stačí přijet a soustředit se na lyžování."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Termíny kempů",
+      "emptyTitle": "Termíny připravujeme",
+      "emptyDescription": "Sledujte naše stránky a sociální sítě. Termíny kempů na další sezónu zveřejníme brzy.",
+      "spotsLabel": "Volných míst:",
+      "ctaPrimary": "Kontaktujte nás",
+      "phone": "+420 604 681 100"
+    }
+  },
+
+  "rezervace": {
+    "header": {
+      "eyebrow": "Rezervace",
+      "title": "Rezervujte si hodinu",
+      "description": "Zavolejte nám nebo napište. Domluvíme termín, instruktora i disciplínu přesně podle vašich potřeb."
+    },
+    "contact": {
+      "eyebrow": "Kontakt",
+      "labels": {
+        "phone": "Telefon",
+        "email": "E-mail",
+        "address": "Adresa",
+        "hours": "Otevírací doba",
+        "social": "Sociální sítě"
+      },
+      "hoursNote": "večerní výuka po dohodě"
+    },
+    "pricing": {
+      "eyebrow": "Ceník výuky",
+      "note": "Skipas je zahrnut ve všech cenách. Jedna vyučovací hodina = 50 minut.",
+      "individualTitle": "Individuální výuka (1–2 osoby)",
+      "groupTitle": "Skupinová výuka (3+ osob)",
+      "specialTitle": "Speciální programy"
+    }
+  },
+
+  "leto": {
+    "eyebrow": "Léto",
+    "title": "Připravujeme",
+    "description": "Nový projekt, na kterém právě pracujeme. Více informací brzy."
+  },
+
+  "aktuality": {
+    "hero": {
+      "eyebrow": "Aktuality",
+      "title": "Novinky",
+      "imageAlt": "Wagner Ski Akademie tým"
+    },
+    "empty": "Zatím nejsou žádné aktuality.",
+    "badge": "Nové"
+  },
+
+  "notFound": {
+    "code": "404",
+    "title": "Stránka nenalezena",
+    "description": "Tato stránka neexistuje nebo byla přesunuta. Zkuste se vrátit na úvodní stránku.",
+    "cta": "Zpět na úvod"
+  },
+
+  "voucher": {
+    "title": "Zvýhodněné vouchery",
+    "discountLabel": "sleva",
+    "timeSlot": "Po–Pá, 11:00–14:00",
+    "validityNote": "Platný Po–Pá, 11:00–14:00 · 14 dní od nákupu",
+    "backButton": "← Zpět na výběr",
+    "form": {
+      "nameLabel": "Jméno a příjmení",
+      "namePlaceholder": "Jan Novák",
+      "emailLabel": "E-mail",
+      "emailPlaceholder": "jan@email.cz",
+      "submitButton": "Zakoupit voucher",
+      "submitting": "Zpracovávám..."
+    },
+    "success": {
+      "eyebrow": "Voucher zakoupen",
+      "title": "Děkujeme!",
+      "description": "Váš voucher byl vytvořen a odeslán na",
+      "codeLabel": "Kód",
+      "downloadButton": "Stáhnout PDF"
+    },
+    "errors": {
+      "fillAll": "Vyplňte prosím všechna pole.",
+      "generic": "Něco se pokazilo. Zkuste to prosím znovu."
+    }
+  },
+
+  "courseSignup": {
+    "title": "Přihláška na kurz",
+    "form": {
+      "courseLabel": "Kurz",
+      "coursePlaceholder": "Vyberte kurz...",
+      "nameLabel": "Jméno a příjmení",
+      "namePlaceholder": "Jan Novák",
+      "emailLabel": "E-mail",
+      "emailPlaceholder": "jan@email.cz",
+      "phoneLabel": "Telefon",
+      "phonePlaceholder": "+420 123 456 789",
+      "submitButton": "Odeslat přihlášku",
+      "submitting": "Odesílám..."
+    },
+    "success": {
+      "eyebrow": "Přihláška odeslána",
+      "title": "Děkujeme!",
+      "description": "Vaše přihláška byla odeslána. Ozveme se vám s dalšími informacemi."
+    },
+    "errors": {
+      "fillAll": "Vyplňte prosím všechna pole.",
+      "generic": "Něco se pokazilo. Zkuste to prosím znovu."
+    }
+  },
+
+  "courseWithSignup": {
+    "eyebrow": "Nabídka kurzů",
+    "empty": "Termíny kurzů budou zveřejněny brzy.",
+    "termLabel": "Termín",
+    "locationLabel": "Místo",
+    "priceWithAccommodation": "S ubytováním",
+    "priceWithoutAccommodation": "Bez ubytování",
+    "signupButton": "Přihlásit se na kurz"
+  },
+
+  "admin": {
+    "login": {
+      "title": "Administrace",
+      "subtitle": "Wagner Ski Akademie",
+      "usernameLabel": "Uživatel / E-mail",
+      "passwordLabel": "Heslo",
+      "submitButton": "Přihlásit se",
+      "submitting": "Přihlašuji...",
+      "forgotPassword": "Zapomenuté heslo",
+      "invalidCredentials": "Neplatné přihlašovací údaje",
+      "forgotTitle": "Zapomenuté heslo",
+      "forgotDescription": "Zadejte e-mail a pošleme vám odkaz pro obnovení hesla.",
+      "forgotSuccess": "Odkaz pro reset hesla byl odeslán na váš e-mail.",
+      "forgotSubmit": "Odeslat odkaz",
+      "forgotSubmitting": "Odesílám...",
+      "forgotBack": "Zpět na přihlášení",
+      "forgotError": "Nepodařilo se odeslat e-mail pro reset hesla",
+      "forgotNoSupabase": "Reset hesla vyžaduje konfiguraci Supabase. Kontaktujte administrátora."
+    },
+    "header": {
+      "title": "Admin",
+      "subtitle": "Wagner Ski Akademie",
+      "logout": "Odhlásit"
+    },
+    "tabs": [
+      { "key": "aktuality", "label": "Aktuality" },
+      { "key": "skicamp", "label": "Skicamp termíny" },
+      { "key": "kurzy", "label": "Kurzy instruktorů" },
+      { "key": "rezervace", "label": "Ceník / rezervace" },
+      { "key": "nastaveni", "label": "Nastavení" },
+      { "key": "kontakty", "label": "Kontakty" }
+    ],
+    "common": {
+      "loading": "Načítání...",
+      "save": "Uložit",
+      "saved": "Uloženo",
+      "cancel": "Zrušit",
+      "edit": "Upravit",
+      "delete": "Smazat"
+    },
+    "skicamp": {
+      "title": "Termíny Skicamp",
+      "addButton": "+ Přidat termín",
+      "empty": "Žádné termíny. Přidejte první termín.",
+      "spotsLabel": "míst",
+      "form": {
+        "campType": "Typ kempu",
+        "location": "Lokalita",
+        "locationPlaceholder": "např. Stubai, Rakousko",
+        "dateFrom": "Datum od",
+        "dateTo": "Datum do",
+        "price": "Cena (Kč)",
+        "spots": "Počet míst",
+        "note": "Poznámka"
+      }
+    },
+    "courses": {
+      "title": "Kurzy instruktorů",
+      "addButton": "+ Přidat kurz",
+      "coursePrefix": "Kurz",
+      "form": {
+        "level": "Úroveň",
+        "levelPlaceholder": "např. D, C, Prolongace",
+        "subtitle": "Podtitulek",
+        "hours": "Hodin",
+        "hoursPlaceholder": "např. 120 hodin",
+        "date": "Datum",
+        "datePlaceholder": "např. Leden 2026",
+        "location": "Lokalita",
+        "tags": "Tagy (oddělené čárkou)",
+        "priceWith": "Cena s ubytováním (Kč)",
+        "priceWithout": "Cena bez ubytování (Kč)",
+        "description": "Popis"
+      }
+    },
+    "reservation": {
+      "title": "Ceník a rezervace",
+      "addButton": "+ Přidat položku",
+      "categories": {
+        "individual": "Individuální výuka",
+        "group": "Skupinová výuka",
+        "special": "Speciální programy"
+      },
+      "form": {
+        "category": "Kategorie",
+        "categoryOptions": {
+          "individual": "Individuální",
+          "group": "Skupinová",
+          "special": "Speciální"
+        },
+        "name": "Název",
+        "duration": "Doba trvání",
+        "durationPlaceholder": "např. 60 min",
+        "price": "Cena",
+        "pricePlaceholder": "např. 1 190 Kč",
+        "note": "Poznámka"
+      }
+    },
+    "contacts": {
+      "title": "Kontakty",
+      "addButton": "+ Přidat kontakt",
+      "form": {
+        "type": "Typ",
+        "typeOptions": {
+          "phone": "Telefon",
+          "email": "E-mail",
+          "address": "Adresa",
+          "facebook": "Facebook",
+          "instagram": "Instagram",
+          "hours": "Otevírací doba"
+        },
+        "label": "Popisek",
+        "value": "Hodnota",
+        "valuePlaceholder": "např. +420 604 681 100",
+        "url": "URL / odkaz",
+        "urlPlaceholder": "např. tel:+420604681100"
+      }
+    },
+    "settings": {
+      "title": "Nastavení",
+      "voucher": {
+        "title": "Vouchery",
+        "discountLabel": "Sleva na vouchery (%)",
+        "discountNote": "Výchozí hodnota: 15 %. Sleva se aplikuje na všechny vouchery."
+      },
+      "news": {
+        "title": "Aktuality",
+        "maxLabel": "Max. počet zobrazených aktualit",
+        "maxNote": "Starší aktuality nad tento limit se na webu nezobrazí (zůstanou v databázi). Výchozí: 5."
+      }
+    },
+    "news": {
+      "title": "Aktuality",
+      "addButton": "+ Přidat aktualitu",
+      "empty": "Žádné aktuality. Přidejte první.",
+      "form": {
+        "headline": "Nadpis",
+        "headlinePlaceholder": "Nadpis aktuality",
+        "date": "Datum publikace",
+        "body": "Text",
+        "bodyPlaceholder": "Text aktuality..."
+      }
+    }
+  }
+}

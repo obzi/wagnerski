@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { useScroll, useTransform, motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
+import texts from "@/data/texts.json";
 
 export function ParallaxQuote() {
   const ref = useRef(null);
@@ -22,7 +23,7 @@ export function ParallaxQuote() {
         <Image
           src="/images/petroblouk.jpeg"
           fill
-          alt="Horská krajina"
+          alt={texts.home.quote.imageAlt}
           className="object-cover"
           sizes="100vw"
           draggable={false}
@@ -34,16 +35,16 @@ export function ParallaxQuote() {
       <div className="relative z-10 h-full flex items-center px-7 sm:px-9 max-w-[1280px] mx-auto">
         <div>
           <p className="font-serif text-[20px] sm:text-[26px] text-white leading-[1.5] tracking-[-0.01em] max-w-2xl">
-            „Nečekejte, kdo na vás zbude.
+            {texts.home.quote.line1}
             <br />
-            <span className="text-white/50 italic">Kvalitní instruktoři nejsou.</span>
+            <span className="text-white/50 italic">{texts.home.quote.line2}</span>
             <br />
-            U nás hýčkáme jedny
+            {texts.home.quote.line3}
             <br />
-            z posledních na Moravě."
+            {texts.home.quote.line4}
           </p>
           <p className="mt-5 text-[11px] text-white/40 tracking-[0.06em]">
-            — Petr Wagner · majitel Wagner Ski Akademie
+            {texts.home.quote.author}
           </p>
         </div>
       </div>

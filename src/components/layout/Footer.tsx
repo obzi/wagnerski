@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { FacebookIcon, InstagramIcon } from "@/components/ui/SocialIcons";
+import texts from "@/data/texts.json";
 
 const partners = [
   { src: "/images/loga/wagner.svg", alt: "Wagner Ski Akademie", width: 210, height: 70 },
@@ -18,7 +19,7 @@ export function Footer() {
       <div className="px-7 py-10">
         <div className="max-w-[1280px] mx-auto">
           <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6 text-center">
-            Partneři
+            {texts.footer.partnersLabel}
           </span>
           <div className="flex flex-wrap items-center justify-center gap-10 sm:gap-14">
             {partners.map((p) => (
@@ -40,7 +41,7 @@ export function Footer() {
       <div className="border-t border-line px-7 py-[22px]">
         <div className="max-w-[1280px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <span className="text-[9px] uppercase tracking-[0.16em] text-ink-muted">
-            Wagner Ski Akademie · wagnerski.cz
+            {texts.footer.copyright}
           </span>
           <div className="flex items-center gap-0">
               <a

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { ReservationPrice } from "@/lib/supabase";
+import texts from "@/data/texts.json";
 
 interface VoucherPurchaseProps {
   prices: ReservationPrice[];
@@ -34,7 +35,7 @@ export function VoucherPurchase({ prices, discountPercent }: VoucherPurchaseProp
 
   const handlePurchase = async () => {
     if (!selectedPrice || !name.trim() || !email.trim()) {
-      setError("Vyplňte prosím všechna pole.");
+      setError(texts.voucher.errors.fillAll);
       return;
     }
 
@@ -79,7 +80,7 @@ export function VoucherPurchase({ prices, discountPercent }: VoucherPurchaseProp
       setVoucherCode(voucher.code);
       setStep("success");
     } catch {
-      setError("Něco se pokazilo. Zkuste to prosím znovu.");
+      setError(texts.voucher.errors.generic);
     } finally {
       setLoading(false);
     }
@@ -105,26 +106,26 @@ export function VoucherPurchase({ prices, discountPercent }: VoucherPurchaseProp
     return (
       <div className="border border-line rounded-[3px] p-8 bg-surface text-center">
         <span className="block text-[9px] uppercase tracking-[0.16em] text-accent mb-4">
-          Voucher zakoupen
+          {texts.voucher.success.eyebrow}
         </span>
         <h2 className="text-[20px] font-normal tracking-[-0.01em] mb-2">
-          Děkujeme!
+          {texts.voucher.success.title}
         </h2>
         <p className="text-[13px] text-ink-secondary leading-[1.6] mb-4">
-          Váš voucher byl vytvořen a odeslán na <strong>{email}</strong>.
+          {texts.voucher.success.description} <strong>{email}</strong>.
         </p>
         <div className="bg-ink text-cream py-3 px-6 inline-block rounded-[2px] mb-4">
-          <span className="text-[10px] uppercase tracking-[0.14em] block mb-1 text-white/50">Kód</span>
+          <span className="text-[10px] uppercase tracking-[0.14em] block mb-1 text-white/50">{texts.voucher.success.codeLabel}</span>
           <span className="text-[20px] tracking-[0.1em] font-mono">{voucherCode}</span>
         </div>
         <p className="text-[11px] text-ink-muted mb-4">
-          Platný Po–Pá, 11:00–14:00 · 14 dní od nákupu
+          {texts.voucher.validityNote}
         </p>
         <button
           onClick={handleDownloadPdf}
           className="min-h-[44px] bg-ink text-cream text-[11px] uppercase tracking-[0.14em] px-8 py-[12px] rounded-[2px] hover:opacity-90 transition-opacity"
         >
-          Stáhnout PDF
+          {texts.voucher.success.downloadButton}
         </button>
       </div>
     );
@@ -138,7 +139,7 @@ export function VoucherPurchase({ prices, discountPercent }: VoucherPurchaseProp
           onClick={() => setStep("select")}
           className="text-[11px] text-ink-muted hover:text-ink transition-colors mb-4"
         >
-          ← Zpět na výběr
+          {texts.voucher.backButton}
         </button>
         <h2 className="text-[20px] font-normal tracking-[-0.01em] mb-1">
           {selectedPrice.label}
@@ -154,31 +155,31 @@ export function VoucherPurchase({ prices, discountPercent }: VoucherPurchaseProp
         <div className="space-y-4 mb-6">
           <div>
             <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1">
-              Jméno a příjmení
+              {texts.voucher.form.nameLabel}
             </label>
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="w-full border border-line rounded-[2px] px-4 py-3 text-[14px] bg-cream focus:outline-none focus:border-accent"
-              placeholder="Jan Novák"
+              placeholder={texts.voucher.form.namePlaceholder}
             />
           </div>
           <div>
             <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1">
-              E-mail
+              {texts.voucher.form.emailLabel}
             </label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full border border-line rounded-[2px] px-4 py-3 text-[14px] bg-cream focus:outline-none focus:border-accent"
-              placeholder="jan@email.cz"
+              placeholder={texts.voucher.form.emailPlaceholder}
             />
           </div>
         </div>
         <p className="text-[11px] text-ink-muted mb-4">
-          Platný Po–Pá, 11:00–14:00 · 14 dní od nákupu
+          {texts.voucher.validityNote}
         </p>
         {error && (
           <p className="text-[12px] text-red-600 mb-4">{error}</p>
@@ -188,7 +189,7 @@ export function VoucherPurchase({ prices, discountPercent }: VoucherPurchaseProp
           disabled={loading}
           className="min-h-[44px] w-full bg-ink text-cream text-[11px] uppercase tracking-[0.14em] px-8 py-[12px] rounded-[2px] hover:opacity-90 transition-opacity disabled:opacity-50"
         >
-          {loading ? "Zpracovávám..." : "Zakoupit voucher"}
+          {loading ? texts.voucher.form.submitting : texts.voucher.form.submitButton}
         </button>
       </div>
     );
@@ -197,11 +198,11 @@ export function VoucherPurchase({ prices, discountPercent }: VoucherPurchaseProp
   return (
     <div>
       <h2 className="text-[20px] font-normal tracking-[-0.01em] mb-2">
-        Zvýhodněné vouchery
+        {texts.voucher.title}
       </h2>
       <div className="flex items-baseline gap-2 mb-4">
-        <span className="text-[13px] text-accent font-medium">−{discountPercent} % sleva</span>
-        <span className="text-[11px] text-ink-muted">· Po–Pá, 11:00–14:00</span>
+        <span className="text-[13px] text-accent font-medium">−{discountPercent} % {texts.voucher.discountLabel}</span>
+        <span className="text-[11px] text-ink-muted">· {texts.voucher.timeSlot}</span>
       </div>
       <div className="space-y-3">
         {prices.map((p) => {

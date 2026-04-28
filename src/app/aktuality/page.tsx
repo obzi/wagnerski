@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { getNews } from "@/lib/data";
 import { SubpageHero } from "@/components/ui/SubpageHero";
+import texts from "@/data/texts.json";
 
 export const metadata: Metadata = {
-  title: "Aktuality | Wagner Ski Akademie",
-  description: "Aktuality a novinky z Wagner Ski Akademie.",
+  title: texts.meta.aktuality.title,
+  description: texts.meta.aktuality.description,
 };
 
 export const revalidate = 60;
@@ -24,10 +25,10 @@ export default async function AktualityPage() {
   return (
     <>
       <SubpageHero
-        eyebrow="Aktuality"
-        title="Novinky"
+        eyebrow={texts.aktuality.hero.eyebrow}
+        title={texts.aktuality.hero.title}
         imageSrc="/images/tym.jpeg"
-        imageAlt="Wagner Ski Akademie tým"
+        imageAlt={texts.aktuality.hero.imageAlt}
         logoSrc="/images/loga/wagner.svg"
         logoAlt="Wagner Ski Akademie"
         logoWidth={156}
@@ -39,7 +40,7 @@ export default async function AktualityPage() {
 
         {!featured ? (
           <p className="text-[14px] text-ink-secondary leading-[1.6]">
-            Zatím nejsou žádné aktuality.
+            {texts.aktuality.empty}
           </p>
         ) : (
           <div className="space-y-10">
@@ -47,7 +48,7 @@ export default async function AktualityPage() {
             <article className="border border-accent/30 bg-surface rounded-[3px] p-8 sm:p-10">
               <div className="flex items-center gap-3 mb-4">
                 <span className="inline-block bg-accent/15 text-accent text-[10px] uppercase tracking-[0.12em] font-medium px-3 py-1 rounded-[2px]">
-                  Nové
+                  {texts.aktuality.badge}
                 </span>
                 <time className="text-[11px] uppercase tracking-[0.1em] text-ink-muted">
                   {formatDate(featured.published_at)}
