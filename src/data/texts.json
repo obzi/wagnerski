@@ -52,7 +52,7 @@
       { "href": "/lokality", "label": "Lokality" },
       { "href": "/skola", "label": "Škola" },
       { "href": "/skicamp", "label": "Skicamp" },
-      { "href": "/instruktor", "label": "Instruktor" },
+      { "href": "/instruktor", "label": "Chci byý instruktor" },
       { "href": "/leto", "label": "Léto" },
       { "href": "/o-nas", "label": "O nás" }
     ],
@@ -174,10 +174,10 @@
     },
     "intro": {
       "eyebrow": "O škole",
-      "title": "Učíme lyžovat od roku 1999",
+      "title": "Učíme lyžovat od roku 2005",
       "paragraphs": [
-        "Sherpa Ski School je lyžařská a snowboardová škola s více než 26letou tradicí. Sídlíme na Karlově pod Pradědem v Jeseníkách — jednom z nejspolehlivějších lyžařských středisek v ČR.",
-        "Specializujeme se na individuální výuku s důrazem na správnou techniku. Naši instruktoři jsou výhradně držitelé licence MŠMT ČR — žádní pomocníci ani brigádníci. Za dobu existence jsme vyškolili přes 2 200 instruktorů a naučili lyžovat tisíce dětí i dospělých."
+        "Sherpa Ski School je lyžařská a snowboardová škola s více než 20letou tradicí. Sídlíme na Karlově pod Pradědem v Jeseníkách",
+        "Specializujeme se na individuální výuku i skupinovou výuku. S důrazem na správnou techniku, funkční metodiku a nově sociální komunikaci, která se nám v dnešním světě někam schovává. Školím si a sám vybírám vlastní instruktory s platnou licencí MŠMT (ČSLŠ, APUL, CVLS a další), dle mých kritérií kvality mé lyžařské školy, které se málo kdo vyrovná. Jde mi o přístup a kvalitu předávané pohybové informace klientovi, ať je začátečník či pokročilý, dítě nebo senior."
       ],
       "cta": "Rezervovat hodinu",
       "imageAlt": "Výuka lyžování dětí"
@@ -192,7 +192,7 @@
         },
         {
           "title": "Snowboard",
-          "description": "Výuka snowboardu pro všechny úrovně. Bezpečný postup od základů po freestyle a freeride. Správné návyky od první hodiny.",
+          "description": "Výuka snowboardu pro všechny úrovně. Od základů na sjezdovce po základy nácviků freestyle prvků. Správné návyky od první hodiny.",
           "tags": ["Začátečníci", "Pokročilí", "Freestyle"]
         },
         {
@@ -203,11 +203,11 @@
       ]
     },
     "features": {
-      "eyebrow": "Proč Sherpa",
+      "eyebrow": "Proč Sherpa Ski",
       "items": [
         {
           "title": "Pouze MŠMT instruktoři",
-          "text": "Žádní pomocníci ani brigádníci. Každý náš instruktor má platnou licenci MŠMT ČR a minimálně 5 let praxe."
+          "text": "Žádní pomocníci ani brigádníci. Každý náš instruktor má platnou licenci MŠMT ČR a minimálně 2roky praxe."
         },
         {
           "title": "Individuální přístup",
@@ -215,15 +215,15 @@
         },
         {
           "title": "Moderní metodika",
-          "text": "Využíváme aktuální trendy ve výuce — video analýza, postupné budování dovedností, důraz na bezpečnost."
+          "text": "Využíváme aktuální trendy ve výuce. Video analýza, postupné budování dovedností, důraz na bezpečnost."
         },
         {
           "title": "Výuka pro děti od 3 let",
           "text": "Speciální dětský program s hravým přístupem. Trpěliví instruktoři se zkušenostmi s nejmenšími lyžaři."
         },
         {
-          "title": "26 let zkušeností",
-          "text": "Sherpa Ski School funguje od roku 1999. Přes 2 200 vyškolených instruktorů a tisíce spokojených žáků."
+          "title": "21 let zkušeností",
+          "text": "Sherpa Ski School funguje od roku 2005. Přes 2 200 vyškolených instruktorů a tisíce spokojených žáků."
         },
         {
           "title": "Kompletní vybavení",
@@ -469,7 +469,7 @@
       "title": "Kde se opravdu posunete",
       "paragraphs": [
         "Skicamp Alpy je pro ty, kteří chtějí víc než domácí kopce. Organizujeme lyžařské, snowboardové, závodní i telemarkové kempy v alpských střediscích s garantovaným sněhem a kilometry sjezdovek.",
-        "Každý kemp vede tým zkušených instruktorů s licencí MŠMT a mezinárodními certifikacemi. Skupiny jsou malé, přístup individuální. Denní video rozbor techniky je samozřejmostí."
+        "Každý kemp vede tým zkušených lektorů s licencí MŠMT a mezinárodními certifikacemi. Skupiny jsou malé, přístup individuální. Videorozbor, materiálové poradenství."
       ],
       "imageAlt": "Alpské hory"
     },
@@ -478,22 +478,22 @@
       "items": [
         {
           "title": "Ski Camp",
-          "description": "Intenzivní lyžařský kemp v alpském středisku. Technická příprava, carving, jízda v terénu. Pro pokročilé lyžaře, kteří chtějí posun na další úroveň.",
+          "description": "Intenzivní lyžařský kemp na ledovci.  Technická příprava, carving (race, fun, base), paralelní lyžování. Pro pokročilé lyžaře, kterým jde o to nejen lépe vypadat na lyžích, ale hlavně se lépe citít v oblouku.",
           "tags": ["Pokročilí", "Carving", "Technika", "Alpy"]
         },
         {
           "title": "SNB Camp",
-          "description": "Snowboardový kemp zaměřený na freestyle, freeride a techniku jízdy. Alpský terén nabízí podmínky, které v ČR nenajdete.",
-          "tags": ["Snowboard", "Freestyle", "Freeride", "Alpy"]
+          "description": "Snowboardový kemp zaměřený na techniku jízdya freeride. Alpský terén nabízí podmínky, které v ČR nenajdete.",
+          "tags": ["Snowboard", "Freeride", "Alpy"]
         },
         {
           "title": "Race Camp",
-          "description": "Závodní příprava v alpském terénu. Slalom, obří slalom, super-G. Trénink s profesionálními trenéry a video analýzou.",
+          "description": "Ledovcoý kemp. Nácvik jízd v branách SL, GS. Přípravné cvičení. Bourání bloků od začátku. Správné prvotní krůčky k závodní technice. Zažijte si pocit závodníka s trenérem AD.",
           "tags": ["Závodní příprava", "Slalom", "GS", "Video analýza"]
         },
         {
           "title": "Telemark Camp",
-          "description": "Telemarkový kemp pro všechny úrovně. Klasická technika volné paty v podmínkách, kde telemark vznikl — v alpském terénu.",
+          "description": "Telemarkový kemp pro všechny úrovně.",
           "tags": ["Telemark", "Všechny úrovně", "Alpy"]
         }
       ]
@@ -507,15 +507,15 @@
         },
         {
           "title": "Profesionální vedení",
-          "text": "Kempy vedou výhradně instruktoři s licencí MŠMT a mezinárodními certifikacemi. Malé skupiny, individuální přístup."
+          "text": "Kempy vedou výhradně lektoři a trenéři AD. Malé skupiny, individuální přístup."
         },
         {
           "title": "Video analýza",
-          "text": "Každý den video rozbor techniky. Vidíte svůj pokrok a přesně víte, na čem pracovat."
+          "text": "Video rozbor techniky. Vidíte svůj pokrok a přesně víte, na čem pracovat."
         },
         {
           "title": "Kompletní servis",
-          "text": "Doprava, ubytování, skipasy, pojištění. Stačí přijet a soustředit se na lyžování."
+          "text": "Možnost zajištění ubytování a skipasů k vybranému kempu. Metodické přednášky nebo materiálové poradenství mohou být součástí dle typu kempu"
         }
       ]
     },
