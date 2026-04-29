@@ -1848,42 +1848,51 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
 
   return (
     <div className="min-h-screen bg-surface">
-      <header className="bg-cream border-b border-line px-4 sm:px-7 py-4">
-        <div className="max-w-[1280px] mx-auto flex items-center justify-between">
-          <div>
-            <span className="text-[11px] uppercase tracking-[0.2em] text-ink">
-              {texts.admin.header.title}
-            </span>
-            <span className="text-[9px] uppercase tracking-[0.16em] text-ink-muted ml-3">
-              {texts.admin.header.subtitle}
-            </span>
+      <div className="sticky top-0 z-40 bg-cream border-b border-line shadow-sm">
+        <header className="px-4 sm:px-7 py-4">
+          <div className="max-w-[1280px] mx-auto flex items-center justify-between gap-4">
+            <div className="flex items-center gap-3 min-w-0">
+              <a
+                href="/"
+                className="text-[11px] uppercase tracking-[0.14em] text-ink-muted hover:text-ink border border-line rounded-[2px] px-3 py-1.5 transition-colors"
+              >
+                {texts.admin.header.web}
+              </a>
+              <span className="text-[11px] uppercase tracking-[0.2em] text-ink">
+                {texts.admin.header.title}
+              </span>
+              <span className="hidden sm:inline text-[9px] uppercase tracking-[0.16em] text-ink-muted">
+                {texts.admin.header.subtitle}
+              </span>
+            </div>
+            <button
+              onClick={onLogout}
+              className="text-[11px] uppercase tracking-[0.14em] text-ink-muted hover:text-ink transition-colors shrink-0"
+            >
+              {texts.admin.header.logout}
+            </button>
           </div>
-          <button
-            onClick={onLogout}
-            className="text-[11px] uppercase tracking-[0.14em] text-ink-muted hover:text-ink transition-colors"
-          >
-            {texts.admin.header.logout}
-          </button>
-        </div>
-      </header>
+        </header>
+        <nav className="px-4 sm:px-7 pb-3">
+          <div className="max-w-[1280px] mx-auto flex gap-1 overflow-x-auto">
+            {tabs.map((t) => (
+              <button
+                key={t.key}
+                onClick={() => setTab(t.key)}
+                className={`text-[11px] uppercase tracking-[0.14em] px-5 py-2.5 rounded-[2px] whitespace-nowrap transition-colors ${
+                  tab === t.key
+                    ? "bg-ink text-cream"
+                    : "text-ink-secondary hover:bg-surface"
+                }`}
+              >
+                {t.label}
+              </button>
+            ))}
+          </div>
+        </nav>
+      </div>
 
       <div className="max-w-[1280px] mx-auto px-4 sm:px-7 py-6">
-        <div className="flex gap-1 mb-8 overflow-x-auto">
-          {tabs.map((t) => (
-            <button
-              key={t.key}
-              onClick={() => setTab(t.key)}
-              className={`text-[11px] uppercase tracking-[0.14em] px-5 py-2.5 rounded-[2px] whitespace-nowrap transition-colors ${
-                tab === t.key
-                  ? "bg-ink text-cream"
-                  : "text-ink-secondary hover:bg-cream"
-              }`}
-            >
-              {t.label}
-            </button>
-          ))}
-        </div>
-
         {tab === "aktuality" && <NewsManager />}
         {tab === "skicamp" && (
           <div className="space-y-12">

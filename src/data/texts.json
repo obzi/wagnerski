@@ -665,7 +665,8 @@
     "header": {
       "title": "Admin",
       "subtitle": "Wagner Ski Akademie",
-      "logout": "Odhlásit"
+      "logout": "Odhlásit",
+      "web": "Web"
     },
     "tabs": [
       { "key": "aktuality", "label": "Aktuality" },
