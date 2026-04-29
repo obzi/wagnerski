@@ -669,10 +669,8 @@
     },
     "tabs": [
       { "key": "aktuality", "label": "Aktuality" },
-      { "key": "skicamp", "label": "Termíny ski camp" },
-      { "key": "campTypes", "label": "Druhy kempů" },
-      { "key": "kurzy", "label": "Termíny kurzů" },
-      { "key": "courseTypes", "label": "Druhy kurzů" },
+      { "key": "skicamp", "label": "Skicamp" },
+      { "key": "kurzy", "label": "Instruktorské kurzy" },
       { "key": "rezervace", "label": "Ceník / rezervace" },
       { "key": "nastaveni", "label": "Nastavení" },
       { "key": "kontakty", "label": "Kontakty" }
@@ -686,7 +684,7 @@
       "delete": "Smazat"
     },
     "skicamp": {
-      "title": "Termíny Skicamp",
+      "title": "Termíny kempů",
       "addButton": "+ Přidat termín",
       "empty": "Žádné termíny. Přidejte první termín.",
       "spotsLabel": "míst",

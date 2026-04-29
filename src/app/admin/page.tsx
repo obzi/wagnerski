@@ -21,9 +21,7 @@ import texts from "@/data/texts.json";
 type Tab =
   | "aktuality"
   | "skicamp"
-  | "campTypes"
   | "kurzy"
-  | "courseTypes"
   | "rezervace"
   | "nastaveni"
   | "kontakty";
@@ -1870,10 +1868,18 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
         </div>
 
         {tab === "aktuality" && <NewsManager />}
-        {tab === "skicamp" && <SkicampManager />}
-        {tab === "campTypes" && <CampTypesManager />}
-        {tab === "kurzy" && <CoursesManager />}
-        {tab === "courseTypes" && <CourseTypesManager />}
+        {tab === "skicamp" && (
+          <div className="space-y-12">
+            <SkicampManager />
+            <CampTypesManager />
+          </div>
+        )}
+        {tab === "kurzy" && (
+          <div className="space-y-12">
+            <CoursesManager />
+            <CourseTypesManager />
+          </div>
+        )}
         {tab === "rezervace" && <ReservationManager />}
         {tab === "nastaveni" && <SettingsManager />}
         {tab === "kontakty" && <ContactsManager />}
