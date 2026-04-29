@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" role="img" aria-label="Wagner Ski Academy">
+  <rect width="900" height="300" rx="14" fill="#00719a"/>
+  <text x="450" y="160"
+        text-anchor="middle"
+        font-family="'Inter','Arial Black','Helvetica',sans-serif"
+        font-weight="900"
+        font-size="138"
+        letter-spacing="-3"
+        fill="#ffffff">WAGNER</text>
+  <text x="450" y="240"
+        text-anchor="middle"
+        font-family="'Inter','Arial','Helvetica',sans-serif"
+        font-weight="300"
+        font-size="62"
+        letter-spacing="10"
+        fill="#ffffff">SKI ACADEMY</text>
+</svg>

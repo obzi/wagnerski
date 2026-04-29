@@ -273,18 +273,19 @@
     "courseTypes": {
       "eyebrow": "Druhy kurzů"
     },
+    "signupNote": "Celosezónním bezproblémovým instruktorům vrátíme plné kurzovné.",
     "pricing": {
       "eyebrow": "Ceník",
       "title": "All-inclusive cena",
       "packages": [
         {
-          "title": "Premium balíček",
+          "title": "Premium balíček - Kurz D",
           "price": "16 900 Kč",
           "note": "Při platbě do 10. 12. — jinak 22 900 Kč na místě",
-          "description": "Zahrnuje ubytování, polopenzi, skipasy, materiály, přednášky a celoživotní certifikaci."
+          "description": "Zahrnuje ubytování, polopenzi, lektory, hosty, skipasy, materiály, přednášky a celoživotní certifikaci."
         },
         {
-          "title": "Bez ubytování",
+          "title": "Bez ubytování - Kurz D",
           "price": "7 200 Kč",
           "note": "Pro ty, kteří si zajistí ubytování sami",
           "description": "Plná výuka, materiály a certifikace. Plná refundace při celosezónním zaměstnání."
@@ -294,8 +295,9 @@
       "included": [
         "Ubytování v hotelovém komplexu s polopenzí",
         "Skipasy po celou dobu kurzu",
+        "Lektoři a hosté",
         "Výukové materiály a skripta",
-        "Odborné přednášky (psychologie, horská služba, Freeride World Tour)",
+        "Odborné přednášky (psychologie, horská služba, Freeride World Tour Qualifier)",
         "Celoživotně platná certifikace v celé ČR",
         "Bonusový carvingový workshop",
         "Speciální tričko absolventa",

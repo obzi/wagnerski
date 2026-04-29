@@ -8,9 +8,10 @@ import texts from "@/data/texts.json";
 
 interface CourseWithSignupProps {
   courses: InstructorCourse[];
+  signupNote?: string;
 }
 
-export function CourseWithSignup({ courses }: CourseWithSignupProps) {
+export function CourseWithSignup({ courses, signupNote }: CourseWithSignupProps) {
   const [preselected, setPreselected] = useState("");
   const formRef = useRef<HTMLDivElement>(null);
 
@@ -99,6 +100,11 @@ export function CourseWithSignup({ courses }: CourseWithSignupProps) {
       {/* Signup Form */}
       <section className="py-16 px-7 bg-surface" id="prihlaska">
         <div className="max-w-xl mx-auto" ref={formRef}>
+          {signupNote && (
+            <p className="text-[13px] text-ink-secondary text-center mb-6 leading-[1.6]">
+              {signupNote}
+            </p>
+          )}
           <CourseSignupForm courses={courses} preselectedCourseId={preselected} />
         </div>
       </section>

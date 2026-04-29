@@ -3,7 +3,7 @@ import { FacebookIcon, InstagramIcon } from "@/components/ui/SocialIcons";
 import texts from "@/data/texts.json";
 
 const partners = [
-  { src: "/images/loga/wagner.svg", alt: "Wagner Ski Akademie", width: 210, height: 70 },
+  { src: "/images/loga/wagner-2.svg", alt: "Wagner Ski Akademie", width: 210, height: 70 },
   { src: "/images/loga/sherpa.svg", alt: "Sherpa Ski School", width: 130, height: 92 },
   { src: "/images/loga/skicamp.svg", alt: "Skicamp", width: 130, height: 52 },
   { src: "/images/loga/skiarena-karlov.svg", alt: "Ski aréna Karlov", width: 280, height: 56 },

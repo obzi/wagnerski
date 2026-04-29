@@ -112,7 +112,7 @@ export default async function InstruktorPage() {
         </section>
       )}
 
-      <CourseWithSignup courses={courses} />
+      <CourseWithSignup courses={courses} signupNote={texts.instruktor.signupNote} />
 
       {/* Pricing */}
       <section className="py-16 px-7">

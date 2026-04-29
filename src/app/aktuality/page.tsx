@@ -29,7 +29,7 @@ export default async function AktualityPage() {
         title={texts.aktuality.hero.title}
         imageSrc="/images/tym.jpeg"
         imageAlt={texts.aktuality.hero.imageAlt}
-        logoSrc="/images/loga/wagner.svg"
+        logoSrc="/images/loga/wagner-2.svg"
         logoAlt="Wagner Ski Akademie"
         logoWidth={156}
         logoHeight={52}

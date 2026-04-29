@@ -19,7 +19,7 @@ export default function ONasPage() {
         imageSrc="/images/uvodonas.jpg.jpeg"
         imagePositionClass="object-[85%_center] sm:object-center"
         imageAlt={texts.oNas.hero.imageAlt}
-        logoSrc="/images/loga/wagner.svg"
+        logoSrc="/images/loga/wagner-2.svg"
         logoAlt="Wagner Ski Akademie"
         logoWidth={156}
         logoHeight={52}
