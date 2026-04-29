@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { supabase } from "@/lib/supabase";
 import type {
   SkicampTerm,
@@ -1616,6 +1616,23 @@ function TypeCardManager<T extends TypeCard>({
   const { items, loading, add, update, remove } = useSupabaseTable<T>(table, defaults);
   const [editing, setEditing] = useState<T | null>(null);
   const [isNew, setIsNew] = useState(false);
+  const seeded = useRef(false);
+
+  useEffect(() => {
+    if (!supabase) return;
+    if (loading || seeded.current) return;
+    if (items.length > 0) {
+      seeded.current = true;
+      return;
+    }
+    seeded.current = true;
+    (async () => {
+      for (const d of defaults) {
+        const { id: _id, ...rest } = d;
+        await add(rest as Omit<T, "id">);
+      }
+    })();
+  }, [loading, items, defaults, add]);
 
   async function handleSave(card: T) {
     if (isNew) {

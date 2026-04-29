@@ -52,7 +52,7 @@
       { "href": "/lokality", "label": "Lokality" },
       { "href": "/skola", "label": "Škola" },
       { "href": "/skicamp", "label": "Skicamp" },
-      { "href": "/instruktor", "label": "Chci byý instruktor" },
+      { "href": "/instruktor", "label": "Chci být instruktor" },
       { "href": "/leto", "label": "Léto" },
       { "href": "/o-nas", "label": "O nás" }
     ],
