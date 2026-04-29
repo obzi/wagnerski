@@ -1685,7 +1685,7 @@ function TypeCardManager<T extends TypeCard>({
       )}
 
       <div className="space-y-3">
-        {items.map((c) => (
+        {[...items].sort((a, b) => a.sort_order - b.sort_order).map((c) => (
           <div
             key={c.id}
             className="border border-line rounded-[3px] p-4 bg-white flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4"
