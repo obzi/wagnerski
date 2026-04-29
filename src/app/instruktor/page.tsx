@@ -1,6 +1,7 @@
 import { SubpageHero } from "@/components/ui/SubpageHero";
 import { CourseWithSignup } from "@/components/ui/CourseWithSignup";
-import { getInstructorCourses } from "@/lib/data";
+import { Tag } from "@/components/ui/Tag";
+import { getInstructorCourses, getCourseTypes } from "@/lib/data";
 import Image from "next/image";
 import type { Metadata } from "next";
 import texts from "@/data/texts.json";
@@ -13,7 +14,10 @@ export const metadata: Metadata = {
 };
 
 export default async function InstruktorPage() {
-  const courses = await getInstructorCourses();
+  const [courses, courseTypes] = await Promise.all([
+    getInstructorCourses(),
+    getCourseTypes(),
+  ]);
   return (
     <>
       {/* Hero */}
@@ -79,6 +83,34 @@ export default async function InstruktorPage() {
           </div>
         </div>
       </section>
+
+      {/* Druhy kurzů */}
+      {courseTypes.length > 0 && (
+        <section className="py-16 px-7 bg-surface">
+          <div className="max-w-[1280px] mx-auto">
+            <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-8">
+              {texts.instruktor.courseTypes.eyebrow}
+            </span>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {courseTypes.map((c) => (
+                <div key={c.id} className="border border-line rounded-[3px] p-6 bg-cream">
+                  <h3 className="text-[18px] font-normal tracking-[-0.01em] mb-3">
+                    {c.title}
+                  </h3>
+                  <p className="text-[13px] text-ink-secondary leading-[1.6] mb-4">
+                    {c.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {c.tags.map((t) => (
+                      <Tag key={t}>{t}</Tag>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <CourseWithSignup courses={courses} />
 

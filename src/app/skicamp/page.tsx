@@ -3,7 +3,7 @@ import { Tag } from "@/components/ui/Tag";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { getSkicampTerms } from "@/lib/data";
+import { getSkicampTerms, getCampTypes } from "@/lib/data";
 import texts from "@/data/texts.json";
 
 export const dynamic = "force-dynamic";
@@ -14,7 +14,14 @@ export const metadata: Metadata = {
 };
 
 export default async function SkicampPage() {
-  const terms = await getSkicampTerms();
+  const [terms, campTypes] = await Promise.all([
+    getSkicampTerms(),
+    getCampTypes(),
+  ]);
+  const camps =
+    campTypes.length > 0
+      ? campTypes.map((c) => ({ title: c.title, description: c.description, tags: c.tags }))
+      : texts.skicamp.camps.items;
   return (
     <>
       {/* Hero */}
@@ -67,7 +74,7 @@ export default async function SkicampPage() {
             {texts.skicamp.camps.eyebrow}
           </span>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {texts.skicamp.camps.items.map((c) => (
+            {camps.map((c) => (
               <div key={c.title} className="border border-line rounded-[3px] p-6 bg-cream">
                 <h3 className="text-[18px] font-normal tracking-[-0.01em] mb-3">
                   {c.title}

@@ -78,3 +78,19 @@ export type NewsItem = {
   published_at: string;
   created_at?: string;
 };
+
+export type CampType = {
+  id: string;
+  title: string;
+  description: string;
+  tags: string[];
+  sort_order: number;
+};
+
+export type CourseType = {
+  id: string;
+  title: string;
+  description: string;
+  tags: string[];
+  sort_order: number;
+};

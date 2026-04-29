@@ -9,6 +9,8 @@ import type {
   ReservationPrice,
   SiteSetting,
   NewsItem,
+  CampType,
+  CourseType,
 } from "@/lib/supabase";
 import texts from "@/data/texts.json";
 
@@ -16,7 +18,15 @@ import texts from "@/data/texts.json";
 /*  Types                                                              */
 /* ------------------------------------------------------------------ */
 
-type Tab = "aktuality" | "skicamp" | "kurzy" | "rezervace" | "nastaveni" | "kontakty";
+type Tab =
+  | "aktuality"
+  | "skicamp"
+  | "campTypes"
+  | "kurzy"
+  | "courseTypes"
+  | "rezervace"
+  | "nastaveni"
+  | "kontakty";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -273,6 +283,41 @@ const defaultPrices: ReservationPrice[] = [
 
 const defaultVoucherSettings: SiteSetting[] = [
   { id: "1", key: "voucher_discount", value: "15" },
+];
+
+const defaultCampTypes: CampType[] = texts.skicamp.camps.items.map((c, i) => ({
+  id: String(i + 1),
+  title: c.title,
+  description: c.description,
+  tags: c.tags,
+  sort_order: (i + 1) * 10,
+}));
+
+const defaultCourseTypes: CourseType[] = [
+  {
+    id: "1",
+    title: "Kurz D",
+    description:
+      "Základní kvalifikace pro výuku lyžování a snowboardu. Kurz zakončený zkouškou MŠMT ČR.",
+    tags: ["Lyžování", "SNB", "Začátečníci"],
+    sort_order: 10,
+  },
+  {
+    id: "2",
+    title: "Kurz C",
+    description:
+      "Rozšíření kvalifikace. Carving, metodika výuky pokročilých, závodní příprava.",
+    tags: ["Carving", "Metodika", "Pokročilí"],
+    sort_order: 20,
+  },
+  {
+    id: "3",
+    title: "Prolongace",
+    description:
+      "Povinné prodloužení licence MŠMT. Nové trendy, legislativa, praktická výuka.",
+    tags: ["Prodloužení", "MŠMT"],
+    sort_order: 30,
+  },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -1556,6 +1601,228 @@ function NewsForm({
 }
 
 /* ------------------------------------------------------------------ */
+/*  Type Card Manager (shared by Camp Types & Course Types)            */
+/* ------------------------------------------------------------------ */
+
+type TypeCard = CampType | CourseType;
+
+function TypeCardManager<T extends TypeCard>({
+  table,
+  defaults,
+  labels,
+}: {
+  table: string;
+  defaults: T[];
+  labels: { title: string; addButton: string; empty: string; placeholder: string };
+}) {
+  const { items, loading, add, update, remove } = useSupabaseTable<T>(table, defaults);
+  const [editing, setEditing] = useState<T | null>(null);
+  const [isNew, setIsNew] = useState(false);
+
+  async function handleSave(card: T) {
+    if (isNew) {
+      const { id: _id, ...rest } = card;
+      await add(rest as Omit<T, "id">);
+    } else {
+      const { id, ...changes } = card;
+      await update(id, changes as Partial<T>);
+    }
+    setEditing(null);
+    setIsNew(false);
+  }
+
+  if (loading) {
+    return <p className="text-[13px] text-ink-muted">{texts.admin.common.loading}</p>;
+  }
+
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="text-[18px] font-normal tracking-[-0.01em]">{labels.title}</h2>
+        <button
+          className={btnPrimary}
+          onClick={() => {
+            setIsNew(true);
+            setEditing({
+              id: uid(),
+              title: "",
+              description: "",
+              tags: [] as string[],
+              sort_order: (items.length + 1) * 10,
+            } as unknown as T);
+          }}
+        >
+          {labels.addButton}
+        </button>
+      </div>
+
+      {editing && (
+        <TypeCardForm
+          card={editing}
+          placeholder={labels.placeholder}
+          onSave={handleSave}
+          onCancel={() => { setEditing(null); setIsNew(false); }}
+        />
+      )}
+
+      {items.length === 0 && !editing && (
+        <p className="text-[13px] text-ink-muted">{labels.empty}</p>
+      )}
+
+      <div className="space-y-3">
+        {items.map((c) => (
+          <div
+            key={c.id}
+            className="border border-line rounded-[3px] p-4 bg-white flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4"
+          >
+            <div className="min-w-0 flex-1">
+              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-1">
+                <span className="text-[14px] font-medium">{c.title}</span>
+                <span className="text-[11px] text-ink-muted">#{c.sort_order}</span>
+              </div>
+              <p className="text-[12px] text-ink-secondary line-clamp-2 mb-2">
+                {c.description}
+              </p>
+              <div className="flex flex-wrap gap-1.5">
+                {c.tags.map((t) => (
+                  <span key={t} className="text-[10px] uppercase tracking-[0.1em] text-ink-muted border border-line rounded-[2px] px-2 py-0.5">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="flex gap-2 shrink-0">
+              <button
+                className={btnSecondary}
+                onClick={() => { setIsNew(false); setEditing(c); }}
+              >
+                {texts.admin.common.edit}
+              </button>
+              <button className={btnDanger} onClick={() => remove(c.id)}>
+                {texts.admin.common.delete}
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function TypeCardForm<T extends TypeCard>({
+  card,
+  placeholder,
+  onSave,
+  onCancel,
+}: {
+  card: T;
+  placeholder: string;
+  onSave: (c: T) => void;
+  onCancel: () => void;
+}) {
+  const [data, setData] = useState(card);
+  const [tagsStr, setTagsStr] = useState(card.tags.join(", "));
+  const set = <K extends keyof T>(k: K, v: T[K]) =>
+    setData((d) => ({ ...d, [k]: v }));
+
+  return (
+    <div className="border border-accent/30 rounded-[3px] p-5 mb-6 bg-white">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+        <div>
+          <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1">
+            Název
+          </label>
+          <input
+            className={inputCls}
+            value={data.title}
+            onChange={(e) => set("title", e.target.value as T[keyof T])}
+            placeholder={placeholder}
+          />
+        </div>
+        <div>
+          <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1">
+            Pořadí
+          </label>
+          <input
+            type="number"
+            className={inputCls}
+            value={data.sort_order || 0}
+            onChange={(e) => set("sort_order", Number(e.target.value) as T[keyof T])}
+          />
+        </div>
+        <div className="sm:col-span-2">
+          <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1">
+            Tagy (oddělené čárkou)
+          </label>
+          <input
+            className={inputCls}
+            value={tagsStr}
+            onChange={(e) => {
+              setTagsStr(e.target.value);
+              set(
+                "tags",
+                e.target.value
+                  .split(",")
+                  .map((s) => s.trim())
+                  .filter(Boolean) as T[keyof T]
+              );
+            }}
+          />
+        </div>
+      </div>
+      <div className="mb-4">
+        <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1">
+          Popis
+        </label>
+        <textarea
+          className={inputCls + " min-h-[100px]"}
+          value={data.description}
+          onChange={(e) => set("description", e.target.value as T[keyof T])}
+        />
+      </div>
+      <div className="flex gap-3">
+        <button className={btnPrimary} onClick={() => onSave(data)}>
+          {texts.admin.common.save}
+        </button>
+        <button className={btnSecondary} onClick={onCancel}>
+          {texts.admin.common.cancel}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function CampTypesManager() {
+  return (
+    <TypeCardManager<CampType>
+      table="camp_types"
+      defaults={defaultCampTypes}
+      labels={{
+        title: texts.admin.campTypes.title,
+        addButton: texts.admin.campTypes.addButton,
+        empty: texts.admin.campTypes.empty,
+        placeholder: texts.admin.campTypes.form.titlePlaceholder,
+      }}
+    />
+  );
+}
+
+function CourseTypesManager() {
+  return (
+    <TypeCardManager<CourseType>
+      table="course_types"
+      defaults={defaultCourseTypes}
+      labels={{
+        title: texts.admin.courseTypes.title,
+        addButton: texts.admin.courseTypes.addButton,
+        empty: texts.admin.courseTypes.empty,
+        placeholder: texts.admin.courseTypes.form.titlePlaceholder,
+      }}
+    />
+  );
+}
+
+/* ------------------------------------------------------------------ */
 /*  Dashboard                                                          */
 /* ------------------------------------------------------------------ */
 
@@ -1604,7 +1871,9 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
 
         {tab === "aktuality" && <NewsManager />}
         {tab === "skicamp" && <SkicampManager />}
+        {tab === "campTypes" && <CampTypesManager />}
         {tab === "kurzy" && <CoursesManager />}
+        {tab === "courseTypes" && <CourseTypesManager />}
         {tab === "rezervace" && <ReservationManager />}
         {tab === "nastaveni" && <SettingsManager />}
         {tab === "kontakty" && <ContactsManager />}

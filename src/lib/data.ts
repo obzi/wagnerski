@@ -7,6 +7,8 @@ import type {
   Voucher,
   SiteSetting,
   NewsItem,
+  CampType,
+  CourseType,
 } from "./supabase";
 
 export async function getSkicampTerms(): Promise<SkicampTerm[]> {
@@ -89,4 +91,22 @@ export async function getVoucherDiscount(): Promise<number> {
   const settings = await getSiteSettings();
   const discount = settings.find((s) => s.key === "voucher_discount");
   return discount ? parseFloat(discount.value) : 15;
+}
+
+export async function getCampTypes(): Promise<CampType[]> {
+  if (!supabase) return [];
+  const { data } = await supabase
+    .from("camp_types")
+    .select("*")
+    .order("sort_order", { ascending: true });
+  return (data as CampType[]) ?? [];
+}
+
+export async function getCourseTypes(): Promise<CourseType[]> {
+  if (!supabase) return [];
+  const { data } = await supabase
+    .from("course_types")
+    .select("*")
+    .order("sort_order", { ascending: true });
+  return (data as CourseType[]) ?? [];
 }

@@ -270,6 +270,9 @@
       "galleryAlt1": "Výuka na instruktorském kurzu",
       "galleryAlt2": "Lokalita instruktorského kurzu"
     },
+    "courseTypes": {
+      "eyebrow": "Druhy kurzů"
+    },
     "pricing": {
       "eyebrow": "Ceník",
       "title": "All-inclusive cena",
@@ -631,7 +634,7 @@
   },
 
   "courseWithSignup": {
-    "eyebrow": "Nabídka kurzů",
+    "eyebrow": "Termíny kurzů",
     "empty": "Termíny kurzů budou zveřejněny brzy.",
     "termLabel": "Termín",
     "locationLabel": "Místo",
@@ -666,8 +669,10 @@
     },
     "tabs": [
       { "key": "aktuality", "label": "Aktuality" },
-      { "key": "skicamp", "label": "Skicamp termíny" },
-      { "key": "kurzy", "label": "Kurzy instruktorů" },
+      { "key": "skicamp", "label": "Termíny ski camp" },
+      { "key": "campTypes", "label": "Druhy kempů" },
+      { "key": "kurzy", "label": "Termíny kurzů" },
+      { "key": "courseTypes", "label": "Druhy kurzů" },
       { "key": "rezervace", "label": "Ceník / rezervace" },
       { "key": "nastaveni", "label": "Nastavení" },
       { "key": "kontakty", "label": "Kontakty" }
@@ -697,8 +702,8 @@
       }
     },
     "courses": {
-      "title": "Kurzy instruktorů",
-      "addButton": "+ Přidat kurz",
+      "title": "Termíny kurzů",
+      "addButton": "+ Přidat termín",
       "coursePrefix": "Kurz",
       "form": {
         "level": "Úroveň",
@@ -713,6 +718,30 @@
         "priceWith": "Cena s ubytováním (Kč)",
         "priceWithout": "Cena bez ubytování (Kč)",
         "description": "Popis"
+      }
+    },
+    "campTypes": {
+      "title": "Druhy kempů",
+      "addButton": "+ Přidat druh",
+      "empty": "Žádné druhy kempů. Přidejte první kartu.",
+      "form": {
+        "title": "Název",
+        "titlePlaceholder": "např. Ski Camp",
+        "description": "Popis",
+        "tags": "Tagy (oddělené čárkou)",
+        "sortOrder": "Pořadí"
+      }
+    },
+    "courseTypes": {
+      "title": "Druhy kurzů",
+      "addButton": "+ Přidat druh",
+      "empty": "Žádné druhy kurzů. Přidejte první kartu.",
+      "form": {
+        "title": "Název",
+        "titlePlaceholder": "např. Kurz D",
+        "description": "Popis",
+        "tags": "Tagy (oddělené čárkou)",
+        "sortOrder": "Pořadí"
       }
     },
     "reservation": {
