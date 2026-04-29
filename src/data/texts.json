@@ -402,22 +402,23 @@
       "title": "Sherpaski — Ski aréna Karlov pod Pradědem",
       "paragraphs": [
         "Karlov pod Pradědem je naše domovské středisko. Nachází se v srdci Jeseníků v nadmořské výšce 830–1 100 m n. m. Skiaréna nabízí moderní zasněžování, kvalitně upravené sjezdovky a ideální podmínky pro výuku lyžování i snowboardu.",
-        "Středisko disponuje sjezdovkami různé obtížnosti — od mírných svahů ideálních pro začátečníky a děti, až po náročnější tratě pro pokročilé lyžaře. Celková délka sjezdovek přesahuje 4 km.",
+        "Středisko disponuje sjezdovkami různé obtížnosti, od mírných svahů ideálních pro začátečníky a děti, až po náročnější tratě pro pokročilé lyžaře.",
         "Díky nadmořské výšce a severní expozici svahů patří Karlov k místům s nejdelší sezónou v České republice. Sezóna obvykle trvá od začátku prosince do začátku dubna."
       ],
       "imageAlt": "Sjezdovky Karlov",
       "parametersTitle": "Parametry střediska",
       "parameters": [
-        ["Nadmořská výška", "830 – 1 100 m n. m."],
-        ["Sjezdovky", "4+ km, všechny obtížnosti"],
-        ["Zasněžování", "Moderní technické zasněžování"],
-        ["Sezóna", "Prosinec – Duben"],
-        ["Vleky", "Sedačková lanovka, kotvy, pomy"],
-        ["Region", "Jeseníky, Moravskoslezský kraj"]
+        { "label": "Nadmořská výška", "value": "830 – 1 100 m n. m." },
+        { "label": "Sjezdovky", "value": "všechny obtížnosti" },
+        { "label": "Zasněžování", "value": "Moderní technické zasněžování" },
+        { "label": "Sezóna", "value": "Prosinec – Duben" },
+        { "label": "Vleky", "value": "Sedačková lanovka, kotvy, pomy" },
+        { "label": "Region", "value": "Jeseníky, Moravskoslezský kraj" },
+        { "label": "Skiaréna", "value": "skikarlov.cz", "href": "https://www.skikarlov.cz/lyzovani/" }
       ]
     },
     "akademie": {
-      "eyebrow": "Výuka kdekoliv v Jeseníkách",
+      "eyebrow": "WAGNER Ski akademie",
       "title": "Ski akademie — Jeseníky",
       "paragraphs": [
         "Služby Wagner Ski Akademie si můžete objednat v jakémkoliv středisku v Jeseníkách — dle individuální domluvy. Ať už lyžujete na Ovčárně, Dolní Moravě, Ramzové nebo kdekoliv jinde, přijedeme za vámi.",

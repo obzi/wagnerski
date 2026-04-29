@@ -57,12 +57,28 @@ export default function LokalityPage() {
                 {texts.lokality.detail.parametersTitle}
               </h3>
               <dl className="space-y-3 text-[13px]">
-                {texts.lokality.detail.parameters.map(([label, value]) => (
-                  <div key={label} className="flex justify-between gap-4">
-                    <dt className="text-ink-muted">{label}</dt>
-                    <dd className="text-right font-medium">{value}</dd>
-                  </div>
-                ))}
+                {texts.lokality.detail.parameters.map((param) => {
+                  const href = "href" in param ? param.href : undefined;
+                  return (
+                    <div key={param.label} className="flex justify-between gap-4">
+                      <dt className="text-ink-muted">{param.label}</dt>
+                      <dd className="text-right font-medium">
+                        {href ? (
+                          <a
+                            href={href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline underline-offset-2 hover:no-underline"
+                          >
+                            {param.value}
+                          </a>
+                        ) : (
+                          param.value
+                        )}
+                      </dd>
+                    </div>
+                  );
+                })}
               </dl>
             </div>
           </div>
