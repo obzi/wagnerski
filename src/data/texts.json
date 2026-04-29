@@ -322,16 +322,20 @@
       "eyebrow": "Náš příběh",
       "title": "Od jedné lyžařské školy k akademii",
       "paragraphs": [
-        "Všechno začalo v roce 1999, kdy Petr Wagner založil Sherpa Ski School na Karlově pod Pradědem. Co začalo jako malá lyžařská škola, vyrostlo ve Wagner Ski Akademii — zastřešující organizaci, která dnes sdružuje lyžařskou školu Sherpa, zahraniční kempy Skicamp a akreditované instruktorské kurzy.",
-        "Naším cílem vždy bylo a je učit lyžování pořádně. S kvalitními instruktory, moderní metodikou a upřímnou vášní pro hory. Za více než 25 let jsme naučili lyžovat tisíce lidí a vyškolili přes 2 200 instruktorů.",
-        "Dnes působíme primárně na Karlově pod Pradědem v Jeseníkách. Naši instruktoři jsou výhradně držitelé licence MŠMT ČR — na tom nikdy nebudeme dělat kompromisy."
+        "Všechno začalo v roce 2005, kdy Petr Wagner začal učit v Karlově pod Pradědem. V roce 2005
+založil SHERPA SKI SCHOOL, hned ze startu jako velká lyžařská škola o
+několika pobočkách v Karlově pod Pradědem, následné roky se rozšířila do
+Hluboček u Olomouce, na Praděd, Karlové Studánky. Následné roky stál
+Petr Wagner u zrodu lyžařských škol na Kraličáku, Koutech. V současných
+letech však důraz na kvalitu převažuje v našem citěn, ne lpěním na
+pobočkách, kde se kvalita v tak velkém počtu udržet nedá."
       ],
       "imageAlt": "Lyžování v horách"
     },
     "milestones": {
       "eyebrow": "Milníky",
       "items": [
-        { "year": "1999", "text": "Založení Sherpa Ski School" },
+        { "year": "19200599", "text": "Založení Sherpa Ski School" },
         { "year": "2005", "text": "Vznik Wagner Ski Akademie" },
         { "year": "2010", "text": "První Skicamp v Alpách" },
         { "year": "2024", "text": "Přes 2 229 vyškolených instruktorů" }
