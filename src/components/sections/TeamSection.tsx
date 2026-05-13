@@ -25,13 +25,13 @@ export function TeamSection() {
             name={texts.home.team.petr.name}
             roles={texts.home.team.petr.roles}
             badges={buildBadges(texts.home.team.petr)}
-            imageSrc="/petr.jpg"
+            imageSrc="/images/petr.jpg"
           />
           <TeamCard
             name={texts.home.team.jolana.name}
             roles={texts.home.team.jolana.roles}
             badges={buildBadges(texts.home.team.jolana)}
-            imageSrc="/jolca.jpg"
+            imageSrc="/images/jolca.jpg"
           />
           <div className="border border-dashed border-line rounded-[3px] bg-surface/50 flex flex-col items-center justify-center p-8 text-center">
             <h3 className="text-[14px] font-normal tracking-[-0.01em] mb-2">

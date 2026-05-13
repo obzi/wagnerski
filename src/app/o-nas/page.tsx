@@ -83,7 +83,7 @@ export default function ONasPage() {
             <div className="flex gap-6 items-start">
               <div className="relative w-[120px] h-[120px] rounded-[3px] overflow-hidden shrink-0">
                 <Image
-                  src="/petr.jpg"
+                  src="/images/petr.jpg"
                   fill
                   alt={texts.oNas.leadership.petr.name}
                   className="object-cover"
@@ -106,7 +106,7 @@ export default function ONasPage() {
             <div className="flex gap-6 items-start">
               <div className="relative w-[120px] h-[120px] rounded-[3px] overflow-hidden shrink-0">
                 <Image
-                  src="/jolca.jpg"
+                  src="/images/jolca.jpg"
                   fill
                   alt={texts.oNas.leadership.jolana.name}
                   className="object-cover"
