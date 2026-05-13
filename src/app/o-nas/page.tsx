@@ -16,7 +16,7 @@ export default function ONasPage() {
       <SubpageHero
         eyebrow={texts.oNas.hero.eyebrow}
         title={texts.oNas.hero.title}
-        imageSrc="/images/uvodonas.jpg.jpeg"
+        imageSrc="/images/kaprun.jpg"
         imagePositionClass="object-[85%_center] sm:object-center"
         imageAlt={texts.oNas.hero.imageAlt}
         logoSrc="/images/loga/wagner-2.svg"

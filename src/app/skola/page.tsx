@@ -18,7 +18,7 @@ export default function SkolaPage() {
         eyebrow={texts.skola.hero.eyebrow}
         title={texts.skola.hero.title}
         description={texts.skola.hero.description}
-        imageSrc="/images/vyuka.jpeg"
+        imageSrc="/images/skola-uvod.jpg"
         imagePositionClass="object-center sm:object-[center_25%]"
         imageAlt={texts.skola.hero.imageAlt}
         logoSrc="/images/loga/sherpa.svg"

@@ -56,7 +56,7 @@ export default async function SkicampPage() {
           </div>
           <div className="relative aspect-[4/3] rounded-[3px] overflow-hidden">
             <Image
-              src="/images/skicampnakaprunu.jpg"
+              src="/images/tymskicamptvle.jpeg"
               fill
               alt={texts.skicamp.intro.imageAlt}
               className="object-cover"
