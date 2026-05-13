@@ -39,27 +39,29 @@ export function SubpageHero({
       <div
         className="absolute inset-0 bg-gradient-to-t from-[rgb(8,10,6)]/80 to-[rgb(8,10,6)]/30"
       />
-      {logoSrc && (
-        <div className="absolute top-6 left-7 sm:left-9 z-10">
-          <Image
-            src={logoSrc}
-            width={logoWidth}
-            height={logoHeight}
-            alt={logoAlt || ""}
-            className="drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)]"
-            draggable={false}
-          />
-        </div>
-      )}
-      <div className="relative z-10 h-full flex flex-col justify-end px-7 sm:px-9 pb-10 max-w-[1280px] mx-auto">
-        <h1 className="text-[32px] sm:text-[48px] font-normal tracking-[-0.03em] leading-[1.1] text-white mb-3">
-          {title}
-        </h1>
-        {description && (
-          <p className="text-[14px] text-white/70 max-w-lg">
-            {description}
-          </p>
+      <div className="relative z-10 h-full flex flex-col px-7 sm:px-9 pb-10 max-w-[1280px] mx-auto">
+        {logoSrc && (
+          <div className="pt-6">
+            <Image
+              src={logoSrc}
+              width={logoWidth}
+              height={logoHeight}
+              alt={logoAlt || ""}
+              className="drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)]"
+              draggable={false}
+            />
+          </div>
         )}
+        <div className="mt-auto">
+          <h1 className="text-[32px] sm:text-[48px] font-normal tracking-[-0.03em] leading-[1.1] text-white mb-3">
+            {title}
+          </h1>
+          {description && (
+            <p className="text-[14px] text-white/70 max-w-lg">
+              {description}
+            </p>
+          )}
+        </div>
       </div>
     </section>
   );

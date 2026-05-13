@@ -23,7 +23,7 @@ export default async function RezervacePage() {
   const groupPrices = prices.filter((p) => p.category === "group");
   const specialPrices = prices.filter((p) => p.category === "special");
 
-  const phone = contacts.find((c) => c.type === "phone");
+  const phones = contacts.filter((c) => c.type === "phone");
   const email = contacts.find((c) => c.type === "email");
   const address = contacts.find((c) => c.type === "address");
   const facebook = contacts.find((c) => c.type === "facebook");
@@ -58,9 +58,20 @@ export default async function RezervacePage() {
             <div className="space-y-5">
               <div>
                 <span className="block text-[11px] text-ink-muted uppercase tracking-[0.1em] mb-1">{texts.rezervace.contact.labels.phone}</span>
-                <a href={phone?.url || "tel:+420604681100"} className="text-[18px] font-medium hover:text-accent transition-colors">
-                  {phone?.value || "+420 604 681 100"}
-                </a>
+                {phones.length > 0 ? phones.map((p) => (
+                  <div key={p.id} className="mb-2 last:mb-0">
+                    {p.label && p.label !== "Telefon" && (
+                      <span className="block text-[11px] text-ink-muted mb-0.5">{p.label}</span>
+                    )}
+                    <a href={p.url} className="text-[18px] font-medium hover:text-accent transition-colors block">
+                      {p.value}
+                    </a>
+                  </div>
+                )) : (
+                  <a href="tel:+420604681100" className="text-[18px] font-medium hover:text-accent transition-colors">
+                    +420 604 681 100
+                  </a>
+                )}
               </div>
               <div>
                 <span className="block text-[11px] text-ink-muted uppercase tracking-[0.1em] mb-1">{texts.rezervace.contact.labels.email}</span>

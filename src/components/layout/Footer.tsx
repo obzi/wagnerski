@@ -12,7 +12,7 @@ const partners = [
   { src: "/images/loga/ivsi.svg", alt: "IVSI", width: 80, height: 80 },
 ];
 
-export function Footer() {
+export function Footer({ instagramHref }: { instagramHref: string }) {
   return (
     <footer className="border-t border-line">
       {/* Partners */}
@@ -54,7 +54,7 @@ export function Footer() {
                 <FacebookIcon />
               </a>
               <a
-                href="https://www.instagram.com/terapielyzovanim/"
+                href={instagramHref}
                 className="text-ink-muted hover:text-ink-secondary transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
                 target="_blank"
                 rel="noopener noreferrer"

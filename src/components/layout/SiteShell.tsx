@@ -7,6 +7,10 @@ import { Footer } from "./Footer";
 export function SiteShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isAdmin = pathname?.startsWith("/admin");
+  const isSherpaSki = pathname === "/skola" || pathname === "/instruktor" || pathname?.startsWith("/instruktor/");
+  const instagramHref = isSherpaSki
+    ? "https://www.instagram.com/sherpaski/"
+    : "https://www.instagram.com/terapielyzovanim/";
 
   if (isAdmin) {
     return <main className="flex-1">{children}</main>;
@@ -16,7 +20,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
     <>
       <Navbar />
       <main className="flex-1 pt-[52px]">{children}</main>
-      <Footer />
+      <Footer instagramHref={instagramHref} />
     </>
   );
 }

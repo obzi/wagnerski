@@ -38,10 +38,8 @@ export function ParallaxQuote() {
             {texts.home.quote.line1}
             <br />
             <span className="text-white/50 italic">{texts.home.quote.line2}</span>
-            <br />
-            {texts.home.quote.line3}
-            <br />
-            {texts.home.quote.line4}
+            {texts.home.quote.line3 && <><br />{texts.home.quote.line3}</>}
+            {texts.home.quote.line4 && <><br />{texts.home.quote.line4}</>}
           </p>
           <p className="mt-5 text-[11px] text-white/40 tracking-[0.06em]">
             {texts.home.quote.author}
