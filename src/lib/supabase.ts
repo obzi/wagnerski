@@ -27,6 +27,7 @@ export type InstructorCourse = {
   description: string;
   tags: string[];
   date: string;
+  date_end: string | null;
   location: string;
   price_with_accommodation: number;
   price_without_accommodation: number;

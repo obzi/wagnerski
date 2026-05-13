@@ -13,18 +13,22 @@ import type {
 
 export async function getSkicampTerms(): Promise<SkicampTerm[]> {
   if (!supabase) return [];
+  const today = new Date().toISOString().split("T")[0];
   const { data } = await supabase
     .from("skicamp_terms")
     .select("*")
+    .gte("date_to", today)
     .order("date_from", { ascending: true });
   return (data as SkicampTerm[]) ?? [];
 }
 
 export async function getInstructorCourses(): Promise<InstructorCourse[]> {
   if (!supabase) return [];
+  const today = new Date().toISOString().split("T")[0];
   const { data } = await supabase
     .from("instructor_courses")
     .select("*")
+    .or(`date_end.is.null,date_end.gte.${today}`)
     .order("created_at", { ascending: true });
   return (data as InstructorCourse[]) ?? [];
 }

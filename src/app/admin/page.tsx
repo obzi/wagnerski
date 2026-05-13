@@ -578,43 +578,43 @@ function SkicampManager() {
       )}
 
       <div className="space-y-3">
-        {terms.map((t) => (
-          <div
-            key={t.id}
-            className="border border-line rounded-[3px] p-4 bg-white flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
-          >
-            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 min-w-0">
-              <span className="text-[14px] font-medium">{t.camp_type}</span>
-              <span className="text-[12px] text-ink-muted">
-                {t.date_from} — {t.date_to}
-              </span>
-              <span className="text-[12px] text-ink-secondary">
-                {t.location}
-              </span>
-              {t.price > 0 && (
-                <span className="text-[12px] text-accent">
-                  {t.price.toLocaleString("cs-CZ")} Kč
-                </span>
-              )}
-              {t.spots > 0 && (
+        {terms.map((t) => {
+          const today = new Date().toISOString().split("T")[0];
+          const expired = t.date_to < today;
+          return (
+            <div
+              key={t.id}
+              className={`border rounded-[3px] p-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4 ${expired ? "border-line bg-surface opacity-60" : "border-line bg-white"}`}
+            >
+              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 min-w-0">
+                <span className="text-[14px] font-medium">{t.camp_type}</span>
                 <span className="text-[12px] text-ink-muted">
-                  ({t.spots} míst)
+                  {t.date_from} — {t.date_to}
                 </span>
-              )}
+                <span className="text-[12px] text-ink-secondary">{t.location}</span>
+                {t.price > 0 && (
+                  <span className="text-[12px] text-accent">{t.price.toLocaleString("cs-CZ")} Kč</span>
+                )}
+                {t.spots > 0 && (
+                  <span className="text-[12px] text-ink-muted">({t.spots} míst)</span>
+                )}
+                {expired && (
+                  <span className="text-[10px] uppercase tracking-[0.1em] text-red-500 border border-red-200 rounded-[2px] px-1.5 py-0.5">
+                    Skryto na webu
+                  </span>
+                )}
+              </div>
+              <div className="flex gap-2 shrink-0">
+                <button className={btnSecondary} onClick={() => { setIsNew(false); setEditing(t); }}>
+                  {texts.admin.common.edit}
+                </button>
+                <button className={btnDanger} onClick={() => handleDelete(t.id)}>
+                  {texts.admin.common.delete}
+                </button>
+              </div>
             </div>
-            <div className="flex gap-2 shrink-0">
-              <button
-                className={btnSecondary}
-                onClick={() => { setIsNew(false); setEditing(t); }}
-              >
-                {texts.admin.common.edit}
-              </button>
-              <button className={btnDanger} onClick={() => handleDelete(t.id)}>
-                {texts.admin.common.delete}
-              </button>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
@@ -776,6 +776,7 @@ function CoursesManager() {
               description: "",
               tags: [],
               date: "",
+              date_end: null,
               location: "Karlov pod Pradědem",
               price_with_accommodation: 0,
               price_without_accommodation: 0,
@@ -795,36 +796,39 @@ function CoursesManager() {
       )}
 
       <div className="space-y-3">
-        {courses.map((c) => (
-          <div
-            key={c.id}
-            className="border border-line rounded-[3px] p-4 bg-white flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
-          >
-            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 min-w-0">
-              <span className="text-[14px] font-medium">
-                Kurz {c.level}
-              </span>
-              <span className="text-[12px] text-ink-secondary">
-                {c.subtitle}
-              </span>
-              <span className="text-[12px] text-ink-muted">
-                {c.hours}
-              </span>
-              <span className="text-[12px] text-ink-muted">{c.date}</span>
+        {courses.map((c) => {
+          const today = new Date().toISOString().split("T")[0];
+          const expired = c.date_end != null && c.date_end < today;
+          return (
+            <div
+              key={c.id}
+              className={`border rounded-[3px] p-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4 ${expired ? "border-line bg-surface opacity-60" : "border-line bg-white"}`}
+            >
+              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 min-w-0">
+                <span className="text-[14px] font-medium">Kurz {c.level}</span>
+                <span className="text-[12px] text-ink-secondary">{c.subtitle}</span>
+                <span className="text-[12px] text-ink-muted">{c.hours}</span>
+                <span className="text-[12px] text-ink-muted">{c.date}</span>
+                {c.date_end && (
+                  <span className="text-[11px] text-ink-muted">do {new Date(c.date_end).toLocaleDateString("cs-CZ")}</span>
+                )}
+                {expired && (
+                  <span className="text-[10px] uppercase tracking-[0.1em] text-red-500 border border-red-200 rounded-[2px] px-1.5 py-0.5">
+                    Skryto na webu
+                  </span>
+                )}
+              </div>
+              <div className="flex gap-2 shrink-0">
+                <button className={btnSecondary} onClick={() => { setIsNew(false); setEditing(c); }}>
+                  {texts.admin.common.edit}
+                </button>
+                <button className={btnDanger} onClick={() => handleDelete(c.id)}>
+                  {texts.admin.common.delete}
+                </button>
+              </div>
             </div>
-            <div className="flex gap-2 shrink-0">
-              <button
-                className={btnSecondary}
-                onClick={() => { setIsNew(false); setEditing(c); }}
-              >
-                {texts.admin.common.edit}
-              </button>
-              <button className={btnDanger} onClick={() => handleDelete(c.id)}>
-                {texts.admin.common.delete}
-              </button>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
@@ -841,7 +845,7 @@ function CourseForm({
 }) {
   const [data, setData] = useState(course);
   const [tagsStr, setTagsStr] = useState(course.tags.join(", "));
-  const set = (k: keyof InstructorCourse, v: string | number | string[]) =>
+  const set = (k: keyof InstructorCourse, v: string | number | string[] | null) =>
     setData((d) => ({ ...d, [k]: v }));
 
   return (
@@ -881,13 +885,24 @@ function CourseForm({
         </div>
         <div>
           <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1">
-            Datum
+            Datum (zobrazovaný text)
           </label>
           <input
             className={inputCls}
             value={data.date}
             onChange={(e) => set("date", e.target.value)}
             placeholder="např. Leden 2026"
+          />
+        </div>
+        <div>
+          <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1">
+            Poslední den kurzu (skryje web po tomto datu)
+          </label>
+          <input
+            type="date"
+            className={inputCls}
+            value={data.date_end ?? ""}
+            onChange={(e) => set("date_end", e.target.value || null)}
           />
         </div>
         <div>
