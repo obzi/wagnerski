@@ -8,7 +8,7 @@ const partners = [
   { src: "/images/loga/skicamp.svg", alt: "Skicamp", width: 130, height: 52 },
   { src: "/images/loga/skiarena-karlov.svg", alt: "Ski aréna Karlov", width: 280, height: 56 },
   { src: "/images/loga/karlov-express.svg", alt: "Karlov Express", width: 180, height: 50 },
-  { src: "/images/loga/aiss.svg", alt: "AISS", width: 120, height: 48 },
+  { src: "/images/loga/AISS.svg", alt: "AISS", width: 120, height: 48 },
   { src: "/images/loga/ivsi.svg", alt: "IVSI", width: 80, height: 80 },
 ];
 
