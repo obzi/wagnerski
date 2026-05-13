@@ -84,6 +84,45 @@ export default async function InstruktorPage() {
         </div>
       </section>
 
+      {/* Přednášky psychologie */}
+      <section className="py-16 px-7 bg-surface">
+        <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div>
+            <span className="block text-[9px] uppercase tracking-[0.16em] text-accent mb-6">
+              Speciální program
+            </span>
+            <h2 className="text-[28px] sm:text-[36px] font-normal tracking-[-0.02em] leading-[1.2] mb-6 text-ink">
+              Psychologie dítěte na svahu
+            </h2>
+            <p className="text-[14px] text-ink-secondary leading-[1.7] mb-4">
+              Součástí vzdělávání instruktorů jsou přednášky Mgr. Lucie Sedláčkové zaměřené na psychologii dětí při výuce lyžování. Pochopení toho, jak dítě vnímá výzvu, neúspěch a motivaci, je stejně důležité jako technická dovednost instruktora.
+            </p>
+            <p className="text-[14px] text-ink-secondary leading-[1.7]">
+              Přednášky jsou součástí kurzu a probíhají formou interaktivního workshopu. Instruktorům pomáhají lépe číst situaci na svahu a přizpůsobit přístup věku, temperamentu a aktuálnímu rozpoložení dítěte.
+            </p>
+          </div>
+          <div className="space-y-4">
+            <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
+              Témata přednášek
+            </span>
+            {[
+              { title: "Vývojová psychologie", text: "Jak dítě v různém věku vnímá výkon, riziko a sociální srovnávání — a co to znamená pro styl výuky." },
+              { title: "Motivace a ztráta motivace", text: "Proč dítě najednou nechce lyžovat a jak situaci citlivě řešit bez tlaku a negativních emocí." },
+              { title: "Stres a zvládání strachu", text: "Jak rozpoznat úzkost z výšky, rychlosti nebo pádu a jak dítěti pomoci strach překonat vlastním tempem." },
+              { title: "Komunikace a pochvala", text: "Efektivní způsoby zpětné vazby — jaká pochvala skutečně funguje a jak kritiku formulovat konstruktivně." },
+            ].map((item) => (
+              <div key={item.title} className="border border-line rounded-[3px] p-5 bg-cream">
+                <h3 className="text-[14px] font-medium mb-1">{item.title}</h3>
+                <p className="text-[12px] text-ink-secondary leading-[1.6]">{item.text}</p>
+              </div>
+            ))}
+            <p className="text-[11px] text-ink-muted pt-2">
+              Přednášky: Mgr. Lucie Sedláčková, psycholožka se zaměřením na sport a vzdělávání dětí
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Druhy kurzů */}
       {courseTypes.length > 0 && (
         <section className="py-16 px-7 bg-surface">
