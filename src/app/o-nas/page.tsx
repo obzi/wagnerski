@@ -17,7 +17,7 @@ export default function ONasPage() {
         eyebrow={texts.oNas.hero.eyebrow}
         title={texts.oNas.hero.title}
         imageSrc="/images/kaprun.jpg"
-        imagePositionClass="object-[85%_25%] sm:object-[center_25%]"
+        imagePositionClass="object-[85%_15%] sm:object-[center_15%]"
         imageAlt={texts.oNas.hero.imageAlt}
         logoSrc="/images/loga/wagner-2.svg"
         logoAlt="Wagner Ski Akademie"
