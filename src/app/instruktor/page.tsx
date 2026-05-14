@@ -29,8 +29,8 @@ export default async function InstruktorPage() {
         imageAlt={texts.instruktor.hero.imageAlt}
         logoSrc="/images/loga/sherpa.svg"
         logoAlt="Sherpa Ski School"
-        logoWidth={130}
-        logoHeight={91}
+        logoWidth={150}
+        logoHeight={105}
       />
 
       {/* Intro */}
