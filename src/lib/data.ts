@@ -17,9 +17,26 @@ export async function getSkicampTerms(): Promise<SkicampTerm[]> {
   const { data } = await supabase
     .from("skicamp_terms")
     .select("*")
-    .gte("date_to", today)
     .order("date_from", { ascending: true });
-  return (data as SkicampTerm[]) ?? [];
+  const all = (data as SkicampTerm[]) ?? [];
+
+  const byType = new Map<string, SkicampTerm[]>();
+  for (const t of all) {
+    if (!byType.has(t.camp_type)) byType.set(t.camp_type, []);
+    byType.get(t.camp_type)!.push(t);
+  }
+
+  const result: SkicampTerm[] = [];
+  for (const terms of byType.values()) {
+    const future = terms.filter((t) => t.date_to >= today);
+    if (future.length > 0) {
+      result.push(...future);
+    } else {
+      result.push(terms[terms.length - 1]);
+    }
+  }
+
+  return result.sort((a, b) => a.date_from.localeCompare(b.date_from));
 }
 
 export async function getInstructorCourses(): Promise<InstructorCourse[]> {
@@ -28,9 +45,26 @@ export async function getInstructorCourses(): Promise<InstructorCourse[]> {
   const { data } = await supabase
     .from("instructor_courses")
     .select("*")
-    .or(`date_end.is.null,date_end.gte.${today}`)
-    .order("created_at", { ascending: true });
-  return (data as InstructorCourse[]) ?? [];
+    .order("date", { ascending: true });
+  const all = (data as InstructorCourse[]) ?? [];
+
+  const byLevel = new Map<string, InstructorCourse[]>();
+  for (const c of all) {
+    if (!byLevel.has(c.level)) byLevel.set(c.level, []);
+    byLevel.get(c.level)!.push(c);
+  }
+
+  const result: InstructorCourse[] = [];
+  for (const courses of byLevel.values()) {
+    const future = courses.filter((c) => !c.date_end || c.date_end >= today);
+    if (future.length > 0) {
+      result.push(...future);
+    } else {
+      result.push(courses[courses.length - 1]);
+    }
+  }
+
+  return result.sort((a, b) => a.date.localeCompare(b.date));
 }
 
 export async function getReservationPrices(): Promise<ReservationPrice[]> {
