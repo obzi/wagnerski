@@ -59,7 +59,7 @@ export default async function SkicampPage() {
               src="/images/tymskicamptvle.jpeg"
               fill
               alt={texts.skicamp.intro.imageAlt}
-              className="object-cover object-[center_70%]"
+              className="object-cover object-[center_40%]"
               sizes="(max-width: 1024px) 100vw, 50vw"
               draggable={false}
             />

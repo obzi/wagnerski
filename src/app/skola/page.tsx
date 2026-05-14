@@ -19,7 +19,7 @@ export default function SkolaPage() {
         title={texts.skola.hero.title}
         description={texts.skola.hero.description}
         imageSrc="/images/skola-uvod.jpg"
-        imagePositionClass="object-[center_15%] sm:object-[center_15%]"
+        imagePositionClass="object-[center_35%] sm:object-[center_35%]"
         imageAlt={texts.skola.hero.imageAlt}
         logoSrc="/images/loga/sherpa.svg"
         logoAlt="Sherpa Ski School"
