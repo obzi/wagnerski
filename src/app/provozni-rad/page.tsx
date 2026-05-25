@@ -23,14 +23,9 @@ export default function ProvozniRadPage() {
         <div className="max-w-[800px] mx-auto space-y-10">
           {texts.provozniRad.articles.map((article) => (
             <div key={article.number}>
-              <div className="flex items-baseline gap-3 mb-3">
-                <span className="text-[11px] uppercase tracking-[0.14em] text-ink-muted font-medium shrink-0 w-[7.5rem]">
-                  Článek {article.number}
-                </span>
-                <h2 className="text-[18px] font-medium tracking-[-0.01em]">
-                  {article.title}
-                </h2>
-              </div>
+              <h2 className="text-[18px] font-medium tracking-[-0.01em] mb-3">
+                {article.title}
+              </h2>
               <p className="text-[14px] text-ink-secondary leading-[1.7]">
                 {article.text}
                 {article.number === "IV" && (
