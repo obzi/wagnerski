@@ -1375,6 +1375,7 @@ function SettingsManager() {
   const [windowTo, setWindowTo] = useState("");
   const [windowSlots, setWindowSlots] = useState<{ from: string; to: string }[]>([{ from: "09:00", to: "17:00" }]);
   const [saved, setSaved] = useState<string | null>(null);
+  const [saveError, setSaveError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   const applyRows = useCallback((rows: SiteSetting[]) => {
@@ -1418,42 +1419,56 @@ function SettingsManager() {
     setLoading(hookLoading);
   }, [settings, hookLoading, applyRows]);
 
-  async function saveSetting(key: string, value: string) {
+  async function saveSetting(key: string, value: string): Promise<string | null> {
     if (supabase) {
       // Update existing row(s), insert if none found
-      const { data: existing } = await supabase
+      const { data: existing, error: selectError } = await supabase
         .from("site_settings").select("id").eq("key", key);
+      if (selectError) return selectError.message;
       if (existing && existing.length > 0) {
-        await supabase.from("site_settings").update({ value }).eq("key", key);
+        const { error } = await supabase.from("site_settings").update({ value }).eq("key", key);
+        if (error) return error.message;
       } else {
-        await supabase.from("site_settings").insert({ key, value });
+        const { error } = await supabase.from("site_settings").insert({ key, value });
+        if (error) return error.message;
       }
+      return null;
     } else {
       const existing = settings.find((s) => s.key === key);
       if (existing) await update(existing.id, { value });
       else await add({ key, value });
+      return null;
     }
   }
 
   async function saveDiscount() {
-    await saveSetting("voucher_discount", discountValue);
+    setSaveError(null);
+    const err = await saveSetting("voucher_discount", discountValue);
+    if (err) { setSaveError(err); return; }
     await loadDirect();
     setSaved("voucher_discount");
     setTimeout(() => setSaved(null), 2000);
   }
 
   async function saveNewsMax() {
-    await saveSetting("news_max_display", newsMaxValue);
+    setSaveError(null);
+    const err = await saveSetting("news_max_display", newsMaxValue);
+    if (err) { setSaveError(err); return; }
     await loadDirect();
     setSaved("news_max_display");
     setTimeout(() => setSaved(null), 2000);
   }
 
   async function saveVoucherWindow() {
-    await saveSetting("voucher_window_enabled", windowEnabled ? "true" : "false");
-    await saveSetting("voucher_window_from", windowFrom);
-    await saveSetting("voucher_window_to", windowTo);
-    await saveSetting("voucher_window_slots", JSON.stringify(windowSlots));
+    setSaveError(null);
+    const errors = await Promise.all([
+      saveSetting("voucher_window_enabled", windowEnabled ? "true" : "false"),
+      saveSetting("voucher_window_from", windowFrom),
+      saveSetting("voucher_window_to", windowTo),
+      saveSetting("voucher_window_slots", JSON.stringify(windowSlots)),
+    ]);
+    const firstError = errors.find((e) => e !== null);
+    if (firstError) { setSaveError(firstError); return; }
     await loadDirect();
     setSaved("voucher_window");
     setTimeout(() => setSaved(null), 2000);
@@ -1469,6 +1484,11 @@ function SettingsManager() {
         <h2 className="text-[18px] font-normal tracking-[-0.01em] mb-6">
           {texts.admin.settings.title}
         </h2>
+        {saveError && (
+          <div className="mb-4 px-4 py-3 rounded-[3px] bg-red-50 border border-red-200 text-[12px] text-red-700">
+            Chyba při ukládání: {saveError}
+          </div>
+        )}
       </div>
 
       <div className="border border-line rounded-[3px] p-6 bg-white max-w-md">
