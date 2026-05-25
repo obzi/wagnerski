@@ -22,15 +22,15 @@ export function ParallaxHero() {
           src="/images/petroblouk.jpeg"
           fill
           alt={texts.home.hero.imageAlt}
-          className="object-cover object-[0%_75%]"
+          className="object-cover object-[100%_75%]"
           priority
           sizes="100vw"
           draggable={false}
         />
       </motion.div>
 
-      <div className="absolute inset-0 bg-gradient-to-br from-[rgb(8,10,6)]/55 via-[rgb(8,10,6)]/20 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-[200px] bg-gradient-to-t from-[rgb(8,10,6)]/45 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[rgb(8,10,6)]/40 via-[rgb(8,10,6)]/10 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-[200px] bg-gradient-to-t from-[rgb(8,10,6)]/30 to-transparent" />
 
       <div className="relative z-10 h-full flex flex-col justify-end px-7 sm:px-9 pb-6 sm:pb-[48px] max-w-[1280px] mx-auto">
         <span className="text-[10px] uppercase tracking-[0.16em] text-white/70 mb-5 drop-shadow-md">
