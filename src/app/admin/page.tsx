@@ -1367,7 +1367,7 @@ function ContactForm({
 /* ------------------------------------------------------------------ */
 
 function SettingsManager() {
-  const { items: settings, loading, add, update, refresh: refreshSettings } = useSupabaseTable<SiteSetting>("site_settings", defaultVoucherSettings);
+  const { items: settings, loading: hookLoading, add, update } = useSupabaseTable<SiteSetting>("site_settings", defaultVoucherSettings);
   const [discountValue, setDiscountValue] = useState("");
   const [newsMaxValue, setNewsMaxValue] = useState("5");
   const [windowEnabled, setWindowEnabled] = useState(false);
@@ -1375,28 +1375,59 @@ function SettingsManager() {
   const [windowTo, setWindowTo] = useState("");
   const [windowSlots, setWindowSlots] = useState<{ from: string; to: string }[]>([{ from: "09:00", to: "17:00" }]);
   const [saved, setSaved] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const discount = settings.find((s) => s.key === "voucher_discount");
-    if (discount) setDiscountValue(discount.value);
-    const newsMax = settings.find((s) => s.key === "news_max_display");
-    if (newsMax) setNewsMaxValue(newsMax.value);
-    const winEnabled = settings.find((s) => s.key === "voucher_window_enabled");
-    if (winEnabled) setWindowEnabled(winEnabled.value === "true");
-    const winFrom = settings.find((s) => s.key === "voucher_window_from");
-    if (winFrom) setWindowFrom(winFrom.value);
-    const winTo = settings.find((s) => s.key === "voucher_window_to");
-    if (winTo) setWindowTo(winTo.value);
-    const slotsRaw = settings.find((s) => s.key === "voucher_window_slots");
-    if (slotsRaw?.value) {
-      try { setWindowSlots(JSON.parse(slotsRaw.value)); } catch { /* keep default */ }
+  const applyRows = useCallback((rows: SiteSetting[]) => {
+    const map = new Map<string, string>();
+    for (const s of rows) map.set(s.key, s.value);
+    const discount = map.get("voucher_discount");
+    if (discount !== undefined) setDiscountValue(discount);
+    const newsMax = map.get("news_max_display");
+    if (newsMax !== undefined) setNewsMaxValue(newsMax);
+    const winEnabled = map.get("voucher_window_enabled");
+    if (winEnabled !== undefined) setWindowEnabled(winEnabled === "true");
+    const winFrom = map.get("voucher_window_from");
+    if (winFrom !== undefined) setWindowFrom(winFrom);
+    const winTo = map.get("voucher_window_to");
+    if (winTo !== undefined) setWindowTo(winTo);
+    const slotsRaw = map.get("voucher_window_slots");
+    if (slotsRaw) {
+      try { setWindowSlots(JSON.parse(slotsRaw)); } catch { /* keep default */ }
     }
-  }, [settings]);
+  }, []);
+
+  const loadDirect = useCallback(async () => {
+    if (!supabase) return;
+    setLoading(true);
+    const { data } = await supabase.from("site_settings").select("*");
+    if (data) applyRows(data as SiteSetting[]);
+    setLoading(false);
+  }, [applyRows]);
+
+  // Direct load on mount — bypasses useSupabaseTable ordering issues
+  useEffect(() => {
+    if (supabase) {
+      loadDirect();
+    }
+  }, [loadDirect]);
+
+  // Fallback for localStorage mode (no Supabase)
+  useEffect(() => {
+    if (supabase) return;
+    applyRows(settings);
+    setLoading(hookLoading);
+  }, [settings, hookLoading, applyRows]);
 
   async function saveSetting(key: string, value: string) {
     if (supabase) {
-      await supabase.from("site_settings").delete().eq("key", key);
-      await supabase.from("site_settings").insert({ key, value });
+      // Update existing row(s), insert if none found
+      const { data: existing } = await supabase
+        .from("site_settings").select("id").eq("key", key);
+      if (existing && existing.length > 0) {
+        await supabase.from("site_settings").update({ value }).eq("key", key);
+      } else {
+        await supabase.from("site_settings").insert({ key, value });
+      }
     } else {
       const existing = settings.find((s) => s.key === key);
       if (existing) await update(existing.id, { value });
@@ -1406,12 +1437,14 @@ function SettingsManager() {
 
   async function saveDiscount() {
     await saveSetting("voucher_discount", discountValue);
+    await loadDirect();
     setSaved("voucher_discount");
     setTimeout(() => setSaved(null), 2000);
   }
 
   async function saveNewsMax() {
     await saveSetting("news_max_display", newsMaxValue);
+    await loadDirect();
     setSaved("news_max_display");
     setTimeout(() => setSaved(null), 2000);
   }
@@ -1421,7 +1454,7 @@ function SettingsManager() {
     await saveSetting("voucher_window_from", windowFrom);
     await saveSetting("voucher_window_to", windowTo);
     await saveSetting("voucher_window_slots", JSON.stringify(windowSlots));
-    await refreshSettings();
+    await loadDirect();
     setSaved("voucher_window");
     setTimeout(() => setSaved(null), 2000);
   }
