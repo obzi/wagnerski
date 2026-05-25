@@ -24,7 +24,7 @@ export default function ProvozniRadPage() {
           {texts.provozniRad.articles.map((article) => (
             <div key={article.number}>
               <div className="flex items-baseline gap-3 mb-3">
-                <span className="text-[11px] uppercase tracking-[0.14em] text-ink-muted font-medium">
+                <span className="text-[11px] uppercase tracking-[0.14em] text-ink-muted font-medium shrink-0 w-[7.5rem]">
                   Článek {article.number}
                 </span>
                 <h2 className="text-[18px] font-medium tracking-[-0.01em]">
