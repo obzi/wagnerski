@@ -22,7 +22,7 @@ export function ParallaxHero() {
           src="/images/petroblouk.jpeg"
           fill
           alt={texts.home.hero.imageAlt}
-          className="object-cover object-[30%_115%] sm:object-[100%_115%]"
+          className="object-cover object-[30%_135%] sm:object-[100%_115%]"
           priority
           sizes="100vw"
           draggable={false}
@@ -37,7 +37,7 @@ export function ParallaxHero() {
           {texts.home.hero.brandLine}
         </span>
 
-        <h1 className="text-[30px] sm:text-[56px] font-normal tracking-[-0.03em] leading-[1.08] text-ink mb-4 sm:mb-5">
+        <h1 className="text-[30px] sm:text-[56px] font-normal tracking-[-0.03em] leading-[1.08] text-ink-secondary mb-4 sm:mb-5">
           {texts.home.hero.titleLine1}
           {texts.home.hero.titleLine2 && (
             <>
