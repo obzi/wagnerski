@@ -34,9 +34,12 @@ function ValidityNote({ window }: { window: VoucherWindowSettings }) {
 
 function WindowLabel({ window }: { window: VoucherWindowSettings }) {
   if (window.enabled && window.from && window.to) {
+    const slotsStr = window.slots?.length
+      ? " · " + window.slots.map((s) => `${s.from}–${s.to}`).join(", ")
+      : "";
     return (
       <span className="text-[11px] text-ink-muted">
-        · {formatCzDate(window.from)} – {formatCzDate(window.to)}
+        · {formatCzDate(window.from)} – {formatCzDate(window.to)}{slotsStr}
       </span>
     );
   }
