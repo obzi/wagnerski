@@ -17,6 +17,7 @@ export default function LokalityPage() {
         title={texts.lokality.hero.title}
         imageSrc="/images/karlov.jpg"
         imageAlt={texts.lokality.hero.imageAlt}
+        imagePositionClass="object-[center_40%]"
         logoSrc="/images/loga/skiarena-karlov.svg"
         logoAlt="Ski aréna Karlov"
         logoWidth={234}

@@ -118,7 +118,7 @@ export default async function InstruktorPage() {
               </div>
             ))}
             <p className="text-[11px] text-ink-muted pt-2">
-              Přednášky: Mgr. Lucie Sedláčková, psycholožka se zaměřením na sport a vzdělávání dětí
+              Přednášky: Mgr. Lucie Sedláčková, klinická psycholožka se zaměřením na práci s dětmi
             </p>
           </div>
         </div>
