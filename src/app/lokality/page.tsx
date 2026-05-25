@@ -15,9 +15,9 @@ export default function LokalityPage() {
       <SubpageHero
         eyebrow={texts.lokality.hero.eyebrow}
         title={texts.lokality.hero.title}
-        imageSrc="/images/karlov.jpg"
+        imageSrc="/images/ucime.jpg"
         imageAlt={texts.lokality.hero.imageAlt}
-        imagePositionClass="object-[center_40%]"
+        imagePositionClass="object-[center_10%]"
         logoSrc="/images/loga/skiarena-karlov.svg"
         logoAlt="Ski aréna Karlov"
         logoWidth={234}

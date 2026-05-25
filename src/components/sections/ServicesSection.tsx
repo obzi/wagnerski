@@ -5,6 +5,7 @@ const services = texts.home.services.items.map((s, i) => ({
   ...s,
   linkHref: ["/rezervace", "/skicamp", "/instruktor/prihlaska"][i],
   imageSrc: ["/images/ucime.jpg", "/images/skicamptym.jpeg", "/images/hobluj.jpeg"][i],
+  imagePositionClass: ["", "object-[center_10%]", ""][i],
   reversed: i === 1,
 }));
 

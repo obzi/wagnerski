@@ -16,13 +16,13 @@ export function ParallaxHero() {
     <section ref={ref} className="relative h-[calc(100svh-52px)] min-h-[480px] overflow-hidden">
       <motion.div
         style={prefersReducedMotion ? {} : { y }}
-        className="absolute inset-0 scale-110"
+        className="absolute inset-0 scale-[1.2]"
       >
         <Image
           src="/images/petroblouk.jpeg"
           fill
           alt={texts.home.hero.imageAlt}
-          className="object-cover object-[70%_75%] sm:object-[80%_75%]"
+          className="object-cover object-[0%_75%]"
           priority
           sizes="100vw"
           draggable={false}

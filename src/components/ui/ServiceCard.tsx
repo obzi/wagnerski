@@ -11,6 +11,7 @@ interface ServiceCardProps {
   linkLabel: string;
   imageSrc: string;
   imageAlt: string;
+  imagePositionClass?: string;
   reversed?: boolean;
 }
 
@@ -23,6 +24,7 @@ export function ServiceCard({
   linkLabel,
   imageSrc,
   imageAlt,
+  imagePositionClass = "",
   reversed,
 }: ServiceCardProps) {
   return (
@@ -57,7 +59,7 @@ export function ServiceCard({
           src={imageSrc}
           fill
           alt={imageAlt}
-          className="object-cover transition-transform duration-[400ms] group-hover:scale-[1.03]"
+          className={`object-cover transition-transform duration-[400ms] group-hover:scale-[1.03] ${imagePositionClass}`}
           sizes="(max-width: 768px) 100vw, 44vw"
           draggable={false}
         />
