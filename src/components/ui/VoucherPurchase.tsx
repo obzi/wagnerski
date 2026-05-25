@@ -2,16 +2,37 @@
 
 import { useState } from "react";
 import type { ReservationPrice } from "@/lib/supabase";
+import type { VoucherWindowSettings } from "@/lib/data";
 import texts from "@/data/texts.json";
 
 interface VoucherPurchaseProps {
   prices: ReservationPrice[];
   discountPercent: number;
+  voucherWindow: VoucherWindowSettings;
 }
 
 type Step = "select" | "form" | "success";
 
-export function VoucherPurchase({ prices, discountPercent }: VoucherPurchaseProps) {
+function formatCzDate(iso: string): string {
+  if (!iso) return "";
+  const [y, m, d] = iso.split("-");
+  return `${parseInt(d)}. ${parseInt(m)}. ${y}`;
+}
+
+function ValidityNote({ window }: { window: VoucherWindowSettings }) {
+  if (window.enabled && window.from && window.to) {
+    const slotsStr = window.slots.map((s) => `${s.from}–${s.to}`).join(", ");
+    return (
+      <p className="text-[11px] text-ink-muted">
+        Platnost: <strong>{formatCzDate(window.from)} – {formatCzDate(window.to)}</strong>
+        {" · "}denní časy: {slotsStr}
+      </p>
+    );
+  }
+  return <p className="text-[11px] text-ink-muted">{texts.voucher.validityNote}</p>;
+}
+
+export function VoucherPurchase({ prices, discountPercent, voucherWindow }: VoucherPurchaseProps) {
   const [step, setStep] = useState<Step>("select");
   const [selectedPrice, setSelectedPrice] = useState<ReservationPrice | null>(null);
   const [name, setName] = useState("");
@@ -119,9 +140,9 @@ export function VoucherPurchase({ prices, discountPercent }: VoucherPurchaseProp
           <span className="text-[10px] uppercase tracking-[0.14em] block mb-1 text-white/50">{texts.voucher.success.codeLabel}</span>
           <span className="text-[20px] tracking-[0.1em] font-mono">{voucherCode}</span>
         </div>
-        <p className="text-[11px] text-ink-muted mb-4">
-          {texts.voucher.validityNote}
-        </p>
+        <div className="mb-4">
+          <ValidityNote window={voucherWindow} />
+        </div>
         <button
           onClick={handleDownloadPdf}
           className="min-h-[44px] bg-ink text-cream text-[11px] uppercase tracking-[0.14em] px-8 py-[12px] rounded-[2px] hover:opacity-90 transition-opacity"
@@ -200,9 +221,9 @@ export function VoucherPurchase({ prices, discountPercent }: VoucherPurchaseProp
             />
           </div>
         </div>
-        <p className="text-[11px] text-ink-muted mb-4">
-          {texts.voucher.validityNote}
-        </p>
+        <div className="mb-4">
+          <ValidityNote window={voucherWindow} />
+        </div>
         {error && (
           <p className="text-[12px] text-red-600 mb-4">{error}</p>
         )}

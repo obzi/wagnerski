@@ -4,7 +4,7 @@ import texts from "@/data/texts.json";
 const services = texts.home.services.items.map((s, i) => ({
   ...s,
   linkHref: ["/rezervace", "/skicamp", "/instruktor/prihlaska"][i],
-  imageSrc: ["/images/tym.jpeg", "/images/skicamptym.jpeg", "/images/hobluj.jpeg"][i],
+  imageSrc: ["/images/ucime.jpg", "/images/skicamptym.jpeg", "/images/hobluj.jpeg"][i],
   reversed: i === 1,
 }));
 

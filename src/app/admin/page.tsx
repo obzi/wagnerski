@@ -1370,8 +1370,7 @@ function SettingsManager() {
   const [windowEnabled, setWindowEnabled] = useState(false);
   const [windowFrom, setWindowFrom] = useState("");
   const [windowTo, setWindowTo] = useState("");
-  const [windowTimeFrom, setWindowTimeFrom] = useState("09:00");
-  const [windowTimeTo, setWindowTimeTo] = useState("17:00");
+  const [windowSlots, setWindowSlots] = useState<{ from: string; to: string }[]>([{ from: "09:00", to: "17:00" }]);
   const [saved, setSaved] = useState<string | null>(null);
 
   useEffect(() => {
@@ -1385,10 +1384,10 @@ function SettingsManager() {
     if (winFrom) setWindowFrom(winFrom.value);
     const winTo = settings.find((s) => s.key === "voucher_window_to");
     if (winTo) setWindowTo(winTo.value);
-    const winTF = settings.find((s) => s.key === "voucher_window_time_from");
-    if (winTF) setWindowTimeFrom(winTF.value);
-    const winTT = settings.find((s) => s.key === "voucher_window_time_to");
-    if (winTT) setWindowTimeTo(winTT.value);
+    const slotsRaw = settings.find((s) => s.key === "voucher_window_slots");
+    if (slotsRaw?.value) {
+      try { setWindowSlots(JSON.parse(slotsRaw.value)); } catch { /* keep default */ }
+    }
   }, [settings]);
 
   async function saveSetting(key: string, value: string) {
@@ -1416,8 +1415,7 @@ function SettingsManager() {
     await saveSetting("voucher_window_enabled", windowEnabled ? "true" : "false");
     await saveSetting("voucher_window_from", windowFrom);
     await saveSetting("voucher_window_to", windowTo);
-    await saveSetting("voucher_window_time_from", windowTimeFrom);
-    await saveSetting("voucher_window_time_to", windowTimeTo);
+    await saveSetting("voucher_window_slots", JSON.stringify(windowSlots));
     setSaved("voucher_window");
     setTimeout(() => setSaved(null), 2000);
   }
@@ -1476,7 +1474,7 @@ function SettingsManager() {
           Když je zapnuto, vouchery vydané zákazníkům půjde uplatnit pouze v nastaveném termínu. Když je vypnuto, platnost je 14 dní od zakoupení.
         </p>
         <div className={`space-y-4 mb-5 ${!windowEnabled ? "opacity-40 pointer-events-none" : ""}`}>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4 mb-4">
             <div>
               <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1">
                 Datum od
@@ -1499,27 +1497,47 @@ function SettingsManager() {
                 className={inputCls}
               />
             </div>
-            <div>
-              <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1">
-                Čas od
+          </div>
+          <div>
+            <div className="flex items-center justify-between mb-2">
+              <label className="text-[11px] uppercase tracking-[0.1em] text-ink-muted">
+                Denní časy
               </label>
-              <input
-                type="time"
-                value={windowTimeFrom}
-                onChange={(e) => setWindowTimeFrom(e.target.value)}
-                className={inputCls}
-              />
+              <button
+                type="button"
+                onClick={() => setWindowSlots((s) => [...s, { from: "09:00", to: "17:00" }])}
+                className="text-[11px] uppercase tracking-[0.1em] text-accent hover:opacity-70 transition-opacity"
+              >
+                + Přidat čas
+              </button>
             </div>
-            <div>
-              <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1">
-                Čas do
-              </label>
-              <input
-                type="time"
-                value={windowTimeTo}
-                onChange={(e) => setWindowTimeTo(e.target.value)}
-                className={inputCls}
-              />
+            <div className="space-y-2">
+              {windowSlots.map((slot, i) => (
+                <div key={i} className="flex items-center gap-2">
+                  <input
+                    type="time"
+                    value={slot.from}
+                    onChange={(e) => setWindowSlots((s) => s.map((x, j) => j === i ? { ...x, from: e.target.value } : x))}
+                    className={inputCls + " flex-1"}
+                  />
+                  <span className="text-[11px] text-ink-muted">–</span>
+                  <input
+                    type="time"
+                    value={slot.to}
+                    onChange={(e) => setWindowSlots((s) => s.map((x, j) => j === i ? { ...x, to: e.target.value } : x))}
+                    className={inputCls + " flex-1"}
+                  />
+                  {windowSlots.length > 1 && (
+                    <button
+                      type="button"
+                      onClick={() => setWindowSlots((s) => s.filter((_, j) => j !== i))}
+                      className="text-[13px] text-ink-muted hover:text-red-500 transition-colors px-1"
+                    >
+                      ×
+                    </button>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </div>

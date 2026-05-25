@@ -1,4 +1,4 @@
-import { createVoucher, getSiteSettings } from "@/lib/data";
+import { createVoucher, getVoucherWindowSettings } from "@/lib/data";
 import { nanoid } from "nanoid";
 
 export async function POST(request: Request) {
@@ -10,21 +10,16 @@ export async function POST(request: Request) {
   }
 
   const code = `SHRP-${nanoid(8).toUpperCase()}`;
-
-  const settings = await getSiteSettings();
-  const windowEnabled = settings.find((s) => s.key === "voucher_window_enabled")?.value === "true";
+  const window = await getVoucherWindowSettings();
 
   let validFrom: Date;
   let validUntil: Date;
 
-  if (windowEnabled) {
-    const fromDate = settings.find((s) => s.key === "voucher_window_from")?.value;
-    const toDate = settings.find((s) => s.key === "voucher_window_to")?.value;
-    const timeFrom = settings.find((s) => s.key === "voucher_window_time_from")?.value || "00:00";
-    const timeTo = settings.find((s) => s.key === "voucher_window_time_to")?.value || "23:59";
-
-    validFrom = fromDate ? new Date(`${fromDate}T${timeFrom}:00`) : new Date();
-    validUntil = toDate ? new Date(`${toDate}T${timeTo}:00`) : new Date(Date.now() + 14 * 24 * 60 * 60 * 1000);
+  if (window.enabled && window.from && window.to) {
+    const firstSlot = window.slots[0];
+    const lastSlot = window.slots[window.slots.length - 1];
+    validFrom = new Date(`${window.from}T${firstSlot.from}:00`);
+    validUntil = new Date(`${window.to}T${lastSlot.to}:00`);
   } else {
     validFrom = new Date();
     validUntil = new Date();

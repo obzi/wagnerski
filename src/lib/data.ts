@@ -133,6 +133,31 @@ export async function getVoucherDiscount(): Promise<number> {
   return discount ? parseFloat(discount.value) : 15;
 }
 
+export type TimeSlot = { from: string; to: string };
+
+export type VoucherWindowSettings = {
+  enabled: boolean;
+  from: string;
+  to: string;
+  slots: TimeSlot[];
+};
+
+export async function getVoucherWindowSettings(): Promise<VoucherWindowSettings> {
+  const settings = await getSiteSettings();
+  const enabled = settings.find((s) => s.key === "voucher_window_enabled")?.value === "true";
+  const from = settings.find((s) => s.key === "voucher_window_from")?.value ?? "";
+  const to = settings.find((s) => s.key === "voucher_window_to")?.value ?? "";
+  const slotsRaw = settings.find((s) => s.key === "voucher_window_slots")?.value ?? "";
+  let slots: TimeSlot[] = [];
+  try {
+    if (slotsRaw) slots = JSON.parse(slotsRaw);
+  } catch {
+    slots = [];
+  }
+  if (slots.length === 0) slots = [{ from: "09:00", to: "17:00" }];
+  return { enabled, from, to, slots };
+}
+
 export async function getCampTypes(): Promise<CampType[]> {
   if (!supabase) return [];
   const { data } = await supabase

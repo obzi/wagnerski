@@ -72,7 +72,7 @@ export default function SkolaPage() {
           </div>
           <div className="relative aspect-[4/3] rounded-[3px] overflow-hidden">
             <Image
-              src="/images/ucime.jpg"
+              src="/images/tym.jpeg"
               fill
               alt={texts.skola.intro.imageAlt}
               className="object-cover"

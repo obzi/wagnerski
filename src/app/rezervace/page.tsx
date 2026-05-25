@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { FacebookIcon, InstagramIcon } from "@/components/ui/SocialIcons";
 import { VoucherPurchase } from "@/components/ui/VoucherPurchase";
-import { getReservationPrices, getContacts, getVoucherDiscount } from "@/lib/data";
+import { getReservationPrices, getContacts, getVoucherDiscount, getVoucherWindowSettings } from "@/lib/data";
 import texts from "@/data/texts.json";
 
 export const dynamic = "force-dynamic";
@@ -13,10 +13,11 @@ export const metadata: Metadata = {
 };
 
 export default async function RezervacePage() {
-  const [prices, contacts, voucherDiscount] = await Promise.all([
+  const [prices, contacts, voucherDiscount, voucherWindow] = await Promise.all([
     getReservationPrices(),
     getContacts(),
     getVoucherDiscount(),
+    getVoucherWindowSettings(),
   ]);
 
   const individualPrices = prices.filter((p) => p.category === "individual");
@@ -113,7 +114,7 @@ export default async function RezervacePage() {
 
           {/* Voucher */}
           <div>
-            <VoucherPurchase prices={[...individualPrices, ...groupPrices]} discountPercent={voucherDiscount} />
+            <VoucherPurchase prices={[...individualPrices, ...groupPrices]} discountPercent={voucherDiscount} voucherWindow={voucherWindow} />
           </div>
         </div>
       </section>

@@ -27,7 +27,7 @@ export default async function AktualityPage() {
       <SubpageHero
         eyebrow={texts.aktuality.hero.eyebrow}
         title={texts.aktuality.hero.title}
-        imageSrc="/images/tym.jpeg"
+        imageSrc="/images/ucime.jpg"
         imageAlt={texts.aktuality.hero.imageAlt}
         logoSrc="/images/loga/wagner-2.svg"
         logoAlt="Wagner Ski Akademie"
