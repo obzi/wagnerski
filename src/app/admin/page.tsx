@@ -67,8 +67,11 @@ function useSupabaseTable<T extends { id: string }>(
       setLoading(false);
       return;
     }
-    const { data } = await supabase.from(table).select("*").order("created_at");
-    setItems((data as T[]) ?? []);
+    const ordered = await supabase.from(table).select("*").order("created_at");
+    const rows = (ordered.error || !ordered.data)
+      ? (await supabase.from(table).select("*")).data
+      : ordered.data;
+    setItems((rows as T[]) ?? []);
     setLoading(false);
   }, [table, defaultData]);
 
@@ -1364,7 +1367,7 @@ function ContactForm({
 /* ------------------------------------------------------------------ */
 
 function SettingsManager() {
-  const { items: settings, loading, add, update } = useSupabaseTable<SiteSetting>("site_settings", defaultVoucherSettings);
+  const { items: settings, loading, add, update, refresh: refreshSettings } = useSupabaseTable<SiteSetting>("site_settings", defaultVoucherSettings);
   const [discountValue, setDiscountValue] = useState("");
   const [newsMaxValue, setNewsMaxValue] = useState("5");
   const [windowEnabled, setWindowEnabled] = useState(false);
@@ -1392,8 +1395,6 @@ function SettingsManager() {
 
   async function saveSetting(key: string, value: string) {
     if (supabase) {
-      // Direct upsert: delete all rows for this key then insert fresh
-      // (avoids duplicate accumulation from stale hook state)
       await supabase.from("site_settings").delete().eq("key", key);
       await supabase.from("site_settings").insert({ key, value });
     } else {
@@ -1420,6 +1421,7 @@ function SettingsManager() {
     await saveSetting("voucher_window_from", windowFrom);
     await saveSetting("voucher_window_to", windowTo);
     await saveSetting("voucher_window_slots", JSON.stringify(windowSlots));
+    await refreshSettings();
     setSaved("voucher_window");
     setTimeout(() => setSaved(null), 2000);
   }
