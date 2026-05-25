@@ -41,6 +41,18 @@
     "aktuality": {
       "title": "Aktuality | Wagner Ski Akademie",
       "description": "Aktuality a novinky z Wagner Ski Akademie."
+    },
+    "pravidlaFis": {
+      "title": "10 pravidel FIS | Wagner Ski Akademie",
+      "description": "10 pravidel FIS pro chování na sjezdových tratích. Základní bezpečnostní pravidla pro lyžaře a snowboardisty."
+    },
+    "gdpr": {
+      "title": "GDPR | Wagner Ski Akademie",
+      "description": "Zásady ochrany osobních údajů Ing. Petr Wagner – SHERPA SKI SCHOOL v souladu s nařízením GDPR."
+    },
+    "provozniRad": {
+      "title": "Provozní řád | Wagner Ski Akademie",
+      "description": "Provozní řád lyžařské školy Sherpa Ski School. Pravidla a podmínky výuky lyžování a snowboardingu."
     }
   },
 
@@ -50,8 +62,8 @@
     "links": [
       { "href": "/aktuality", "label": "Aktuality" },
       { "href": "/lokality", "label": "Lokality" },
-      { "href": "/skola", "label": "Škola" },
-      { "href": "/skicamp", "label": "Skicamp" },
+      { "href": "/skola", "label": "Lyžařská škola" },
+      { "href": "/skicamp", "label": "Skicamp.cz" },
       { "href": "/instruktor", "label": "Chci být instruktor" },
       { "href": "/leto", "label": "Léto" },
       { "href": "/o-nas", "label": "O nás" }
@@ -61,7 +73,179 @@
 
   "footer": {
     "partnersLabel": "Partneři",
-    "copyright": "Wagner Ski Akademie · wagnerski.cz"
+    "copyright": "Wagner Ski Akademie · wagnerski.cz",
+    "legalLinks": [
+      { "href": "/pravidla-fis", "label": "Pravidla FIS" },
+      { "href": "/gdpr", "label": "GDPR" },
+      { "href": "/provozni-rad", "label": "Provozní řád" }
+    ]
+  },
+
+  "pravidlaFis": {
+    "hero": {
+      "eyebrow": "Bezpečnost na sjezdovce",
+      "title": "10 pravidel FIS",
+      "imageAlt": "Lyžař na sjezdovce"
+    },
+    "intro": "Mezinárodní lyžařská federace FIS stanovila 10 pravidel chování na sjezdových tratích, která jsou závazná pro všechny lyžaře a snowboardisty.",
+    "rules": [
+      {
+        "number": "01",
+        "title": "Ohled na ostatní lyžaře",
+        "text": "Každý lyžař nebo snowboardista se musí neustále chovat tak, aby neohrožoval nebo nepoškozoval ostatní účastníky provozu na sjezdových tratích."
+      },
+      {
+        "number": "02",
+        "title": "Zvládnutí rychlosti a způsobu jízdy",
+        "text": "Každý lyžař nebo snowboardista musí jezdit s přiměřeným odstupem a s ohledem na vzdálenost, na kterou vidí, přizpůsobovat svou rychlost a způsob jízdy svým schopnostem, terénním poměrům, sněhovým a povětrnostním podmínkám a hustotě provozu."
+      },
+      {
+        "number": "03",
+        "title": "Volba jízdní stopy",
+        "text": "Lyžař nebo snowboardista přijíždějící zezadu musí svou jízdní stopu zvolit tak, aby neohrožoval lyžaře jedoucího před ním."
+      },
+      {
+        "number": "04",
+        "title": "Předjíždění",
+        "text": "Předjíždět se může ze shora nebo zespoda, zprava nebo zleva, ale vždy jen s odstupem, který poskytne předjížděnému lyžaři či snowboardistovi dostatek prostoru pro všechny jeho pohyby."
+      },
+      {
+        "number": "05",
+        "title": "Vjíždění a rozjíždění",
+        "text": "Každý lyžař nebo snowboardista, který chce vjet do sjezdové tratě nebo se chce po zastavení opět rozjet, se musí rozhlédnout nahoru a dolů a přesvědčit se, že to může učinit bez nebezpečí pro sebe a ostatní."
+      },
+      {
+        "number": "06",
+        "title": "Zastavení",
+        "text": "Každý lyžař nebo snowboardista se musí vyhýbat tomu, aby se zbytečně zdržoval na úzkých nebo nepřehledných místech sjezdové tratě. Lyžař nebo snowboardista, který po pádu zůstal na takovém místě ležet, musí co nejrychleji toto místo uvolnit."
+      },
+      {
+        "number": "07",
+        "title": "Stoupání a sestup",
+        "text": "Lyžař nebo snowboardista, který stoupá nebo sestupuje pěšky, musí používat okraj sjezdové tratě."
+      },
+      {
+        "number": "08",
+        "title": "Respektování značek",
+        "text": "Každý lyžař nebo snowboardista musí respektovat značení a signalizaci."
+      },
+      {
+        "number": "09",
+        "title": "Chování při úrazech",
+        "text": "Při úrazech je každý lyžař nebo snowboardista povinen poskytnout první pomoc a v případě potřeby přivolat záchrannou službu a varovat ostatní účastníky. V případě nutnosti musí zůstat na místě až do příjezdu záchranné služby."
+      },
+      {
+        "number": "10",
+        "title": "Povinnost prokázání se",
+        "text": "Každý lyžař nebo snowboardista, ať svědek nebo účastník, je povinen v případě úrazu prokázat své osobní údaje."
+      }
+    ]
+  },
+
+  "gdpr": {
+    "hero": {
+      "eyebrow": "Ochrana osobních údajů",
+      "title": "GDPR",
+      "imageAlt": "Wagner Ski Akademie"
+    },
+    "sections": [
+      {
+        "title": "Správce osobních údajů",
+        "text": "Správcem osobních údajů je Ing. Petr Wagner – SHERPA SKI SCHOOL. Zpracování osobních údajů probíhá v souladu s nařízením Evropského parlamentu a Rady (EU) 2016/679 (GDPR) a zákonem č. 101/2000 Sb., o ochraně osobních údajů."
+      },
+      {
+        "title": "Účel zpracování",
+        "text": "Osobní údaje jsou zpracovávány za účelem evidence účastníků kurzů, dokumentace a propagace činnosti školy a kontaktování účastníků v souvislosti s poskytovanými službami."
+      },
+      {
+        "title": "Kategorie zpracovávaných údajů",
+        "text": "Zpracováváme následující kategorie osobních údajů: identifikační údaje (jméno, datum narození, číslo průkazu, adresa), kontaktní údaje (telefon, e-mail), zdravotní údaje (zdravotní pojišťovna, fyzická způsobilost), obrazové a zvukové záznamy, údaje o zákonném zástupci u nezletilých."
+      },
+      {
+        "title": "Citlivé osobní údaje",
+        "text": "Zdravotní informace jsou zpracovávány jako citlivé osobní údaje a vyžadují výslovný souhlas, který může být kdykoli odvolán."
+      },
+      {
+        "title": "Práva subjektů údajů",
+        "text": "Máte právo na přístup ke svým osobním údajům jednou ročně bezplatně, právo vznést námitku proti zpracování a právo na výmaz údajů v případech stanovených GDPR. Pro uplatnění svých práv kontaktujte správce údajů nebo Úřad pro ochranu osobních údajů."
+      },
+      {
+        "title": "Doba uchovávání údajů",
+        "text": "Údaje jsou uchovávány po dobu výuky a na základě souhlasu až 50 let po ukončení činnosti; bez souhlasu je retence řízena zákonnými požadavky."
+      },
+      {
+        "title": "Zabezpečení dat",
+        "text": "Škola přijímá odpovídající technická a organizační opatření k zabránění ztrátě, zneužití nebo pozměnění osobních údajů."
+      },
+      {
+        "title": "Cookies",
+        "text": "Webové stránky využívají analytické nástroje (Google Analytics) za účelem sledování návštěvnosti a zlepšování webu."
+      },
+      {
+        "title": "Kontakt",
+        "text": "V případě dotazů ohledně zpracování osobních údajů nás kontaktujte na: sherpaski@sherpaski.cz nebo +420 604 681 100."
+      }
+    ]
+  },
+
+  "provozniRad": {
+    "hero": {
+      "eyebrow": "Dokumenty",
+      "title": "Provozní řád lyžařské školy",
+      "imageAlt": "Lyžařská škola Sherpa"
+    },
+    "articles": [
+      {
+        "number": "I",
+        "title": "Úvodní ustanovení",
+        "text": "Provozovatelem lyžařské školy je Ing. Petr Wagner – SHERPA SKI SCHOOL, se sídlem ve Velkém Týnci. Kontakt: +420 604 681 100, sherpaski@sherpaski.cz."
+      },
+      {
+        "number": "II",
+        "title": "Rozsah platnosti",
+        "text": "Účastníci kurzů jsou povinni se s tímto provozním řádem seznámit a bezpodmínečně jej respektovat. Rodiče nezletilých účastníků jsou povinni zajistit, aby jejich děti byly před zahájením kurzu poučeny o bezpečnostních pravidlech."
+      },
+      {
+        "number": "III",
+        "title": "Specifikace kurzů",
+        "text": "Škola nabízí výuku lyžování, snowboardu a telemarku v individuální i skupinové formě. Každá lekce zahrnuje konzultační a aktivní výcvikovou složku."
+      },
+      {
+        "number": "IV",
+        "title": "Pravidla FIS",
+        "text": "Všichni účastníci jsou povinni dodržovat 10 pravidel FIS pro chování na sjezdových tratích. Tato pravidla jsou k dispozici na stránce Pravidla FIS."
+      },
+      {
+        "number": "V",
+        "title": "Provoz lyžařské školy",
+        "text": "Areál školy je oplocený s omezeným přístupem. Vstup je povolen pouze na lyžích nebo snowboardu. Sáňky, psi a veřejnost bez rezervace jsou zakázány. Škola primárně slouží dětem do 12 let a provoz probíhá dle zarezervovaných hodin."
+      },
+      {
+        "number": "VI",
+        "title": "Soukromá výuka",
+        "text": "Škola poskytuje poradenské služby zaměřené na zdokonalení jízdní techniky. Účastníci musí být zdravotně způsobilí, mít řádně seřízené vybavení a nosit přiměřené oblečení a výstroj."
+      },
+      {
+        "number": "VII",
+        "title": "Rezervace",
+        "text": "Rezervace jsou nezávazné. Účastníci jsou povinni dostavit se 20 minut před zahájením lekce. Nedostavení se do 5–15 minut od plánovaného začátku lekce bez předchozí omluvy je považováno za zrušení rezervace bez nároku na náhradu."
+      },
+      {
+        "number": "VIII",
+        "title": "Obecná pravidla a zákazy",
+        "text": "Všichni účastníci jsou povinni nosit helmu, okamžitě hlásit úrazy, udržovat vybavení v řádném stavu, nevyužívat technická zařízení (telefon apod.) během lekcí, zdržet se konzumace alkoholu a návykových látek a dodržovat pravidla FIS a předpisy lyžařského střediska."
+      },
+      {
+        "number": "IX",
+        "title": "Zpracování osobních údajů",
+        "text": "Škola zpracovává osobní údaje v souladu s nařízením GDPR a českou legislativou na ochranu osobních údajů. Podrobnosti jsou k dispozici v sekci GDPR."
+      },
+      {
+        "number": "X",
+        "title": "Závěrečná ustanovení",
+        "text": "Provozní řád je závazný od okamžiku zakoupení kurzu a může být jednostranně změněn. Účastníci souhlasí s fotografováním a pořizováním videozáznamů pro propagační účely."
+      }
+    ]
   },
 
   "home": {

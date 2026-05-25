@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FacebookIcon, InstagramIcon } from "@/components/ui/SocialIcons";
 import texts from "@/data/texts.json";
 
@@ -15,6 +16,21 @@ const partners = [
 export function Footer({ instagramHref }: { instagramHref: string }) {
   return (
     <footer className="border-t border-line">
+      {/* Legal links */}
+      <div className="px-7 py-5 border-b border-line">
+        <div className="max-w-[1280px] mx-auto flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
+          {texts.footer.legalLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-[11px] uppercase tracking-[0.12em] text-ink-muted hover:text-ink-secondary transition-colors"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
+      </div>
+
       {/* Partners */}
       <div className="px-7 py-10">
         <div className="max-w-[1280px] mx-auto">
