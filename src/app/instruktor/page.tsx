@@ -27,6 +27,7 @@ export default async function InstruktorPage() {
         description={texts.instruktor.hero.description}
         imageSrc="/images/kurz.jpg"
         imageAlt={texts.instruktor.hero.imageAlt}
+        overlayClass="bg-gradient-to-t from-[rgb(8,10,6)]/55 to-[rgb(8,10,6)]/10"
         logoSrc="/images/loga/sherpa.svg"
         logoAlt="Sherpa Ski School"
         logoWidth={150}

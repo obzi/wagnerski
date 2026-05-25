@@ -7,6 +7,7 @@ interface SubpageHeroProps {
   imageSrc: string;
   imageAlt: string;
   imagePositionClass?: string;
+  overlayClass?: string;
   logoSrc?: string;
   logoAlt?: string;
   logoWidth?: number;
@@ -20,6 +21,7 @@ export function SubpageHero({
   imageSrc,
   imageAlt,
   imagePositionClass = "object-center",
+  overlayClass = "bg-gradient-to-t from-[rgb(8,10,6)]/80 to-[rgb(8,10,6)]/30",
   logoSrc,
   logoAlt,
   logoWidth = 120,
@@ -36,9 +38,7 @@ export function SubpageHero({
         sizes="100vw"
         draggable={false}
       />
-      <div
-        className="absolute inset-0 bg-gradient-to-t from-[rgb(8,10,6)]/80 to-[rgb(8,10,6)]/30"
-      />
+      <div className={`absolute inset-0 ${overlayClass}`} />
       <div className="relative z-10 h-full flex flex-col px-7 sm:px-9 pb-10 max-w-[1280px] mx-auto">
         {logoSrc && (
           <div className="pt-6 -ml-4 sm:ml-0">

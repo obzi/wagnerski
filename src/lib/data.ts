@@ -72,7 +72,7 @@ export async function getReservationPrices(): Promise<ReservationPrice[]> {
   const { data } = await supabase
     .from("reservation_prices")
     .select("*")
-    .order("sort_order", { ascending: true });
+    .order("created_at", { ascending: true });
   return (data as ReservationPrice[]) ?? [];
 }
 
