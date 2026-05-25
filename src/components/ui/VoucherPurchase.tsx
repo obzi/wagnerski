@@ -32,6 +32,17 @@ function ValidityNote({ window }: { window: VoucherWindowSettings }) {
   return <p className="text-[11px] text-ink-muted">{texts.voucher.validityNote}</p>;
 }
 
+function WindowLabel({ window }: { window: VoucherWindowSettings }) {
+  if (window.enabled && window.from && window.to) {
+    return (
+      <span className="text-[11px] text-ink-muted">
+        · {formatCzDate(window.from)} – {formatCzDate(window.to)}
+      </span>
+    );
+  }
+  return null;
+}
+
 export function VoucherPurchase({ prices, discountPercent, voucherWindow }: VoucherPurchaseProps) {
   const [step, setStep] = useState<Step>("select");
   const [selectedPrice, setSelectedPrice] = useState<ReservationPrice | null>(null);
@@ -245,7 +256,7 @@ export function VoucherPurchase({ prices, discountPercent, voucherWindow }: Vouc
       </h2>
       <div className="flex items-baseline gap-2 mb-4">
         <span className="text-[13px] text-accent font-medium">−{discountPercent} % {texts.voucher.discountLabel}</span>
-        <span className="text-[11px] text-ink-muted">· {texts.voucher.timeSlot}</span>
+        <WindowLabel window={voucherWindow} />
       </div>
       <div className="space-y-3">
         {prices.map((p) => {

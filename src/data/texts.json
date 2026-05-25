@@ -772,8 +772,7 @@
   "voucher": {
     "title": "Zvýhodněné vouchery",
     "discountLabel": "sleva",
-    "timeSlot": "Po–Pá, 11:00–14:00",
-    "validityNote": "Platný Po–Pá, 11:00–14:00 · 14 dní od nákupu",
+    "validityNote": "Platnost: 14 dní od zakoupení",
     "backButton": "← Zpět na výběr",
     "form": {
       "nameLabel": "Jméno a příjmení",
