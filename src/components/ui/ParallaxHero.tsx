@@ -29,8 +29,8 @@ export function ParallaxHero() {
         />
       </motion.div>
 
-      <div className="absolute inset-0 bg-gradient-to-br from-[rgb(8,10,6)]/85 via-[rgb(8,10,6)]/50 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-[200px] bg-gradient-to-t from-[rgb(8,10,6)]/75 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[rgb(8,10,6)]/70 via-[rgb(8,10,6)]/35 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-[200px] bg-gradient-to-t from-[rgb(8,10,6)]/60 to-transparent" />
 
       <div className="relative z-10 h-full flex flex-col justify-end px-7 sm:px-9 pb-6 sm:pb-[48px] max-w-[1280px] mx-auto">
         <span className="text-[10px] uppercase tracking-[0.16em] text-white/70 mb-5 drop-shadow-md">
