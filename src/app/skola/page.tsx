@@ -21,7 +21,7 @@ export default function SkolaPage() {
         imageSrc="/images/skola-uvod.jpg"
         imagePositionClass="object-[center_30%] sm:object-[center_30%]"
         imageAlt={texts.skola.hero.imageAlt}
-        overlayClass="bg-gradient-to-t from-[rgb(8,10,6)]/40 to-[rgb(8,10,6)]/8"
+        overlayClass="bg-gradient-to-t from-[rgb(8,10,6)]/25 to-[rgb(8,10,6)]/4"
         logoSrc="/images/loga/sherpa.svg"
         logoAlt="Sherpa Ski School"
         logoWidth={150}

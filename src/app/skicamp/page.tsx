@@ -32,6 +32,7 @@ export default async function SkicampPage() {
         imageSrc="/images/asikaprun.jpg"
         imagePositionClass="object-[center_75%]"
         imageAlt={texts.skicamp.hero.imageAlt}
+        overlayClass="bg-gradient-to-t from-[rgb(8,10,6)]/50 to-[rgb(8,10,6)]/15"
         logoSrc="/images/loga/skicamp.svg"
         logoAlt="Skicamp"
         logoWidth={140}
