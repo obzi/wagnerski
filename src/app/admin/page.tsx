@@ -1367,6 +1367,11 @@ function SettingsManager() {
   const { items: settings, loading, add, update } = useSupabaseTable<SiteSetting>("site_settings", defaultVoucherSettings);
   const [discountValue, setDiscountValue] = useState("");
   const [newsMaxValue, setNewsMaxValue] = useState("5");
+  const [windowEnabled, setWindowEnabled] = useState(false);
+  const [windowFrom, setWindowFrom] = useState("");
+  const [windowTo, setWindowTo] = useState("");
+  const [windowTimeFrom, setWindowTimeFrom] = useState("09:00");
+  const [windowTimeTo, setWindowTimeTo] = useState("17:00");
   const [saved, setSaved] = useState<string | null>(null);
 
   useEffect(() => {
@@ -1374,6 +1379,16 @@ function SettingsManager() {
     if (discount) setDiscountValue(discount.value);
     const newsMax = settings.find((s) => s.key === "news_max_display");
     if (newsMax) setNewsMaxValue(newsMax.value);
+    const winEnabled = settings.find((s) => s.key === "voucher_window_enabled");
+    if (winEnabled) setWindowEnabled(winEnabled.value === "true");
+    const winFrom = settings.find((s) => s.key === "voucher_window_from");
+    if (winFrom) setWindowFrom(winFrom.value);
+    const winTo = settings.find((s) => s.key === "voucher_window_to");
+    if (winTo) setWindowTo(winTo.value);
+    const winTF = settings.find((s) => s.key === "voucher_window_time_from");
+    if (winTF) setWindowTimeFrom(winTF.value);
+    const winTT = settings.find((s) => s.key === "voucher_window_time_to");
+    if (winTT) setWindowTimeTo(winTT.value);
   }, [settings]);
 
   async function saveSetting(key: string, value: string) {
@@ -1383,7 +1398,27 @@ function SettingsManager() {
     } else {
       await add({ key, value });
     }
-    setSaved(key);
+  }
+
+  async function saveDiscount() {
+    await saveSetting("voucher_discount", discountValue);
+    setSaved("voucher_discount");
+    setTimeout(() => setSaved(null), 2000);
+  }
+
+  async function saveNewsMax() {
+    await saveSetting("news_max_display", newsMaxValue);
+    setSaved("news_max_display");
+    setTimeout(() => setSaved(null), 2000);
+  }
+
+  async function saveVoucherWindow() {
+    await saveSetting("voucher_window_enabled", windowEnabled ? "true" : "false");
+    await saveSetting("voucher_window_from", windowFrom);
+    await saveSetting("voucher_window_to", windowTo);
+    await saveSetting("voucher_window_time_from", windowTimeFrom);
+    await saveSetting("voucher_window_time_to", windowTimeTo);
+    setSaved("voucher_window");
     setTimeout(() => setSaved(null), 2000);
   }
 
@@ -1413,7 +1448,7 @@ function SettingsManager() {
             onChange={(e) => setDiscountValue(e.target.value)}
             className={inputCls + " max-w-[120px]"}
           />
-          <button className={btnPrimary} onClick={() => saveSetting("voucher_discount", discountValue)}>
+          <button className={btnPrimary} onClick={saveDiscount}>
             {texts.admin.common.save}
           </button>
           {saved === "voucher_discount" && (
@@ -1423,6 +1458,79 @@ function SettingsManager() {
         <p className="text-[11px] text-ink-muted mt-2">
           {texts.admin.settings.voucher.discountNote}
         </p>
+      </div>
+
+      <div className="border border-line rounded-[3px] p-6 bg-white max-w-lg">
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-[13px] font-medium tracking-[-0.01em]">Platnost voucherů — termín</h3>
+          <button
+            onClick={() => setWindowEnabled((v) => !v)}
+            className={`text-[11px] uppercase tracking-[0.12em] px-4 py-2 rounded-[2px] transition-colors ${
+              windowEnabled ? "bg-ink text-cream" : "border border-line text-ink-secondary hover:bg-surface"
+            }`}
+          >
+            {windowEnabled ? "Zapnuto" : "Vypnuto"}
+          </button>
+        </div>
+        <p className="text-[11px] text-ink-muted mb-4">
+          Když je zapnuto, vouchery vydané zákazníkům půjde uplatnit pouze v nastaveném termínu. Když je vypnuto, platnost je 14 dní od zakoupení.
+        </p>
+        <div className={`space-y-4 mb-5 ${!windowEnabled ? "opacity-40 pointer-events-none" : ""}`}>
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1">
+                Datum od
+              </label>
+              <input
+                type="date"
+                value={windowFrom}
+                onChange={(e) => setWindowFrom(e.target.value)}
+                className={inputCls}
+              />
+            </div>
+            <div>
+              <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1">
+                Datum do
+              </label>
+              <input
+                type="date"
+                value={windowTo}
+                onChange={(e) => setWindowTo(e.target.value)}
+                className={inputCls}
+              />
+            </div>
+            <div>
+              <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1">
+                Čas od
+              </label>
+              <input
+                type="time"
+                value={windowTimeFrom}
+                onChange={(e) => setWindowTimeFrom(e.target.value)}
+                className={inputCls}
+              />
+            </div>
+            <div>
+              <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1">
+                Čas do
+              </label>
+              <input
+                type="time"
+                value={windowTimeTo}
+                onChange={(e) => setWindowTimeTo(e.target.value)}
+                className={inputCls}
+              />
+            </div>
+          </div>
+        </div>
+        <div className="flex gap-3 items-center">
+          <button className={btnPrimary} onClick={saveVoucherWindow}>
+            {texts.admin.common.save}
+          </button>
+          {saved === "voucher_window" && (
+            <span className="text-[12px] text-accent">{texts.admin.common.saved}</span>
+          )}
+        </div>
       </div>
 
       <div className="border border-line rounded-[3px] p-6 bg-white max-w-md">
@@ -1439,7 +1547,7 @@ function SettingsManager() {
             onChange={(e) => setNewsMaxValue(e.target.value)}
             className={inputCls + " max-w-[120px]"}
           />
-          <button className={btnPrimary} onClick={() => saveSetting("news_max_display", newsMaxValue)}>
+          <button className={btnPrimary} onClick={saveNewsMax}>
             {texts.admin.common.save}
           </button>
           {saved === "news_max_display" && (

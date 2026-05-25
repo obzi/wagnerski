@@ -85,14 +85,16 @@ export async function getContacts(): Promise<Contact[]> {
   return (data as Contact[]) ?? [];
 }
 
-export async function createVoucher(voucher: Omit<Voucher, "id" | "created_at" | "redeemed_at" | "status" | "valid_from">): Promise<Voucher | null> {
+export async function createVoucher(
+  voucher: Omit<Voucher, "id" | "created_at" | "redeemed_at" | "status" | "valid_from"> & { valid_from?: string }
+): Promise<Voucher | null> {
   if (!supabase) return null;
   const { data, error } = await supabase
     .from("vouchers")
     .insert({
       ...voucher,
       status: "active",
-      valid_from: new Date().toISOString(),
+      valid_from: voucher.valid_from ?? new Date().toISOString(),
     })
     .select()
     .single();

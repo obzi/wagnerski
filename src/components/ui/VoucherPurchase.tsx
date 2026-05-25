@@ -16,6 +16,7 @@ export function VoucherPurchase({ prices, discountPercent }: VoucherPurchaseProp
   const [selectedPrice, setSelectedPrice] = useState<ReservationPrice | null>(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [lessonType, setLessonType] = useState<"" | "lyz" | "snb">("");
   const [loading, setLoading] = useState(false);
   const [voucherCode, setVoucherCode] = useState("");
   const [error, setError] = useState("");
@@ -34,7 +35,7 @@ export function VoucherPurchase({ prices, discountPercent }: VoucherPurchaseProp
   };
 
   const handlePurchase = async () => {
-    if (!selectedPrice || !name.trim() || !email.trim()) {
+    if (!selectedPrice || !name.trim() || !email.trim() || !lessonType) {
       setError(texts.voucher.errors.fillAll);
       return;
     }
@@ -51,7 +52,7 @@ export function VoucherPurchase({ prices, discountPercent }: VoucherPurchaseProp
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          serviceLabel: `${selectedPrice.label} (${selectedPrice.duration})`,
+          serviceLabel: `${selectedPrice.label} (${selectedPrice.duration}) — ${lessonType === "lyz" ? "Lyže" : "Snowboard"}`,
           durationMinutes,
           originalPrice,
           discountedPrice,
@@ -153,6 +154,27 @@ export function VoucherPurchase({ prices, discountPercent }: VoucherPurchaseProp
           <span className="text-[10px] uppercase tracking-[0.1em] text-accent">−{discountPercent} %</span>
         </div>
         <div className="space-y-4 mb-6">
+          <div>
+            <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-2">
+              Typ hodiny
+            </label>
+            <div className="flex gap-3">
+              {(["lyz", "snb"] as const).map((type) => (
+                <button
+                  key={type}
+                  type="button"
+                  onClick={() => setLessonType(type)}
+                  className={`flex-1 py-3 px-4 border rounded-[2px] text-[13px] transition-colors ${
+                    lessonType === type
+                      ? "border-accent bg-accent/5 text-ink font-medium"
+                      : "border-line bg-cream text-ink-secondary hover:border-accent/50"
+                  }`}
+                >
+                  {type === "lyz" ? "Lyže" : "Snowboard"}
+                </button>
+              ))}
+            </div>
+          </div>
           <div>
             <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1">
               {texts.voucher.form.nameLabel}
