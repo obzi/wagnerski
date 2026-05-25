@@ -107,7 +107,11 @@ export async function getSiteSettings(): Promise<SiteSetting[]> {
   const { data } = await supabase
     .from("site_settings")
     .select("*");
-  return (data as SiteSetting[]) ?? [];
+  const all = (data as SiteSetting[]) ?? [];
+  // Deduplicate by key — keep last occurrence (most recently inserted wins)
+  const map = new Map<string, SiteSetting>();
+  for (const s of all) map.set(s.key, s);
+  return Array.from(map.values());
 }
 
 export async function getNewsMaxDisplay(): Promise<number> {

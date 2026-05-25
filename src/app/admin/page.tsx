@@ -1391,11 +1391,15 @@ function SettingsManager() {
   }, [settings]);
 
   async function saveSetting(key: string, value: string) {
-    const existing = settings.find((s) => s.key === key);
-    if (existing) {
-      await update(existing.id, { value });
+    if (supabase) {
+      // Direct upsert: delete all rows for this key then insert fresh
+      // (avoids duplicate accumulation from stale hook state)
+      await supabase.from("site_settings").delete().eq("key", key);
+      await supabase.from("site_settings").insert({ key, value });
     } else {
-      await add({ key, value });
+      const existing = settings.find((s) => s.key === key);
+      if (existing) await update(existing.id, { value });
+      else await add({ key, value });
     }
   }
 
