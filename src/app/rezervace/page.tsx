@@ -48,85 +48,17 @@ export default async function RezervacePage() {
         </div>
       </section>
 
-      {/* Contact + Voucher */}
-      <section className="py-16 px-7">
-        <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contacts */}
-          <div>
-            <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
-              {texts.rezervace.contact.eyebrow}
-            </span>
-            <div className="space-y-5">
-              <div>
-                <span className="block text-[11px] text-ink-muted uppercase tracking-[0.1em] mb-1">{texts.rezervace.contact.labels.phone}</span>
-                {phones.length > 0 ? phones.map((p) => (
-                  <div key={p.id} className="mb-2 last:mb-0">
-                    {p.label && p.label !== "Telefon" && (
-                      <span className="block text-[11px] text-ink-muted mb-0.5">{p.label}</span>
-                    )}
-                    <a href={p.url} className="text-[18px] font-medium hover:text-accent transition-colors block">
-                      {p.value}
-                    </a>
-                  </div>
-                )) : (
-                  <a href="tel:+420604681100" className="text-[18px] font-medium hover:text-accent transition-colors">
-                    +420 604 681 100
-                  </a>
-                )}
-              </div>
-              <div>
-                <span className="block text-[11px] text-ink-muted uppercase tracking-[0.1em] mb-1">{texts.rezervace.contact.labels.email}</span>
-                <a href={email?.url || "mailto:sherpaski@sherpaski.cz"} className="text-[16px] hover:text-accent transition-colors">
-                  {email?.value || "sherpaski@sherpaski.cz"}
-                </a>
-              </div>
-              <div>
-                <span className="block text-[11px] text-ink-muted uppercase tracking-[0.1em] mb-1">{texts.rezervace.contact.labels.address}</span>
-                <p className="text-[14px] text-ink-secondary">
-                  {address?.value || "Skiaréna Karlov pod Pradědem, 793 26 Karlov pod Pradědem"}
-                </p>
-              </div>
-              <div>
-                <span className="block text-[11px] text-ink-muted uppercase tracking-[0.1em] mb-1">{texts.rezervace.contact.labels.hours}</span>
-                <p className="text-[14px] text-ink-secondary">
-                  {hours?.value || "9:00 – 16:00"}, {texts.rezervace.contact.hoursNote}
-                </p>
-              </div>
-              <div>
-                <span className="block text-[11px] text-ink-muted uppercase tracking-[0.1em] mb-3">{texts.rezervace.contact.labels.social}</span>
-                <div className="flex items-center gap-4">
-                  {facebook && (
-                    <a href={facebook.url} className="min-h-[44px] flex items-center gap-2 text-ink-secondary hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
-                      <FacebookIcon size={20} />
-                      <span className="text-[13px]">{facebook.value}</span>
-                    </a>
-                  )}
-                  {instagram && (
-                    <a href={instagram.url} className="min-h-[44px] flex items-center gap-2 text-ink-secondary hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
-                      <InstagramIcon size={20} />
-                      <span className="text-[13px]">{instagram.value}</span>
-                    </a>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Voucher */}
-          <div>
-            <VoucherPurchase prices={[...individualPrices, ...groupPrices]} discountPercent={voucherDiscount} voucherWindow={voucherWindow} />
-          </div>
-        </div>
-      </section>
-
       {/* Pricing */}
       <section className="py-16 px-7 bg-surface">
         <div className="max-w-[1280px] mx-auto">
           <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-8">
             {texts.rezervace.pricing.eyebrow}
           </span>
-          <p className="text-[12px] text-ink-muted mb-8">
+          <p className="text-[12px] text-ink-muted mb-2">
             {texts.rezervace.pricing.note}
+          </p>
+          <p className="text-[12px] text-ink-muted mb-8">
+            Pro objednání hodiny volejte. Platba probíhá v kanceláři školy 20 minut před výukou.
           </p>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -195,6 +127,77 @@ export default async function RezervacePage() {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact + Voucher */}
+      <section className="py-16 px-7">
+        <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Contacts */}
+          <div>
+            <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
+              {texts.rezervace.contact.eyebrow}
+            </span>
+            <div className="space-y-5">
+              <div>
+                <span className="block text-[11px] text-ink-muted uppercase tracking-[0.1em] mb-1">{texts.rezervace.contact.labels.phone}</span>
+                {phones.length > 0 ? phones.map((p) => (
+                  <div key={p.id} className="mb-2 last:mb-0">
+                    {p.label && p.label !== "Telefon" && (
+                      <span className="block text-[11px] text-ink-muted mb-0.5">{p.label}</span>
+                    )}
+                    <a href={p.url} className="text-[18px] font-medium hover:text-accent transition-colors block">
+                      {p.value}
+                    </a>
+                  </div>
+                )) : (
+                  <a href="tel:+420604681100" className="text-[18px] font-medium hover:text-accent transition-colors">
+                    +420 604 681 100
+                  </a>
+                )}
+              </div>
+              <div>
+                <span className="block text-[11px] text-ink-muted uppercase tracking-[0.1em] mb-1">{texts.rezervace.contact.labels.email}</span>
+                <a href={email?.url || "mailto:sherpaski@sherpaski.cz"} className="text-[16px] hover:text-accent transition-colors">
+                  {email?.value || "sherpaski@sherpaski.cz"}
+                </a>
+              </div>
+              <div>
+                <span className="block text-[11px] text-ink-muted uppercase tracking-[0.1em] mb-1">{texts.rezervace.contact.labels.address}</span>
+                <p className="text-[14px] text-ink-secondary">
+                  {address?.value || "Skiaréna Karlov pod Pradědem, 793 26 Karlov pod Pradědem"}
+                </p>
+              </div>
+              <div>
+                <span className="block text-[11px] text-ink-muted uppercase tracking-[0.1em] mb-1">{texts.rezervace.contact.labels.hours}</span>
+                <p className="text-[14px] text-ink-secondary">
+                  {hours?.value || "9:00 – 16:00"}, {texts.rezervace.contact.hoursNote}
+                </p>
+              </div>
+              <div>
+                <span className="block text-[11px] text-ink-muted uppercase tracking-[0.1em] mb-3">{texts.rezervace.contact.labels.social}</span>
+                <div className="flex items-center gap-4">
+                  {facebook && (
+                    <a href={facebook.url} className="min-h-[44px] flex items-center gap-2 text-ink-secondary hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
+                      <FacebookIcon size={20} />
+                      <span className="text-[13px]">{facebook.value}</span>
+                    </a>
+                  )}
+                  {instagram && (
+                    <a href={instagram.url} className="min-h-[44px] flex items-center gap-2 text-ink-secondary hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
+                      <InstagramIcon size={20} />
+                      <span className="text-[13px]">{instagram.value}</span>
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Voucher */}
+          <div>
+            <VoucherPurchase prices={[...individualPrices, ...groupPrices]} discountPercent={voucherDiscount} voucherWindow={voucherWindow} />
           </div>
         </div>
       </section>
