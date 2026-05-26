@@ -18,15 +18,17 @@ export function ParallaxHero() {
         style={prefersReducedMotion ? {} : { y }}
         className="absolute inset-0 scale-[1.2]"
       >
-        <Image
-          src="/images/petroblouk.jpeg"
-          fill
-          alt={texts.home.hero.imageAlt}
-          className="object-cover object-[30%_50%] sm:object-[100%_75%]"
-          priority
-          sizes="100vw"
-          draggable={false}
-        />
+        <div className="absolute inset-0 [transform:scale(1.15)_translateY(15%)] sm:[transform:none]">
+          <Image
+            src="/images/petroblouk.jpeg"
+            fill
+            alt={texts.home.hero.imageAlt}
+            className="object-cover object-[30%_50%] sm:object-[100%_75%]"
+            priority
+            sizes="100vw"
+            draggable={false}
+          />
+        </div>
       </motion.div>
 
       <div className="absolute inset-0 bg-gradient-to-br from-[rgb(8,10,6)]/40 via-[rgb(8,10,6)]/10 to-transparent" />
