@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useScroll, useTransform, motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,6 +11,14 @@ export function ParallaxHero() {
   const { scrollY } = useScroll();
   const prefersReducedMotion = useReducedMotion();
   const y = useTransform(scrollY, [0, 700], [0, 200]);
+  const [isMobile, setIsMobile] = useState(true);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 640px)");
+    setIsMobile(!mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(!e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
 
   return (
     <section ref={ref} className="relative h-[calc(100svh-52px)] min-h-[480px] overflow-hidden">
@@ -22,7 +30,8 @@ export function ParallaxHero() {
           src="/images/petroblouk.jpeg"
           fill
           alt={texts.home.hero.imageAlt}
-          className="object-cover object-[40%_60%] sm:object-[100%_75%]"
+          className="object-cover"
+          style={{ objectPosition: isMobile ? "40% 60%" : "100% 75%" }}
           priority
           sizes="100vw"
           draggable={false}
