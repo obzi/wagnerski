@@ -31,7 +31,10 @@ export function ParallaxHero() {
           fill
           alt={texts.home.hero.imageAlt}
           className="object-cover"
-          style={{ objectPosition: isMobile ? "35% 50%" : "100% 75%" }}
+          style={{
+            objectPosition: isMobile ? "35% 50%" : "100% 75%",
+            transform: isMobile ? "translateY(15%)" : undefined,
+          }}
           priority
           sizes="100vw"
           draggable={false}
