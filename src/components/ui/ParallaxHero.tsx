@@ -33,7 +33,7 @@ export function ParallaxHero() {
           className="object-cover"
           style={{
             objectPosition: isMobile ? "35% 50%" : "100% 75%",
-            transform: isMobile ? "translateY(15%)" : undefined,
+            transform: isMobile ? "translateY(-15%)" : undefined,
           }}
           priority
           sizes="100vw"
