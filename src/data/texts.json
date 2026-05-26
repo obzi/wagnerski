@@ -58,7 +58,7 @@
 
   "nav": {
     "brand": "Wagner",
-    "brandSub": "ski akademie · sherpaski · skicamp.cz · instruktor",
+    "brandSub": "ski akademie · sherpaski · skicamp.cz · chci být instruktor",
     "links": [
       { "href": "/aktuality", "label": "Aktuality" },
       { "href": "/lokality", "label": "Lokality" },
@@ -770,7 +770,7 @@
   },
 
   "voucher": {
-    "title": "Zvýhodněné vouchery",
+    "title": "Zvýhodněné vouchery — na vybrané časy",
     "discountLabel": "sleva",
     "validityNote": "Platnost: 14 dní od zakoupení",
     "backButton": "← Zpět na výběr",
