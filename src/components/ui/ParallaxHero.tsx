@@ -26,16 +26,22 @@ export function ParallaxHero() {
         style={prefersReducedMotion ? {} : { y }}
         className="absolute inset-0 scale-[1.2]"
       >
-        <Image
-          src="/images/petroblouk.jpeg"
-          fill
-          alt={texts.home.hero.imageAlt}
-          className="object-cover"
-          style={{ objectPosition: isMobile ? "35% 90%" : "100% 75%" }}
-          priority
-          sizes="100vw"
-          draggable={false}
-        />
+        {/* mobile: scale(1.3) dává 15% buffer, translateY posune vertikálně */}
+        <div
+          className="absolute inset-0"
+          style={isMobile ? { transform: "scale(1.3) translateY(0%)" } : undefined}
+        >
+          <Image
+            src="/images/petroblouk.jpeg"
+            fill
+            alt={texts.home.hero.imageAlt}
+            className="object-cover"
+            style={{ objectPosition: isMobile ? "35% 50%" : "100% 75%" }}
+            priority
+            sizes="100vw"
+            draggable={false}
+          />
+        </div>
       </motion.div>
 
       <div className="absolute inset-0 bg-gradient-to-br from-[rgb(8,10,6)]/40 via-[rgb(8,10,6)]/10 to-transparent" />
