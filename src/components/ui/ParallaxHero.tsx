@@ -22,7 +22,7 @@ export function ParallaxHero() {
           src="/images/petroblouk.jpeg"
           fill
           alt={texts.home.hero.imageAlt}
-          className="object-cover object-[50%_50%] sm:object-[100%_75%]"
+          className="object-cover object-[60%_40%] sm:object-[100%_75%]"
           priority
           sizes="100vw"
           draggable={false}
