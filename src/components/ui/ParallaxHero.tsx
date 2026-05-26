@@ -18,7 +18,7 @@ export function ParallaxHero() {
         style={prefersReducedMotion ? {} : { y }}
         className="absolute inset-0 scale-[1.2]"
       >
-        <div className="absolute inset-0 [transform:scale(1.15)_translateY(15%)] sm:[transform:none]">
+        <div className="absolute inset-0 [transform:scale(1.85)_translateY(50%)] sm:[transform:none]">
           <Image
             src="/images/petroblouk.jpeg"
             fill
