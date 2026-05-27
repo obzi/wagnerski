@@ -88,17 +88,29 @@ export default function LokalityPage() {
 
       {/* Section 2: Ski akademie - Jeseníky */}
       <section className="py-16 px-7 bg-surface">
-        <div className="max-w-[1280px] mx-auto">
-          <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
-            {texts.lokality.akademie.eyebrow}
-          </span>
-          <h2 className="text-[28px] sm:text-[36px] font-normal tracking-[-0.02em] leading-[1.2] mb-6">
-            {texts.lokality.akademie.title}
-          </h2>
-          <div className="max-w-2xl space-y-4 text-[14px] text-ink-secondary leading-[1.7]">
-            {texts.lokality.akademie.paragraphs.map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
+        <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-[5fr_4fr] gap-12 items-start">
+          <div>
+            <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
+              {texts.lokality.akademie.eyebrow}
+            </span>
+            <h2 className="text-[28px] sm:text-[36px] font-normal tracking-[-0.02em] leading-[1.2] mb-6">
+              {texts.lokality.akademie.title}
+            </h2>
+            <div className="space-y-4 text-[14px] text-ink-secondary leading-[1.7]">
+              {texts.lokality.akademie.paragraphs.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+          </div>
+          <div className="relative aspect-[4/3] rounded-[3px] overflow-hidden">
+            <Image
+              src="/images/petawagnerski.jpg"
+              fill
+              alt="Wagnerski akademie"
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 44vw"
+              draggable={false}
+            />
           </div>
         </div>
       </section>
