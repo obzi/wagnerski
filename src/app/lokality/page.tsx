@@ -59,12 +59,12 @@ export default function LokalityPage() {
           </div>
 
           {/* Row 2, Col 1: DSC — aspect-[5/3] v 5fr sloupci = stejná výška jako aspect-[4/3] v 4fr sloupci */}
-          <div className="relative aspect-[5/3] rounded-[3px] overflow-hidden bg-surface">
+          <div className="relative aspect-[5/3] rounded-[3px] overflow-hidden">
             <Image
               src="/images/DSC_1294.jpg"
               fill
               alt="Ski aréna Karlov pod Pradědem"
-              className="object-contain"
+              className="object-cover"
               sizes="(max-width: 1024px) 100vw, 56vw"
               draggable={false}
             />
@@ -99,7 +99,7 @@ export default function LokalityPage() {
                 );
               })}
             </dl>
-            <p className="mt-auto pt-4 border-t border-line text-[11px] text-ink-muted">
+            <p className="mt-auto pt-4 border-t border-line text-[13px] text-ink font-medium">
               Najdete nás na Expressu.
             </p>
           </div>
