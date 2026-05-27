@@ -63,7 +63,7 @@ export default function LokalityPage() {
             </div>
           </div>
 
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-[5fr_4fr] gap-6">
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-[4fr_5fr] gap-6">
             <div className="relative aspect-[4/3] rounded-[3px] overflow-hidden">
               <Image
                 src="/images/DSC_1294.jpg"
