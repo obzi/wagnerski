@@ -26,47 +26,37 @@ export default function LokalityPage() {
 
       {/* Detail */}
       <section className="py-16 px-7">
-        <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-[5fr_4fr] gap-12">
-          <div>
-            <span className="inline-flex items-center gap-1.5 text-[9px] uppercase tracking-[0.16em] text-ink border-l-2 border-ink pl-2 mb-6">
-              {texts.lokality.detail.eyebrow}
-            </span>
-            <h2 className="text-[28px] sm:text-[36px] font-normal tracking-[-0.02em] leading-[1.2] mb-6">
-              Sherpa Ski School, Ski aréna
-              <span className="block text-[18px] sm:text-[22px] text-ink-secondary font-normal mt-1">
-                — Karlov pod Pradědem
+        <div className="max-w-[1280px] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-[5fr_4fr] gap-12">
+            <div>
+              <span className="inline-flex items-center gap-1.5 text-[9px] uppercase tracking-[0.16em] text-ink border-l-2 border-ink pl-2 mb-6">
+                {texts.lokality.detail.eyebrow}
               </span>
-            </h2>
-            <div className="space-y-4 text-[14px] text-ink-secondary leading-[1.7]">
-              {texts.lokality.detail.paragraphs.map((p, i) => (
-                <p key={i}>{p}</p>
-              ))}
-            </div>
-          </div>
-
-          <div className="space-y-6">
-            <div className="relative aspect-[4/3] rounded-[3px] overflow-hidden">
-              <Image
-                src="/images/jolcavyuka.jpeg"
-                fill
-                alt={texts.lokality.detail.imageAlt}
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 44vw"
-                draggable={false}
-              />
+              <h2 className="text-[28px] sm:text-[36px] font-normal tracking-[-0.02em] leading-[1.2] mb-6">
+                Sherpa Ski School,
+                <span className="block text-[18px] sm:text-[22px] text-ink-secondary font-normal mt-1">
+                  — Ski aréna Karlov pod Pradědem
+                </span>
+              </h2>
+              <div className="space-y-4 text-[14px] text-ink-secondary leading-[1.7]">
+                {texts.lokality.detail.paragraphs.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-[120px_1fr] gap-4">
-              <div className="relative min-h-[140px] sm:min-h-0 rounded-[3px] overflow-hidden">
+            <div className="space-y-6">
+              <div className="relative aspect-[4/3] rounded-[3px] overflow-hidden">
                 <Image
-                  src="/images/DSC_1294.jpg"
+                  src="/images/jolcavyuka.jpeg"
                   fill
-                  alt="Ski aréna Karlov pod Pradědem"
+                  alt={texts.lokality.detail.imageAlt}
                   className="object-cover"
-                  sizes="120px"
+                  sizes="(max-width: 1024px) 100vw, 44vw"
                   draggable={false}
                 />
               </div>
+
               <div className="border border-line rounded-[3px] p-6">
                 <h3 className="text-[13px] font-medium tracking-[-0.01em] mb-4">
                   {texts.lokality.detail.parametersTitle}
@@ -95,8 +85,22 @@ export default function LokalityPage() {
                     );
                   })}
                 </dl>
+                <p className="text-[11px] text-ink-muted mt-4 pt-4 border-t border-line">
+                  Najdete nás na Expressu.
+                </p>
               </div>
             </div>
+          </div>
+
+          <div className="mt-10 relative aspect-[21/9] rounded-[3px] overflow-hidden">
+            <Image
+              src="/images/DSC_1294.jpg"
+              fill
+              alt="Ski aréna Karlov pod Pradědem"
+              className="object-cover"
+              sizes="(max-width: 1280px) 100vw, 1280px"
+              draggable={false}
+            />
           </div>
         </div>
       </section>
