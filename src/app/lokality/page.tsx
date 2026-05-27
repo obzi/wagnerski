@@ -28,11 +28,14 @@ export default function LokalityPage() {
       <section className="py-16 px-7">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-[5fr_4fr] gap-12">
           <div>
-            <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
+            <span className="inline-flex items-center gap-1.5 text-[9px] uppercase tracking-[0.16em] text-ink border-l-2 border-ink pl-2 mb-6">
               {texts.lokality.detail.eyebrow}
             </span>
             <h2 className="text-[28px] sm:text-[36px] font-normal tracking-[-0.02em] leading-[1.2] mb-6">
-              {texts.lokality.detail.title}
+              Sherpa Ski School, Ski aréna
+              <span className="block text-[18px] sm:text-[22px] text-ink-secondary font-normal mt-1">
+                — Karlov pod Pradědem
+              </span>
             </h2>
             <div className="space-y-4 text-[14px] text-ink-secondary leading-[1.7]">
               {texts.lokality.detail.paragraphs.map((p, i) => (
@@ -53,34 +56,46 @@ export default function LokalityPage() {
               />
             </div>
 
-            <div className="border border-line rounded-[3px] p-6">
-              <h3 className="text-[13px] font-medium tracking-[-0.01em] mb-4">
-                {texts.lokality.detail.parametersTitle}
-              </h3>
-              <dl className="space-y-3 text-[13px]">
-                {texts.lokality.detail.parameters.map((param) => {
-                  const href = "href" in param ? param.href : undefined;
-                  return (
-                    <div key={param.label} className="flex justify-between gap-4">
-                      <dt className="text-ink-muted">{param.label}</dt>
-                      <dd className="text-right font-medium">
-                        {href ? (
-                          <a
-                            href={href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="underline underline-offset-2 hover:no-underline"
-                          >
-                            {param.value}
-                          </a>
-                        ) : (
-                          param.value
-                        )}
-                      </dd>
-                    </div>
-                  );
-                })}
-              </dl>
+            <div className="grid grid-cols-1 sm:grid-cols-[120px_1fr] gap-4">
+              <div className="relative min-h-[140px] sm:min-h-0 rounded-[3px] overflow-hidden">
+                <Image
+                  src="/images/DSC_1294.jpg"
+                  fill
+                  alt="Ski aréna Karlov pod Pradědem"
+                  className="object-cover"
+                  sizes="120px"
+                  draggable={false}
+                />
+              </div>
+              <div className="border border-line rounded-[3px] p-6">
+                <h3 className="text-[13px] font-medium tracking-[-0.01em] mb-4">
+                  {texts.lokality.detail.parametersTitle}
+                </h3>
+                <dl className="space-y-3 text-[13px]">
+                  {texts.lokality.detail.parameters.map((param) => {
+                    const href = "href" in param ? param.href : undefined;
+                    return (
+                      <div key={param.label} className="flex justify-between gap-4">
+                        <dt className="text-ink-muted">{param.label}</dt>
+                        <dd className="text-right font-medium">
+                          {href ? (
+                            <a
+                              href={href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="underline underline-offset-2 hover:no-underline"
+                            >
+                              {param.value}
+                            </a>
+                          ) : (
+                            param.value
+                          )}
+                        </dd>
+                      </div>
+                    );
+                  })}
+                </dl>
+              </div>
             </div>
           </div>
         </div>
