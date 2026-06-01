@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { useScroll, useTransform, motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import texts from "@/data/texts.json";
+import { IMAGES } from "@/config/site";
 
 export function ParallaxQuote() {
   const ref = useRef(null);
@@ -21,7 +22,7 @@ export function ParallaxQuote() {
         className="absolute inset-[-16%] scale-110"
       >
         <Image
-          src="/images/petroblouk.jpeg"
+          src={IMAGES.petroblouk}
           fill
           alt={texts.home.quote.imageAlt}
           className="object-cover"

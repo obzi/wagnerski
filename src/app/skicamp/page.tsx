@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { getSkicampTerms, getCampTypes } from "@/lib/data";
 import texts from "@/data/texts.json";
+import { IMAGES } from "@/config/site";
 
 export const dynamic = "force-dynamic";
 
@@ -29,11 +30,11 @@ export default async function SkicampPage() {
         eyebrow={texts.skicamp.hero.eyebrow}
         title={texts.skicamp.hero.title}
         description={texts.skicamp.hero.description}
-        imageSrc="/images/asikaprun.jpg"
+        imageSrc={IMAGES.asikaprun}
         imagePositionClass="object-[center_75%]"
         imageAlt={texts.skicamp.hero.imageAlt}
         overlayClass="bg-gradient-to-t from-[rgb(8,10,6)]/50 to-[rgb(8,10,6)]/15"
-        logoSrc="/images/loga/skicamp.svg"
+        logoSrc={IMAGES.loga.skicamp}
         logoAlt="Skicamp"
         logoWidth={140}
         logoHeight={56}
@@ -57,7 +58,7 @@ export default async function SkicampPage() {
           </div>
           <div className="relative aspect-[4/3] rounded-[3px] overflow-hidden">
             <Image
-              src="/images/ja_vyuka_zezadu.jpg"
+              src={IMAGES.jaVyukaZezadu}
               fill
               alt={texts.skicamp.intro.imageAlt}
               className="object-cover"

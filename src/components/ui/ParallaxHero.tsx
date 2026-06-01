@@ -5,6 +5,7 @@ import { useScroll, useTransform, motion, useReducedMotion } from "framer-motion
 import Image from "next/image";
 import Link from "next/link";
 import texts from "@/data/texts.json";
+import { IMAGES } from "@/config/site";
 
 export function ParallaxHero() {
   const ref = useRef(null);
@@ -27,7 +28,7 @@ export function ParallaxHero() {
         className="absolute inset-0 scale-[1.2]"
       >
         <Image
-          src="/images/petroblouk.jpeg"
+          src={IMAGES.petroblouk}
           fill
           alt={texts.home.hero.imageAlt}
           className="object-cover"

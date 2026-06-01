@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getNews } from "@/lib/data";
 import { SubpageHero } from "@/components/ui/SubpageHero";
 import texts from "@/data/texts.json";
+import { IMAGES } from "@/config/site";
 
 export const metadata: Metadata = {
   title: texts.meta.aktuality.title,
@@ -27,10 +28,10 @@ export default async function AktualityPage() {
       <SubpageHero
         eyebrow={texts.aktuality.hero.eyebrow}
         title={texts.aktuality.hero.title}
-        imageSrc="/images/karlov.jpg"
+        imageSrc={IMAGES.karlov}
         imageAlt={texts.aktuality.hero.imageAlt}
         imagePositionClass="object-[center_40%]"
-        logoSrc="/images/loga/wagner-2.svg"
+        logoSrc={IMAGES.loga.wagner}
         logoAlt="Wagner Ski Akademie"
         logoWidth={156}
         logoHeight={52}

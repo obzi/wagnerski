@@ -2,6 +2,7 @@ import Image from "next/image";
 import { SubpageHero } from "@/components/ui/SubpageHero";
 import type { Metadata } from "next";
 import texts from "@/data/texts.json";
+import { IMAGES } from "@/config/site";
 
 export const metadata: Metadata = {
   title: texts.meta.lokality.title,
@@ -15,10 +16,10 @@ export default function LokalityPage() {
       <SubpageHero
         eyebrow={texts.lokality.hero.eyebrow}
         title={texts.lokality.hero.title}
-        imageSrc="/images/ucime.jpg"
+        imageSrc={IMAGES.ucime}
         imageAlt={texts.lokality.hero.imageAlt}
         imagePositionClass="object-[center_10%]"
-        logoSrc="/images/loga/skiarena-karlov.svg"
+        logoSrc={IMAGES.loga.skiarenaKarlov}
         logoAlt="Ski aréna Karlov"
         logoWidth={234}
         logoHeight={47}
@@ -49,7 +50,7 @@ export default function LokalityPage() {
           {/* Row 1, Col 2: jolcavyuka */}
           <div className="relative aspect-[4/3] rounded-[3px] overflow-hidden">
             <Image
-              src="/images/jolcavyuka.jpeg"
+              src={IMAGES.jolcavyuka}
               fill
               alt={texts.lokality.detail.imageAlt}
               className="object-cover"
@@ -61,7 +62,7 @@ export default function LokalityPage() {
           {/* Row 2, Col 1: DSC — aspect-[5/3] v 5fr sloupci = stejná výška jako aspect-[4/3] v 4fr sloupci */}
           <div className="relative aspect-[5/3] rounded-[3px] overflow-hidden">
             <Image
-              src="/images/DSC_1294.jpg"
+              src={IMAGES.dsc1294}
               fill
               alt="Ski aréna Karlov pod Pradědem"
               className="object-cover"
@@ -125,7 +126,7 @@ export default function LokalityPage() {
           </div>
           <div className="relative aspect-[4/3] rounded-[3px] overflow-hidden">
             <Image
-              src="/images/petawagnerski.jpg"
+              src={IMAGES.petawagnerski}
               fill
               alt="Wagnerski akademie"
               className="object-cover"

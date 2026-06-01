@@ -4,6 +4,7 @@ import { Tag } from "@/components/ui/Tag";
 import Link from "next/link";
 import type { Metadata } from "next";
 import texts from "@/data/texts.json";
+import { IMAGES } from "@/config/site";
 
 export const metadata: Metadata = {
   title: texts.meta.skola.title,
@@ -18,11 +19,11 @@ export default function SkolaPage() {
         eyebrow={texts.skola.hero.eyebrow}
         title={texts.skola.hero.title}
         description={texts.skola.hero.description}
-        imageSrc="/images/skola-uvod.jpg"
+        imageSrc={IMAGES.skolaUvod}
         imagePositionClass="object-[center_30%] sm:object-[center_30%]"
         imageAlt={texts.skola.hero.imageAlt}
         overlayClass="bg-gradient-to-t from-[rgb(8,10,6)]/25 to-[rgb(8,10,6)]/4"
-        logoSrc="/images/loga/sherpa.svg"
+        logoSrc={IMAGES.loga.sherpa}
         logoAlt="Sherpa Ski School"
         logoWidth={150}
         logoHeight={105}
@@ -73,7 +74,7 @@ export default function SkolaPage() {
           </div>
           <div className="relative aspect-[4/3] rounded-[3px] overflow-hidden">
             <Image
-              src="/images/skupina_skolka_moc.jpg"
+              src={IMAGES.skupinaSkola}
               fill
               alt={texts.skola.intro.imageAlt}
               className="object-cover"

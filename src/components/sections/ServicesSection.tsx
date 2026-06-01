@@ -1,10 +1,11 @@
 import { ServiceCard } from "../ui/ServiceCard";
 import texts from "@/data/texts.json";
+import { IMAGES } from "@/config/site";
 
 const services = texts.home.services.items.map((s, i) => ({
   ...s,
   linkHref: ["/rezervace", "/skicamp", "/instruktor/prihlaska"][i],
-  imageSrc: ["/images/ucime.jpg", "/images/skicamptym.jpeg", "/images/jolcakurz.jpg"][i],
+  imageSrc: [IMAGES.ucime, IMAGES.skicamptym, IMAGES.jolcakurz][i],
   imagePositionClass: ["", "object-[center_10%]", ""][i],
   reversed: i === 1,
 }));

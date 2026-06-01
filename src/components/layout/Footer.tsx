@@ -2,15 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { FacebookIcon, InstagramIcon } from "@/components/ui/SocialIcons";
 import texts from "@/data/texts.json";
+import { IMAGES } from "@/config/site";
 
 const partners = [
-  { src: "/images/loga/wagner-2.svg", alt: "Wagner Ski Akademie", width: 210, height: 70 },
-  { src: "/images/loga/sherpa.svg", alt: "Sherpa Ski School", width: 130, height: 92 },
-  { src: "/images/loga/skicamp.svg", alt: "Skicamp", width: 130, height: 52 },
-  { src: "/images/loga/skiarena-karlov.svg", alt: "Ski aréna Karlov", width: 280, height: 56 },
-  { src: "/images/loga/karlov-express.svg", alt: "Karlov Express", width: 180, height: 50 },
-  { src: "/images/loga/aiss.svg", alt: "AISS", width: 120, height: 48 },
-  { src: "/images/loga/ivsi.svg", alt: "IVSI", width: 80, height: 80 },
+  { src: IMAGES.loga.wagner, alt: "Wagner Ski Akademie", width: 210, height: 70 },
+  { src: IMAGES.loga.sherpa, alt: "Sherpa Ski School", width: 130, height: 92 },
+  { src: IMAGES.loga.skicamp, alt: "Skicamp", width: 130, height: 52 },
+  { src: IMAGES.loga.skiarenaKarlov, alt: "Ski aréna Karlov", width: 280, height: 56 },
+  { src: IMAGES.loga.karlovExpress, alt: "Karlov Express", width: 180, height: 50 },
+  { src: IMAGES.loga.aiss, alt: "AISS", width: 120, height: 48 },
+  { src: IMAGES.loga.ivsi, alt: "IVSI", width: 80, height: 80 },
 ];
 
 export function Footer({ instagramHref }: { instagramHref: string }) {

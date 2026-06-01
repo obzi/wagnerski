@@ -2,6 +2,7 @@ import Image from "next/image";
 import { SubpageHero } from "@/components/ui/SubpageHero";
 import texts from "@/data/texts.json";
 import type { Metadata } from "next";
+import { IMAGES } from "@/config/site";
 
 export const metadata: Metadata = {
   title: texts.meta.pravidlaFis.title,
@@ -14,7 +15,7 @@ export default function PravidlaFisPage() {
       <SubpageHero
         eyebrow={texts.pravidlaFis.hero.eyebrow}
         title={texts.pravidlaFis.hero.title}
-        imageSrc="/images/karlov.jpg"
+        imageSrc={IMAGES.karlov}
         imageAlt={texts.pravidlaFis.hero.imageAlt}
         imagePositionClass="object-center"
       />
@@ -33,7 +34,7 @@ export default function PravidlaFisPage() {
               >
                 <div className="shrink-0">
                   <Image
-                    src={`/images/fis/fis-${rule.number}.jpg`}
+                    src={`${IMAGES.fisBase}${rule.number}.jpg`}
                     width={80}
                     height={80}
                     alt={`Pravidlo ${rule.number} – ${rule.title}`}

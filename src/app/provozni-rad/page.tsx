@@ -2,6 +2,7 @@ import Link from "next/link";
 import { SubpageHero } from "@/components/ui/SubpageHero";
 import texts from "@/data/texts.json";
 import type { Metadata } from "next";
+import { IMAGES } from "@/config/site";
 
 export const metadata: Metadata = {
   title: texts.meta.provozniRad.title,
@@ -14,7 +15,7 @@ export default function ProvozniRadPage() {
       <SubpageHero
         eyebrow={texts.provozniRad.hero.eyebrow}
         title={texts.provozniRad.hero.title}
-        imageSrc="/images/skola-uvod.jpg"
+        imageSrc={IMAGES.skolaUvod}
         imageAlt={texts.provozniRad.hero.imageAlt}
         imagePositionClass="object-center"
       />

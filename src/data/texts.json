@@ -458,6 +458,22 @@
       "eyebrow": "Druhy kurzů"
     },
     "signupNote": "Celosezónním bezproblémovým instruktorům vrátíme plné kurzovné.",
+    "psychology": {
+      "eyebrow": "Speciální program",
+      "title": "Psychologie dítěte na svahu",
+      "topicsEyebrow": "Témata přednášek",
+      "lecturerNote": "Přednášky: Mgr. Lucie Sedláčková, klinická psycholožka se zaměřením na práci s dětmi",
+      "paragraphs": [
+        "Součástí vzdělávání instruktorů jsou přednášky Mgr. Lucie Sedláčkové zaměřené na psychologii dětí při výuce lyžování. Pochopení toho, jak dítě vnímá výzvu, neúspěch a motivaci, je stejně důležité jako technická dovednost instruktora.",
+        "Přednášky jsou součástí kurzu a probíhají formou interaktivního workshopu. Instruktorům pomáhají lépe číst situaci na svahu a přizpůsobit přístup věku, temperamentu a aktuálnímu rozpoložení dítěte."
+      ],
+      "topics": [
+        { "title": "Vývojová psychologie", "text": "Jak dítě v různém věku vnímá výkon, riziko a sociální srovnávání — a co to znamená pro styl výuky." },
+        { "title": "Motivace a ztráta motivace", "text": "Proč dítě najednou nechce lyžovat a jak situaci citlivě řešit bez tlaku a negativních emocí." },
+        { "title": "Stres a zvládání strachu", "text": "Jak rozpoznat úzkost z výšky, rychlosti nebo pádu a jak dítěti pomoci strach překonat vlastním tempem." },
+        { "title": "Komunikace a pochvala", "text": "Efektivní způsoby zpětné vazby — jaká pochvala skutečně funguje a jak kritiku formulovat konstruktivně." }
+      ]
+    },
     "pricing": {
       "eyebrow": "Ceník",
       "title": "All-inclusive cena",

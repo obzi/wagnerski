@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import texts from "@/data/texts.json";
+import { IMAGES } from "@/config/site";
 
 export const metadata: Metadata = {
   title: texts.meta.oNas.title,
@@ -16,10 +17,10 @@ export default function ONasPage() {
       <SubpageHero
         eyebrow={texts.oNas.hero.eyebrow}
         title={texts.oNas.hero.title}
-        imageSrc="/images/kaprun.jpg"
+        imageSrc={IMAGES.kaprun}
         imagePositionClass="object-[85%_15%] sm:object-[center_15%]"
         imageAlt={texts.oNas.hero.imageAlt}
-        logoSrc="/images/loga/wagner-2.svg"
+        logoSrc={IMAGES.loga.wagner}
         logoAlt="Wagner Ski Akademie"
         logoWidth={156}
         logoHeight={52}
@@ -43,7 +44,7 @@ export default function ONasPage() {
           </div>
           <div className="relative aspect-[4/3] rounded-[3px] overflow-hidden">
             <Image
-              src="/images/petrajolca.jpg"
+              src={IMAGES.petrajolca}
               fill
               alt={texts.oNas.story.imageAlt}
               className="object-cover"
@@ -83,7 +84,7 @@ export default function ONasPage() {
             <div className="flex gap-6 items-start">
               <div className="relative w-[120px] h-[120px] rounded-[3px] overflow-hidden shrink-0">
                 <Image
-                  src="/images/petr.jpg"
+                  src={IMAGES.petr}
                   fill
                   alt={texts.oNas.leadership.petr.name}
                   className="object-cover"
@@ -106,7 +107,7 @@ export default function ONasPage() {
             <div className="flex gap-6 items-start">
               <div className="relative w-[120px] h-[120px] rounded-[3px] overflow-hidden shrink-0">
                 <Image
-                  src="/images/jolca.jpg"
+                  src={IMAGES.jolca}
                   fill
                   alt={texts.oNas.leadership.jolana.name}
                   className="object-cover"

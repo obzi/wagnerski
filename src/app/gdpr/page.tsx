@@ -1,6 +1,7 @@
 import { SubpageHero } from "@/components/ui/SubpageHero";
 import texts from "@/data/texts.json";
 import type { Metadata } from "next";
+import { IMAGES } from "@/config/site";
 
 export const metadata: Metadata = {
   title: texts.meta.gdpr.title,
@@ -13,7 +14,7 @@ export default function GdprPage() {
       <SubpageHero
         eyebrow={texts.gdpr.hero.eyebrow}
         title={texts.gdpr.hero.title}
-        imageSrc="/images/karlov.jpg"
+        imageSrc={IMAGES.karlov}
         imageAlt={texts.gdpr.hero.imageAlt}
         imagePositionClass="object-center"
       />
