@@ -356,13 +356,13 @@ function LoginForm({ onLogin }: { onLogin: () => void }) {
         password,
       });
       if (authError) {
-        setError("${texts.admin.login.invalidCredentials}");
+        setError(texts.admin.login.invalidCredentials);
       } else {
         sessionStorage.setItem("wagnerski_auth", "1");
         onLogin();
       }
     } else {
-      setError("${texts.admin.login.invalidCredentials}");
+      setError(texts.admin.login.invalidCredentials);
     }
     setLoading(false);
   }
