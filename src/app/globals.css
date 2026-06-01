@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@source not "../../docs/**";
+@source not "../../public/images/**";
+@source not "../../supabase/**";
 
 @theme inline {
   --color-cream: #f8f6f2;

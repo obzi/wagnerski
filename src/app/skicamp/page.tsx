@@ -1,5 +1,6 @@
 import { SubpageHero } from "@/components/ui/SubpageHero";
 import { Tag } from "@/components/ui/Tag";
+import { SkicampSignupForm } from "@/components/ui/SkicampSignupForm";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -175,6 +176,16 @@ export default async function SkicampPage() {
               {texts.skicamp.terms.phone}
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* Signup form */}
+      <section className="py-16 px-7 bg-surface" id="prihlaska">
+        <div className="max-w-xl mx-auto">
+          <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-8 text-center">
+            {texts.skicampSignup.eyebrow}
+          </span>
+          <SkicampSignupForm terms={terms} />
         </div>
       </section>
     </>

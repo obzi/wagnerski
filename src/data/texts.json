@@ -811,6 +811,33 @@
     }
   },
 
+  "skicampSignup": {
+    "eyebrow": "Přihláška",
+    "title": "Přihláška na ski kemp",
+    "form": {
+      "termLabel": "Termín",
+      "termPlaceholder": "Vyberte termín...",
+      "nameLabel": "Jméno a příjmení",
+      "namePlaceholder": "Jan Novák",
+      "emailLabel": "E-mail",
+      "emailPlaceholder": "jan@email.cz",
+      "phoneLabel": "Telefon",
+      "phonePlaceholder": "+420 123 456 789",
+      "noteLabel": "Poznámka (nepovinné)",
+      "notePlaceholder": "Zkušenosti, dotazy...",
+      "submitButton": "Odeslat přihlášku",
+      "submitting": "Odesílám..."
+    },
+    "success": {
+      "eyebrow": "Přihláška odeslána",
+      "title": "Děkujeme!",
+      "description": "Vaše přihláška byla odeslána. Ozveme se vám s dalšími informacemi."
+    },
+    "errors": {
+      "fillAll": "Vyplňte prosím všechna povinná pole.",
+      "generic": "Něco se pokazilo. Zkuste to prosím znovu."
+    }
+  },
   "courseSignup": {
     "title": "Přihláška na kurz",
     "form": {
