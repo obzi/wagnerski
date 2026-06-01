@@ -1,6 +1,7 @@
 import { Resend } from "resend";
 import { renderToBuffer } from "@react-pdf/renderer";
 import { VoucherPDF } from "@/lib/voucher-pdf";
+import { EMAIL } from "@/config/site";
 
 export async function POST(request: Request) {
   const resend = new Resend(process.env.RESEND_API_KEY);
@@ -17,8 +18,8 @@ export async function POST(request: Request) {
 
   try {
     await resend.emails.send({
-      from: "Sherpa Ski School <onboarding@resend.dev>",
-      to: "t.obzina@seznam.cz",
+      from: EMAIL.voucher.from,
+      to: [buyerEmail, EMAIL.adminEmail],
       subject: `Váš voucher Sherpaski — ${code}`,
       html: `
         <div style="font-family: sans-serif; color: #111110;">
