@@ -44,4 +44,4 @@ next-env.d.ts
 .vercel
 
 # local image archive — not for web/git
-/imagesAll
+/public/images/imagesAll
