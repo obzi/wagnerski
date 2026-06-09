@@ -41,7 +41,7 @@ export function SubpageHero({
       <div className={`absolute inset-0 ${overlayClass}`} />
       <div className="relative z-10 h-full flex flex-col px-7 sm:px-9 pb-10 max-w-[1280px] mx-auto">
         {logoSrc && (
-          <div className="pt-6 -ml-4 sm:ml-0">
+          <div className="pt-3 sm:pt-6 -ml-4 sm:ml-0">
             <Image
               src={logoSrc}
               width={logoWidth}
@@ -57,7 +57,7 @@ export function SubpageHero({
             {title}
           </h1>
           {description && (
-            <p className="text-[14px] text-white/70 max-w-lg">
+            <p className="text-[14px] text-white/90 max-w-lg">
               {description}
             </p>
           )}

@@ -147,46 +147,53 @@ export default async function InstruktorPage() {
 
       <CourseWithSignup courses={courses} signupNote={texts.instruktor.signupNote} />
 
-      {/* Pricing */}
+      {/* Co je v ceně */}
       <section className="py-16 px-7">
-        <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div>
-            <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
-              {texts.instruktor.pricing.eyebrow}
-            </span>
-            <h2 className="text-[28px] sm:text-[36px] font-normal tracking-[-0.02em] leading-[1.2] mb-6">
-              {texts.instruktor.pricing.title}
-            </h2>
-            <div className="space-y-4">
-              {texts.instruktor.pricing.packages.map((pkg) => (
-                <div key={pkg.title} className="border border-line rounded-[3px] p-6">
-                  <div className="flex items-baseline justify-between mb-2">
-                    <h3 className="text-[16px] font-medium">{pkg.title}</h3>
-                    <span className="text-[20px] font-normal text-accent">{pkg.price}</span>
-                  </div>
-                  <p className="text-[12px] text-ink-muted mb-3">
-                    {pkg.note}
-                  </p>
-                  <p className="text-[13px] text-ink-secondary leading-[1.6]">
-                    {pkg.description}
-                  </p>
-                </div>
-              ))}
+        <div className="max-w-[1280px] mx-auto">
+          <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
+            {texts.instruktor.pricing.eyebrow}
+          </span>
+          <h2 className="text-[28px] sm:text-[36px] font-normal tracking-[-0.02em] leading-[1.2] mb-10">
+            {texts.instruktor.pricing.title}
+          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Premium balíček */}
+            <div className="border border-line rounded-[3px] p-6 bg-cream">
+              <div className="flex items-baseline justify-between mb-2">
+                <h3 className="text-[16px] font-medium">{texts.instruktor.pricing.packages[0].title}</h3>
+                <span className="text-[20px] font-normal text-accent">{texts.instruktor.pricing.packages[0].price}</span>
+              </div>
+              <p className="text-[12px] text-ink-muted mb-5">
+                {texts.instruktor.pricing.packages[0].note}
+              </p>
+              <ul className="space-y-2.5">
+                {texts.instruktor.pricing.included.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-[13px] text-ink-secondary">
+                    <span className="mt-1.5 w-[6px] h-[6px] rounded-full bg-accent shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
 
-          <div>
-            <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
-              {texts.instruktor.pricing.includedLabel}
-            </span>
-            <ul className="space-y-3">
-              {texts.instruktor.pricing.included.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-[13px] text-ink-secondary">
-                  <span className="mt-1.5 w-[6px] h-[6px] rounded-full bg-accent shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
+            {/* Zvýhodněná cena */}
+            <div className="border border-line rounded-[3px] p-6 bg-cream">
+              <div className="flex items-baseline justify-between mb-2">
+                <h3 className="text-[16px] font-medium">{texts.instruktor.pricing.packages[1].title}</h3>
+                <span className="text-[20px] font-normal text-accent">{texts.instruktor.pricing.packages[1].price}</span>
+              </div>
+              <p className="text-[12px] text-ink-muted mb-5">
+                {texts.instruktor.pricing.packages[1].note}
+              </p>
+              <ul className="space-y-2.5">
+                {texts.instruktor.pricing.included.filter((item) => !item.toLowerCase().includes("ubytování")).map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-[13px] text-ink-secondary">
+                    <span className="mt-1.5 w-[6px] h-[6px] rounded-full bg-accent shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>

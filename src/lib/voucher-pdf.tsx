@@ -115,6 +115,13 @@ const styles = StyleSheet.create({
   },
 });
 
+interface WindowSettings {
+  enabled: boolean;
+  from: string;
+  to: string;
+  slots: { from: string; to: string }[];
+}
+
 interface VoucherPDFProps {
   code: string;
   serviceLabel: string;
@@ -122,6 +129,7 @@ interface VoucherPDFProps {
   buyerName: string;
   validFrom: string;
   validUntil: string;
+  windowSettings?: WindowSettings;
 }
 
 export function VoucherPDF({
@@ -131,6 +139,7 @@ export function VoucherPDF({
   buyerName,
   validFrom,
   validUntil,
+  windowSettings,
 }: VoucherPDFProps) {
   const formatDate = (dateStr: string) =>
     new Date(dateStr).toLocaleDateString("cs-CZ", {
@@ -138,6 +147,18 @@ export function VoucherPDF({
       month: "long",
       year: "numeric",
     });
+
+  const buildConditionsText = (): string => {
+    if (windowSettings?.enabled && windowSettings.from && windowSettings.to) {
+      const fromStr = formatDate(windowSettings.from);
+      const toStr = formatDate(windowSettings.to);
+      const slotTexts = windowSettings.slots
+        .map((s) => `${s.from}–${s.to}`)
+        .join(", ");
+      return `Voucher je platný od ${fromStr} do ${toStr} v těchto časech: ${slotTexts}. Uplatnitelný ve Ski aréně Karlov pod Pradědem. Předložte kód při příchodu.`;
+    }
+    return "Voucher je platný 14 dní od zakoupení. Uplatnitelný ve Ski aréně Karlov pod Pradědem. Předložte kód při příchodu.";
+  };
 
   return (
     <Document>
@@ -177,7 +198,7 @@ export function VoucherPDF({
         <View style={styles.restriction}>
           <Text style={styles.restrictionTitle}>Podmínky uplatnění</Text>
           <Text style={styles.restrictionText}>
-            Voucher je platný pouze v pracovní dny (pondělí – pátek) od 11:00 do 14:00 hodin. Uplatnitelný ve Ski aréně Karlov pod Pradědem. Předložte kód při příchodu.
+            {buildConditionsText()}
           </Text>
         </View>
 

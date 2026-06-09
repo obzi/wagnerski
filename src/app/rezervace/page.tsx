@@ -2,8 +2,10 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { FacebookIcon, InstagramIcon } from "@/components/ui/SocialIcons";
 import { VoucherPurchase } from "@/components/ui/VoucherPurchase";
-import { getReservationPrices, getContacts, getVoucherDiscount, getVoucherWindowSettings } from "@/lib/data";
+import { SubpageHero } from "@/components/ui/SubpageHero";
+import { getReservationPrices, getContacts, getVoucherDiscount, getVoucherWindowSettings, getVoucherEligibleIds } from "@/lib/data";
 import texts from "@/data/texts.json";
+import { IMAGES } from "@/config/site";
 
 export const dynamic = "force-dynamic";
 
@@ -13,11 +15,12 @@ export const metadata: Metadata = {
 };
 
 export default async function RezervacePage() {
-  const [prices, contacts, voucherDiscount, voucherWindow] = await Promise.all([
+  const [prices, contacts, voucherDiscount, voucherWindow, voucherEligibleIds] = await Promise.all([
     getReservationPrices(),
     getContacts(),
     getVoucherDiscount(),
     getVoucherWindowSettings(),
+    getVoucherEligibleIds(),
   ]);
 
   const individualPrices = prices.filter((p) => p.category === "individual");
@@ -33,20 +36,19 @@ export default async function RezervacePage() {
 
   return (
     <>
-      {/* Header */}
-      <section className="bg-ink text-white pt-[28px] pb-12 px-7">
-        <div className="max-w-[1280px] mx-auto">
-          <span className="block text-[10px] uppercase tracking-[0.16em] text-white/50 mb-4">
-            {texts.rezervace.header.eyebrow}
-          </span>
-          <h1 className="text-[32px] sm:text-[48px] font-normal tracking-[-0.03em] leading-[1.1] mb-4">
-            {texts.rezervace.header.title}
-          </h1>
-          <p className="text-[14px] text-white/60 max-w-lg leading-[1.6]">
-            {texts.rezervace.header.description}
-          </p>
-        </div>
-      </section>
+      {/* Hero */}
+      <SubpageHero
+        eyebrow={texts.rezervace.header.eyebrow}
+        title={texts.rezervace.header.title}
+        description={texts.rezervace.header.description}
+        imageSrc={IMAGES.jolcavyuka}
+        imageAlt="Rezervace výuky lyžování"
+        imagePositionClass="object-[center_30%]"
+        logoSrc={IMAGES.loga.sherpa}
+        logoAlt="Sherpa Ski School"
+        logoWidth={140}
+        logoHeight={98}
+      />
 
       {/* Pricing */}
       <section className="py-16 px-7 bg-surface">
@@ -58,10 +60,14 @@ export default async function RezervacePage() {
             {texts.rezervace.pricing.note}
           </p>
           <p className="text-[12px] text-ink-muted mb-8">
-            Pro objednání hodiny volejte. Platba probíhá v kanceláři školy 20 minut před výukou.
+            Pro objednání lyžařské školy volejte na:{" "}
+            <a href="tel:+420604220100" className="font-medium hover:text-accent transition-colors">
+              +420 604 220 100
+            </a>
+            . Platba probíhá v kanceláři školy 20 minut před výukou.
           </p>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="space-y-8">
             {/* Individual */}
             <div>
               <h3 className="text-[16px] font-medium tracking-[-0.01em] mb-4">
@@ -90,7 +96,7 @@ export default async function RezervacePage() {
               <h3 className="text-[16px] font-medium tracking-[-0.01em] mb-4">
                 {texts.rezervace.pricing.groupTitle}
               </h3>
-              <div className="border border-line rounded-[3px] bg-cream overflow-hidden mb-8">
+              <div className="border border-line rounded-[3px] bg-cream overflow-hidden">
                 {groupPrices.map((p, i) => (
                   <div
                     key={p.id}
@@ -106,7 +112,10 @@ export default async function RezervacePage() {
                   </div>
                 ))}
               </div>
+            </div>
 
+            {/* Special */}
+            <div>
               <h3 className="text-[16px] font-medium tracking-[-0.01em] mb-4">
                 {texts.rezervace.pricing.specialTitle}
               </h3>
@@ -197,7 +206,15 @@ export default async function RezervacePage() {
 
           {/* Voucher */}
           <div>
-            <VoucherPurchase prices={[...individualPrices, ...groupPrices]} discountPercent={voucherDiscount} voucherWindow={voucherWindow} />
+            <VoucherPurchase
+              prices={
+                voucherEligibleIds.length > 0
+                  ? [...individualPrices, ...groupPrices].filter((p) => voucherEligibleIds.includes(p.id))
+                  : [...individualPrices, ...groupPrices]
+              }
+              discountPercent={voucherDiscount}
+              voucherWindow={voucherWindow}
+            />
           </div>
         </div>
       </section>

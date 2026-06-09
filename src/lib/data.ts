@@ -162,6 +162,13 @@ export async function getVoucherWindowSettings(): Promise<VoucherWindowSettings>
   return { enabled, from, to, slots };
 }
 
+export async function getVoucherEligibleIds(): Promise<string[]> {
+  const settings = await getSiteSettings();
+  const setting = settings.find((s) => s.key === "voucher_eligible_ids");
+  if (!setting?.value) return [];
+  try { return JSON.parse(setting.value); } catch { return []; }
+}
+
 export async function getCampTypes(): Promise<CampType[]> {
   if (!supabase) return [];
   const { data } = await supabase

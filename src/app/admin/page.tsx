@@ -1368,12 +1368,14 @@ function ContactForm({
 
 function SettingsManager() {
   const { items: settings, loading: hookLoading, add, update } = useSupabaseTable<SiteSetting>("site_settings", defaultVoucherSettings);
+  const { items: allPrices, loading: pricesLoading } = useSupabaseTable<ReservationPrice>("reservation_prices", defaultPrices);
   const [discountValue, setDiscountValue] = useState("");
   const [newsMaxValue, setNewsMaxValue] = useState("5");
   const [windowEnabled, setWindowEnabled] = useState(false);
   const [windowFrom, setWindowFrom] = useState("");
   const [windowTo, setWindowTo] = useState("");
   const [windowSlots, setWindowSlots] = useState<{ from: string; to: string }[]>([{ from: "09:00", to: "17:00" }]);
+  const [voucherEligibleIds, setVoucherEligibleIds] = useState<string[]>([]);
   const [saved, setSaved] = useState<string | null>(null);
   const [saveError, setSaveError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
@@ -1394,6 +1396,10 @@ function SettingsManager() {
     const slotsRaw = map.get("voucher_window_slots");
     if (slotsRaw) {
       try { setWindowSlots(JSON.parse(slotsRaw)); } catch { /* keep default */ }
+    }
+    const eligibleRaw = map.get("voucher_eligible_ids");
+    if (eligibleRaw) {
+      try { setVoucherEligibleIds(JSON.parse(eligibleRaw)); } catch { /* keep default */ }
     }
   }, []);
 
@@ -1472,6 +1478,21 @@ function SettingsManager() {
     await loadDirect();
     setSaved("voucher_window");
     setTimeout(() => setSaved(null), 2000);
+  }
+
+  async function saveVoucherEligible() {
+    setSaveError(null);
+    const err = await saveSetting("voucher_eligible_ids", JSON.stringify(voucherEligibleIds));
+    if (err) { setSaveError(err); return; }
+    await loadDirect();
+    setSaved("voucher_eligible");
+    setTimeout(() => setSaved(null), 2000);
+  }
+
+  function toggleEligibleId(id: string) {
+    setVoucherEligibleIds((prev) =>
+      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
+    );
   }
 
   if (loading) {
@@ -1634,6 +1655,43 @@ function SettingsManager() {
         <p className="text-[11px] text-ink-muted mt-2">
           {texts.admin.settings.news.maxNote}
         </p>
+      </div>
+
+      <div className="border border-line rounded-[3px] p-6 bg-white max-w-lg">
+        <h3 className="text-[13px] font-medium tracking-[-0.01em] mb-2">Zvýhodněné vouchery</h3>
+        <p className="text-[11px] text-ink-muted mb-4">
+          Zaškrtněte položky ceníku, které se zobrazí zákazníkům jako zvýhodněné vouchery. Pokud není zaškrtnuta žádná, zobrazí se všechny.
+        </p>
+        {pricesLoading ? (
+          <p className="text-[13px] text-ink-muted">{texts.admin.common.loading}</p>
+        ) : (
+          <div className="space-y-2 mb-5">
+            {["individual", "group"].flatMap((cat) =>
+              allPrices.filter((p) => p.category === cat).map((p) => (
+                <label key={p.id} className="flex items-center gap-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={voucherEligibleIds.includes(p.id)}
+                    onChange={() => toggleEligibleId(p.id)}
+                    className="w-4 h-4 accent-ink"
+                  />
+                  <span className="text-[13px] text-ink-secondary">
+                    {p.label}{p.duration ? ` (${p.duration})` : ""} — {p.price}
+                    <span className="ml-2 text-[10px] uppercase tracking-[0.1em] text-ink-muted">{p.category}</span>
+                  </span>
+                </label>
+              ))
+            )}
+          </div>
+        )}
+        <div className="flex gap-3 items-center">
+          <button className={btnPrimary} onClick={saveVoucherEligible}>
+            {texts.admin.common.save}
+          </button>
+          {saved === "voucher_eligible" && (
+            <span className="text-[12px] text-accent">{texts.admin.common.saved}</span>
+          )}
+        </div>
       </div>
     </div>
   );

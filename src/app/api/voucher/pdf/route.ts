@@ -1,5 +1,6 @@
 import { renderToBuffer } from "@react-pdf/renderer";
 import { VoucherPDF } from "@/lib/voucher-pdf";
+import { getVoucherWindowSettings } from "@/lib/data";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -14,8 +15,10 @@ export async function GET(request: Request) {
     return Response.json({ error: "Missing parameters" }, { status: 400 });
   }
 
+  const windowSettings = await getVoucherWindowSettings();
+
   const buffer = await renderToBuffer(
-    VoucherPDF({ code, serviceLabel, discountedPrice, buyerName, validFrom, validUntil })
+    VoucherPDF({ code, serviceLabel, discountedPrice, buyerName, validFrom, validUntil, windowSettings })
   );
 
   return new Response(new Uint8Array(buffer), {

@@ -38,11 +38,11 @@ export function ParallaxQuote() {
           <p className="font-serif text-[20px] sm:text-[26px] text-white leading-[1.5] tracking-[-0.01em] max-w-2xl">
             {texts.home.quote.line1}
             <br />
-            <span className="text-white/50 italic">{texts.home.quote.line2}</span>
+            <span className="text-white/80 italic">{texts.home.quote.line2}</span>
             {texts.home.quote.line3 && <><br />{texts.home.quote.line3}</>}
             {texts.home.quote.line4 && <><br />{texts.home.quote.line4}</>}
           </p>
-          <p className="mt-5 text-[11px] text-white/40 tracking-[0.06em]">
+          <p className="mt-5 text-[11px] text-white/60 tracking-[0.06em]">
             {texts.home.quote.author}
           </p>
         </div>

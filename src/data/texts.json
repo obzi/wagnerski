@@ -58,13 +58,13 @@
 
   "nav": {
     "brand": "Wagner",
-    "brandSub": "ski akademie · sherpaski · skicamp.cz · chci být instruktor",
+    "brandSub": "",
     "links": [
       { "href": "/aktuality", "label": "Aktuality" },
       { "href": "/lokality", "label": "Lokality" },
       { "href": "/skola", "label": "Lyžařská škola" },
       { "href": "/skicamp", "label": "Skicamp.cz" },
-      { "href": "/instruktor", "label": "Chci být instruktor" },
+      { "href": "/instruktor", "label": "Chcibytinstruktor.cz" },
       { "href": "/leto", "label": "Léto" },
       { "href": "/o-nas", "label": "O nás" }
     ],
@@ -213,7 +213,7 @@
       {
         "number": "IV",
         "title": "Pravidla FIS",
-        "text": "Všichni účastníci jsou povinni dodržovat 10 pravidel FIS pro chování na sjezdových tratích. Tato pravidla jsou k dispozici na stránce Pravidla FIS."
+        "text": "Všichni účastníci jsou povinni dodržovat 10 pravidel FIS pro chování na sjezdových tratích. Tato pravidla jsou k dispozici v sekci Pravidla FIS."
       },
       {
         "number": "V",
@@ -228,7 +228,7 @@
       {
         "number": "VII",
         "title": "Rezervace",
-        "text": "Rezervace jsou nezávazné. Účastníci jsou povinni dostavit se 20 minut před zahájením lekce. Nedostavení se do 5–15 minut od plánovaného začátku lekce bez předchozí omluvy je považováno za zrušení rezervace bez nároku na náhradu."
+        "text": "Rezervace jsou závazné časově. Účastníci jsou povinni dostavit se 20 minut před zahájením lekce, jinak mu rezervace propadne bez nároku na náhradu."
       },
       {
         "number": "VIII",
@@ -250,12 +250,12 @@
 
   "home": {
     "hero": {
-      "brandLine": "Wagner · ski akademie · sherpaski · skicamp.cz · instruktor",
+      "brandLine": "",
       "titleLine1": "Učíme srdcem",
       "titleLine2": "",
       "titleAccent": "",
-      "subtitleLine1": "Sherpa Ski School, výuka lyžování a snowboardingu, akreditované kurzy MŠMT ČR.",
-      "subtitleLine2": "Akreditovaní instruktoři, profesionální přístup, interní přístup SherpaSki. Žádní „čekatelé/pomocníci\" na licenci.",
+      "subtitleLine1": "Výuka lyžování a snowboardingu, akreditované kurzy MŠMT ČR.",
+      "subtitleLine2": "Akreditovaní instruktoři, profesionální a individuální přístup. Žádní „čekatelé/pomocníci\" na licenci.",
       "ctaPrimary": "Rezervovat hodinu",
       "ctaSecondary": "Skicamp Alpy →",
       "imageAlt": "Lyžař v horách"
@@ -286,7 +286,7 @@
           "imageAlt": "Skicamp v Alpách"
         },
         {
-          "eyebrow": "Chci být instruktor",
+          "eyebrow": "Chcibytinstruktor.cz",
           "title": "Kurzy MŠMT ČR s celoživotní licencí",
           "description": "• Akreditované kurzy D, C, IVSI\n• Přípravný kurz pro profesní kvalifikaci, pro budoucí majitele lyžařských škol. Vedle lyžařské metodiky pokrývá i základy podnikání, marketingu a managementu ve službách.\n• Doškolovací kurz instruktor základů lyžování\n• Doškolovací kurz instruktor základů snowboardingu\n• Zkouška profesní kvalifikace",
           "tags": ["Kurz D", "Kurz C", "IVSI", "Licence doživotně"],
@@ -297,7 +297,7 @@
     },
     "quote": {
       "line1": "„Nečekejte, kdo na vás zbude.",
-      "line2": "Kvalitní instruktoři nejsou, u nás hýčkáme jedny z posledních na Moravě.“",
+      "line2": "Kvalitních instruktorů je málo, u nás hýčkáme jedny z posledních na Moravě.“",
       "line3": "",
       "line4": "",
       "author": "— Petr Wagner · majitel Wagner Ski Akademie",
@@ -333,11 +333,11 @@
   "locationGrid": {
     "items": [
       {
-        "title": "Sherpa Ski School",
+        "title": "Sherpa Ski School - kancelář",
         "lines": ["Karlov pod Pradědem"]
       },
       {
-        "title": "Wagner Ski Akademie",
+        "title": "Wagner Ski Akademie - na svah",
         "lines": ["Malá Morávka", "Praděd"]
       }
     ]
@@ -361,7 +361,7 @@
       "title": "Učíme lyžovat od roku 1999",
       "paragraphs": [
         "Sherpa Ski School vznikla v Karlově pod Pradědem v roce 2005. Sídlíme ve Ski aréně Karlov v srdci Jeseníků.",
-        "Specializujeme se na individuální výuku i skupinovou výuku. S důrazem na správnou techniku, funkční metodiku a nově sociální komunikaci, která se nám v dnešním světě někam schovává. Školím si a sám vybírám vlastní instruktory s platnou licencí MŠMT (ČSLŠ, APUL, CVLS a další), dle mých kritérií kvality mé lyžařské školy, které se málo kdo vyrovná. Jde mi o přístup a kvalitu předávané pohybové informace klientovi, ať je začátečník či pokročilý, dítě nebo senior."
+        "Specializujeme se na individuální výuku i skupinovou výuku. S důrazem na správnou techniku, funkční metodiku a nově sociální komunikaci, která se nám v dnešním světě někam schovává. Školíme si a vybíráme vlastní instruktory s platnou licencí MŠMT (ČSLŠ, APUL, CVLS a další), dle kritérií kvality naší lyžařské školy, které se málo kdo vyrovná. Jde nám o přístup a kvalitu předávané pohybové informace klientovi, ať je začátečník či pokročilý, dítě nebo senior."
       ],
       "cta": "Rezervovat hodinu",
       "imageAlt": "Výuka lyžování dětí"
@@ -471,12 +471,17 @@
         { "title": "Vývojová psychologie", "text": "Jak dítě v různém věku vnímá výkon, riziko a sociální srovnávání — a co to znamená pro styl výuky." },
         { "title": "Motivace a ztráta motivace", "text": "Proč dítě najednou nechce lyžovat a jak situaci citlivě řešit bez tlaku a negativních emocí." },
         { "title": "Stres a zvládání strachu", "text": "Jak rozpoznat úzkost z výšky, rychlosti nebo pádu a jak dítěti pomoci strach překonat vlastním tempem." },
-        { "title": "Komunikace a pochvala", "text": "Efektivní způsoby zpětné vazby — jaká pochvala skutečně funguje a jak kritiku formulovat konstruktivně." }
+        { "title": "Komunikace a pochvala", "text": "Efektivní způsoby zpětné vazby — jaká pochvala skutečně funguje a jak kritiku formulovat konstruktivně." },
+        { "title": "Bezpečnost na sjezdovkách", "text": "Praktická pravidla bezpečnosti, pravidla FIS a zodpovědnost instruktora při výuce na svahu." },
+        { "title": "Horská záchranná služba", "text": "Přednáška členů HZS — postupy záchranářů, jak se zachovat při úrazu na svahu a zásady první pomoci v horách." },
+        { "title": "Závodní freeride", "text": "Pohled účastníků Freeride World Tour Qualifier na závodní freeride, výběr terénu a správná příprava." },
+        { "title": "Materiálové poradenství", "text": "Jak vybrat vybavení pro klienty — lyže, boty, vázání. Správná seřízení a vliv výstroje na bezpečnost i výkon." },
+        { "title": "Biomechanika lyžování", "text": "Principy pohybu na lyžích z pohledu fyziky a biomechaniky. Jak tělo funguje v oblouku a co to znamená pro metodiku výuky." }
       ]
     },
     "pricing": {
-      "eyebrow": "Ceník",
-      "title": "All-inclusive cena",
+      "eyebrow": "Co je v ceně",
+      "title": "Co je v ceně",
       "packages": [
         {
           "title": "Premium balíček, Kurz D",
@@ -695,7 +700,7 @@
         },
         {
           "title": "Race Camp",
-          "description": "Ledovcový kemp. Nácvik jízd v branách SL, GS. Přípravné cvičení. Bourání bloků od začátku. Správné prvotní krůčky k závodní technice. Zažijte si pocit závodníka s trenérem AD.",
+          "description": "Ledovcový kemp. Nácvik jízd v branách SL, GS. Přípravné cvičení. Bourání bloků od začátku. Správné prvotní krůčky k závodní technice. Zažijte si pocit závodníka s trenérem alpských disciplín.",
           "tags": ["Závodní příprava", "Slalom", "GS", "Video analýza"]
         },
         {
@@ -714,7 +719,7 @@
         },
         {
           "title": "Profesionální vedení",
-          "text": "Kurzy lyžování vedou lektoři Skicamp.cz, trenér AD. Malé skupiny, individuální přístup."
+          "text": "Kurzy lyžování vedou lektoři Skicamp.cz, trenér alpských disciplín. Malé skupiny, individuální přístup."
         },
         {
           "title": "Video analýza",
@@ -755,7 +760,7 @@
     },
     "pricing": {
       "eyebrow": "Ceník výuky",
-      "note": "Skipas je zahrnut ve všech cenách. Jedna vyučovací hodina = 50 minut.",
+      "note": "V ceně výuky je zahrnut skipas. Jedna vyučovací hodina = 50 minut.",
       "individualTitle": "Individuální výuka (1–2 osoby)",
       "groupTitle": "Skupinová výuka (3+ osob)",
       "specialTitle": "Speciální programy"

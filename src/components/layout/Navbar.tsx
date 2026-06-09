@@ -25,9 +25,11 @@ export function Navbar() {
           <span className="text-[11px] uppercase tracking-[0.2em] text-ink font-normal">
             {texts.nav.brand}
           </span>
-          <span className="text-[9px] uppercase tracking-[0.16em] text-ink-muted">
-            {texts.nav.brandSub}
-          </span>
+          {texts.nav.brandSub && (
+            <span className="text-[9px] uppercase tracking-[0.16em] text-ink-muted">
+              {texts.nav.brandSub}
+            </span>
+          )}
         </Link>
 
         <div className="hidden md:flex items-center gap-5">

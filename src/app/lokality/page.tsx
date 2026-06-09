@@ -18,11 +18,11 @@ export default function LokalityPage() {
         title={texts.lokality.hero.title}
         imageSrc={IMAGES.ucime}
         imageAlt={texts.lokality.hero.imageAlt}
-        imagePositionClass="object-[center_10%]"
+        imagePositionClass="object-[center_30%]"
         logoSrc={IMAGES.loga.skiarenaKarlov}
         logoAlt="Ski aréna Karlov"
-        logoWidth={234}
-        logoHeight={47}
+        logoWidth={211}
+        logoHeight={42}
       />
 
       {/* Detail */}
@@ -108,8 +108,29 @@ export default function LokalityPage() {
         </div>
       </section>
 
-      {/* Section 2: Ski akademie - Jeseníky */}
+      {/* Why Karlov */}
       <section className="py-16 px-7 bg-surface">
+        <div className="max-w-[1280px] mx-auto">
+          <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-8">
+            {texts.lokality.whyKarlov.eyebrow}
+          </span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {texts.lokality.whyKarlov.items.map((item) => (
+              <div key={item.title} className="border border-line rounded-[3px] p-6 bg-cream">
+                <h3 className="text-[14px] font-medium tracking-[-0.01em] mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-[13px] text-ink-secondary leading-[1.6]">
+                  {item.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2: Ski akademie - Jeseníky */}
+      <section className="py-16 px-7">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-[5fr_4fr] gap-12 items-start">
           <div>
             <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
@@ -133,27 +154,6 @@ export default function LokalityPage() {
               sizes="(max-width: 1024px) 100vw, 44vw"
               draggable={false}
             />
-          </div>
-        </div>
-      </section>
-
-      {/* Why Karlov */}
-      <section className="py-16 px-7">
-        <div className="max-w-[1280px] mx-auto">
-          <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-8">
-            {texts.lokality.whyKarlov.eyebrow}
-          </span>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {texts.lokality.whyKarlov.items.map((item) => (
-              <div key={item.title} className="border border-line rounded-[3px] p-6 bg-cream">
-                <h3 className="text-[14px] font-medium tracking-[-0.01em] mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-[13px] text-ink-secondary leading-[1.6]">
-                  {item.text}
-                </p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
