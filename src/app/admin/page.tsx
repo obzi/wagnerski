@@ -1366,6 +1366,14 @@ function ContactForm({
 /*  Voucher Settings Manager                                           */
 /* ------------------------------------------------------------------ */
 
+function adminParseHours(label: string, duration: string): number {
+  const s = `${label} ${duration}`.toLowerCase();
+  if (s.includes("večer") || s.includes("vecer")) return 99;
+  const m = s.match(/(\d+)\s*(h|hod)/);
+  if (m) return parseInt(m[1]);
+  return 50;
+}
+
 function SettingsManager() {
   const { items: settings, loading: hookLoading, add, update } = useSupabaseTable<SiteSetting>("site_settings", defaultVoucherSettings);
   const { items: allPrices, loading: pricesLoading } = useSupabaseTable<ReservationPrice>("reservation_prices", defaultPrices);
@@ -1631,6 +1639,46 @@ function SettingsManager() {
         </div>
       </div>
 
+      <div className="border border-line rounded-[3px] p-6 bg-white max-w-lg">
+        <h3 className="text-[13px] font-medium tracking-[-0.01em] mb-2">Zvýhodněné vouchery</h3>
+        <p className="text-[11px] text-ink-muted mb-4">
+          Zaškrtněte položky ceníku, které se zobrazí zákazníkům jako zvýhodněné vouchery. Pokud není zaškrtnuta žádná, zobrazí se všechny.
+        </p>
+        {pricesLoading ? (
+          <p className="text-[13px] text-ink-muted">{texts.admin.common.loading}</p>
+        ) : (
+          <div className="space-y-2 mb-5">
+            {["individual", "group"].flatMap((cat) =>
+              allPrices
+                .filter((p) => p.category === cat)
+                .sort((a, b) => adminParseHours(a.label, a.duration) - adminParseHours(b.label, b.duration))
+                .map((p) => (
+                  <label key={p.id} className="flex items-center gap-3 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={voucherEligibleIds.includes(p.id)}
+                      onChange={() => toggleEligibleId(p.id)}
+                      className="w-4 h-4 accent-ink"
+                    />
+                    <span className="text-[13px] text-ink-secondary">
+                      {p.label}{p.duration ? ` (${p.duration})` : ""} — {p.price}
+                      <span className="ml-2 text-[10px] uppercase tracking-[0.1em] text-ink-muted">{p.category}</span>
+                    </span>
+                  </label>
+                ))
+            )}
+          </div>
+        )}
+        <div className="flex gap-3 items-center">
+          <button className={btnPrimary} onClick={saveVoucherEligible}>
+            {texts.admin.common.save}
+          </button>
+          {saved === "voucher_eligible" && (
+            <span className="text-[12px] text-accent">{texts.admin.common.saved}</span>
+          )}
+        </div>
+      </div>
+
       <div className="border border-line rounded-[3px] p-6 bg-white max-w-md">
         <h3 className="text-[13px] font-medium tracking-[-0.01em] mb-4">{texts.admin.settings.news.title}</h3>
         <label className="block text-[11px] uppercase tracking-[0.1em] text-ink-muted mb-1">
@@ -1655,43 +1703,6 @@ function SettingsManager() {
         <p className="text-[11px] text-ink-muted mt-2">
           {texts.admin.settings.news.maxNote}
         </p>
-      </div>
-
-      <div className="border border-line rounded-[3px] p-6 bg-white max-w-lg">
-        <h3 className="text-[13px] font-medium tracking-[-0.01em] mb-2">Zvýhodněné vouchery</h3>
-        <p className="text-[11px] text-ink-muted mb-4">
-          Zaškrtněte položky ceníku, které se zobrazí zákazníkům jako zvýhodněné vouchery. Pokud není zaškrtnuta žádná, zobrazí se všechny.
-        </p>
-        {pricesLoading ? (
-          <p className="text-[13px] text-ink-muted">{texts.admin.common.loading}</p>
-        ) : (
-          <div className="space-y-2 mb-5">
-            {["individual", "group"].flatMap((cat) =>
-              allPrices.filter((p) => p.category === cat).map((p) => (
-                <label key={p.id} className="flex items-center gap-3 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={voucherEligibleIds.includes(p.id)}
-                    onChange={() => toggleEligibleId(p.id)}
-                    className="w-4 h-4 accent-ink"
-                  />
-                  <span className="text-[13px] text-ink-secondary">
-                    {p.label}{p.duration ? ` (${p.duration})` : ""} — {p.price}
-                    <span className="ml-2 text-[10px] uppercase tracking-[0.1em] text-ink-muted">{p.category}</span>
-                  </span>
-                </label>
-              ))
-            )}
-          </div>
-        )}
-        <div className="flex gap-3 items-center">
-          <button className={btnPrimary} onClick={saveVoucherEligible}>
-            {texts.admin.common.save}
-          </button>
-          {saved === "voucher_eligible" && (
-            <span className="text-[12px] text-accent">{texts.admin.common.saved}</span>
-          )}
-        </div>
       </div>
     </div>
   );

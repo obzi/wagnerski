@@ -12,9 +12,8 @@ export const dynamic = "force-dynamic";
 function parseHours(label: string, duration: string): number {
   const combined = `${label} ${duration}`.toLowerCase();
   if (combined.includes("večer") || combined.includes("vecer")) return 99;
-  const match = combined.match(/(\d+)\s*h/);
+  const match = combined.match(/(\d+)\s*(h|hod)/);
   if (match) return parseInt(match[1]);
-  if (combined.includes("1 ") || combined.includes("1h")) return 1;
   return 50;
 }
 
