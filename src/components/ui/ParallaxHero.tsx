@@ -52,7 +52,7 @@ export function ParallaxHero() {
           </span>
         )}
 
-        <h1 className="text-[30px] sm:text-[56px] font-normal tracking-[-0.03em] leading-[1.08] text-white/90 mb-4 sm:mb-5" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}>
+        <h1 className="text-[30px] sm:text-[56px] font-normal tracking-[-0.03em] leading-[1.08] text-white mb-4 sm:mb-5" style={{ textShadow: '0 0 40px rgba(0,0,0,0.75), 0 0 18px rgba(0,0,0,0.55), 0 2px 6px rgba(0,0,0,0.9)' }}>
           {texts.home.hero.titleLine1}
           {texts.home.hero.titleLine2 && (
             <>
@@ -68,7 +68,7 @@ export function ParallaxHero() {
           )}
         </h1>
 
-        <p className="text-[13px] sm:text-[14px] text-white/90 leading-[1.65] max-w-md mb-5 sm:mb-8">
+        <p className="text-[13px] sm:text-[14px] text-white leading-[1.65] max-w-md mb-5 sm:mb-8" style={{ textShadow: '0 0 20px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.9)' }}>
           {texts.home.hero.subtitleLine1}
           {texts.home.hero.subtitleLine2 && (
             <>

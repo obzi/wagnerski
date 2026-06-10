@@ -58,7 +58,7 @@
 
   "nav": {
     "brand": "Wagner",
-    "brandSub": "",
+    "brandSub": "Ski Akademie",
     "links": [
       { "href": "/aktuality", "label": "Aktuality" },
       { "href": "/lokality", "label": "Lokality" },
