@@ -27,6 +27,7 @@ export default function SkolaPage() {
         logoAlt="Sherpa Ski School"
         logoWidth={150}
         logoHeight={105}
+        logoPaddingClass="pt-10 sm:pt-6"
       />
 
       {/* Location banner */}

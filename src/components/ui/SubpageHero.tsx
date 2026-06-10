@@ -12,6 +12,8 @@ interface SubpageHeroProps {
   logoAlt?: string;
   logoWidth?: number;
   logoHeight?: number;
+  logoPaddingClass?: string;
+  logoClassName?: string;
 }
 
 export function SubpageHero({
@@ -26,6 +28,8 @@ export function SubpageHero({
   logoAlt,
   logoWidth = 120,
   logoHeight = 48,
+  logoPaddingClass = "pt-6 sm:pt-6",
+  logoClassName = "",
 }: SubpageHeroProps) {
   return (
     <section className="relative h-[50vh] min-h-[360px] overflow-hidden">
@@ -41,13 +45,13 @@ export function SubpageHero({
       <div className={`absolute inset-0 ${overlayClass}`} />
       <div className="relative z-10 h-full flex flex-col px-7 sm:px-9 pb-10 max-w-[1280px] mx-auto">
         {logoSrc && (
-          <div className="pt-3 sm:pt-6 -ml-4 sm:ml-0">
+          <div className={`${logoPaddingClass} -ml-4 sm:ml-0`}>
             <Image
               src={logoSrc}
               width={logoWidth}
               height={logoHeight}
               alt={logoAlt || ""}
-              className="drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)]"
+              className={`drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)] ${logoClassName}`}
               draggable={false}
             />
           </div>

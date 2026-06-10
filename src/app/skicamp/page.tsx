@@ -39,6 +39,7 @@ export default async function SkicampPage() {
         logoAlt="Skicamp"
         logoWidth={140}
         logoHeight={56}
+        logoPaddingClass="pt-10 sm:pt-6"
       />
 
       {/* Intro */}

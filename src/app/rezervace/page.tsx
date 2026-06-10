@@ -9,6 +9,25 @@ import { IMAGES } from "@/config/site";
 
 export const dynamic = "force-dynamic";
 
+function parseHours(label: string, duration: string): number {
+  const combined = `${label} ${duration}`.toLowerCase();
+  if (combined.includes("večer") || combined.includes("vecer")) return 99;
+  const match = combined.match(/(\d+)\s*h/);
+  if (match) return parseInt(match[1]);
+  if (combined.includes("1 ") || combined.includes("1h")) return 1;
+  return 50;
+}
+
+function sortByHours<T extends { label: string; duration: string }>(items: T[]): T[] {
+  return [...items].sort((a, b) => parseHours(a.label, a.duration) - parseHours(b.label, b.duration));
+}
+
+function formatPhoneLabel(label: string): string {
+  if (label === "Sherpa Ski School") return "Sherpa Ski School - kancelář";
+  if (label === "Wagner Ski Akademie") return "Wagner Ski Akademie - na svah";
+  return label;
+}
+
 export const metadata: Metadata = {
   title: texts.meta.rezervace.title,
   description: texts.meta.rezervace.description,
@@ -67,54 +86,57 @@ export default async function RezervacePage() {
             . Platba probíhá v kanceláři školy 20 minut před výukou.
           </p>
 
-          <div className="space-y-8">
-            {/* Individual */}
-            <div>
-              <h3 className="text-[16px] font-medium tracking-[-0.01em] mb-4">
-                {texts.rezervace.pricing.individualTitle}
-              </h3>
-              <div className="border border-line rounded-[3px] bg-cream overflow-hidden">
-                {individualPrices.map((p, i) => (
-                  <div
-                    key={p.id}
-                    className={`px-5 py-4 flex items-center justify-between gap-4 ${
-                      i < individualPrices.length - 1 ? "border-b border-line" : ""
-                    }`}
-                  >
-                    <div>
-                      <span className="block text-[13px]">{p.label}{p.duration && ` (${p.duration})`}</span>
-                      {p.note && <span className="block text-[11px] text-ink-muted mt-0.5">{p.note}</span>}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Vlevo: Individuální + Skupinová */}
+            <div className="space-y-6">
+              {/* Individual */}
+              <div>
+                <h3 className="text-[16px] font-medium tracking-[-0.01em] mb-4">
+                  {texts.rezervace.pricing.individualTitle}
+                </h3>
+                <div className="border border-line rounded-[3px] bg-cream overflow-hidden">
+                  {sortByHours(individualPrices).map((p, i) => (
+                    <div
+                      key={p.id}
+                      className={`px-5 py-4 flex items-center justify-between gap-4 ${
+                        i < individualPrices.length - 1 ? "border-b border-line" : ""
+                      }`}
+                    >
+                      <div>
+                        <span className="block text-[13px]">{p.label}{p.duration && ` (${p.duration})`}</span>
+                        {p.note && <span className="block text-[11px] text-ink-muted mt-0.5">{p.note}</span>}
+                      </div>
+                      <span className="text-[15px] font-medium shrink-0">{p.price}</span>
                     </div>
-                    <span className="text-[15px] font-medium shrink-0">{p.price}</span>
-                  </div>
-                ))}
+                  ))}
+                </div>
+              </div>
+
+              {/* Group */}
+              <div>
+                <h3 className="text-[16px] font-medium tracking-[-0.01em] mb-4">
+                  {texts.rezervace.pricing.groupTitle}
+                </h3>
+                <div className="border border-line rounded-[3px] bg-cream overflow-hidden">
+                  {groupPrices.map((p, i) => (
+                    <div
+                      key={p.id}
+                      className={`px-5 py-4 flex items-center justify-between gap-4 ${
+                        i < groupPrices.length - 1 ? "border-b border-line" : ""
+                      }`}
+                    >
+                      <div>
+                        <span className="block text-[13px]">{p.label}{p.duration && ` (${p.duration})`}</span>
+                        {p.note && <span className="block text-[11px] text-ink-muted mt-0.5">{p.note}</span>}
+                      </div>
+                      <span className="text-[15px] font-medium shrink-0">{p.price}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
-            {/* Group */}
-            <div>
-              <h3 className="text-[16px] font-medium tracking-[-0.01em] mb-4">
-                {texts.rezervace.pricing.groupTitle}
-              </h3>
-              <div className="border border-line rounded-[3px] bg-cream overflow-hidden">
-                {groupPrices.map((p, i) => (
-                  <div
-                    key={p.id}
-                    className={`px-5 py-4 flex items-center justify-between gap-4 ${
-                      i < groupPrices.length - 1 ? "border-b border-line" : ""
-                    }`}
-                  >
-                    <div>
-                      <span className="block text-[13px]">{p.label}{p.duration && ` (${p.duration})`}</span>
-                      {p.note && <span className="block text-[11px] text-ink-muted mt-0.5">{p.note}</span>}
-                    </div>
-                    <span className="text-[15px] font-medium shrink-0">{p.price}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Special */}
+            {/* Vpravo: Speciální programy */}
             <div>
               <h3 className="text-[16px] font-medium tracking-[-0.01em] mb-4">
                 {texts.rezervace.pricing.specialTitle}
@@ -154,7 +176,7 @@ export default async function RezervacePage() {
                 {phones.length > 0 ? phones.map((p) => (
                   <div key={p.id} className="mb-2 last:mb-0">
                     {p.label && p.label !== "Telefon" && (
-                      <span className="block text-[11px] text-ink-muted mb-0.5">{p.label}</span>
+                      <span className="block text-[11px] text-ink-muted mb-0.5">{formatPhoneLabel(p.label)}</span>
                     )}
                     <a href={p.url} className="text-[18px] font-medium hover:text-accent transition-colors block">
                       {p.value}

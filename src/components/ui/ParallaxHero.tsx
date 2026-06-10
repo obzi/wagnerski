@@ -43,7 +43,6 @@ export function ParallaxHero() {
       </motion.div>
 
       <div className="absolute inset-0 bg-gradient-to-br from-[rgb(8,10,6)]/40 via-[rgb(8,10,6)]/10 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-[200px] bg-gradient-to-t from-[rgb(8,10,6)]/20 to-transparent" />
 
       <div className="relative z-10 h-full flex flex-col justify-end px-7 sm:px-9 pb-6 sm:pb-[48px] max-w-[1280px] mx-auto">
@@ -53,7 +52,7 @@ export function ParallaxHero() {
           </span>
         )}
 
-        <h1 className="text-[30px] sm:text-[56px] font-normal tracking-[-0.03em] leading-[1.08] text-ink-secondary mb-4 sm:mb-5" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}>
+        <h1 className="text-[30px] sm:text-[56px] font-normal tracking-[-0.03em] leading-[1.08] text-white/90 mb-4 sm:mb-5" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}>
           {texts.home.hero.titleLine1}
           {texts.home.hero.titleLine2 && (
             <>

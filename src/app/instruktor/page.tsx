@@ -33,6 +33,7 @@ export default async function InstruktorPage() {
         logoAlt="Sherpa Ski School"
         logoWidth={150}
         logoHeight={105}
+        logoPaddingClass="pt-10 sm:pt-6"
       />
 
       {/* Intro */}
@@ -88,31 +89,37 @@ export default async function InstruktorPage() {
 
       {/* Přednášky psychologie */}
       <section className="py-16 px-7 bg-surface">
-        <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <div>
-            <span className="block text-[9px] uppercase tracking-[0.16em] text-accent mb-6">
-              {texts.instruktor.psychology.eyebrow}
-            </span>
-            <h2 className="text-[28px] sm:text-[36px] font-normal tracking-[-0.02em] leading-[1.2] mb-6 text-ink">
-              {texts.instruktor.psychology.title}
-            </h2>
-            {texts.instruktor.psychology.paragraphs.map((p, i) => (
-              <p key={i} className="text-[14px] text-ink-secondary leading-[1.7] mb-4">{p}</p>
-            ))}
-          </div>
-          <div className="space-y-4">
-            <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-6">
-              {texts.instruktor.psychology.topicsEyebrow}
-            </span>
-            {texts.instruktor.psychology.topics.map((item) => (
-              <div key={item.title} className="border border-line rounded-[3px] p-5 bg-cream">
-                <h3 className="text-[14px] font-medium mb-1">{item.title}</h3>
-                <p className="text-[12px] text-ink-secondary leading-[1.6]">{item.text}</p>
+        <div className="max-w-[1280px] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-8 items-start">
+            {/* Témata přednášek — vlevo */}
+            <div>
+              <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-4">
+                {texts.instruktor.psychology.topicsEyebrow}
+              </span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {texts.instruktor.psychology.topics.map((item) => (
+                  <div key={item.title} className="border border-line rounded-[3px] p-4 bg-cream">
+                    <h3 className="text-[13px] font-medium mb-1">{item.title}</h3>
+                    <p className="text-[11px] text-ink-secondary leading-[1.5]">{item.text}</p>
+                  </div>
+                ))}
               </div>
-            ))}
-            <p className="text-[11px] text-ink-muted pt-2">
-              {texts.instruktor.psychology.lecturerNote}
-            </p>
+              <p className="text-[11px] text-ink-muted mt-3">
+                {texts.instruktor.psychology.lecturerNote}
+              </p>
+            </div>
+            {/* Speciální program — vpravo */}
+            <div>
+              <span className="block text-[9px] uppercase tracking-[0.16em] text-accent mb-4">
+                {texts.instruktor.psychology.eyebrow}
+              </span>
+              <h2 className="text-[24px] sm:text-[30px] font-normal tracking-[-0.02em] leading-[1.2] mb-4 text-ink">
+                {texts.instruktor.psychology.title}
+              </h2>
+              {texts.instruktor.psychology.paragraphs.map((p, i) => (
+                <p key={i} className="text-[13px] text-ink-secondary leading-[1.7] mb-3">{p}</p>
+              ))}
+            </div>
           </div>
         </div>
       </section>
