@@ -93,7 +93,7 @@ export default async function InstruktorPage() {
           <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-8 items-start">
             {/* Témata přednášek — vlevo */}
             <div>
-              <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-4">
+              <span className="block text-[9px] uppercase tracking-[0.16em] text-accent mb-4">
                 {texts.instruktor.psychology.topicsEyebrow}
               </span>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -121,9 +121,6 @@ export default async function InstruktorPage() {
               </p>
               {/* Závodní freeride — stejný styl jako psychologie */}
               <div className="border-t border-line pt-8">
-                <span className="block text-[9px] uppercase tracking-[0.16em] text-accent mb-4">
-                  {texts.instruktor.psychology.freeride.eyebrow}
-                </span>
                 <h2 className="text-[24px] sm:text-[30px] font-normal tracking-[-0.02em] leading-[1.2] mb-4 text-ink">
                   {texts.instruktor.psychology.freeride.title}
                 </h2>
