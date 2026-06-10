@@ -1369,8 +1369,14 @@ function ContactForm({
 function adminParseHours(label: string, duration: string): number {
   const s = `${label} ${duration}`.toLowerCase();
   if (s.includes("večer") || s.includes("vecer")) return 99;
-  const m = s.match(/(\d+)\s*(h|hod)/);
-  if (m) return parseInt(m[1]);
+  const hod = s.match(/(\d+)\s*hod/);
+  if (hod) return parseInt(hod[1]);
+  const h = s.match(/(\d+)\s*h\b/);
+  if (h) return parseInt(h[1]);
+  const min = s.match(/(\d+)\s*min/);
+  if (min) return Math.round(parseInt(min[1]) / 50);
+  const num = s.match(/(\d+)/);
+  if (num) return parseInt(num[1]);
   return 50;
 }
 

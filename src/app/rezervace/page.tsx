@@ -10,10 +10,20 @@ import { IMAGES } from "@/config/site";
 export const dynamic = "force-dynamic";
 
 function parseHours(label: string, duration: string): number {
-  const combined = `${label} ${duration}`.toLowerCase();
-  if (combined.includes("večer") || combined.includes("vecer")) return 99;
-  const match = combined.match(/(\d+)\s*(h|hod)/);
-  if (match) return parseInt(match[1]);
+  const s = `${label} ${duration}`.toLowerCase();
+  if (s.includes("večer") || s.includes("vecer")) return 99;
+  // "1 hodina", "2 hodiny", "4 hodin" etc.
+  const hod = s.match(/(\d+)\s*hod/);
+  if (hod) return parseInt(hod[1]);
+  // "1h", "2h", "4h"
+  const h = s.match(/(\d+)\s*h\b/);
+  if (h) return parseInt(h[1]);
+  // minutes: "50 min", "100 minut" → 50min≈1h, 100min≈2h, 200min≈4h
+  const min = s.match(/(\d+)\s*min/);
+  if (min) return Math.round(parseInt(min[1]) / 50);
+  // fallback: first number in the string
+  const num = s.match(/(\d+)/);
+  if (num) return parseInt(num[1]);
   return 50;
 }
 
