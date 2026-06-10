@@ -90,7 +90,7 @@ export default async function InstruktorPage() {
       {/* Přednášky psychologie */}
       <section className="py-16 px-7 bg-surface">
         <div className="max-w-[1280px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-8 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             {/* Témata přednášek — vlevo */}
             <div>
               <span className="block text-[9px] uppercase tracking-[0.16em] text-accent mb-4">
