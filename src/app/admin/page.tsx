@@ -993,6 +993,19 @@ function CourseForm({
 /*  Reservation Prices Manager                                         */
 /* ------------------------------------------------------------------ */
 
+function adminParseHours(label: string, duration: string): number {
+  const l = label.toLowerCase();
+  if (l.includes("večer") || l.includes("vecer")) return 99;
+  const m = l.match(/(\d+)/);
+  if (m) return parseInt(m[1]);
+  const d = duration.toLowerCase();
+  const dMin = d.match(/(\d+)\s*min/);
+  if (dMin) return Math.round(parseInt(dMin[1]) / 50);
+  const dNum = d.match(/(\d+)/);
+  if (dNum) return parseInt(dNum[1]);
+  return 50;
+}
+
 function ReservationManager() {
   const { items: prices, loading, add, update, remove } = useSupabaseTable<ReservationPrice>("reservation_prices", defaultPrices);
   const [editing, setEditing] = useState<ReservationPrice | null>(null);
@@ -1057,7 +1070,9 @@ function ReservationManager() {
       )}
 
       {categories.map((cat) => {
-        const items = prices.filter((p) => p.category === cat.key);
+        const items = prices
+          .filter((p) => p.category === cat.key)
+          .sort((a, b) => adminParseHours(a.label, a.duration) - adminParseHours(b.label, b.duration));
         if (items.length === 0) return null;
         return (
           <div key={cat.key} className="mb-6">
@@ -1365,21 +1380,6 @@ function ContactForm({
 /* ------------------------------------------------------------------ */
 /*  Voucher Settings Manager                                           */
 /* ------------------------------------------------------------------ */
-
-function adminParseHours(label: string, duration: string): number {
-  const l = label.toLowerCase();
-  if (l.includes("večer") || l.includes("vecer")) return 99;
-  // first number in label: "1 hodina"→1, "2 hodiny"→2, "4 hodiny"→4
-  const m = l.match(/(\d+)/);
-  if (m) return parseInt(m[1]);
-  // fallback: try duration field
-  const d = duration.toLowerCase();
-  const dMin = d.match(/(\d+)\s*min/);
-  if (dMin) return Math.round(parseInt(dMin[1]) / 50);
-  const dNum = d.match(/(\d+)/);
-  if (dNum) return parseInt(dNum[1]);
-  return 50;
-}
 
 function SettingsManager() {
   const { items: settings, loading: hookLoading, add, update } = useSupabaseTable<SiteSetting>("site_settings", defaultVoucherSettings);
