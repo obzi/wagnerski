@@ -19,6 +19,7 @@ export default function ONasPage() {
         title={texts.oNas.hero.title}
         imageSrc={IMAGES.kaprun}
         imagePositionClass="object-[45%_15%] sm:object-[center_15%]"
+        overlayClass="bg-gradient-to-t from-[rgb(8,10,6)]/50 to-[rgb(8,10,6)]/10"
         imageAlt={texts.oNas.hero.imageAlt}
         logoSrc={IMAGES.loga.wagner}
         logoAlt="Wagner Ski Akademie"
@@ -175,7 +176,7 @@ export default function ONasPage() {
                 {texts.oNas.whatWeDo.items[1].description}
               </p>
             </Link>
-            <Link href="/instruktor" className="group border border-line rounded-[3px] p-6 hover:border-accent transition-colors">
+            <Link href="/chcibytinstruktor" className="group border border-line rounded-[3px] p-6 hover:border-accent transition-colors">
               <h3 className="text-[16px] font-normal tracking-[-0.01em] mb-2 group-hover:text-accent transition-colors">
                 {texts.oNas.whatWeDo.items[2].title}
               </h3>

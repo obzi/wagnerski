@@ -116,14 +116,23 @@ export default async function InstruktorPage() {
               {texts.instruktor.psychology.paragraphs.map((p, i) => (
                 <p key={i} className="text-[13px] text-ink-secondary leading-[1.7] mb-3">{p}</p>
               ))}
-              <p className="text-[11px] text-ink-muted mt-1 mb-6">
+              <p className="text-[11px] text-ink-muted mt-1 mb-8">
                 {texts.instruktor.psychology.lecturerNote}
               </p>
-              {/* Závodní freeride */}
-              <div className="border border-line rounded-[3px] p-5 bg-cream">
-                <h3 className="text-[14px] font-medium mb-2">{texts.instruktor.psychology.freeride.title}</h3>
-                <p className="text-[12px] text-ink-secondary leading-[1.6] mb-3">{texts.instruktor.psychology.freeride.text}</p>
-                <p className="text-[11px] text-ink-muted">{texts.instruktor.psychology.freeride.lecturerNote}</p>
+              {/* Závodní freeride — stejný styl jako psychologie */}
+              <div className="border-t border-line pt-8">
+                <span className="block text-[9px] uppercase tracking-[0.16em] text-accent mb-4">
+                  {texts.instruktor.psychology.freeride.eyebrow}
+                </span>
+                <h2 className="text-[24px] sm:text-[30px] font-normal tracking-[-0.02em] leading-[1.2] mb-4 text-ink">
+                  {texts.instruktor.psychology.freeride.title}
+                </h2>
+                {texts.instruktor.psychology.freeride.paragraphs.map((p, i) => (
+                  <p key={i} className="text-[13px] text-ink-secondary leading-[1.7] mb-3">{p}</p>
+                ))}
+                <p className="text-[11px] text-ink-muted mt-1">
+                  {texts.instruktor.psychology.freeride.lecturerNote}
+                </p>
               </div>
             </div>
           </div>

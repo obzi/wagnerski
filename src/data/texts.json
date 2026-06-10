@@ -64,7 +64,7 @@
       { "href": "/lokality", "label": "Lokality" },
       { "href": "/skola", "label": "Lyžařská škola" },
       { "href": "/skicamp", "label": "Skicamp.cz" },
-      { "href": "/instruktor", "label": "Chcibytinstruktor.cz" },
+      { "href": "/chcibytinstruktor", "label": "Chcibytinstruktor.cz" },
       { "href": "/leto", "label": "Léto" },
       { "href": "/o-nas", "label": "O nás" }
     ],
@@ -471,11 +471,17 @@
         { "title": "Biomechanika lyžování", "text": "Principy pohybu na lyžích z pohledu fyziky a biomechaniky. Jak tělo funguje v oblouku a co to znamená pro metodiku výuky." },
         { "title": "Bezpečnost na sjezdovkách", "text": "Praktická pravidla bezpečnosti, pravidla FIS a zodpovědnost instruktora při výuce na svahu." },
         { "title": "Horská záchranná služba", "text": "Přednáška členů HZS — postupy záchranářů, jak se zachovat při úrazu na svahu a zásady první pomoci v horách." },
-        { "title": "Materiálové poradenství", "text": "Jak vybrat vybavení pro klienty — lyže, boty, vázání. Správná seřízení a vliv výstroje na bezpečnost i výkon." }
+        { "title": "Materiálové poradenství", "text": "Jak vybrat vybavení pro klienty — lyže, boty, vázání. Správná seřízení a vliv výstroje na bezpečnost i výkon." },
+        { "title": "Didaktika a metodika výuky", "text": "Jak efektivně strukturovat lekci, vysvětlit pohybový vzorec a přizpůsobit výuku různým typům žáků — od dětí po seniory." },
+        { "title": "Právní odpovědnost instruktora", "text": "Odpovědnost instruktora při úrazu, pojištění, smluvní vztah se školou a žákem. Na co si dát pozor v praxi." }
       ],
       "freeride": {
+        "eyebrow": "Speciální program",
         "title": "Závodní freeride",
-        "text": "Pohled účastníka Freeride World Tour Qualifier na závodní freeride, výběr terénu a správnou přípravu.",
+        "paragraphs": [
+          "Závodní freeride je disciplína, která propojuje techniku sjezdového lyžování s výběrem terénu mimo upravené sjezdovky. Přednáška přináší pohled přímého účastníka Freeride World Tour Qualifier — jak číst hory, jak pracovat s rizikem a jak pokročilé žáky připravit na jízdu mimo trasy.",
+          "Součástí jsou praktické ukázky analýzy terénu, mentální příprava před jízdou a základy bezpečnosti ve volném terénu. Přednáška je vhodná pro instruktory, kteří chtějí svou výuku rozšířit za hranice upravených sjezdovek."
+        ],
         "lecturerNote": "Lektor a závodní jezdec FWTQ Ondřej Růžička"
       }
     },

@@ -7,7 +7,7 @@ import { Footer } from "./Footer";
 export function SiteShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isAdmin = pathname?.startsWith("/admin");
-  const isSherpaSki = pathname === "/skola" || pathname === "/instruktor" || pathname?.startsWith("/instruktor/");
+  const isSherpaSki = pathname === "/skola" || pathname === "/chcibytinstruktor" || pathname?.startsWith("/chcibytinstruktor/");
   const instagramHref = isSherpaSki
     ? "https://www.instagram.com/sherpaski/"
     : "https://www.instagram.com/terapielyzovanim/";
