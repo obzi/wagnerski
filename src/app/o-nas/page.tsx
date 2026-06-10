@@ -199,7 +199,7 @@ export default function ONasPage() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <a
-              href="tel:+420604681100"
+              href="tel:+420604220100"
               className="min-h-[44px] flex items-center text-[14px] text-white/80 hover:text-white transition-colors"
             >
               {texts.oNas.cta.phone}

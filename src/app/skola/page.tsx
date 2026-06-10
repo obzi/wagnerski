@@ -1,10 +1,19 @@
 import Image from "next/image";
 import { SubpageHero } from "@/components/ui/SubpageHero";
 import { Tag } from "@/components/ui/Tag";
+import { Gallery } from "@/components/ui/Gallery";
 import Link from "next/link";
 import type { Metadata } from "next";
 import texts from "@/data/texts.json";
 import { IMAGES } from "@/config/site";
+
+const SKOLA_GALLERY = [
+  { src: "/images/Galerie/skola/DSC_1327.jpg", alt: "Výuka lyžování" },
+  { src: "/images/Galerie/skola/IMG_20180311_095627.jpg", alt: "Sherpa Ski School" },
+  { src: "/images/Galerie/skola/WhatsApp%20Image%202026-04-07%20at%2015.45.33%20(5).jpeg", alt: "Výuka na svahu" },
+  { src: "/images/Galerie/skola/WhatsApp%20Image%202026-04-07%20at%2015.45.34%20(1).jpeg", alt: "Lyžařská škola" },
+  { src: "/images/Galerie/skola/WhatsApp%20Image%202026-04-07%20at%2015.45.34.jpeg", alt: "Instruktor na svahu" },
+];
 
 export const metadata: Metadata = {
   title: texts.meta.skola.title,
@@ -133,6 +142,8 @@ export default function SkolaPage() {
         </div>
       </section>
 
+      <Gallery images={SKOLA_GALLERY} eyebrow="Galerie" />
+
       {/* CTA */}
       <section className="py-16 px-7 bg-ink text-white">
         <div className="max-w-[1280px] mx-auto text-center">
@@ -150,7 +161,7 @@ export default function SkolaPage() {
               {texts.skola.cta.ctaPrimary}
             </Link>
             <a
-              href="tel:+420604681100"
+              href="tel:+420604220100"
               className="min-h-[44px] flex items-center text-[12px] text-white/60 hover:text-white/90 transition-colors"
             >
               {texts.skola.cta.phone}

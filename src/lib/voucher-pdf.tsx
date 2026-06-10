@@ -185,14 +185,23 @@ export function VoucherPDF({
             <Text style={styles.detailLabel}>Cena</Text>
             <Text style={styles.detailValue}>{discountedPrice} Kč</Text>
           </View>
-          <View style={styles.detailItem}>
-            <Text style={styles.detailLabel}>Platný od</Text>
-            <Text style={styles.detailValue}>{formatDate(validFrom)}</Text>
-          </View>
-          <View style={styles.detailItem}>
-            <Text style={styles.detailLabel}>Platný do</Text>
-            <Text style={styles.detailValue}>{formatDate(validUntil)}</Text>
-          </View>
+          {windowSettings?.enabled ? (
+            <View style={styles.detailItem}>
+              <Text style={styles.detailLabel}>Platnost</Text>
+              <Text style={styles.detailValue}>Dle podmínek uplatnění</Text>
+            </View>
+          ) : (
+            <>
+              <View style={styles.detailItem}>
+                <Text style={styles.detailLabel}>Platný od</Text>
+                <Text style={styles.detailValue}>{formatDate(validFrom)}</Text>
+              </View>
+              <View style={styles.detailItem}>
+                <Text style={styles.detailLabel}>Platný do</Text>
+                <Text style={styles.detailValue}>{formatDate(validUntil)}</Text>
+              </View>
+            </>
+          )}
         </View>
 
         <View style={styles.restriction}>

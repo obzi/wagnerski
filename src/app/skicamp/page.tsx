@@ -1,12 +1,21 @@
 import { SubpageHero } from "@/components/ui/SubpageHero";
 import { Tag } from "@/components/ui/Tag";
 import { SkicampSignupForm } from "@/components/ui/SkicampSignupForm";
+import { Gallery } from "@/components/ui/Gallery";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getSkicampTerms, getCampTypes } from "@/lib/data";
 import texts from "@/data/texts.json";
 import { IMAGES } from "@/config/site";
+
+const SKICAMP_GALLERY = [
+  { src: "/images/Galerie/skicamp/Ja_vyuka_chlapi_metronom.jpg", alt: "Výuka v Alpách" },
+  { src: "/images/Galerie/skicamp/Skupinka_ksichty_smich.JPG", alt: "Skicamp skupina" },
+  { src: "/images/Galerie/skicamp/VELKA_skupinovka.JPG", alt: "Skicamp účastníci" },
+  { src: "/images/Galerie/skicamp/WhatsApp%20Image%202026-04-13%20at%2016.08.14.jpeg", alt: "Alpský terén" },
+  { src: "/images/Galerie/skicamp/WhatsApp%20Image%202026-04-17%20at%20dgdfg13.53.15.jpeg", alt: "Skicamp kemp" },
+];
 
 export const dynamic = "force-dynamic";
 
@@ -118,6 +127,8 @@ export default async function SkicampPage() {
         </div>
       </section>
 
+      <Gallery images={SKICAMP_GALLERY} eyebrow="Galerie" />
+
       {/* Termíny */}
       <section className="py-16 px-7 bg-ink text-white">
         <div className="max-w-[1280px] mx-auto text-center">
@@ -171,7 +182,7 @@ export default async function SkicampPage() {
               {texts.skicamp.terms.ctaPrimary}
             </Link>
             <a
-              href="tel:+420604681100"
+              href="tel:+420604220100"
               className="min-h-[44px] flex items-center text-[12px] text-white/60 hover:text-white/90 transition-colors"
             >
               {texts.skicamp.terms.phone}

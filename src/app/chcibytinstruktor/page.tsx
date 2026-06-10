@@ -1,11 +1,18 @@
 import { SubpageHero } from "@/components/ui/SubpageHero";
 import { CourseWithSignup } from "@/components/ui/CourseWithSignup";
 import { Tag } from "@/components/ui/Tag";
+import { Gallery } from "@/components/ui/Gallery";
 import { getInstructorCourses, getCourseTypes } from "@/lib/data";
 import Image from "next/image";
 import type { Metadata } from "next";
 import texts from "@/data/texts.json";
 import { IMAGES } from "@/config/site";
+
+const INSTRUKTOR_GALLERY = [
+  { src: "/images/Galerie/chcibytinstruktor/jolcakurz.JPG", alt: "Instruktorský kurz" },
+  { src: "/images/Galerie/chcibytinstruktor/Kurz_skupina_kotel.jpg", alt: "Skupina na kurzu" },
+  { src: "/images/Galerie/chcibytinstruktor/Kurz_skupinovka_100lidi_kotel.JPG", alt: "Velká skupinovka kurzu" },
+];
 
 export const dynamic = "force-dynamic";
 
@@ -217,6 +224,8 @@ export default async function InstruktorPage() {
         </div>
       </section>
 
+      <Gallery images={INSTRUKTOR_GALLERY} eyebrow="Galerie" />
+
       {/* CTA */}
       <section className="py-16 px-7 bg-ink text-white">
         <div className="max-w-[1280px] mx-auto text-center">
@@ -234,10 +243,10 @@ export default async function InstruktorPage() {
               {texts.instruktor.cta.ctaPrimary}
             </a>
             <a
-              href={`mailto:${texts.instruktor.cta.email}`}
+              href="tel:+420604220100"
               className="min-h-[44px] flex items-center text-[12px] text-white/60 hover:text-white/90 transition-colors"
             >
-              {texts.instruktor.cta.email}
+              {texts.instruktor.cta.phone}
             </a>
           </div>
         </div>

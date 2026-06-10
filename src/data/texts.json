@@ -183,7 +183,7 @@
       },
       {
         "title": "Kontakt",
-        "text": "V případě dotazů ohledně zpracování osobních údajů nás kontaktujte na: sherpaski@sherpaski.cz nebo +420 604 681 100."
+        "text": "V případě dotazů ohledně zpracování osobních údajů nás kontaktujte na: sherpaski@sherpaski.cz nebo +420 604 220 100."
       }
     ]
   },
@@ -198,7 +198,7 @@
       {
         "number": "I",
         "title": "Úvodní ustanovení",
-        "text": "Provozovatelem lyžařské školy je Ing. Petr Wagner – SHERPA SKI SCHOOL, se sídlem ve Velkém Týnci. Kontakt: +420 604 681 100, sherpaski@sherpaski.cz."
+        "text": "Provozovatelem lyžařské školy je Ing. Petr Wagner – SHERPA SKI SCHOOL, se sídlem ve Velkém Týnci. Kontakt: +420 604 220 100, sherpaski@sherpaski.cz."
       },
       {
         "number": "II",
@@ -264,7 +264,7 @@
       { "label": "Sezóna", "value": "Prosinec – Duben" },
       { "label": "Lokalita", "value": "Karlov pod Pradědem" },
       { "label": "Instruktoři", "value": "MŠMT ČR, CVLS.cz, APUL a další" },
-      { "label": "Telefon", "value": "+420 604 681 100" }
+      { "label": "Telefon", "value": "+420 604 220 100" }
     ],
     "services": {
       "eyebrow": "Co nabízíme",
@@ -300,7 +300,7 @@
       "line2": "Kvalitních instruktorů je málo, u nás hýčkáme jedny z posledních na Moravě.“",
       "line3": "",
       "line4": "",
-      "author": "— Petr Wagner · majitel Wagner Ski Akademie",
+      "author": "— Petr Wagner · majitel Wagner Ski Akademie, sherpaski school a skicamp.cz",
       "imageAlt": "Horská krajina"
     },
     "locations": {
@@ -419,7 +419,7 @@
       "title": "Připraveni na svah?",
       "description": "Rezervujte si hodinu s jedním z našich instruktorů. Individuální výuka i skupinové lekce.",
       "ctaPrimary": "Rezervovat hodinu",
-      "phone": "+420 604 681 100"
+      "phone": "+420 604 220 100"
     }
   },
 
@@ -521,6 +521,7 @@
       "title": "Staň se instruktorem",
       "description": "Přihlas se na kurz a získej celoživotní licenci. Každá dobrá lyžařská škola tě zaměstná.",
       "ctaPrimary": "Přihláška na kurz",
+      "phone": "+420 604 220 100",
       "email": "chcibytinstruktor@wagnerski.cz"
     }
   },
@@ -535,7 +536,7 @@
       "eyebrow": "Náš příběh",
       "title": "Od jedné lyžařské školy k akademii",
       "paragraphs": [
-        "Petr Wagner začal učit lyžování v Karlově pod Pradědem v roce 1999. V roce 2005 založil SHERPA SKI SCHOOL, hned ze startu jako velkou lyžařskou školu s několika pobočkami. Postupem let se rozšířila na Praděd a do Karlové Studánky. Petr Wagner stál u zrodu lyžařských škol na Kraličáku a Koutech.",
+        "Petr Wagner začal učit lyžování v Karlově pod Pradědem v roce 1999. V roce 2005 zde založil SHERPA SKI SCHOOL a následně postupně vytvořil pobočky v Hlubočkách, na Pradědu, v Karlové Studánce, ve Stříbrnicích, Hynčicích, Koutech nad Desnou a Hrubé Vodě.",
         "V současnosti převažuje důraz na kvalitu, a hlavním zaměřením je Sherpa Ski School ve Ski aréně Karlov na Expressu a osobní výuka přímo s majitelem v lokalitách Karlov, Malá Morávka, Karlova Studánka a Praděd, případně v jiném Jesenickém středisku."
       ],
       "imageAlt": "Lyžování v horách"
@@ -604,7 +605,7 @@
     "cta": {
       "title": "Ozvěte se nám",
       "description": "Máte dotaz ohledně výuky, kurzů nebo kempů? Rádi vám poradíme.",
-      "phone": "+420 604 681 100",
+      "phone": "+420 604 220 100",
       "email": "sherpaski@sherpaski.cz"
     }
   },
@@ -743,7 +744,7 @@
       "emptyDescription": "Sledujte naše stránky a sociální sítě. Termíny kempů na další sezónu zveřejníme brzy.",
       "spotsLabel": "Volných míst:",
       "ctaPrimary": "Kontaktujte nás",
-      "phone": "+420 604 681 100"
+      "phone": "+420 604 220 100"
     }
   },
 
@@ -1022,7 +1023,7 @@
         },
         "label": "Popisek",
         "value": "Hodnota",
-        "valuePlaceholder": "např. +420 604 681 100",
+        "valuePlaceholder": "např. +420 604 220 100",
         "url": "URL / odkaz",
         "urlPlaceholder": "např. tel:+420604681100"
       }

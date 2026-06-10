@@ -81,16 +81,18 @@ export default async function RezervacePage() {
           <span className="block text-[9px] uppercase tracking-[0.16em] text-ink-muted mb-8">
             {texts.rezervace.pricing.eyebrow}
           </span>
-          <p className="text-[12px] text-ink-muted mb-2">
-            {texts.rezervace.pricing.note}
-          </p>
-          <p className="text-[12px] text-ink-muted mb-8">
-            Pro objednání lyžařské školy volejte na:{" "}
-            <a href="tel:+420604220100" className="font-medium hover:text-accent transition-colors">
-              +420 604 220 100
-            </a>
-            . Platba probíhá v kanceláři školy 20 minut před výukou.
-          </p>
+          <div className="bg-cream border border-line rounded-[3px] px-5 py-4 mb-8">
+            <p className="text-[13px] text-ink-secondary mb-1">
+              {texts.rezervace.pricing.note}
+            </p>
+            <p className="text-[13px] text-ink-secondary">
+              Pro objednání lyžařské školy volejte na:{" "}
+              <a href="tel:+420604220100" className="font-medium text-ink hover:text-accent transition-colors">
+                +420 604 220 100
+              </a>
+              . Platba probíhá v kanceláři školy 20 minut před výukou.
+            </p>
+          </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Vlevo: Individuální + Skupinová */}
@@ -189,8 +191,8 @@ export default async function RezervacePage() {
                     </a>
                   </div>
                 )) : (
-                  <a href="tel:+420604681100" className="text-[18px] font-medium hover:text-accent transition-colors">
-                    +420 604 681 100
+                  <a href="tel:+420604220100" className="text-[18px] font-medium hover:text-accent transition-colors">
+                    +420 604 220 100
                   </a>
                 )}
               </div>
