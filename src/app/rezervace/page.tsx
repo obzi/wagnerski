@@ -10,20 +10,17 @@ import { IMAGES } from "@/config/site";
 export const dynamic = "force-dynamic";
 
 function parseHours(label: string, duration: string): number {
-  const s = `${label} ${duration}`.toLowerCase();
-  if (s.includes("večer") || s.includes("vecer")) return 99;
-  // "1 hodina", "2 hodiny", "4 hodin" etc.
-  const hod = s.match(/(\d+)\s*hod/);
-  if (hod) return parseInt(hod[1]);
-  // "1h", "2h", "4h"
-  const h = s.match(/(\d+)\s*h\b/);
-  if (h) return parseInt(h[1]);
-  // minutes: "50 min", "100 minut" → 50min≈1h, 100min≈2h, 200min≈4h
-  const min = s.match(/(\d+)\s*min/);
-  if (min) return Math.round(parseInt(min[1]) / 50);
-  // fallback: first number in the string
-  const num = s.match(/(\d+)/);
-  if (num) return parseInt(num[1]);
+  const l = label.toLowerCase();
+  if (l.includes("večer") || l.includes("vecer")) return 99;
+  // first number in label: "1 hodina"→1, "2 hodiny"→2, "4 hodiny"→4
+  const m = l.match(/(\d+)/);
+  if (m) return parseInt(m[1]);
+  // fallback: try duration field
+  const d = duration.toLowerCase();
+  const dMin = d.match(/(\d+)\s*min/);
+  if (dMin) return Math.round(parseInt(dMin[1]) / 50);
+  const dNum = d.match(/(\d+)/);
+  if (dNum) return parseInt(dNum[1]);
   return 50;
 }
 
@@ -239,9 +236,11 @@ export default async function RezervacePage() {
           <div>
             <VoucherPurchase
               prices={
-                voucherEligibleIds.length > 0
-                  ? [...individualPrices, ...groupPrices].filter((p) => voucherEligibleIds.includes(p.id))
-                  : [...individualPrices, ...groupPrices]
+                sortByHours(
+                  voucherEligibleIds.length > 0
+                    ? [...individualPrices, ...groupPrices].filter((p) => voucherEligibleIds.includes(p.id))
+                    : [...individualPrices, ...groupPrices]
+                )
               }
               discountPercent={voucherDiscount}
               voucherWindow={voucherWindow}

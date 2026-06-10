@@ -1367,16 +1367,17 @@ function ContactForm({
 /* ------------------------------------------------------------------ */
 
 function adminParseHours(label: string, duration: string): number {
-  const s = `${label} ${duration}`.toLowerCase();
-  if (s.includes("večer") || s.includes("vecer")) return 99;
-  const hod = s.match(/(\d+)\s*hod/);
-  if (hod) return parseInt(hod[1]);
-  const h = s.match(/(\d+)\s*h\b/);
-  if (h) return parseInt(h[1]);
-  const min = s.match(/(\d+)\s*min/);
-  if (min) return Math.round(parseInt(min[1]) / 50);
-  const num = s.match(/(\d+)/);
-  if (num) return parseInt(num[1]);
+  const l = label.toLowerCase();
+  if (l.includes("večer") || l.includes("vecer")) return 99;
+  // first number in label: "1 hodina"→1, "2 hodiny"→2, "4 hodiny"→4
+  const m = l.match(/(\d+)/);
+  if (m) return parseInt(m[1]);
+  // fallback: try duration field
+  const d = duration.toLowerCase();
+  const dMin = d.match(/(\d+)\s*min/);
+  if (dMin) return Math.round(parseInt(dMin[1]) / 50);
+  const dNum = d.match(/(\d+)/);
+  if (dNum) return parseInt(dNum[1]);
   return 50;
 }
 
