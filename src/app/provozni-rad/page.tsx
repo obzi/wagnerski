@@ -17,7 +17,7 @@ export default function ProvozniRadPage() {
         title={texts.provozniRad.hero.title}
         imageSrc={IMAGES.skolaUvod}
         imageAlt={texts.provozniRad.hero.imageAlt}
-        imagePositionClass="object-center"
+        imagePositionClass="object-[center_30%]"
       />
 
       <section className="py-16 px-7">

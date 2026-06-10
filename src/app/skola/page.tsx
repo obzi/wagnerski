@@ -10,9 +10,9 @@ import { IMAGES } from "@/config/site";
 const SKOLA_GALLERY = [
   { src: "/images/Galerie/skola/DSC_1327.jpg", alt: "Výuka lyžování" },
   { src: "/images/Galerie/skola/IMG_20180311_095627.jpg", alt: "Sherpa Ski School" },
-  { src: "/images/Galerie/skola/WhatsApp%20Image%202026-04-07%20at%2015.45.33%20(5).jpeg", alt: "Výuka na svahu" },
-  { src: "/images/Galerie/skola/WhatsApp%20Image%202026-04-07%20at%2015.45.34%20(1).jpeg", alt: "Lyžařská škola" },
-  { src: "/images/Galerie/skola/WhatsApp%20Image%202026-04-07%20at%2015.45.34.jpeg", alt: "Instruktor na svahu" },
+  { src: "/images/Galerie/skola/WhatsApp Image 2026-04-07 at 15.45.33 (5).jpeg", alt: "Výuka na svahu" },
+  { src: "/images/Galerie/skola/WhatsApp Image 2026-04-07 at 15.45.34 (1).jpeg", alt: "Lyžařská škola" },
+  { src: "/images/Galerie/skola/WhatsApp Image 2026-04-07 at 15.45.34.jpeg", alt: "Instruktor na svahu" },
 ];
 
 export const metadata: Metadata = {

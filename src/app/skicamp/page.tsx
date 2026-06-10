@@ -13,8 +13,8 @@ const SKICAMP_GALLERY = [
   { src: "/images/Galerie/skicamp/Ja_vyuka_chlapi_metronom.jpg", alt: "Výuka v Alpách" },
   { src: "/images/Galerie/skicamp/Skupinka_ksichty_smich.JPG", alt: "Skicamp skupina" },
   { src: "/images/Galerie/skicamp/VELKA_skupinovka.JPG", alt: "Skicamp účastníci" },
-  { src: "/images/Galerie/skicamp/WhatsApp%20Image%202026-04-13%20at%2016.08.14.jpeg", alt: "Alpský terén" },
-  { src: "/images/Galerie/skicamp/WhatsApp%20Image%202026-04-17%20at%20dgdfg13.53.15.jpeg", alt: "Skicamp kemp" },
+  { src: "/images/Galerie/skicamp/WhatsApp Image 2026-04-13 at 16.08.14.jpeg", alt: "Alpský terén" },
+  { src: "/images/Galerie/skicamp/WhatsApp Image 2026-04-17 at dgdfg13.53.15.jpeg", alt: "Skicamp kemp" },
 ];
 
 export const dynamic = "force-dynamic";

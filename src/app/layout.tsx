@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import { SiteShell } from "@/components/layout/SiteShell";
+import { ImageProtect } from "@/components/ui/ImageProtect";
 import texts from "@/data/texts.json";
 import "./globals.css";
 
@@ -52,6 +53,7 @@ export default function RootLayout({
   return (
     <html lang="cs" className={`${inter.variable} ${playfair.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans">
+        <ImageProtect />
         <SiteShell>{children}</SiteShell>
       </body>
     </html>

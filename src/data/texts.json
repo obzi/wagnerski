@@ -151,7 +151,7 @@
     "sections": [
       {
         "title": "Správce osobních údajů",
-        "text": "Správcem osobních údajů je Ing. Petr Wagner – SHERPA SKI SCHOOL. Zpracování osobních údajů probíhá v souladu s nařízením Evropského parlamentu a Rady (EU) 2016/679 (GDPR) a zákonem č. 101/2000 Sb., o ochraně osobních údajů."
+        "text": "Správcem osobních údajů je Ing. Petr Wagner – SHERPA SKI SCHOOL, IČO: 699 90 786, se sídlem Masarykova 102, Velký Týnec, 783 72. Zpracování osobních údajů probíhá v souladu s nařízením Evropského parlamentu a Rady (EU) 2016/679 (GDPR) a zákonem č. 101/2000 Sb., o ochraně osobních údajů."
       },
       {
         "title": "Účel zpracování",
@@ -167,7 +167,7 @@
       },
       {
         "title": "Práva subjektů údajů",
-        "text": "Máte právo na přístup ke svým osobním údajům jednou ročně bezplatně, právo vznést námitku proti zpracování a právo na výmaz údajů v případech stanovených GDPR. Pro uplatnění svých práv kontaktujte správce údajů nebo Úřad pro ochranu osobních údajů."
+        "text": "Máte právo na přístup ke svým osobním údajům jednou ročně bezplatně; za opakované žádosti může být účtován přiměřený poplatek. Dále máte právo vznést námitku proti zpracování a právo na výmaz údajů v případech stanovených GDPR. Pro uplatnění svých práv kontaktujte správce údajů nebo Úřad pro ochranu osobních údajů."
       },
       {
         "title": "Doba uchovávání údajů",
@@ -175,11 +175,15 @@
       },
       {
         "title": "Zabezpečení dat",
-        "text": "Škola přijímá odpovídající technická a organizační opatření k zabránění ztrátě, zneužití nebo pozměnění osobních údajů."
+        "text": "Osobní údaje jsou uloženy na zabezpečených serverech s ochranou heslem a šifrováním. Škola přijímá odpovídající technická a organizační opatření k zabránění ztrátě, zneužití nebo pozměnění osobních údajů."
+      },
+      {
+        "title": "Předávání údajů do zahraničí",
+        "text": "Údaje mohou být předávány do zahraničí, včetně zemí mimo EU s nižší úrovní ochrany, a to za účelem správy webových stránek a poskytování služeb."
       },
       {
         "title": "Cookies",
-        "text": "Webové stránky využívají analytické nástroje (Google Analytics) za účelem sledování návštěvnosti a zlepšování webu."
+        "text": "Webové stránky využívají soubory cookies a analytické nástroje (Google Analytics) za účelem rozpoznávání uživatelů, sledování návštěvnosti a zlepšování webu. Cookies lze zakázat v nastavení prohlížeče, přičemž toto může omezit funkčnost webu."
       },
       {
         "title": "Kontakt",
@@ -198,7 +202,7 @@
       {
         "number": "I",
         "title": "Úvodní ustanovení",
-        "text": "Provozovatelem lyžařské školy je Ing. Petr Wagner – SHERPA SKI SCHOOL, se sídlem ve Velkém Týnci. Kontakt: +420 604 220 100, sherpaski@sherpaski.cz."
+        "text": "Provozovatelem lyžařské školy je Ing. Petr Wagner – SHERPA SKI SCHOOL, IČO: 699 90 786, se sídlem Masarykova 102, Velký Týnec, 783 72. Kontakt: +420 604 220 100, sherpaski@sherpaski.cz. Provozní řád je platný od 1. 12. 2025."
       },
       {
         "number": "II",
@@ -218,12 +222,12 @@
       {
         "number": "V",
         "title": "Provoz lyžařské školy",
-        "text": "Areál školy je oplocený s omezeným přístupem. Vstup je povolen pouze na lyžích nebo snowboardu. Sáňky, psi a veřejnost bez rezervace jsou zakázány. Škola primárně slouží dětem do 12 let a provoz probíhá dle zarezervovaných hodin."
+        "text": "Areál školy je ohraničený s omezeným přístupem určeným výhradně pro přihlášené děti. Přítomnost veřejnosti ani rodičů při výuce není povolena z bezpečnostních důvodů. Vstup je povolen pouze na lyžích nebo snowboardu. Sáňky a psi jsou zakázáni. Provoz probíhá dle zarezervovaných hodin."
       },
       {
         "number": "VI",
-        "title": "Soukromá výuka",
-        "text": "Škola poskytuje poradenské služby zaměřené na zdokonalení jízdní techniky. Účastníci musí být zdravotně způsobilí, mít řádně seřízené vybavení a nosit přiměřené oblečení a výstroj."
+        "title": "Soukromá výuka a odpovědnost",
+        "text": "Škola poskytuje poradenské služby zaměřené na zdokonalení jízdní techniky. Lyžařská škola nenese žádnou zodpovědnost za zdraví klientů. Škola důrazně doporučuje, aby si účastníci sjednali vlastní úrazové pojištění. Účastníci musí být zdravotně způsobilí, mít řádně seřízené vybavení a nosit přiměřené oblečení a výstroj."
       },
       {
         "number": "VII",
