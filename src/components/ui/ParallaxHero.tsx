@@ -87,7 +87,8 @@ export function ParallaxHero() {
           </Link>
           <Link
             href="/skicamp"
-            className="text-[12px] text-ink/70 hover:text-ink transition-colors tracking-[0.06em] min-h-[44px] flex items-center"
+            className="text-[13px] text-white/90 hover:text-white transition-colors tracking-[0.06em] min-h-[44px] flex items-center underline underline-offset-4 decoration-white/40 hover:decoration-white/80"
+            style={{ textShadow: '0 0 16px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.9)' }}
           >
             {texts.home.hero.ctaSecondary}
           </Link>

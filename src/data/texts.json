@@ -468,16 +468,16 @@
         "Přednášky jsou součástí kurzu a probíhají formou interaktivního workshopu. Instruktorům pomáhají lépe číst situaci na svahu a přizpůsobit přístup věku, temperamentu a aktuálnímu rozpoložení dítěte."
       ],
       "topics": [
-        { "title": "Vývojová psychologie", "text": "Jak dítě v různém věku vnímá výkon, riziko a sociální srovnávání — a co to znamená pro styl výuky." },
-        { "title": "Motivace a ztráta motivace", "text": "Proč dítě najednou nechce lyžovat a jak situaci citlivě řešit bez tlaku a negativních emocí." },
-        { "title": "Stres a zvládání strachu", "text": "Jak rozpoznat úzkost z výšky, rychlosti nebo pádu a jak dítěti pomoci strach překonat vlastním tempem." },
-        { "title": "Komunikace a pochvala", "text": "Efektivní způsoby zpětné vazby — jaká pochvala skutečně funguje a jak kritiku formulovat konstruktivně." },
+        { "title": "Biomechanika lyžování", "text": "Principy pohybu na lyžích z pohledu fyziky a biomechaniky. Jak tělo funguje v oblouku a co to znamená pro metodiku výuky." },
         { "title": "Bezpečnost na sjezdovkách", "text": "Praktická pravidla bezpečnosti, pravidla FIS a zodpovědnost instruktora při výuce na svahu." },
         { "title": "Horská záchranná služba", "text": "Přednáška členů HZS — postupy záchranářů, jak se zachovat při úrazu na svahu a zásady první pomoci v horách." },
-        { "title": "Závodní freeride", "text": "Pohled účastníků Freeride World Tour Qualifier na závodní freeride, výběr terénu a správná příprava." },
-        { "title": "Materiálové poradenství", "text": "Jak vybrat vybavení pro klienty — lyže, boty, vázání. Správná seřízení a vliv výstroje na bezpečnost i výkon." },
-        { "title": "Biomechanika lyžování", "text": "Principy pohybu na lyžích z pohledu fyziky a biomechaniky. Jak tělo funguje v oblouku a co to znamená pro metodiku výuky." }
-      ]
+        { "title": "Materiálové poradenství", "text": "Jak vybrat vybavení pro klienty — lyže, boty, vázání. Správná seřízení a vliv výstroje na bezpečnost i výkon." }
+      ],
+      "freeride": {
+        "title": "Závodní freeride",
+        "text": "Pohled účastníka Freeride World Tour Qualifier na závodní freeride, výběr terénu a správnou přípravu.",
+        "lecturerNote": "Lektor a závodní jezdec FWTQ Ondřej Růžička"
+      }
     },
     "pricing": {
       "eyebrow": "Co je v ceně",
